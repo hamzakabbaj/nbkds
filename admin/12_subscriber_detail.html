@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail abonné — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <a href="11_subscribers.html" class="breadcrumb-back">
+            <i class="fa-solid fa-arrow-left"></i> Abonnés
+          </a>
+          <h1 class="main-header-title">Samia El Masri</h1>
+          <p class="main-header-subtitle">Inscrite le 2 janvier 2026</p>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <div class="detail-grid">
+
+          <!-- ── Left Column: Profile Info ── -->
+          <div>
+
+            <!-- Profile Card -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <div class="subscriber-profile-header">
+                <div class="subscriber-avatar subscriber-avatar--large">SE</div>
+                <div>
+                  <h2 class="subscriber-profile-name">Samia El Masri</h2>
+                  <p class="subscriber-profile-email">samia.elmasri@gmail.com</p>
+                </div>
+                <span class="status-badge status-badge--published"><span class="status-dot"></span> Actif</span>
+              </div>
+            </div>
+
+            <!-- Subscription Info -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Abonnement</h2>
+              <div class="detail-info-grid">
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Formule</span>
+                  <span class="detail-info-value"><span class="plan-badge plan-badge--annual">Annuel</span></span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Début</span>
+                  <span class="detail-info-value">2 janvier 2026</span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Expiration</span>
+                  <span class="detail-info-value">2 janvier 2027</span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Paiement via</span>
+                  <span class="detail-info-value">Stripe — ****4242</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Children Info -->
+            <div class="form-panel">
+              <h2 class="form-panel-title">Enfants</h2>
+              <div class="children-list">
+                <div class="child-card">
+                  <div class="child-avatar">
+                    <i class="fa-solid fa-child"></i>
+                  </div>
+                  <div>
+                    <p class="child-name">Yasmine</p>
+                    <p class="child-meta">4 ans · Préfère les Récits & Contes</p>
+                  </div>
+                </div>
+                <div class="child-card">
+                  <div class="child-avatar">
+                    <i class="fa-solid fa-child"></i>
+                  </div>
+                  <div>
+                    <p class="child-name">Adam</p>
+                    <p class="child-meta">7 ans · Préfère Découverte & Langue</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── Right Column: Activity ── -->
+          <div>
+
+            <!-- Listening Activity -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Activité d'écoute</h2>
+              <div class="detail-info-grid">
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Total écoutes</span>
+                  <span class="detail-info-value detail-info-value--large">87</span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Dernière écoute</span>
+                  <span class="detail-info-value">Aujourd'hui à 08:45</span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Contenu préféré</span>
+                  <span class="detail-info-value">Hmadou et Hmaydou</span>
+                </div>
+                <div class="detail-info-item">
+                  <span class="detail-info-label">Temps total</span>
+                  <span class="detail-info-value">12h 34min</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Listening -->
+            <div class="form-panel">
+              <h2 class="form-panel-title">Dernières écoutes</h2>
+              <div class="recent-listens">
+                <div class="recent-listen-item">
+                  <div class="table-cover table-cover--recits" style="width: 36px; height: 36px;">
+                    <i class="fa-solid fa-book-open" style="font-size: 12px;"></i>
+                  </div>
+                  <div class="recent-listen-info">
+                    <p class="recent-listen-title">Hmadou et Hmaydou</p>
+                    <p class="recent-listen-meta">Aujourd'hui à 08:45 · Yasmine · 8 min</p>
+                  </div>
+                </div>
+                <div class="recent-listen-item">
+                  <div class="table-cover table-cover--rythmes" style="width: 36px; height: 36px;">
+                    <i class="fa-solid fa-music" style="font-size: 12px;"></i>
+                  </div>
+                  <div class="recent-listen-info">
+                    <p class="recent-listen-title">A Mama, ya Mama</p>
+                    <p class="recent-listen-meta">Hier à 20:15 · Adam · 4 min</p>
+                  </div>
+                </div>
+                <div class="recent-listen-item">
+                  <div class="table-cover table-cover--decouverte" style="width: 36px; height: 36px;">
+                    <i class="fa-solid fa-earth-africa" style="font-size: 12px;"></i>
+                  </div>
+                  <div class="recent-listen-info">
+                    <p class="recent-listen-title">Les couleurs du souk</p>
+                    <p class="recent-listen-meta">Hier à 19:30 · Yasmine · 6 min</p>
+                  </div>
+                </div>
+                <div class="recent-listen-item">
+                  <div class="table-cover table-cover--recits" style="width: 36px; height: 36px;">
+                    <i class="fa-solid fa-book-open" style="font-size: 12px;"></i>
+                  </div>
+                  <div class="recent-listen-info">
+                    <p class="recent-listen-title">Hdidane et l'ogresse</p>
+                    <p class="recent-listen-meta">7 mars à 18:00 · Adam · 12 min</p>
+                  </div>
+                </div>
+                <div class="recent-listen-item">
+                  <div class="table-cover table-cover--recits" style="width: 36px; height: 36px;">
+                    <i class="fa-solid fa-book-open" style="font-size: 12px;"></i>
+                  </div>
+                  <div class="recent-listen-info">
+                    <p class="recent-listen-title">La légende de Lalla Mira</p>
+                    <p class="recent-listen-meta">6 mars à 20:00 · Yasmine · 9 min</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

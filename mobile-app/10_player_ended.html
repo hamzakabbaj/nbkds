@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fin de lecture — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:53</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <!-- Player Screen — Ended state -->
+    <div class="player-screen">
+
+      <!-- Header -->
+      <div class="player-header">
+        <a href="02_home.html" class="player-header-btn">
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <span class="player-header-label">Récits & Contes</span>
+        <button class="player-header-btn">
+          <i class="fa-solid fa-ellipsis"></i>
+        </button>
+      </div>
+
+      <!-- Ended cover with check overlay -->
+      <div class="player-cover">
+        <div class="player-cover-art player-cover-art--recits" style="position: relative;">
+          <i class="fa-solid fa-book-open"></i>
+          <div class="player-ended-overlay">
+            <div class="player-ended-check">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="player-info">
+        <h1 class="player-info-title">Hmadou et Hmaydou</h1>
+        <p class="player-info-meta" style="color: var(--success);">
+          <i class="fa-solid fa-circle-check" style="margin-right: 4px;"></i> Terminé
+        </p>
+      </div>
+
+      <!-- Actions post-écoute -->
+      <div class="player-ended-actions">
+        <button class="player-ended-action-btn">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>Réécouter</span>
+        </button>
+        <button class="player-ended-action-btn">
+          <i class="fa-regular fa-heart"></i>
+          <span>Favori</span>
+        </button>
+        <button class="player-ended-action-btn player-ended-action-btn--active">
+          <i class="fa-solid fa-arrow-down"></i>
+          <span>Offline</span>
+        </button>
+      </div>
+
+      <!-- Suggestion suivante -->
+      <div class="player-next-section">
+        <p class="player-next-label">À écouter ensuite</p>
+        <a href="03_content_detail.html" class="player-next-card">
+          <div class="player-next-cover player-next-cover--recits">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="player-next-info">
+            <p class="player-next-title">Hdidane et l'ogresse</p>
+            <p class="player-next-meta">12 min · Darija / FR · 6-8 ans</p>
+          </div>
+          <div class="player-next-play">
+            <i class="fa-solid fa-play"></i>
+          </div>
+        </a>
+
+        <a href="03_content_detail.html" class="player-next-card">
+          <div class="player-next-cover player-next-cover--rythmes">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="player-next-info">
+            <p class="player-next-title">A Mama, ya Mama</p>
+            <p class="player-next-meta">4 min · Darija · 3-5 ans</p>
+          </div>
+          <div class="player-next-play">
+            <i class="fa-solid fa-play"></i>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

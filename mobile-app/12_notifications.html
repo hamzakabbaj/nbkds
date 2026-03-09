@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { flex-direction: column; align-items: center; gap: 32px; }
+    .step-label {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       ÉCRAN 1 — Centre de notifications in-app
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Centre de notifications</p>
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Nav Header -->
+    <div class="nav-header">
+      <a href="02_home.html" class="nav-header-back">
+        <i class="fa-solid fa-chevron-left"></i>
+      </a>
+      <h1 class="nav-header-title">Notifications</h1>
+      <span class="nav-header-action" style="font-size: 13px; color: var(--accent);">Tout lire</span>
+    </div>
+
+    <!-- Screen Content -->
+    <div class="screen">
+      <div class="notif-list">
+
+        <!-- Notification: Nouveau contenu -->
+        <a href="03_content_detail.html" class="notif-item notif-item--unread">
+          <div class="notif-icon notif-icon--new">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="notif-content">
+            <p class="notif-title">3 nouveaux contes cette semaine</p>
+            <p class="notif-body">Découvrez « La légende de Lalla Mira », « Comptines de chez Jidda » et « Les couleurs du souk » — adaptés pour Yassine et Nora.</p>
+            <p class="notif-time">Il y a 2h</p>
+          </div>
+          <div class="notif-dot"></div>
+        </a>
+
+        <!-- Notification: Reprendre l'écoute -->
+        <a href="04_player.html" class="notif-item notif-item--unread">
+          <div class="notif-icon notif-icon--resume">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <div class="notif-content">
+            <p class="notif-title">Yassine n'a pas fini son histoire</p>
+            <p class="notif-body">« Hdidane et l'ogresse » attend à 35% — on reprend ce soir ?</p>
+            <p class="notif-time">Il y a 5h</p>
+          </div>
+          <div class="notif-dot"></div>
+        </a>
+
+        <!-- Notification: Rituel du soir -->
+        <a href="02_home.html" class="notif-item">
+          <div class="notif-icon notif-icon--ritual">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <div class="notif-content">
+            <p class="notif-title">C'est l'heure des histoires !</p>
+            <p class="notif-body">Lancez une berceuse pour Nora — c'est le rituel du soir. 🌙</p>
+            <p class="notif-time">Hier à 20:30</p>
+          </div>
+        </a>
+
+        <!-- Notification: Téléchargement terminé -->
+        <a href="06_downloads.html" class="notif-item">
+          <div class="notif-icon notif-icon--download">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="notif-content">
+            <p class="notif-title">Téléchargement terminé</p>
+            <p class="notif-body">« Hmadou et Hmaydou » est maintenant disponible hors ligne. Prêt pour le trajet en voiture !</p>
+            <p class="notif-time">Hier à 18:12</p>
+          </div>
+        </a>
+
+        <!-- Notification: Inactivité / ré-engagement -->
+        <a href="02_home.html" class="notif-item">
+          <div class="notif-icon notif-icon--reengagement">
+            <i class="fa-solid fa-hand-sparkles"></i>
+          </div>
+          <div class="notif-content">
+            <p class="notif-title">Vos enfants ont manqué 5 nouveaux contes</p>
+            <p class="notif-body">Le catalogue s'est enrichi depuis votre dernière visite. Jetez un œil aux nouveautés de la semaine !</p>
+            <p class="notif-time">Il y a 3 jours</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PUSH NOTIFICATIONS — aperçu iOS
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Push Notifications (écran verrouillé)</p>
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">20:30</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-half"></i>
+      </div>
+    </div>
+
+    <div class="lockscreen">
+      <div class="lockscreen-date">
+        <p class="lockscreen-day">Lundi 9 mars</p>
+      </div>
+
+      <!-- Push: Rituel du soir -->
+      <div class="push-notification">
+        <div class="push-header">
+          <div class="push-app-icon">N</div>
+          <span class="push-app-name">NOOBA</span>
+          <span class="push-time">maintenant</span>
+        </div>
+        <div class="push-body">
+          <p class="push-title">C'est l'heure des histoires ! 🌙</p>
+          <p class="push-text">Lancez une berceuse pour Nora — « A Mama, ya Mama » est parfait pour le dodo.</p>
+        </div>
+      </div>
+
+      <!-- Push: Nouveau contenu -->
+      <div class="push-notification">
+        <div class="push-header">
+          <div class="push-app-icon">N</div>
+          <span class="push-app-name">NOOBA</span>
+          <span class="push-time">il y a 2h</span>
+        </div>
+        <div class="push-body">
+          <p class="push-title">3 nouveaux contes cette semaine</p>
+          <p class="push-text">Découvrez « La légende de Lalla Mira » et 2 autres histoires pour Yassine et Nora.</p>
+        </div>
+      </div>
+
+      <!-- Push: Reprendre l'écoute -->
+      <div class="push-notification">
+        <div class="push-header">
+          <div class="push-app-icon">N</div>
+          <span class="push-app-name">NOOBA</span>
+          <span class="push-time">il y a 5h</span>
+        </div>
+        <div class="push-body">
+          <p class="push-title">Yassine n'a pas fini son histoire</p>
+          <p class="push-text">« Hdidane et l'ogresse » attend à 35% — on reprend ?</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

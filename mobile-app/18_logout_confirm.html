@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Déconnexion — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Profile page dimmed behind the modal -->
+    <div class="screen" style="opacity: 0.3; pointer-events: none;">
+      <div class="profile-header">
+        <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+        <h1 class="profile-name">Samia El Masri</h1>
+        <p class="profile-email">samia.elmasri@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay">
+      <div class="modal-card">
+        <div class="modal-icon" style="background: rgba(196, 84, 66, 0.15);">
+          <i class="fa-solid fa-right-from-bracket" style="color: var(--error);"></i>
+        </div>
+        <h2 class="modal-title">Se déconnecter ?</h2>
+        <p class="modal-desc">
+          Vous devrez saisir vos identifiants pour vous reconnecter.
+        </p>
+        <div class="modal-actions">
+          <a href="07_profile.html" class="modal-btn modal-btn--secondary">Annuler</a>
+          <a href="13_login.html" class="modal-btn modal-btn--danger">Se déconnecter</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

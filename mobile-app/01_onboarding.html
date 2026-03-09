@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { flex-direction: column; align-items: center; gap: 32px; }
+    .step-label {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       STEP 1 — Bienvenue
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Étape 1 / 4 — Bienvenue</p>
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="onboarding-screen">
+      <div class="onboarding-dots">
+        <span class="onboarding-dot onboarding-dot--active"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+      </div>
+
+      <div class="onboarding-content">
+        <div class="onboarding-icon">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <p class="logo-bismillah">بسم الله الرحمن الرحيم</p>
+        <p class="logo">N<span>OO</span>BA</p>
+        <h1 class="onboarding-title" style="margin-top: 24px;">Raconte-moi le Maroc</h1>
+        <p class="onboarding-subtitle">
+          Contes, berceuses et découvertes en darija
+          pour vos enfants de 3 à 12 ans.
+          100% audio, zéro écran.
+        </p>
+      </div>
+
+      <div class="onboarding-footer">
+        <a href="01a_onboarding_welcome.html" class="onboarding-btn" style="text-decoration: none; display: block;">Commencer</a>
+        <a href="13_login.html" class="onboarding-skip" style="text-decoration: none; display: block;">J'ai déjà un compte — Se connecter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       STEP 2 — Profils enfants
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Étape 2 / 4 — Profils enfants</p>
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="onboarding-screen">
+      <div class="onboarding-dots">
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot onboarding-dot--active"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+      </div>
+
+      <div class="onboarding-content" style="justify-content: flex-start; padding-top: 32px;">
+        <h1 class="onboarding-title">Qui va écouter ?</h1>
+        <p class="onboarding-subtitle" style="margin-bottom: 32px;">
+          Ajoutez vos enfants pour personnaliser le catalogue par âge.
+        </p>
+
+        <div class="onboarding-form">
+          <div class="onboarding-child-row">
+            <input class="onboarding-input" type="text" placeholder="Prénom" value="Yassine">
+            <input class="onboarding-input" type="text" placeholder="Âge" value="7 ans">
+          </div>
+          <div class="onboarding-child-row">
+            <input class="onboarding-input" type="text" placeholder="Prénom" value="Nora">
+            <input class="onboarding-input" type="text" placeholder="Âge" value="4 ans">
+          </div>
+          <button class="onboarding-add-child">
+            <i class="fa-solid fa-plus"></i> Ajouter un enfant
+          </button>
+        </div>
+      </div>
+
+      <div class="onboarding-footer">
+        <a href="01b_onboarding_children.html" class="onboarding-btn" style="text-decoration: none; display: block;">Suivant</a>
+        <a href="01b_onboarding_children.html" class="onboarding-skip" style="text-decoration: none; display: block;">Passer cette étape</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       STEP 3 — Recommandations + Téléchargement
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Étape 3 / 4 — Recommandations</p>
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:42</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="onboarding-screen">
+      <div class="onboarding-dots">
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot onboarding-dot--active"></span>
+        <span class="onboarding-dot"></span>
+      </div>
+
+      <div class="onboarding-content" style="justify-content: flex-start; padding-top: 32px;">
+        <h1 class="onboarding-title">Pour Yassine et Nora</h1>
+        <p class="onboarding-subtitle" style="margin-bottom: 24px;">
+          Voici des contenus adaptés à leurs âges. Téléchargez-les pour l'écoute hors connexion.
+        </p>
+
+        <div class="onboarding-reco">
+          <div class="onboarding-reco-item onboarding-reco-item--recits">
+            <div class="onboarding-reco-cover">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="onboarding-reco-info">
+              <p class="onboarding-reco-title">Hmadou et Hmaydou</p>
+              <p class="onboarding-reco-meta">8 min · Darija / FR · 3-5 ans</p>
+            </div>
+            <div class="onboarding-reco-check onboarding-reco-check--checked">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+
+          <div class="onboarding-reco-item onboarding-reco-item--rythmes">
+            <div class="onboarding-reco-cover">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <div class="onboarding-reco-info">
+              <p class="onboarding-reco-title">A Mama, ya Mama</p>
+              <p class="onboarding-reco-meta">4 min · Darija · 3-5 ans</p>
+            </div>
+            <div class="onboarding-reco-check onboarding-reco-check--checked">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+
+          <div class="onboarding-reco-item onboarding-reco-item--recits">
+            <div class="onboarding-reco-cover">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <div class="onboarding-reco-info">
+              <p class="onboarding-reco-title">Hdidane et l'ogresse</p>
+              <p class="onboarding-reco-meta">12 min · Darija / FR · 6-8 ans</p>
+            </div>
+            <div class="onboarding-reco-check onboarding-reco-check--checked">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+
+          <div class="onboarding-reco-item onboarding-reco-item--decouverte">
+            <div class="onboarding-reco-cover">
+              <i class="fa-solid fa-earth-africa"></i>
+            </div>
+            <div class="onboarding-reco-info">
+              <p class="onboarding-reco-title">Les couleurs du souk</p>
+              <p class="onboarding-reco-meta">6 min · Darija / FR · 3-5 ans</p>
+            </div>
+            <div class="onboarding-reco-check">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="onboarding-footer">
+        <a href="01c_onboarding_reco.html" class="onboarding-btn" style="text-decoration: none; display: block;">
+          <i class="fa-solid fa-download" style="margin-right: 8px;"></i>
+          Télécharger (3 sélectionnés)
+        </a>
+        <a href="01c_onboarding_reco.html" class="onboarding-skip" style="text-decoration: none; display: block;">Passer — je téléchargerai plus tard</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       STEP 4 — Tout est prêt !
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Étape 4 / 4 — Confirmation</p>
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:42</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="onboarding-screen">
+      <div class="onboarding-dots">
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot"></span>
+        <span class="onboarding-dot onboarding-dot--active"></span>
+      </div>
+
+      <div class="onboarding-content">
+        <div class="onboarding-icon onboarding-icon--success">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h1 class="onboarding-title">Tout est prêt !</h1>
+        <p class="onboarding-subtitle">
+          3 contenus téléchargés pour Yassine et Nora.
+          Lancez un conte et laissez la magie de la darija faire le reste.
+        </p>
+      </div>
+
+      <div class="onboarding-footer">
+        <a href="02_home.html" class="onboarding-btn" style="text-decoration: none; display: block;">Découvrir le catalogue</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

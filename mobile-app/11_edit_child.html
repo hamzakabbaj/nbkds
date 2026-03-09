@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier un enfant — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { flex-direction: column; align-items: center; gap: 32px; }
+    .step-label {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       MODE 1 — Modifier un profil enfant existant
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Modifier un profil enfant</p>
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Modal Sheet Header -->
+    <div class="sheet-header">
+      <a href="07_profile.html" class="sheet-header-action">Annuler</a>
+      <h1 class="sheet-header-title">Modifier l'enfant</h1>
+      <button class="sheet-header-action sheet-header-action--primary">Enregistrer</button>
+    </div>
+
+    <!-- Form Content -->
+    <div class="screen screen-padded">
+      <div class="sheet-form">
+
+        <!-- Avatar enfant -->
+        <div class="child-edit-avatar">
+          <div class="child-edit-avatar-circle" style="background: linear-gradient(145deg, rgba(200,146,60,0.2), rgba(200,146,60,0.35));">
+            <span class="child-edit-avatar-initial">Y</span>
+          </div>
+          <button class="child-edit-avatar-btn">
+            <i class="fa-solid fa-palette"></i> Changer la couleur
+          </button>
+        </div>
+
+        <!-- Champ prénom -->
+        <div class="sheet-field">
+          <label class="sheet-label">Prénom</label>
+          <div class="sheet-input-wrapper">
+            <i class="fa-solid fa-child sheet-input-icon"></i>
+            <input class="sheet-input" type="text" value="Yassine">
+          </div>
+        </div>
+
+        <!-- Champ âge -->
+        <div class="sheet-field">
+          <label class="sheet-label">Âge</label>
+          <div class="sheet-select-wrapper">
+            <i class="fa-solid fa-cake-candles sheet-input-icon"></i>
+            <select class="sheet-select">
+              <option>3 ans</option>
+              <option>4 ans</option>
+              <option>5 ans</option>
+              <option>6 ans</option>
+              <option selected>7 ans</option>
+              <option>8 ans</option>
+              <option>9 ans</option>
+              <option>10 ans</option>
+              <option>11 ans</option>
+              <option>12 ans</option>
+            </select>
+            <i class="fa-solid fa-chevron-down sheet-select-chevron"></i>
+          </div>
+          <p class="sheet-hint">Tranche d'âge : 6-8 ans — le catalogue sera filtré en conséquence.</p>
+        </div>
+
+        <!-- Zone danger -->
+        <div class="sheet-danger-zone">
+          <button class="sheet-danger-btn">
+            <i class="fa-solid fa-trash"></i> Supprimer ce profil
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MODE 2 — Ajouter un nouveau profil enfant
+  ═══════════════════════════════════════════ -->
+  <p class="step-label">Ajouter un enfant</p>
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Modal Sheet Header -->
+    <div class="sheet-header">
+      <a href="07_profile.html" class="sheet-header-action">Annuler</a>
+      <h1 class="sheet-header-title">Nouvel enfant</h1>
+      <button class="sheet-header-action sheet-header-action--primary" style="opacity: 0.4;">Ajouter</button>
+    </div>
+
+    <!-- Form Content -->
+    <div class="screen screen-padded">
+      <div class="sheet-form">
+
+        <!-- Avatar placeholder -->
+        <div class="child-edit-avatar">
+          <div class="child-edit-avatar-circle" style="background: var(--bg-elevated); border: 2px dashed var(--border-strong);">
+            <i class="fa-solid fa-plus" style="font-size: 24px; color: var(--text-tertiary);"></i>
+          </div>
+        </div>
+
+        <!-- Champ prénom (vide) -->
+        <div class="sheet-field">
+          <label class="sheet-label">Prénom</label>
+          <div class="sheet-input-wrapper">
+            <i class="fa-solid fa-child sheet-input-icon"></i>
+            <input class="sheet-input" type="text" placeholder="Ex : Lina, Adam, Zahra...">
+          </div>
+        </div>
+
+        <!-- Champ âge (non sélectionné) -->
+        <div class="sheet-field">
+          <label class="sheet-label">Âge</label>
+          <div class="sheet-select-wrapper">
+            <i class="fa-solid fa-cake-candles sheet-input-icon"></i>
+            <select class="sheet-select">
+              <option selected disabled>Sélectionner l'âge</option>
+              <option>3 ans</option>
+              <option>4 ans</option>
+              <option>5 ans</option>
+              <option>6 ans</option>
+              <option>7 ans</option>
+              <option>8 ans</option>
+              <option>9 ans</option>
+              <option>10 ans</option>
+              <option>11 ans</option>
+              <option>12 ans</option>
+            </select>
+            <i class="fa-solid fa-chevron-down sheet-select-chevron"></i>
+          </div>
+          <p class="sheet-hint">L'âge permet de personnaliser les recommandations du catalogue.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

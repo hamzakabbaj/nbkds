@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload en cours — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Ajouter un contenu</h1>
+          <p class="main-header-subtitle">Remplissez les informations et uploadez le fichier audio.</p>
+        </div>
+        <div class="main-header-actions">
+          <button class="btn btn--secondary" disabled style="opacity: 0.5;">
+            <i class="fa-solid fa-floppy-disk"></i> Enregistrer brouillon
+          </button>
+          <button class="btn btn--primary" disabled style="opacity: 0.5;">
+            <i class="fa-solid fa-paper-plane"></i> Publier
+          </button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <div class="form-layout">
+
+          <!-- ── LEFT: Form ── -->
+          <div>
+
+            <!-- Metadata (filled) -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Informations</h2>
+
+              <div class="form-group">
+                <label class="form-label">Titre du contenu</label>
+                <input class="form-input" type="text" value="Le secret de la médina">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea class="form-textarea">Une promenade sonore dans les ruelles de la médina de Fès. Les enfants découvrent les métiers traditionnels, les odeurs d'épices et les sons des artisans — le tout raconté en darija avec des explications en français.</textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Catégorie</label>
+                  <select class="form-select">
+                    <option>Récits & Contes</option>
+                    <option>Rythmes & Berceuses</option>
+                    <option selected>Découverte & Langue</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tranche d'âge</label>
+                  <div class="chip-group">
+                    <button class="chip chip--selected"><i class="fa-solid fa-check"></i> 3-5 ans</button>
+                    <button class="chip chip--selected"><i class="fa-solid fa-check"></i> 6-8 ans</button>
+                    <button class="chip">9-12 ans</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Langues</label>
+                <div class="chip-group">
+                  <button class="chip chip--selected"><i class="fa-solid fa-check"></i> Darija</button>
+                  <button class="chip chip--selected"><i class="fa-solid fa-check"></i> Français</button>
+                  <button class="chip">Anglais</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audio Upload — Progress State -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Fichier audio</h2>
+
+              <div class="upload-progress">
+                <div class="upload-progress-header">
+                  <div class="upload-progress-icon">
+                    <i class="fa-solid fa-file-audio"></i>
+                  </div>
+                  <div class="upload-progress-info">
+                    <p class="upload-file-name">le_secret_de_la_medina.mp3</p>
+                    <p class="upload-file-meta">28.4 Mo · Upload en cours...</p>
+                  </div>
+                  <button class="upload-file-remove" title="Annuler">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div class="upload-progress-bar-track">
+                  <div class="upload-progress-bar-fill" style="width: 68%;"></div>
+                </div>
+                <div class="upload-progress-footer">
+                  <span>68% — 19.3 Mo / 28.4 Mo</span>
+                  <span>~12 sec restantes</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cover Upload — already uploaded -->
+            <div class="form-panel">
+              <h2 class="form-panel-title">Image de couverture</h2>
+
+              <div class="upload-zone--filled">
+                <div class="upload-file-icon">
+                  <i class="fa-solid fa-image"></i>
+                </div>
+                <div class="upload-file-info">
+                  <p class="upload-file-name">cover_medina.jpg</p>
+                  <p class="upload-file-meta">800×800px · 380 Ko · JPG</p>
+                </div>
+                <button class="upload-file-remove">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── RIGHT: Preview ── -->
+          <div class="preview-panel">
+            <div class="preview-phone">
+              <div class="preview-status-bar">
+                <span>9:41</span>
+                <span style="display: flex; gap: 6px;">
+                  <i class="fa-solid fa-signal" style="font-size: 11px;"></i>
+                  <i class="fa-solid fa-wifi" style="font-size: 11px;"></i>
+                  <i class="fa-solid fa-battery-full" style="font-size: 11px;"></i>
+                </span>
+              </div>
+
+              <div class="preview-cover">
+                <i class="fa-solid fa-earth-africa"></i>
+              </div>
+
+              <div class="preview-body">
+                <span class="preview-badge">Découverte & Langue</span>
+                <h3 class="preview-title">Le secret de la médina</h3>
+                <p class="preview-meta">
+                  <i class="fa-solid fa-clock"></i> — min · Darija / FR · 3-8 ans
+                </p>
+                <p class="preview-desc">
+                  Une promenade sonore dans les ruelles de la médina de Fès.
+                  Les enfants découvrent les métiers traditionnels...
+                </p>
+                <div class="preview-play-btn" style="opacity: 0.4;">
+                  <i class="fa-solid fa-spinner fa-spin"></i> Upload en cours...
+                </div>
+              </div>
+            </div>
+            <p class="preview-label">Aperçu dans l'app</p>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="login-layout">
+
+    <!-- Left: Branding Panel -->
+    <div class="login-brand">
+      <div class="login-brand-content">
+        <p class="login-logo">N<span>OO</span>BA</p>
+        <p class="login-tagline">Administration</p>
+        <p class="login-desc">
+          Gérez votre catalogue de contenus audio,
+          suivez vos abonnés et pilotez votre plateforme.
+        </p>
+      </div>
+      <p class="login-brand-footer">© 2026 Nooba · Tous droits réservés</p>
+    </div>
+
+    <!-- Right: Login Form -->
+    <div class="login-form-area">
+      <div class="login-form-card">
+        <div class="login-form-header">
+          <h1 class="login-form-title">Bienvenue</h1>
+          <p class="login-form-subtitle">Connectez-vous à votre espace d'administration.</p>
+        </div>
+
+        <form class="login-form">
+          <div class="form-group">
+            <label class="form-label">Adresse e-mail</label>
+            <input class="form-input" type="email" placeholder="maha@nooba.ma" value="maha@nooba.ma">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Mot de passe
+              <span class="login-forgot-link" style="cursor: pointer;">Mot de passe oublié ?</span>
+            </label>
+            <div class="form-input-group">
+              <input class="form-input" type="password" placeholder="••••••••" value="motdepasse123">
+              <button type="button" class="form-input-icon-btn">
+                <i class="fa-solid fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="login-remember">
+            <label class="login-checkbox">
+              <input type="checkbox" checked>
+              <span class="login-checkbox-mark"></span>
+              Se souvenir de moi
+            </label>
+          </div>
+
+          <a href="02_dashboard.html" class="btn btn--primary login-submit-btn">
+            <i class="fa-solid fa-right-to-bracket"></i> Se connecter
+          </a>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

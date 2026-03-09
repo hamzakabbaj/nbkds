@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favoris — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Nav Header -->
+    <div class="nav-header">
+      <h1 class="nav-header-title">Favoris</h1>
+      <span class="nav-header-action" style="font-size: 13px; color: var(--text-tertiary);">3 contenus</span>
+    </div>
+
+    <!-- Screen Content -->
+    <div class="screen">
+      <div class="content-list">
+
+        <!-- Item 1 → tap ouvre la fiche détail -->
+        <a href="03_content_detail.html" class="content-list-item content-list-item--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-list-cover">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="content-list-info">
+            <p class="content-list-title">Hmadou et Hmaydou</p>
+            <div class="content-list-meta">
+              <span>8 min</span>
+              <span class="content-list-meta-dot"></span>
+              <span>Darija / FR</span>
+              <span class="content-list-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+          </div>
+          <div class="content-list-action content-list-action--fav">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </a>
+
+        <!-- Item 2 -->
+        <a href="03_content_detail.html" class="content-list-item content-list-item--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-list-cover">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="content-list-info">
+            <p class="content-list-title">Hdidane et l'ogresse</p>
+            <div class="content-list-meta">
+              <span>12 min</span>
+              <span class="content-list-meta-dot"></span>
+              <span>Darija / FR</span>
+              <span class="content-list-meta-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+          </div>
+          <div class="content-list-action content-list-action--fav">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </a>
+
+        <!-- Item 3 -->
+        <a href="03_content_detail.html" class="content-list-item content-list-item--rythmes" style="text-decoration: none; color: inherit;">
+          <div class="content-list-cover">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="content-list-info">
+            <p class="content-list-title">A Mama, ya Mama</p>
+            <div class="content-list-meta">
+              <span>4 min</span>
+              <span class="content-list-meta-dot"></span>
+              <span>Darija</span>
+              <span class="content-list-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+          </div>
+          <div class="content-list-action content-list-action--fav">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Swipe hint -->
+      <p class="list-hint">
+        <i class="fa-solid fa-hand-point-left"></i> Glisser à gauche pour retirer des favoris
+      </p>
+    </div>
+
+    <!-- Mini Player → tap ouvre le lecteur plein écran -->
+    <a href="04_player.html" class="mini-player" style="position: relative; text-decoration: none; color: inherit;">
+      <div class="mini-player-cover">
+        <i class="fa-solid fa-book-open"></i>
+      </div>
+      <div class="mini-player-info">
+        <p class="mini-player-title">Hdidane et l'ogresse</p>
+        <p class="mini-player-meta">4:12 / 12:00</p>
+      </div>
+      <button class="mini-player-btn"><i class="fa-solid fa-pause"></i></button>
+      <div class="mini-player-progress"></div>
+    </a>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <a href="02_home.html" class="tab-bar-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </a>
+      <a class="tab-bar-item tab-bar-item--active">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favoris</span>
+      </a>
+      <a href="06_downloads.html" class="tab-bar-item">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Offline</span>
+      </a>
+      <a href="07_profile.html" class="tab-bar-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Profil</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

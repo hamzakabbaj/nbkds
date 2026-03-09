@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue vide — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Catalogue</h1>
+          <p class="main-header-subtitle">0 contenu</p>
+        </div>
+        <div class="main-header-actions">
+          <a href="05_add_content.html" class="btn btn--primary">
+            <i class="fa-solid fa-plus"></i> Ajouter un contenu
+          </a>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <div class="table-panel">
+          <!-- Toolbar -->
+          <div class="table-toolbar">
+            <div class="table-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Rechercher un contenu..." disabled>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <i class="fa-solid fa-headphones"></i>
+            </div>
+            <h2 class="empty-state-title">Aucun contenu dans le catalogue</h2>
+            <p class="empty-state-desc">
+              Commencez par ajouter votre premier contenu audio.
+              Il sera visible par vos abonnés une fois publié.
+            </p>
+            <a href="05_add_content.html" class="btn btn--primary">
+              <i class="fa-solid fa-plus"></i> Ajouter un premier contenu
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

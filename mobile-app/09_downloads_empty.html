@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Téléchargements (vide) — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Nav Header -->
+    <div class="nav-header">
+      <h1 class="nav-header-title">Téléchargements</h1>
+      <span class="nav-header-action" style="font-size: 13px; color: var(--text-tertiary);">0 contenu</span>
+    </div>
+
+    <!-- Screen Content -->
+    <div class="screen">
+
+      <div class="empty-state">
+        <div class="empty-state-icon">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+        </div>
+        <h2 class="empty-state-title">Rien hors ligne</h2>
+        <p class="empty-state-desc">
+          Téléchargez des contenus pour les écouter sans connexion — parfait pour la voiture ou les zones sans réseau.
+        </p>
+        <a href="02_home.html" class="empty-state-btn">
+          <i class="fa-solid fa-compass"></i> Parcourir le catalogue
+        </a>
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <a href="02_home.html" class="tab-bar-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </a>
+      <a href="05_favorites.html" class="tab-bar-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favoris</span>
+      </a>
+      <a class="tab-bar-item tab-bar-item--active">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Offline</span>
+      </a>
+      <a href="07_profile.html" class="tab-bar-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Profil</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hors connexion — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal" style="opacity: 0.3;"></i>
+        <i class="fa-solid fa-wifi" style="opacity: 0.3;"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="screen" style="display: flex; flex-direction: column;">
+
+      <!-- Offline Banner at top -->
+      <div class="offline-banner">
+        <i class="fa-solid fa-wifi-slash"></i>
+        <span>Vous êtes hors ligne</span>
+      </div>
+
+      <!-- Empty state centered -->
+      <div class="empty-state" style="flex: 1;">
+        <div class="empty-state-icon">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+        </div>
+        <h2 class="empty-state-title">Pas de connexion</h2>
+        <p class="empty-state-desc">
+          Le catalogue nécessite une connexion internet.
+          Vos contenus téléchargés restent disponibles.
+        </p>
+        <a href="06_downloads.html" class="empty-state-btn" style="text-decoration: none;">
+          <i class="fa-solid fa-arrow-down"></i>
+          Mes téléchargements
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Tab Bar still accessible -->
+    <div class="tab-bar">
+      <span class="tab-bar-item" style="opacity: 0.3;">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </span>
+      <span class="tab-bar-item" style="opacity: 0.3;">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favoris</span>
+      </span>
+      <a href="06_downloads.html" class="tab-bar-item tab-bar-item--active">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Offline</span>
+      </a>
+      <span class="tab-bar-item" style="opacity: 0.3;">
+        <i class="fa-solid fa-user"></i>
+        <span>Profil</span>
+      </span>
+    </div>
+
+  </div>
+
+</body>
+</html>

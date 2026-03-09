@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiche Contenu — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="screen">
+
+      <!-- Cover -->
+      <div class="detail-cover detail-cover--recits">
+        <i class="fa-solid fa-book-open"></i>
+        <a href="02_home.html" class="detail-cover-back">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+      </div>
+
+      <!-- Body -->
+      <div class="detail-body">
+        <span class="detail-badge detail-badge--recits">Récits & Contes</span>
+        <h1 class="detail-title">Hmadou et Hmaydou</h1>
+
+        <div class="detail-meta">
+          <span class="detail-meta-item"><i class="fa-solid fa-clock"></i> 8 min</span>
+          <span class="detail-meta-item"><i class="fa-solid fa-language"></i> Darija / Français</span>
+          <span class="detail-meta-item"><i class="fa-solid fa-child"></i> 3-5 ans</span>
+        </div>
+
+        <p class="detail-desc">
+          L'histoire de Hmadou et Hmaydou, deux frères que tout oppose.
+          Un conte traditionnel marocain qui enseigne la valeur de l'entraide
+          et de la persévérance, raconté en darija avec des passages en français
+          pour accompagner les plus petits.
+        </p>
+
+        <!-- Actions → "Écouter" ouvre le player -->
+        <div class="detail-actions">
+          <a href="04_player.html" class="detail-play-btn" style="text-decoration: none;">
+            <i class="fa-solid fa-play"></i> Écouter
+          </a>
+          <button class="detail-action-btn">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+          <button class="detail-action-btn detail-action-btn--active">
+            <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </div>
+
+        <!-- Suggestion — dans la même catégorie -->
+        <div style="padding-top: 20px; border-top: 1px solid var(--border);">
+          <p style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 12px;">
+            Dans la même catégorie
+          </p>
+
+          <div class="content-list">
+            <a href="03_content_detail.html" class="content-list-item content-list-item--recits" style="text-decoration: none; color: inherit;">
+              <div class="content-list-cover">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div class="content-list-info">
+                <p class="content-list-title">Hdidane et l'ogresse</p>
+                <div class="content-list-meta">
+                  <span>12 min</span>
+                  <span class="content-list-meta-dot"></span>
+                  <span>6-8 ans</span>
+                </div>
+              </div>
+              <div class="content-list-action"><i class="fa-solid fa-play"></i></div>
+            </a>
+
+            <a href="03_content_detail.html" class="content-list-item content-list-item--recits" style="text-decoration: none; color: inherit;">
+              <div class="content-list-cover">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div class="content-list-info">
+                <p class="content-list-title">La légende de Lalla Mira</p>
+                <div class="content-list-meta">
+                  <span>9 min</span>
+                  <span class="content-list-meta-dot"></span>
+                  <span>6-8 ans</span>
+                </div>
+              </div>
+              <div class="content-list-action"><i class="fa-solid fa-play"></i></div>
+            </a>
+
+            <a href="03_content_detail.html" class="content-list-item content-list-item--recits" style="text-decoration: none; color: inherit;">
+              <div class="content-list-cover">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div class="content-list-info">
+                <p class="content-list-title">Le berger et le sultan</p>
+                <div class="content-list-meta">
+                  <span>10 min</span>
+                  <span class="content-list-meta-dot"></span>
+                  <span>9-12 ans</span>
+                </div>
+              </div>
+              <div class="content-list-action"><i class="fa-solid fa-play"></i></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

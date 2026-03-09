@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supprimer un contenu — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT (dimmed behind modal)
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main" style="opacity: 0.4; pointer-events: none;">
+
+      <div class="main-header">
+        <div class="main-header-left">
+          <a href="03_catalog.html" class="breadcrumb-back">
+            <i class="fa-solid fa-arrow-left"></i> Catalogue
+          </a>
+          <h1 class="main-header-title">Modifier — Hmadou et Hmaydou</h1>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="form-layout">
+          <div>
+            <div class="form-panel">
+              <h2 class="form-panel-title">Informations</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MODAL OVERLAY
+    ════════════════════════════════════════════════════════════ -->
+    <div class="admin-modal-overlay">
+      <div class="admin-modal">
+        <div class="admin-modal-icon admin-modal-icon--danger">
+          <i class="fa-solid fa-trash"></i>
+        </div>
+        <h2 class="admin-modal-title">Supprimer ce contenu ?</h2>
+        <p class="admin-modal-desc">
+          <strong>Hmadou et Hmaydou</strong> sera définitivement supprimé.
+          Cette action est irréversible. Les abonnés qui ont téléchargé
+          ce contenu ne pourront plus y accéder.
+        </p>
+        <div class="admin-modal-meta">
+          <div class="admin-modal-meta-row">
+            <span>Catégorie</span>
+            <span><span class="cat-badge cat-badge--recits"><i class="fa-solid fa-book-open"></i> Récits</span></span>
+          </div>
+          <div class="admin-modal-meta-row">
+            <span>Statut</span>
+            <span><span class="status-badge status-badge--published"><span class="status-dot"></span> Publié</span></span>
+          </div>
+          <div class="admin-modal-meta-row">
+            <span>Publié le</span>
+            <span>15 fév. 2026</span>
+          </div>
+        </div>
+        <div class="admin-modal-actions">
+          <a href="09_edit_content.html" class="btn btn--secondary">Annuler</a>
+          <a href="03_catalog.html" class="btn btn--primary btn--danger-fill">
+            <i class="fa-solid fa-trash"></i> Supprimer définitivement
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

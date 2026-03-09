@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier un contenu — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <a href="03_catalog.html" class="breadcrumb-back">
+            <i class="fa-solid fa-arrow-left"></i> Catalogue
+          </a>
+          <h1 class="main-header-title">Modifier — Hmadou et Hmaydou</h1>
+          <p class="main-header-subtitle">Dernière modification : 15 fév. 2026 à 14:32</p>
+        </div>
+        <div class="main-header-actions">
+          <a href="10_delete_confirm.html" class="btn btn--danger">
+            <i class="fa-solid fa-trash"></i> Supprimer
+          </a>
+          <a href="03_catalog.html" class="btn btn--secondary">
+            <i class="fa-solid fa-eye-slash"></i> Dépublier
+          </a>
+          <a href="03_catalog.html" class="btn btn--secondary">
+            <i class="fa-solid fa-floppy-disk"></i> Enregistrer brouillon
+          </a>
+          <a href="03_catalog.html" class="btn btn--primary">
+            <i class="fa-solid fa-paper-plane"></i> Mettre à jour
+          </a>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <div class="form-layout">
+
+          <!-- ── LEFT: Form (pre-filled) ── -->
+          <div>
+
+            <!-- Status Banner -->
+            <div class="content-status-banner content-status-banner--published">
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <strong>Publié</strong> — Ce contenu est visible par les abonnés depuis le 15 fév. 2026.
+              </div>
+            </div>
+
+            <!-- Metadata -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Informations</h2>
+
+              <div class="form-group">
+                <label class="form-label">Titre du contenu</label>
+                <input class="form-input" type="text" value="Hmadou et Hmaydou">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea class="form-textarea">L'histoire de deux frères malins qui déjouent les pièges d'un géant. Un conte traditionnel marocain raconté en darija, avec des explications en français pour les plus petits.</textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Catégorie</label>
+                  <select class="form-select">
+                    <option selected>Récits & Contes</option>
+                    <option>Rythmes & Berceuses</option>
+                    <option>Découverte & Langue</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tranche d'âge</label>
+                  <div class="chip-group">
+                    <button class="chip chip--selected"><i class="fa-solid fa-check"></i> 3-5 ans</button>
+                    <button class="chip">6-8 ans</button>
+                    <button class="chip">9-12 ans</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Langues</label>
+                <div class="chip-group">
+                  <button class="chip chip--selected"><i class="fa-solid fa-check"></i> Darija</button>
+                  <button class="chip chip--selected"><i class="fa-solid fa-check"></i> Français</button>
+                  <button class="chip">Anglais</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audio Upload (already uploaded) -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Fichier audio</h2>
+
+              <div class="upload-zone--filled">
+                <div class="upload-file-icon">
+                  <i class="fa-solid fa-file-audio"></i>
+                </div>
+                <div class="upload-file-info">
+                  <p class="upload-file-name">hmadou_et_hmaydou.mp3</p>
+                  <p class="upload-file-meta">8 min 12 sec · 32.1 Mo · MP3 320kbps</p>
+                </div>
+                <button class="upload-file-remove">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Cover Upload (already uploaded) -->
+            <div class="form-panel">
+              <h2 class="form-panel-title">Image de couverture</h2>
+
+              <div class="upload-zone--filled">
+                <div class="upload-file-icon">
+                  <i class="fa-solid fa-image"></i>
+                </div>
+                <div class="upload-file-info">
+                  <p class="upload-file-name">cover_hmadou.jpg</p>
+                  <p class="upload-file-meta">800×800px · 420 Ko · JPG</p>
+                </div>
+                <button class="upload-file-remove">
+                  <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── RIGHT: Preview ── -->
+          <div class="preview-panel">
+            <div class="preview-phone">
+              <div class="preview-status-bar">
+                <span>9:41</span>
+                <span style="display: flex; gap: 6px;">
+                  <i class="fa-solid fa-signal" style="font-size: 11px;"></i>
+                  <i class="fa-solid fa-wifi" style="font-size: 11px;"></i>
+                  <i class="fa-solid fa-battery-full" style="font-size: 11px;"></i>
+                </span>
+              </div>
+
+              <div class="preview-cover">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+
+              <div class="preview-body">
+                <span class="preview-badge">Récits & Contes</span>
+                <h3 class="preview-title">Hmadou et Hmaydou</h3>
+                <p class="preview-meta">
+                  <i class="fa-solid fa-clock"></i> 8 min · Darija / FR · 3-5 ans
+                </p>
+                <p class="preview-desc">
+                  L'histoire de deux frères malins qui déjouent les pièges
+                  d'un géant. Un conte traditionnel marocain raconté en darija...
+                </p>
+                <div class="preview-play-btn">
+                  <i class="fa-solid fa-play"></i> Écouter
+                </div>
+              </div>
+            </div>
+            <p class="preview-label">Aperçu dans l'app</p>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

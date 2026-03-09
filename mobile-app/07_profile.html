@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Screen Content -->
+    <div class="screen">
+
+      <!-- Profile Header → tap ouvre l'édition du compte -->
+      <a href="16_edit_account.html" class="profile-header" style="text-decoration: none; color: inherit; display: block;">
+        <div class="profile-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <h1 class="profile-name">Samia El Masri</h1>
+        <p class="profile-email">samia.elmasri@gmail.com</p>
+        <span class="profile-badge">
+          <i class="fa-solid fa-crown"></i> Abonnée — jusqu'au 15 mars 2027
+        </span>
+      </a>
+
+      <!-- Children Section → tap sur un chip ouvre le formulaire d'édition -->
+      <div class="profile-section">
+        <p class="profile-section-title">Enfants</p>
+        <div class="child-chips">
+          <a href="11_edit_child.html" class="child-chip" style="text-decoration: none; color: inherit;">
+            Yassine <span class="child-chip-age">7 ans</span>
+          </a>
+          <a href="11_edit_child.html" class="child-chip" style="text-decoration: none; color: inherit;">
+            Nora <span class="child-chip-age">4 ans</span>
+          </a>
+          <a href="11_edit_child.html" class="child-chip-add">
+            <i class="fa-solid fa-plus"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="profile-section">
+        <p class="profile-section-title">Notifications</p>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <span class="profile-row-label">Nouveaux contenus</span>
+          <div class="toggle toggle--on"></div>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <span class="profile-row-label">Reprendre l'écoute</span>
+          <div class="toggle toggle--on"></div>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-moon"></i>
+          </div>
+          <span class="profile-row-label">Rituel du soir</span>
+          <div class="toggle toggle--on"></div>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon" style="color: var(--accent);">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <span class="profile-row-label">Heure du rappel</span>
+          <span class="profile-row-value">20:30</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="profile-section">
+        <p class="profile-section-title">Paramètres</p>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+          <span class="profile-row-label">Qualité audio</span>
+          <span class="profile-row-value">Haute</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <span class="profile-row-label">Langue de l'interface</span>
+          <span class="profile-row-value">Français</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <span class="profile-row-label">Politique de confidentialité</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <span class="profile-row-label">Nous contacter</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </div>
+      </div>
+
+      <!-- App Info -->
+      <div class="profile-section">
+        <p class="profile-section-title">À propos</p>
+        <div class="profile-row">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+          <span class="profile-row-label">Version de l'app</span>
+          <span class="profile-row-value">1.0.0</span>
+        </div>
+      </div>
+
+      <!-- Logout → ouvre la modal de confirmation -->
+      <div class="profile-section" style="padding-bottom: 32px;">
+        <a href="18_logout_confirm.html" class="profile-row" style="border-bottom: none; text-decoration: none; color: inherit;">
+          <div class="profile-row-icon" style="color: var(--error);">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </div>
+          <span class="profile-row-label" style="color: var(--error);">Se déconnecter</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <a href="02_home.html" class="tab-bar-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </a>
+      <a href="05_favorites.html" class="tab-bar-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favoris</span>
+      </a>
+      <a href="06_downloads.html" class="tab-bar-item">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Offline</span>
+      </a>
+      <a class="tab-bar-item tab-bar-item--active">
+        <i class="fa-solid fa-user"></i>
+        <span>Profil</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

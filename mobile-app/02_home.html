@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+
+    <!-- ── Status Bar ── -->
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- ── Screen Header ── -->
+    <div style="padding: 4px 20px 0; display: flex; align-items: center; justify-content: space-between;">
+      <p class="logo" style="font-size: 22px;">N<span>OO</span>BA</p>
+      <a href="12_notifications.html" style="font-size: 18px; color: var(--text-secondary); position: relative;">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notif-badge-dot"></span>
+      </a>
+    </div>
+
+    <!-- ── Scrollable Content ── -->
+    <div class="screen">
+
+      <!-- Resume Listening → tap lance le player -->
+      <a href="04_player.html" class="resume-card" style="text-decoration: none; color: inherit;">
+        <div class="resume-card-cover">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div class="resume-card-info">
+          <p class="resume-card-label">Reprendre l'écoute</p>
+          <p class="resume-card-title">Hdidane et l'ogresse</p>
+          <div class="resume-card-progress">
+            <div class="resume-card-progress-fill" style="width: 35%;"></div>
+          </div>
+        </div>
+        <div class="resume-card-btn">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </a>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="category-tab category-tab--active-recits">
+          <i class="fa-solid fa-book-open"></i> Récits & Contes
+        </button>
+        <button class="category-tab">
+          <i class="fa-solid fa-music"></i> Rythmes
+        </button>
+        <button class="category-tab">
+          <i class="fa-solid fa-earth-africa"></i> Découverte
+        </button>
+      </div>
+
+      <!-- Age Filter -->
+      <div class="age-filter">
+        <button class="age-chip age-chip--active">Tous</button>
+        <button class="age-chip">3-5 ans</button>
+        <button class="age-chip">6-8 ans</button>
+        <button class="age-chip">9-12 ans</button>
+      </div>
+
+      <!-- Content Grid — chaque carte pointe vers la fiche détail -->
+      <div class="content-grid">
+        <!-- Card 1 -->
+        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <div class="content-card-badges">
+              <span class="content-card-badge-offline"><i class="fa-solid fa-arrow-down"></i></span>
+            </div>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">Hmadou et Hmaydou</p>
+            <div class="content-card-meta">
+              <span>8 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <div class="content-card-badges">
+              <span class="content-card-badge-fav"><i class="fa-solid fa-heart"></i></span>
+            </div>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">Hdidane et l'ogresse</p>
+            <div class="content-card-meta">
+              <span>12 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">La légende de Lalla Mira</p>
+            <div class="content-card-meta">
+              <span>9 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <div class="content-card-badges">
+              <span class="content-card-badge-offline"><i class="fa-solid fa-arrow-down"></i></span>
+              <span class="content-card-badge-fav"><i class="fa-solid fa-heart"></i></span>
+            </div>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">Le berger et le sultan</p>
+            <div class="content-card-meta">
+              <span>10 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>9-12 ans</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ── Mini Player → tap ouvre le lecteur plein écran ── -->
+    <a href="04_player.html" class="mini-player" style="position: relative; text-decoration: none; color: inherit;">
+      <div class="mini-player-cover">
+        <i class="fa-solid fa-book-open"></i>
+      </div>
+      <div class="mini-player-info">
+        <p class="mini-player-title">Hdidane et l'ogresse</p>
+        <p class="mini-player-meta">4:12 / 12:00 · Récits & Contes</p>
+      </div>
+      <button class="mini-player-btn"><i class="fa-solid fa-pause"></i></button>
+      <div class="mini-player-progress"></div>
+    </a>
+
+    <!-- ── Tab Bar ── -->
+    <div class="tab-bar">
+      <a class="tab-bar-item tab-bar-item--active">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </a>
+      <a href="05_favorites.html" class="tab-bar-item">
+        <i class="fa-solid fa-heart"></i>
+        <span>Favoris</span>
+      </a>
+      <a href="06_downloads.html" class="tab-bar-item">
+        <i class="fa-solid fa-arrow-down"></i>
+        <span>Offline</span>
+      </a>
+      <a href="07_profile.html" class="tab-bar-item">
+        <i class="fa-solid fa-user"></i>
+        <span>Profil</span>
+      </a>
+    </div>
+
+  </div>
+
+</body>
+</html>

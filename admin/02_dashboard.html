@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Tableau de bord</h1>
+          <p class="main-header-subtitle">Bienvenue, Maha. Voici un aperçu de votre catalogue.</p>
+        </div>
+        <div class="main-header-actions">
+          <a href="05_add_content.html" class="btn btn--primary">
+            <i class="fa-solid fa-plus"></i> Ajouter un contenu
+          </a>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <!-- Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--catalog">
+                <i class="fa-solid fa-headphones"></i>
+              </div>
+              <span class="metric-trend metric-trend--up">
+                <i class="fa-solid fa-arrow-up"></i> +3
+              </span>
+            </div>
+            <div class="metric-value">24</div>
+            <div class="metric-label">Contenus au catalogue</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--subscribers">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <span class="metric-trend metric-trend--up">
+                <i class="fa-solid fa-arrow-up"></i> +12
+              </span>
+            </div>
+            <div class="metric-value">156</div>
+            <div class="metric-label">Abonnés actifs</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--weekly">
+                <i class="fa-solid fa-calendar-plus"></i>
+              </div>
+              <span class="metric-trend metric-trend--neutral">
+                Cette semaine
+              </span>
+            </div>
+            <div class="metric-value">3</div>
+            <div class="metric-label">Contenus ajoutés cette semaine</div>
+          </div>
+        </div>
+
+        <!-- Recent Content Table -->
+        <div class="table-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Derniers ajouts</h2>
+            <a href="03_catalog.html" class="btn btn--ghost">
+              Voir tout le catalogue <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Contenu</th>
+                <th>Catégorie</th>
+                <th>Durée</th>
+                <th>Âge</th>
+                <th>Statut</th>
+                <th>Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover table-cover--rythmes">
+                      <i class="fa-solid fa-music"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Comptines de chez Jidda</div>
+                      <div class="table-content-sub">Darija</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge cat-badge--rythmes"><i class="fa-solid fa-music"></i> Rythmes</span></td>
+                <td>5 min</td>
+                <td><span class="age-tag">3-5 ans</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Publié</span></td>
+                <td>1 mars 2026</td>
+                <td>
+                  <div class="table-actions">
+                    <a href="09_edit_content.html" class="table-action-btn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="10_delete_confirm.html" class="table-action-btn table-action-btn--danger"><i class="fa-solid fa-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover table-cover--decouverte">
+                      <i class="fa-solid fa-earth-africa"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Les couleurs du souk</div>
+                      <div class="table-content-sub">Darija / Français</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge cat-badge--decouverte"><i class="fa-solid fa-earth-africa"></i> Découverte</span></td>
+                <td>6 min</td>
+                <td><span class="age-tag">3-5 ans</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Publié</span></td>
+                <td>28 fév. 2026</td>
+                <td>
+                  <div class="table-actions">
+                    <a href="09_edit_content.html" class="table-action-btn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="10_delete_confirm.html" class="table-action-btn table-action-btn--danger"><i class="fa-solid fa-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover table-cover--recits">
+                      <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">La légende de Lalla Mira</div>
+                      <div class="table-content-sub">Darija / Français</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge cat-badge--recits"><i class="fa-solid fa-book-open"></i> Récits</span></td>
+                <td>9 min</td>
+                <td><span class="age-tag">6-8 ans</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Publié</span></td>
+                <td>27 fév. 2026</td>
+                <td>
+                  <div class="table-actions">
+                    <a href="09_edit_content.html" class="table-action-btn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="10_delete_confirm.html" class="table-action-btn table-action-btn--danger"><i class="fa-solid fa-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover table-cover--recits">
+                      <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Le berger et le sultan</div>
+                      <div class="table-content-sub">Darija / Français</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge cat-badge--recits"><i class="fa-solid fa-book-open"></i> Récits</span></td>
+                <td>10 min</td>
+                <td><span class="age-tag">9-12 ans</span></td>
+                <td><span class="status-badge status-badge--draft"><span class="status-dot"></span> Brouillon</span></td>
+                <td>26 fév. 2026</td>
+                <td>
+                  <div class="table-actions">
+                    <a href="09_edit_content.html" class="table-action-btn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="10_delete_confirm.html" class="table-action-btn table-action-btn--danger"><i class="fa-solid fa-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover table-cover--rythmes">
+                      <i class="fa-solid fa-music"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">A Mama, ya Mama</div>
+                      <div class="table-content-sub">Darija</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge cat-badge--rythmes"><i class="fa-solid fa-music"></i> Rythmes</span></td>
+                <td>4 min</td>
+                <td><span class="age-tag">3-5 ans</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Publié</span></td>
+                <td>25 fév. 2026</td>
+                <td>
+                  <div class="table-actions">
+                    <a href="09_edit_content.html" class="table-action-btn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="10_delete_confirm.html" class="table-action-btn table-action-btn--danger"><i class="fa-solid fa-trash"></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

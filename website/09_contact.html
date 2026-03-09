@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="contact-page">
+
+    <!-- ════════════════════════════════════════════════════════════
+         NAV BAR
+    ════════════════════════════════════════════════════════════ -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="01_home.html" class="navbar-logo">N<span>OO</span>BA</a>
+        <div class="navbar-links">
+          <a href="01_home.html" class="navbar-link">
+            <i class="fa-solid fa-arrow-left"></i> Retour au site
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════════
+         CONTACT CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="contact-content">
+      <div class="container">
+
+        <div class="contact-header">
+          <p class="section-label">Contact</p>
+          <h1 class="section-title">Parlons-nous</h1>
+          <p class="section-subtitle">
+            Une question sur NOOBA, votre abonnement ou une idée de contenu ?
+            Nous sommes à votre écoute.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- ── LEFT: Formulaire ── -->
+          <div class="contact-form-panel">
+            <h2 class="contact-form-title">Envoyez-nous un message</h2>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Votre nom</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="Prénom Nom">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Adresse email</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="votre@email.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Sujet</label>
+              <div class="form-select-wrapper">
+                <select id="contact-subject" class="form-input form-select">
+                  <option>Choisir un sujet...</option>
+                  <option>Question sur l'abonnement</option>
+                  <option>Problème technique</option>
+                  <option>Suggestion de contenu</option>
+                  <option>Partenariat / Presse</option>
+                  <option>Protection des données</option>
+                  <option>Autre</option>
+                </select>
+                <i class="fa-solid fa-chevron-down form-select-icon"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Votre message</label>
+              <textarea id="contact-message" class="form-input form-textarea" rows="5" placeholder="Décrivez votre demande..."></textarea>
+            </div>
+
+            <button class="login-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+              Envoyer le message
+            </button>
+
+            <p class="contact-form-note">
+              <i class="fa-solid fa-clock"></i>
+              Nous répondons généralement sous 24 à 48 heures.
+            </p>
+          </div>
+
+          <!-- ── RIGHT: Infos de contact ── -->
+          <div class="contact-info-panel">
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <h3 class="contact-info-title">Email</h3>
+              <p class="contact-info-value">contact@nooba.ma</p>
+              <p class="contact-info-desc">Pour toute question générale</p>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="contact-info-title">Protection des données</h3>
+              <p class="contact-info-value">privacy@nooba.ma</p>
+              <p class="contact-info-desc">Droits RGPD et données personnelles</p>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <h3 class="contact-info-title">Support technique</h3>
+              <p class="contact-info-value">support@nooba.ma</p>
+              <p class="contact-info-desc">Problèmes avec l'app ou l'abonnement</p>
+            </div>
+
+            <div class="contact-social-card">
+              <h3 class="contact-social-title">Suivez-nous</h3>
+              <p class="contact-social-desc">
+                Retrouvez-nous sur les réseaux sociaux pour les dernières
+                actualités, les coulisses et les nouveaux contenus.
+              </p>
+              <div class="contact-social-links">
+                <a href="#" class="contact-social-link">
+                  <i class="fa-brands fa-instagram"></i>
+                  <span>@nooba.ma</span>
+                </a>
+                <a href="#" class="contact-social-link">
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <span>NOOBA</span>
+                </a>
+                <a href="#" class="contact-social-link">
+                  <i class="fa-brands fa-tiktok"></i>
+                  <span>@nooba.ma</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER (compact)
+    ════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-name">N<span>OO</span>BA</p>
+            <p class="footer-brand-desc">
+              Raconte-moi le Maroc. Contes, berceuses et découvertes
+              en darija pour vos enfants de 3 à 12 ans.
+            </p>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Découvrir</p>
+            <a href="01_home.html#manifeste">Notre mission</a>
+            <a href="01_home.html#catalogue">Le catalogue</a>
+            <a href="01_home.html#fondatrices">Qui sommes-nous</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Accès</p>
+            <a href="02_subscribe.html">S'abonner</a>
+            <a href="06_download.html">Télécharger l'app</a>
+            <a href="03_login.html">Se connecter</a>
+            <a href="04_account.html">Mon espace</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Légal</p>
+            <a href="#">Conditions générales</a>
+            <a href="08_privacy.html">Politique de confidentialité</a>
+            <a href="09_contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 NOOBA — Tous droits réservés</span>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

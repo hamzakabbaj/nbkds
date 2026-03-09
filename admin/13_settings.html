@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Paramètres</h1>
+          <p class="main-header-subtitle">Configurez votre espace d'administration.</p>
+        </div>
+        <div class="main-header-actions">
+          <button class="btn btn--primary">
+            <i class="fa-solid fa-floppy-disk"></i> Enregistrer
+          </button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <div class="settings-layout">
+
+          <!-- Settings Navigation (Tabs) -->
+          <div class="settings-tabs">
+            <button class="settings-tab settings-tab--active">
+              <i class="fa-solid fa-user"></i> Mon compte
+            </button>
+            <button class="settings-tab">
+              <i class="fa-solid fa-bell"></i> Notifications
+            </button>
+            <button class="settings-tab">
+              <i class="fa-solid fa-shield-halved"></i> Sécurité
+            </button>
+            <button class="settings-tab">
+              <i class="fa-solid fa-palette"></i> Application
+            </button>
+          </div>
+
+          <!-- Settings Content -->
+          <div class="settings-content">
+
+            <!-- Mon compte -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Informations personnelles</h2>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Prénom</label>
+                  <input class="form-input" type="text" value="Maha">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nom</label>
+                  <input class="form-input" type="text" value="Benali">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Adresse e-mail</label>
+                <input class="form-input" type="email" value="maha@nooba.ma">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Rôle</label>
+                <div class="form-static-value">
+                  <i class="fa-solid fa-crown" style="color: var(--accent);"></i> Co-fondatrice · Administratrice
+                </div>
+              </div>
+            </div>
+
+            <!-- Change Password -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Changer le mot de passe</h2>
+
+              <div class="form-group">
+                <label class="form-label">Mot de passe actuel</label>
+                <input class="form-input" type="password" placeholder="••••••••">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Nouveau mot de passe</label>
+                  <input class="form-input" type="password" placeholder="Minimum 8 caractères">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Confirmer</label>
+                  <input class="form-input" type="password" placeholder="Répétez le mot de passe">
+                </div>
+              </div>
+
+              <button class="btn btn--secondary" style="margin-top: 4px;">
+                <i class="fa-solid fa-key"></i> Mettre à jour le mot de passe
+              </button>
+            </div>
+
+            <!-- Notifications -->
+            <div class="form-panel" style="margin-bottom: 24px;">
+              <h2 class="form-panel-title">Préférences de notifications</h2>
+
+              <div class="settings-toggle-list">
+                <div class="settings-toggle-item">
+                  <div>
+                    <p class="settings-toggle-title">Nouvel abonné</p>
+                    <p class="settings-toggle-desc">Recevoir un e-mail quand un nouvel utilisateur s'abonne.</p>
+                  </div>
+                  <div class="toggle-switch toggle-switch--on">
+                    <div class="toggle-switch-knob"></div>
+                  </div>
+                </div>
+                <div class="settings-toggle-item">
+                  <div>
+                    <p class="settings-toggle-title">Abonnement expiré</p>
+                    <p class="settings-toggle-desc">Être notifié quand un abonnement arrive à expiration.</p>
+                  </div>
+                  <div class="toggle-switch toggle-switch--on">
+                    <div class="toggle-switch-knob"></div>
+                  </div>
+                </div>
+                <div class="settings-toggle-item">
+                  <div>
+                    <p class="settings-toggle-title">Rapport hebdomadaire</p>
+                    <p class="settings-toggle-desc">Résumé des statistiques chaque lundi matin.</p>
+                  </div>
+                  <div class="toggle-switch">
+                    <div class="toggle-switch-knob"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="form-panel form-panel--danger">
+              <h2 class="form-panel-title" style="color: var(--status-error);">Zone dangereuse</h2>
+              <p class="settings-danger-desc">
+                La déconnexion vous renverra vers la page de connexion.
+              </p>
+              <a href="01_login.html" class="btn btn--danger" style="border: 1px solid var(--status-error);">
+                <i class="fa-solid fa-right-from-bracket"></i> Se déconnecter
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

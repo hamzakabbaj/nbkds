@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier mon compte — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- Sheet Header -->
+    <div class="sheet-header">
+      <a href="07_profile.html" class="sheet-header-action">Annuler</a>
+      <span class="sheet-header-title">Mon compte</span>
+      <a href="07_profile.html" class="sheet-header-action sheet-header-action--primary">Enregistrer</a>
+    </div>
+
+    <div class="screen" style="padding: var(--space-5);">
+
+      <!-- Avatar -->
+      <div class="child-edit-avatar">
+        <div class="child-edit-avatar-circle" style="background: linear-gradient(145deg, var(--accent-subtle), var(--accent-muted));">
+          <span class="child-edit-avatar-initial">S</span>
+        </div>
+        <span class="child-edit-avatar-btn"><i class="fa-solid fa-camera"></i> Changer la photo</span>
+      </div>
+
+      <!-- Form Fields -->
+      <div class="sheet-form" style="padding-top: 0;">
+
+        <div class="sheet-field">
+          <label class="sheet-label">Prénom</label>
+          <div class="sheet-input-wrapper">
+            <i class="fa-solid fa-user sheet-input-icon"></i>
+            <input class="sheet-input" type="text" value="Samia">
+          </div>
+        </div>
+
+        <div class="sheet-field">
+          <label class="sheet-label">Nom</label>
+          <div class="sheet-input-wrapper">
+            <i class="fa-solid fa-user sheet-input-icon"></i>
+            <input class="sheet-input" type="text" value="El Masri">
+          </div>
+        </div>
+
+        <div class="sheet-field">
+          <label class="sheet-label">Adresse email</label>
+          <div class="sheet-input-wrapper">
+            <i class="fa-solid fa-envelope sheet-input-icon"></i>
+            <input class="sheet-input" type="email" value="samia.elmasri@gmail.com">
+          </div>
+          <p class="sheet-hint">Un email de confirmation sera envoyé si vous changez votre adresse.</p>
+        </div>
+
+        <!-- Change Password Link -->
+        <a href="17_change_password.html" class="auth-action-row" style="text-decoration: none;">
+          <div class="profile-row-icon">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <span class="profile-row-label">Changer le mot de passe</span>
+          <span class="profile-row-chevron"><i class="fa-solid fa-chevron-right"></i></span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

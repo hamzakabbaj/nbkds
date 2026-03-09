@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abonnés — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Abonnés</h1>
+          <p class="main-header-subtitle">156 abonnés — 142 actifs, 14 expirés</p>
+        </div>
+        <div class="main-header-actions">
+          <button class="btn btn--secondary">
+            <i class="fa-solid fa-file-export"></i> Exporter CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <!-- Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--subscribers">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <span class="metric-trend metric-trend--up">
+                <i class="fa-solid fa-arrow-up"></i> +12
+              </span>
+            </div>
+            <div class="metric-value">142</div>
+            <div class="metric-label">Abonnés actifs</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon" style="background: var(--status-error-bg); color: var(--status-error);">
+                <i class="fa-solid fa-user-clock"></i>
+              </div>
+              <span class="metric-trend metric-trend--neutral">
+                Ce mois
+              </span>
+            </div>
+            <div class="metric-value">14</div>
+            <div class="metric-label">Abonnements expirés</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--weekly">
+                <i class="fa-solid fa-user-plus"></i>
+              </div>
+              <span class="metric-trend metric-trend--up">
+                <i class="fa-solid fa-arrow-up"></i> +5
+              </span>
+            </div>
+            <div class="metric-value">18</div>
+            <div class="metric-label">Nouveaux ce mois</div>
+          </div>
+        </div>
+
+        <!-- Subscribers Table -->
+        <div class="table-panel">
+
+          <!-- Toolbar -->
+          <div class="table-toolbar">
+            <div class="table-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Rechercher un abonné...">
+            </div>
+            <div class="table-filters">
+              <select class="filter-select">
+                <option>Tous statuts</option>
+                <option>Actif</option>
+                <option>Expiré</option>
+              </select>
+              <select class="filter-select">
+                <option>Toutes formules</option>
+                <option>Mensuel</option>
+                <option>Annuel</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Abonné</th>
+                <th>Formule</th>
+                <th>Statut</th>
+                <th>Inscription</th>
+                <th>Expiration</th>
+                <th>Enfants</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">SE</div>
+                    <div>
+                      <div class="table-content-title">Samia El Masri</div>
+                      <div class="table-content-sub">samia.elmasri@gmail.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--annual">Annuel</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Actif</span></td>
+                <td>2 jan. 2026</td>
+                <td>2 jan. 2027</td>
+                <td><span class="age-tag">2 enfants</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">KA</div>
+                    <div>
+                      <div class="table-content-title">Karim Alaoui</div>
+                      <div class="table-content-sub">k.alaoui@outlook.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--monthly">Mensuel</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Actif</span></td>
+                <td>15 fév. 2026</td>
+                <td>15 mars 2026</td>
+                <td><span class="age-tag">1 enfant</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">NB</div>
+                    <div>
+                      <div class="table-content-title">Nadia Bennis</div>
+                      <div class="table-content-sub">nadia.bennis@yahoo.fr</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--annual">Annuel</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Actif</span></td>
+                <td>8 déc. 2025</td>
+                <td>8 déc. 2026</td>
+                <td><span class="age-tag">3 enfants</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">YH</div>
+                    <div>
+                      <div class="table-content-title">Youssef Haddad</div>
+                      <div class="table-content-sub">y.haddad@gmail.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--monthly">Mensuel</span></td>
+                <td><span class="status-badge status-badge--expired"><span class="status-dot"></span> Expiré</span></td>
+                <td>3 jan. 2026</td>
+                <td>3 fév. 2026</td>
+                <td><span class="age-tag">2 enfants</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">LM</div>
+                    <div>
+                      <div class="table-content-title">Leila Mokhtari</div>
+                      <div class="table-content-sub">leila.m@hotmail.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--annual">Annuel</span></td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Actif</span></td>
+                <td>20 jan. 2026</td>
+                <td>20 jan. 2027</td>
+                <td><span class="age-tag">1 enfant</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="subscriber-avatar">FB</div>
+                    <div>
+                      <div class="table-content-title">Fatima Zohra Benhima</div>
+                      <div class="table-content-sub">fz.benhima@gmail.com</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="plan-badge plan-badge--monthly">Mensuel</span></td>
+                <td><span class="status-badge status-badge--expired"><span class="status-dot"></span> Expiré</span></td>
+                <td>10 nov. 2025</td>
+                <td>10 fév. 2026</td>
+                <td><span class="age-tag">2 enfants</span></td>
+                <td>
+                  <div class="table-actions">
+                    <a href="12_subscriber_detail.html" class="table-action-btn"><i class="fa-solid fa-eye"></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <div class="table-footer">
+            <span>Affichage 1-6 sur 156 abonnés</span>
+            <div class="table-pagination">
+              <button class="table-page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="table-page-btn table-page-btn--active">1</button>
+              <button class="table-page-btn">2</button>
+              <button class="table-page-btn">3</button>
+              <button class="table-page-btn">...</button>
+              <button class="table-page-btn">26</button>
+              <button class="table-page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

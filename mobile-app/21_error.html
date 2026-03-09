@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erreur — NOOBA App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="phone">
+    <div class="status-bar">
+      <span class="status-bar-time">9:41</span>
+      <div class="status-bar-icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <div class="onboarding-screen">
+
+      <div class="onboarding-content">
+        <div class="blocking-icon blocking-icon--error">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <h1 class="onboarding-title">Oups !</h1>
+        <p class="onboarding-subtitle">
+          Quelque chose ne s'est pas passé comme prévu.
+          Notre équipe est probablement déjà dessus.
+        </p>
+        <p style="font-size: 12px; color: var(--text-disabled); margin-top: var(--space-4); font-family: monospace;">
+          ERR_500 · 09/03/2026 09:41
+        </p>
+      </div>
+
+      <div class="onboarding-footer">
+        <a href="02_home.html" class="onboarding-btn" style="text-decoration: none; display: block;">
+          <i class="fa-solid fa-rotate-right" style="margin-right: 8px;"></i>
+          Réessayer
+        </a>
+        <a href="06_downloads.html" class="onboarding-skip" style="text-decoration: none; display: block;">Accéder aux téléchargements</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
