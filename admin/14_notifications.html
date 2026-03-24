@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications — NOOBA Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ════════════════════════════════════════════════════════════
+         SIDEBAR
+    ════════════════════════════════════════════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <p class="sidebar-logo">N<span>OO</span>BA</p>
+        <p class="sidebar-label">Administration</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="02_dashboard.html" class="sidebar-link">
+          <i class="fa-solid fa-chart-line"></i> Tableau de bord
+        </a>
+        <a href="03_catalog.html" class="sidebar-link">
+          <i class="fa-solid fa-list"></i> Catalogue
+        </a>
+        <a href="05_add_content.html" class="sidebar-link">
+          <i class="fa-solid fa-plus"></i> Ajouter un contenu
+        </a>
+        <a href="11_subscribers.html" class="sidebar-link">
+          <i class="fa-solid fa-users"></i> Abonnés
+        </a>
+        <a href="14_notifications.html" class="sidebar-link sidebar-link--active">
+          <i class="fa-solid fa-paper-plane"></i> Notifications
+        </a>
+        <a href="13_settings.html" class="sidebar-link">
+          <i class="fa-solid fa-gear"></i> Paramètres
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+          <p class="sidebar-user-name">Maha Benali</p>
+          <p class="sidebar-user-role">Co-fondatrice</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════════════════════════════════════ -->
+    <main class="main">
+
+      <!-- Header -->
+      <div class="main-header">
+        <div class="main-header-left">
+          <h1 class="main-header-title">Notifications</h1>
+          <p class="main-header-subtitle">Envoyez des notifications push à vos abonnés et consultez l'historique.</p>
+        </div>
+        <div class="main-header-actions">
+          <button class="btn btn--primary" onclick="document.getElementById('compose-panel').scrollIntoView({behavior:'smooth'})">
+            <i class="fa-solid fa-plus"></i> Nouvelle notification
+          </button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="main-content">
+
+        <!-- Metrics -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon" style="background: var(--accent-subtle); color: var(--accent);">
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <span class="metric-trend metric-trend--neutral">
+                Total
+              </span>
+            </div>
+            <div class="metric-value">12</div>
+            <div class="metric-label">Notifications envoyées</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--subscribers">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <span class="metric-trend metric-trend--up">
+                <i class="fa-solid fa-arrow-up"></i> 78%
+              </span>
+            </div>
+            <div class="metric-value">78%</div>
+            <div class="metric-label">Taux d'ouverture moyen</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-header">
+              <div class="metric-icon metric-icon--weekly">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+              <span class="metric-trend metric-trend--neutral">
+                Dernière
+              </span>
+            </div>
+            <div class="metric-value" style="font-size: 20px;">5 mars</div>
+            <div class="metric-label">Dernière notification envoyée</div>
+          </div>
+        </div>
+
+        <!-- Compose Panel -->
+        <div class="form-panel" id="compose-panel" style="margin-bottom: var(--space-8);">
+          <h2 class="form-panel-title">Composer une notification</h2>
+
+          <div class="form-group">
+            <label class="form-label">Titre de la notification <span class="form-required">*</span></label>
+            <input class="form-input" type="text" placeholder="Ex : Nouveau contenu disponible !">
+            <p class="form-hint">Affiché en gras sur l'écran de verrouillage. Max 60 caractères recommandé.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message <span class="form-required">*</span></label>
+            <textarea class="form-textarea" placeholder="Ex : Découvrez 'Le secret de la médina', une nouvelle aventure sonore..." style="min-height: 80px;"></textarea>
+            <p class="form-hint">Corps de la notification. Max 120 caractères recommandé.</p>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Destinataires</label>
+              <select class="form-select">
+                <option selected>Tous les abonnés actifs</option>
+                <option>Abonnés en France</option>
+                <option>Abonnés au Maroc</option>
+                <option>Abonnés hors France/Maroc</option>
+                <option>Abonnés inactifs (7+ jours)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Type de notification</label>
+              <select class="form-select">
+                <option selected>Nouveau contenu</option>
+                <option>Rappel de ré-engagement</option>
+                <option>Promotion / Actualité</option>
+                <option>Message personnalisé</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Lien profond (optionnel)</label>
+            <input class="form-input" type="text" placeholder="Ex : contenu/hmadou-et-hmaydou">
+            <p class="form-hint">Redirige l'utilisateur vers un contenu spécifique quand il tape sur la notification.</p>
+          </div>
+
+          <div style="display: flex; gap: var(--space-3); margin-top: var(--space-4);">
+            <button class="btn btn--primary">
+              <i class="fa-solid fa-paper-plane"></i> Envoyer maintenant
+            </button>
+            <button class="btn btn--secondary">
+              <i class="fa-solid fa-clock"></i> Programmer
+            </button>
+          </div>
+        </div>
+
+        <!-- Notification History -->
+        <div class="table-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Historique des notifications</h2>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Notification</th>
+                <th>Type</th>
+                <th>Destinataires</th>
+                <th>Ouvertures</th>
+                <th>Date d'envoi</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover" style="background: var(--accent-subtle); width: 40px; height: 40px;">
+                      <i class="fa-solid fa-sparkles" style="font-size: 14px; color: var(--accent);"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Nouveau : Les couleurs du souk</div>
+                      <div class="table-content-sub">Explorez la médina avec vos enfants...</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge" style="background: var(--accent-subtle); color: var(--accent);">Nouveau contenu</span></td>
+                <td>142 abonnés</td>
+                <td>
+                  <span style="font-weight: 600;">112</span>
+                  <span style="color: var(--text-tertiary); font-size: 12px;">(79%)</span>
+                </td>
+                <td>5 mars 2026</td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Envoyée</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover" style="background: #EFF6FF; width: 40px; height: 40px;">
+                      <i class="fa-solid fa-bell" style="font-size: 14px; color: #3B82F6;"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Vous nous manquez !</div>
+                      <div class="table-content-sub">3 nouvelles histoires vous attendent...</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge" style="background: #EFF6FF; color: #3B82F6;">Ré-engagement</span></td>
+                <td>28 abonnés</td>
+                <td>
+                  <span style="font-weight: 600;">19</span>
+                  <span style="color: var(--text-tertiary); font-size: 12px;">(68%)</span>
+                </td>
+                <td>28 fév. 2026</td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Envoyée</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover" style="background: var(--accent-subtle); width: 40px; height: 40px;">
+                      <i class="fa-solid fa-sparkles" style="font-size: 14px; color: var(--accent);"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Comptines de chez Jidda</div>
+                      <div class="table-content-sub">Des mélodies de votre enfance...</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge" style="background: var(--accent-subtle); color: var(--accent);">Nouveau contenu</span></td>
+                <td>138 abonnés</td>
+                <td>
+                  <span style="font-weight: 600;">115</span>
+                  <span style="color: var(--text-tertiary); font-size: 12px;">(83%)</span>
+                </td>
+                <td>20 fév. 2026</td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Envoyée</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="table-content-cell">
+                    <div class="table-cover" style="background: var(--cat-rythmes-bg); width: 40px; height: 40px;">
+                      <i class="fa-solid fa-moon" style="font-size: 14px; color: var(--cat-rythmes);"></i>
+                    </div>
+                    <div>
+                      <div class="table-content-title">Rituel du soir : nouvelles berceuses</div>
+                      <div class="table-content-sub">Endormez vos petits en douceur...</div>
+                    </div>
+                  </div>
+                </td>
+                <td><span class="cat-badge" style="background: var(--accent-subtle); color: var(--accent);">Nouveau contenu</span></td>
+                <td>142 abonnés</td>
+                <td>
+                  <span style="font-weight: 600;">98</span>
+                  <span style="color: var(--text-tertiary); font-size: 12px;">(69%)</span>
+                </td>
+                <td>14 fév. 2026</td>
+                <td><span class="status-badge status-badge--published"><span class="status-dot"></span> Envoyée</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Footer / Pagination -->
+          <div class="table-footer">
+            <span>Affichage 1-4 sur 12 notifications</span>
+            <div class="table-pagination">
+              <button class="table-page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="table-page-btn table-page-btn--active">1</button>
+              <button class="table-page-btn">2</button>
+              <button class="table-page-btn">3</button>
+              <button class="table-page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

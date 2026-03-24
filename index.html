@@ -44,7 +44,7 @@
     /* ── Cards Grid ── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       max-width: 960px;
       width: 100%;
@@ -118,6 +118,11 @@
       color: #60A5FA;
     }
 
+    .card-icon--mockup {
+      background: rgba(168, 85, 247, 0.12);
+      color: #C084FC;
+    }
+
     .card-title {
       font-size: 18px;
       font-weight: 700;
@@ -166,6 +171,150 @@
     .card:hover .card-arrow {
       background: var(--accent);
       color: var(--bg);
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      width: 90%;
+      max-width: 520px;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+    }
+
+    .modal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .modal-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .modal-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .modal-item--chosen {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: rgba(168, 85, 247, 0.08);
+    }
+
+    .modal-item--chosen:hover {
+      border-color: rgba(168, 85, 247, 0.6);
+      background: rgba(168, 85, 247, 0.14);
+    }
+
+    .modal-item-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent-subtle);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-item--chosen .modal-item-number {
+      background: rgba(168, 85, 247, 0.2);
+      color: #C084FC;
+    }
+
+    .modal-item-label {
+      font-size: 14px;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .modal-item-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #C084FC;
+      background: rgba(168, 85, 247, 0.15);
+      padding: 3px 10px;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    .modal-item-arrow {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .modal-item:hover .modal-item-arrow {
+      color: var(--text);
     }
 
   </style>
@@ -219,6 +368,66 @@
       </div>
     </a>
 
+    <!-- Styled Mockups -->
+    <div class="card" onclick="document.getElementById('mockupModal').classList.add('active')" style="cursor:pointer">
+      <div class="card-icon card-icon--mockup">
+        <i class="fa-solid fa-palette"></i>
+      </div>
+      <h2 class="card-title">Maquettes Stylisées</h2>
+      <p class="card-desc">
+        Explorations graphiques du site vitrine. Direction « Doux & Minimaliste » — tons chauds, typographie douce et mise en page épurée.
+      </p>
+      <div class="card-meta">
+        <span class="card-count"><strong>6</strong> variantes</span>
+        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mockups Modal -->
+  <div class="modal-overlay" id="mockupModal" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Maquettes Stylisées</h3>
+        <button class="modal-close" onclick="document.getElementById('mockupModal').classList.remove('active')">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-list">
+        <a href="website-mockups/01_home-terre-oralite.html" class="modal-item">
+          <span class="modal-item-number">01</span>
+          <span class="modal-item-label">Terre & Oralité</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+        <a href="website-mockups/02_home-zellige-contemporain.html" class="modal-item">
+          <span class="modal-item-number">02</span>
+          <span class="modal-item-label">Zellige Contemporain</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+        <a href="website-mockups/03_home-doux-minimaliste.html" class="modal-item">
+          <span class="modal-item-number">03</span>
+          <span class="modal-item-label">Doux & Minimaliste</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+        <a href="website-mockups/04_home-terre-oralite-v1.html" class="modal-item">
+          <span class="modal-item-number">04</span>
+          <span class="modal-item-label">Terre & Oralité — v1</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+        <a href="website-mockups/05_home-zellige-contemporain-v1.html" class="modal-item">
+          <span class="modal-item-number">05</span>
+          <span class="modal-item-label">Zellige Contemporain — v1</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+        <a href="website-mockups/06_home-doux-minimaliste-v1.html" class="modal-item modal-item--chosen">
+          <span class="modal-item-number">06</span>
+          <span class="modal-item-label">Doux & Minimaliste — v1</span>
+          <span class="modal-item-badge">Retenue</span>
+          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+        </a>
+      </div>
+    </div>
   </div>
 
 </body>

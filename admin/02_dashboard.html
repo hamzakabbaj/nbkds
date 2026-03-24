@@ -36,6 +36,9 @@
         <a href="11_subscribers.html" class="sidebar-link">
           <i class="fa-solid fa-users"></i> Abonnés
         </a>
+        <a href="14_notifications.html" class="sidebar-link">
+          <i class="fa-solid fa-paper-plane"></i> Notifications
+        </a>
         <a href="13_settings.html" class="sidebar-link">
           <i class="fa-solid fa-gear"></i> Paramètres
         </a>
@@ -113,6 +116,135 @@
             <div class="metric-value">3</div>
             <div class="metric-label">Contenus ajoutés cette semaine</div>
           </div>
+        </div>
+
+        <!-- Analytics Row: Top contenus + Répartition géographique -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-8);">
+
+          <!-- Top contenus -->
+          <div class="form-panel" style="margin-bottom: 0;">
+            <h2 class="form-panel-title">Top contenus les plus écoutés</h2>
+            <div class="recent-listens">
+              <div class="recent-listen-item">
+                <div style="width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">1</div>
+                <div class="table-cover table-cover--recits" style="width: 36px; height: 36px;">
+                  <i class="fa-solid fa-book-open" style="font-size: 12px;"></i>
+                </div>
+                <div class="recent-listen-info">
+                  <p class="recent-listen-title">Hmadou et Hmaydou</p>
+                  <p class="recent-listen-meta">342 écoutes · Récits & Contes</p>
+                </div>
+              </div>
+              <div class="recent-listen-item">
+                <div style="width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">2</div>
+                <div class="table-cover table-cover--rythmes" style="width: 36px; height: 36px;">
+                  <i class="fa-solid fa-music" style="font-size: 12px;"></i>
+                </div>
+                <div class="recent-listen-info">
+                  <p class="recent-listen-title">A Mama, ya Mama</p>
+                  <p class="recent-listen-meta">287 écoutes · Rythmes & Berceuses</p>
+                </div>
+              </div>
+              <div class="recent-listen-item">
+                <div style="width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">3</div>
+                <div class="table-cover table-cover--recits" style="width: 36px; height: 36px;">
+                  <i class="fa-solid fa-book-open" style="font-size: 12px;"></i>
+                </div>
+                <div class="recent-listen-info">
+                  <p class="recent-listen-title">Hdidane et l'ogresse</p>
+                  <p class="recent-listen-meta">231 écoutes · Récits & Contes</p>
+                </div>
+              </div>
+              <div class="recent-listen-item">
+                <div style="width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">4</div>
+                <div class="table-cover table-cover--decouverte" style="width: 36px; height: 36px;">
+                  <i class="fa-solid fa-earth-africa" style="font-size: 12px;"></i>
+                </div>
+                <div class="recent-listen-info">
+                  <p class="recent-listen-title">Les couleurs du souk</p>
+                  <p class="recent-listen-meta">198 écoutes · Découverte & Langue</p>
+                </div>
+              </div>
+              <div class="recent-listen-item">
+                <div style="width: 28px; height: 28px; border-radius: var(--radius-full); background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0;">5</div>
+                <div class="table-cover table-cover--rythmes" style="width: 36px; height: 36px;">
+                  <i class="fa-solid fa-music" style="font-size: 12px;"></i>
+                </div>
+                <div class="recent-listen-info">
+                  <p class="recent-listen-title">Comptines de chez Jidda</p>
+                  <p class="recent-listen-meta">176 écoutes · Rythmes & Berceuses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Répartition géographique -->
+          <div class="form-panel" style="margin-bottom: 0;">
+            <h2 class="form-panel-title">Répartition géographique des abonnés</h2>
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+              <!-- France -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600;">France</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">68 <span style="font-weight: 400; color: var(--text-tertiary);">(44%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 44%; height: 100%; background: var(--accent); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+              <!-- Maroc -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600;">Maroc</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">42 <span style="font-weight: 400; color: var(--text-tertiary);">(27%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 27%; height: 100%; background: #3B82F6; border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+              <!-- Belgique -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600;">Belgique</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">18 <span style="font-weight: 400; color: var(--text-tertiary);">(12%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 12%; height: 100%; background: var(--status-published); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+              <!-- Canada -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600;">Canada</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">14 <span style="font-weight: 400; color: var(--text-tertiary);">(9%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 9%; height: 100%; background: #B86B7A; border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+              <!-- Royaume-Uni -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600;">Royaume-Uni</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">8 <span style="font-weight: 400; color: var(--text-tertiary);">(5%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 5%; height: 100%; background: var(--status-draft); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+              <!-- Autres -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+                  <span style="font-size: 13px; font-weight: 600; color: var(--text-tertiary);">Autres</span>
+                  <span style="font-size: 13px; font-weight: 700; color: var(--accent);">6 <span style="font-weight: 400; color: var(--text-tertiary);">(4%)</span></span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-elevated); border-radius: var(--radius-full); overflow: hidden;">
+                  <div style="width: 4%; height: 100%; background: var(--text-tertiary); border-radius: var(--radius-full);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Recent Content Table -->
