@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOOBA — Labo Éléments Marocains</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FEFBF6;
+      --bg-peach: #FBF0ED;
+      --bg-teal: #E4ECF3;
+      --bg-dark: #1E2D3D;
+      --text: #1E2D3D;
+      --text-secondary: #5A6B7B;
+      --accent-teal: #0A4F85;
+      --accent-peach: #E3998C;
+      --accent-lavender: #BFB5CC;
+      --accent-mint: #4A7FA8;
+      --accent-yellow: #FC9E3D;
+      --accent-rose: #CC293D;
+      --border: #E8E0D8;
+      --radius: 20px;
+      --max-w: 1200px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg); color: var(--text);
+      font-size: 15px; line-height: 1.7;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+    /* ══════════════════════════════════════════
+       LAB HEADER
+    ══════════════════════════════════════════ */
+    .lab-header {
+      background: var(--bg-dark); color: #fff;
+      padding: 32px 0; text-align: center;
+    }
+    .lab-header h1 { font-family: 'Nunito', sans-serif; font-size: 24px; font-weight: 800; }
+    .lab-header p { opacity: 0.6; font-size: 14px; margin-top: 8px; }
+
+    /* ══════════════════════════════════════════
+       SECTION WRAPPER
+    ══════════════════════════════════════════ */
+    .lab-section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .lab-section:last-child { border-bottom: none; }
+    .lab-section-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px;
+      text-transform: uppercase; letter-spacing: 2px; color: var(--accent-teal);
+      margin-bottom: 12px;
+    }
+    .lab-section-desc {
+      font-size: 14px; color: var(--text-secondary); margin-bottom: 48px; max-width: 600px;
+    }
+    .lab-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 48px; align-items: start;
+    }
+    .lab-card {
+      background: #fff; border-radius: var(--radius); padding: 40px;
+      box-shadow: 0 2px 16px rgba(30,45,61,0.06);
+    }
+    .lab-card-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--accent-teal); margin-bottom: 16px;
+    }
+
+    /* ══════════════════════════════════════════
+       1. ÉTOILE 8 BRANCHES (Khatam)
+    ══════════════════════════════════════════ */
+    .star8 {
+      display: inline-block;
+      position: relative;
+    }
+    .star8 svg { display: block; }
+
+    .stars-demo {
+      display: flex; align-items: center; gap: 32px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .stars-demo .star8-item {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .stars-demo .star8-item span { font-size: 11px; color: var(--text-secondary); }
+
+    /* Floating animation */
+    @keyframes float-gentle {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(8deg); }
+    }
+    .star8--animated { animation: float-gentle 4s ease-in-out infinite; }
+    .star8--animated-delay { animation: float-gentle 4s ease-in-out 1.5s infinite; }
+    .star8--animated-slow { animation: float-gentle 6s ease-in-out 0.8s infinite; }
+
+    /* ══════════════════════════════════════════
+       2. CALLIGRAPHIE ARABE FILIGRANE
+    ══════════════════════════════════════════ */
+    .calligraphy-demo {
+      position: relative; text-align: center; padding: 48px 0;
+    }
+    .calligraphy-watermark {
+      font-family: 'Amiri', serif;
+      font-size: 120px; font-weight: 700;
+      color: var(--accent-teal);
+      opacity: 0.06;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      user-select: none;
+      line-height: 1;
+    }
+    .calligraphy-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 72px; line-height: 1.1;
+      color: var(--text);
+      position: relative; z-index: 1;
+    }
+    .calligraphy-title em { font-style: normal; color: var(--accent-teal); }
+
+    .calligraphy-variants {
+      display: flex; gap: 48px; justify-content: center; margin-top: 48px; flex-wrap: wrap;
+    }
+    .calligraphy-variant {
+      text-align: center;
+    }
+    .calligraphy-variant .arabic {
+      font-family: 'Amiri', serif; font-size: 48px; color: var(--accent-teal); opacity: 0.15;
+      line-height: 1.2;
+    }
+    .calligraphy-variant .label {
+      font-size: 12px; color: var(--text-secondary); margin-top: 8px;
+    }
+
+    /* ══════════════════════════════════════════
+       3. FRISE ZELLIGE
+    ══════════════════════════════════════════ */
+    .zellige-strip {
+      width: 100%; overflow: hidden; padding: 16px 0;
+    }
+    .zellige-strip svg { display: block; width: 100%; }
+
+    .zellige-demo-row {
+      display: flex; flex-direction: column; gap: 40px;
+    }
+    .zellige-label {
+      font-size: 12px; font-weight: 600; color: var(--text-secondary);
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+    }
+
+    /* ══════════════════════════════════════════
+       4. ARCHE MAROCAINE
+    ══════════════════════════════════════════ */
+    .arch-demo {
+      display: flex; gap: 48px; justify-content: center; align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .arch-item {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .arch-item span { font-size: 11px; color: var(--text-secondary); }
+
+    /* ══════════════════════════════════════════
+       5. HERO COMBINÉ (preview)
+    ══════════════════════════════════════════ */
+    .hero-preview {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 64px 48px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-preview .watermark {
+      font-family: 'Amiri', serif;
+      font-size: 140px; font-weight: 700;
+      color: var(--accent-teal); opacity: 0.05;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      white-space: nowrap;
+      user-select: none;
+    }
+    .hero-preview h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 64px; line-height: 1.1;
+      position: relative; z-index: 1;
+    }
+    .hero-preview h2 em { font-style: normal; color: var(--accent-teal); }
+    .hero-preview .stars-floating {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .hero-preview .stars-floating .star8 {
+      position: absolute;
+    }
+
+    /* ══════════════════════════════════════════
+       6. MOTIF BERBÈRE
+    ══════════════════════════════════════════ */
+    .amazigh-demo {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* ══════════════════════════════════════════
+       7. ICÔNES VECTORIELLES
+    ══════════════════════════════════════════ */
+    .icons-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 32px;
+    }
+    .icon-item {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px; padding: 32px 16px;
+      background: #fff; border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(30,45,61,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .icon-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(30,45,61,0.1);
+    }
+    .icon-item img {
+      width: 64px; height: 64px; object-fit: contain;
+    }
+    .icon-item .icon-label {
+      font-size: 12px; font-weight: 600; color: var(--text);
+      text-align: center;
+    }
+    .icon-item .icon-id {
+      font-size: 10px; color: var(--text-secondary);
+    }
+
+    /* Color-tinted icon variants */
+    .icon-tinted {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .icon-tinted-card {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      padding: 32px; border-radius: var(--radius); min-width: 160px;
+    }
+    .icon-tinted-card img {
+      width: 80px; height: 80px; object-fit: contain;
+    }
+    .icon-tinted-card .tint-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .icon-tinted-card--blue { background: rgba(10,79,133,0.08); }
+    .icon-tinted-card--blue img { filter: sepia(1) saturate(3) hue-rotate(180deg) brightness(0.7); }
+    .icon-tinted-card--blue .tint-label { color: var(--accent-teal); }
+    .icon-tinted-card--peach { background: rgba(227,153,140,0.12); }
+    .icon-tinted-card--peach img { filter: sepia(1) saturate(2) hue-rotate(320deg) brightness(0.8); }
+    .icon-tinted-card--peach .tint-label { color: var(--accent-peach); }
+    .icon-tinted-card--caramel { background: rgba(252,158,61,0.1); }
+    .icon-tinted-card--caramel img { filter: sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85); }
+    .icon-tinted-card--caramel .tint-label { color: var(--accent-yellow); }
+    .icon-tinted-card--lilac { background: rgba(191,181,204,0.15); }
+    .icon-tinted-card--lilac img { filter: sepia(1) saturate(1.5) hue-rotate(220deg) brightness(0.8); }
+    .icon-tinted-card--lilac .tint-label { color: var(--accent-lavender); }
+    .icon-tinted-card--red { background: rgba(204,41,61,0.08); }
+    .icon-tinted-card--red img { filter: sepia(1) saturate(4) hue-rotate(330deg) brightness(0.6); }
+    .icon-tinted-card--red .tint-label { color: var(--accent-rose); }
+
+    /* Use-case demo */
+    .usecase-demo {
+      margin-top: 64px; padding: 48px; border-radius: var(--radius);
+      background: var(--bg-peach); text-align: center;
+    }
+    .usecase-demo h3 {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px;
+      margin-bottom: 32px; color: var(--text);
+    }
+    .usecase-pillars {
+      display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    }
+    .usecase-pillar {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      background: #fff; border-radius: var(--radius); padding: 32px 24px;
+      min-width: 200px; max-width: 260px;
+      box-shadow: 0 2px 12px rgba(30,45,61,0.06);
+    }
+    .usecase-pillar img { width: 56px; height: 56px; object-fit: contain; opacity: 0.7; }
+    .usecase-pillar h4 {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px;
+    }
+    .usecase-pillar p { font-size: 13px; color: var(--text-secondary); text-align: center; }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — TABLET (≤ 768px)
+    ══════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+
+      .lab-section { padding: 48px 0; }
+      .lab-section-title { font-size: 16px; letter-spacing: 1px; }
+      .lab-section-desc { font-size: 13px; margin-bottom: 32px; }
+
+      .lab-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .lab-card { padding: 28px 20px; }
+
+      /* Calligraphy */
+      .calligraphy-watermark { font-size: 72px; }
+      .calligraphy-title { font-size: 42px; }
+      .calligraphy-variants { gap: 24px; }
+      .calligraphy-variant .arabic { font-size: 32px; }
+
+      /* Hero preview */
+      .hero-preview { padding: 40px 24px; }
+      .hero-preview h2 { font-size: 36px; }
+      .hero-preview .watermark { font-size: 80px; }
+
+      /* Icons grid */
+      .icons-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; }
+      .icon-item { padding: 20px 12px; }
+      .icon-item img { width: 48px; height: 48px; }
+
+      /* Icon tinted */
+      .icon-tinted { gap: 16px; }
+      .icon-tinted-card { padding: 20px; min-width: 120px; }
+      .icon-tinted-card img { width: 56px; height: 56px; }
+
+      /* Use case */
+      .usecase-demo { padding: 32px 20px; }
+      .usecase-pillars { gap: 16px; }
+      .usecase-pillar { min-width: 140px; padding: 24px 16px; }
+
+      /* Arch demo */
+      .arch-demo { gap: 24px; }
+
+      /* Inline grids — all column counts → 2 cols on tablet */
+      [style*="grid-template-columns:repeat(8"],
+      [style*="grid-template-columns:repeat(6"],
+      [style*="grid-template-columns:repeat(5"],
+      [style*="grid-template-columns:repeat(4"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+      [style*="grid-template-columns:repeat(3"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE — MOBILE (≤ 480px)
+    ══════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+
+      .lab-header h1 { font-size: 18px; }
+      .lab-header p { font-size: 12px; }
+
+      .lab-section { padding: 36px 0; }
+      .lab-section-title { font-size: 14px; }
+      .lab-section-desc { font-size: 12px; margin-bottom: 24px; }
+
+      .lab-card { padding: 20px 16px; border-radius: 14px; }
+
+      /* Calligraphy */
+      .calligraphy-watermark { font-size: 48px; }
+      .calligraphy-title { font-size: 28px; }
+      .calligraphy-variant .arabic { font-size: 24px; }
+
+      /* Hero preview */
+      .hero-preview { padding: 32px 16px; border-radius: 14px; }
+      .hero-preview h2 { font-size: 26px; }
+      .hero-preview .watermark { font-size: 56px; }
+
+      /* Stars */
+      .stars-demo { gap: 16px; }
+
+      /* Icons grid */
+      .icons-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .icon-item { padding: 16px 8px; border-radius: 14px; }
+      .icon-item img { width: 40px; height: 40px; }
+      .icon-item .icon-label { font-size: 11px; }
+
+      /* Icon tinted */
+      .icon-tinted { gap: 12px; }
+      .icon-tinted-card { padding: 16px; min-width: 100px; border-radius: 14px; }
+      .icon-tinted-card img { width: 48px; height: 48px; }
+
+      /* Use case */
+      .usecase-demo { padding: 24px 16px; border-radius: 14px; }
+      .usecase-demo h3 { font-size: 18px; margin-bottom: 20px; }
+      .usecase-pillars { flex-direction: column; align-items: center; gap: 12px; }
+      .usecase-pillar { min-width: auto; width: 100%; max-width: 100%; padding: 20px 16px; }
+
+      /* Arch demo */
+      .arch-demo { gap: 16px; justify-content: space-around; }
+
+      /* Inline flex/grid overrides for mobile → 2 cols */
+      [style*="grid-template-columns:repeat(8"],
+      [style*="grid-template-columns:repeat(6"],
+      [style*="grid-template-columns:repeat(5"],
+      [style*="grid-template-columns:repeat(4"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+      [style*="grid-template-columns:repeat(3"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      /* Mascot images smaller on mobile */
+      [style*="mascot-"] img,
+      img[alt*="Tarbouche"], img[alt*="Amazigh"], img[alt*="Tajine"], img[alt*="Arche"],
+      img[alt*="Peach"], img[alt*="Caramel"], img[alt*="Lavande"], img[alt*="Blue"] {
+        max-width: 80px;
+        height: auto;
+      }
+
+      /* Tables scroll horizontally */
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+
+      /* Inline flex gaps */
+      [style*="gap:48px"] { gap: 20px !important; }
+      [style*="gap:40px"] { gap: 16px !important; }
+      [style*="gap:32px"] { gap: 14px !important; }
+
+      /* Hero section composition in section 11 */
+      [style*="padding:80px 48px"] { padding: 40px 20px !important; }
+      button { font-size: 13px !important; padding: 12px 20px !important; }
+    }
+
+    /* ══════════════════════════════════════════
+       GLOBAL RESPONSIVE HELPERS
+    ══════════════════════════════════════════ */
+    img { max-width: 100%; height: auto; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="lab-header">
+    <div class="container">
+      <h1>Labo — Éléments Marocains</h1>
+      <p>Exploration de motifs à intégrer dans la page Nooba</p>
+    </div>
+  </header>
+
+  <!-- ═══ 0. ÉTOILES KHATAM ═══ -->
+  <section class="lab-section" style="background: var(--bg-peach);">
+    <div class="container">
+      <p class="lab-section-title">0. Étoiles Khatam</p>
+      <p class="lab-section-desc">Icônes d'étoiles 8 branches prêtes à l'emploi. Déclinables dans toutes les couleurs de la palette Nooba.</p>
+
+      <!-- A. Islamic Star results -->
+      <div style="margin-top:32px;">
+        <p class="zellige-label">A — Étoiles Islamiques</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" alt="Islamic star 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#1 — Lignes pures ⭐⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8022118-200.png" alt="Islamic star 2" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#2 — Géométrique</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7644697-200.png" alt="Islamic star 5" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#5 — Multicouche ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5643004-200.png" alt="Islamic star 11" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#11 — Octogone ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" alt="Islamic star 18" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#18 — Arabic art ⭐⭐</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- B. Octagram results -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">B — Octagrammes</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8169811-200.png" alt="Octagram 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#1 — Knot esoteric</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4403755-200.png" alt="Octagram 2" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#2 — Solid pétales</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4403748-200.png" alt="Octagram 3" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#3 — Étoile triangles</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/108872-200.png" alt="Octagram 9" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#9 — Classic solid ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4915037-200.png" alt="Octagram 14" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#14 — Arabic line ⭐⭐</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- C. 8 pointed star results -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">C — Étoiles 8 branches</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7447114-200.png" alt="8 pointed star 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#1 — Christmas star</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5908979-200.png" alt="8 pointed star 3" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#3 — Galaxy geometry</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/708115-200.png" alt="8 pointed star 4" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#4 — Geometric solid ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/708113-200.png" alt="8 pointed star 6" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#6 — Variante fine ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7853664-200.png" alt="8 pointed star 10" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px; color:var(--text);">#10 — Pointed contour</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- D. Démo tailles et couleurs -->
+      <div style="margin-top:56px;">
+        <p class="zellige-label">D — Démo : tailles & couleurs</p>
+        <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Différentes tailles et couleurs pour s'adapter au contexte d'utilisation.</p>
+
+        <div style="display:flex; gap:32px; align-items:end; justify-content:center; margin-top:24px; padding:40px; background:#fff; border-radius:var(--radius);">
+          <!-- Skyride Blue -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:48px; height:48px; opacity:0.2; filter:brightness(0) saturate(100%) invert(22%) sepia(90%) saturate(700%) hue-rotate(180deg);">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Blue 20%</p>
+          </div>
+          <!-- Peach -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:40px; height:40px; opacity:0.35; filter:brightness(0) saturate(100%) invert(70%) sepia(30%) saturate(500%) hue-rotate(320deg);">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Peach 35%</p>
+          </div>
+          <!-- Caramel -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:56px; height:56px; opacity:0.3; filter:brightness(0) saturate(100%) invert(65%) sepia(80%) saturate(500%) hue-rotate(360deg);">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Caramel 30%</p>
+          </div>
+          <!-- Lilac -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:36px; height:36px; opacity:0.4; filter:brightness(0) saturate(100%) invert(75%) sepia(10%) saturate(400%) hue-rotate(220deg);">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Lilac 40%</p>
+          </div>
+          <!-- Red petit -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/708115-200.png" alt="" style="width:24px; height:24px; opacity:0.2; filter:brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(2000%) hue-rotate(340deg);">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Red petit</p>
+          </div>
+          <!-- Black simple -->
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/108872-200.png" alt="" style="width:20px; height:20px; opacity:0.15;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:8px;">Noir 15%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. Démo séparateur avec étoiles -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">E — Séparateur avec étoiles Khatam</p>
+        <div style="text-align:center; padding:32px 0; display:flex; align-items:center; justify-content:center; gap:0;">
+          <span style="display:block; width:80px; height:1px; background:var(--border);"></span>
+          <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:12px; height:12px; opacity:0.15; margin:0 12px;">
+          <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:16px; height:16px; opacity:0.2; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:24px; height:24px; opacity:0.3; margin:0 8px; filter:brightness(0) saturate(100%) invert(65%) sepia(80%) saturate(500%) hue-rotate(360deg);">
+          <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:16px; height:16px; opacity:0.2; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:12px; height:12px; opacity:0.15; margin:0 12px;">
+          <span style="display:block; width:80px; height:1px; background:var(--border);"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 0b. MOTIFS & TILES ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">0b. Motifs, Arabesques & Tiles</p>
+      <p class="lab-section-desc">Icônes de motifs géométriques et floraux. Utilisables comme éléments décoratifs, fonds de cartes, ou embellissements de sections.</p>
+
+      <!-- Andalusian Tile -->
+      <div style="margin-top:32px;">
+        <p class="zellige-label">A — Carreaux Andalous</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:16px;">
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" alt="Andalusian tile" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:12px; color:var(--text);">Zellige entrelacé</p>
+            
+          </div>
+          <!-- Repeated as pattern demo -->
+          <div class="lab-card" style="padding:16px; text-align:center; grid-column: span 3;">
+            <p style="font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:var(--text-secondary); margin-bottom:12px;">Tiled en filigrane (6% opacité)</p>
+            <div style="position:relative; height:160px; border-radius:12px; overflow:hidden; background:linear-gradient(135deg, var(--bg) 0%, var(--bg-peach) 100%);">
+              <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('https://static.thenounproject.com/png/2159658-200.png'); background-size:80px; background-repeat:repeat; opacity:0.06;"></div>
+              <div style="position:relative; z-index:1; display:flex; align-items:center; justify-content:center; height:100%;">
+                <p style="font-family:'Nunito',sans-serif; font-weight:800; font-size:28px; color:var(--text);">Superbe en arrière-plan !</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arabesque -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">B — Arabesques & Mandalas</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8091042-200.png" alt="Arabesque 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Tile pattern</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8081536-200.png" alt="Arabesque 2" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#2 — Fleur étoile ⭐⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7573963-200.png" alt="Arabesque 3" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#3 — Islamic geo ⭐⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7567717-200.png" alt="Arabesque 4" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#4 — Ligne version</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5484317-200.png" alt="Arabesque 5" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#5 — Mandala floral</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5484316-200.png" alt="Arabesque 6" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#6 — Mandala dense</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5391291-200.png" alt="Arabesque 10" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#10 — Ornement geo ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5391289-200.png" alt="Arabesque 12" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#12 — Solid ornement</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" alt="Arabesque 17" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#17 — Fleur arabe ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/5304353-200.png" alt="Arabesque 19" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#19 — Fleur ornée</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mosaic Tiles -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">C — Carreaux Mosaïque</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8269224-200.png" alt="Mosaic 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Grid ceramics</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/8269172-200.png" alt="Mosaic 2" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#2 — Art grid</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7770715-200.png" alt="Mosaic 13" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#13 — Ceramic tile ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1834316-200.png" alt="Mosaic 4" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#4 — Floor tile</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7300144-200.png" alt="Mosaic 3" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#3 — Brick wall</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Geometric Tile Pattern -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">D — Motifs Géométriques</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4907017-200.png" alt="Geo tile 1" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Briques</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4907012-200.png" alt="Geo tile 6" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#6 — Croisé ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1581104-200.png" alt="Geo tile 15" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#15 — Seamless geo ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1581102-200.png" alt="Geo tile 17" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#17 — Tressé ⭐</p>
+            
+          </div>
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1581099-200.png" alt="Geo tile 20" style="width:64px; height:64px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#20 — Losanges</p>
+            
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 2. CALLIGRAPHIE FILIGRANE ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">2. Calligraphie arabe en filigrane</p>
+      <p class="lab-section-desc">Un mot arabe en très grande taille et très faible opacité derrière le titre principal. Ajoute de la profondeur culturelle sans surcharger.</p>
+
+      <div class="lab-card" style="overflow:hidden;">
+        <p class="lab-card-label">Option A — حكاية (Hikaya = Histoire)</p>
+        <div class="calligraphy-demo">
+          <div class="calligraphy-watermark">حكاية</div>
+          <div class="calligraphy-title">Raconte-moi<br><em>le Maroc</em></div>
+        </div>
+      </div>
+
+      <div class="lab-card" style="overflow:hidden; margin-top:32px;">
+        <p class="lab-card-label">Option B — المغرب (Al-Maghrib = Le Maroc)</p>
+        <div class="calligraphy-demo">
+          <div class="calligraphy-watermark">المغرب</div>
+          <div class="calligraphy-title">Raconte-moi<br><em>le Maroc</em></div>
+        </div>
+      </div>
+
+      <div class="lab-card" style="overflow:hidden; margin-top:32px;">
+        <p class="lab-card-label">Option C — كان يا ما كان (Il était une fois)</p>
+        <div class="calligraphy-demo">
+          <div class="calligraphy-watermark" style="font-size:100px;">كان يا ما كان</div>
+          <div class="calligraphy-title">Raconte-moi<br><em>le Maroc</em></div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;">
+        <p class="zellige-label">Expressions en calligraphie arabe</p>
+        <div class="calligraphy-variants">
+          <div class="calligraphy-variant">
+            <div class="arabic">حكاية</div>
+            <div class="label">Hikaya — Histoire</div>
+          </div>
+          <div class="calligraphy-variant">
+            <div class="arabic">المغرب</div>
+            <div class="label">Al-Maghrib — Le Maroc</div>
+          </div>
+          <div class="calligraphy-variant">
+            <div class="arabic">كان يا ما كان</div>
+            <div class="label">Kan ya ma kan — Il était une fois</div>
+          </div>
+          <div class="calligraphy-variant">
+            <div class="arabic">بسم الله</div>
+            <div class="label">Bismillah</div>
+          </div>
+          <div class="calligraphy-variant">
+            <div class="arabic">نوبة</div>
+            <div class="label">Nouba — Tour / Fête</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. FRISES & SÉPARATEURS ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">3. Frises & Séparateurs</p>
+      <p class="lab-section-desc">Séparateurs de sections construits avec des icônes vectorielles répétées.</p>
+
+      <div class="zellige-demo-row">
+
+        <!-- A — Andalusian tile repeat -->
+        <div>
+          <p class="zellige-label">A — Zellige andalou en frise</p>
+          <div style="height:40px; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:0;">
+            <span style="display:block; width:60px; height:1px; background:var(--border);"></span>
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.15; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:40px; height:40px; opacity:0.2; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.15; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <img src="https://static.thenounproject.com/png/2159658-200.png" style="width:32px; height:32px; opacity:0.12; margin:0 4px;">
+            <span style="display:block; width:60px; height:1px; background:var(--border);"></span>
+          </div>
+        </div>
+
+        <!-- B — Islamic star repeat -->
+        <div>
+          <p class="zellige-label">B — Étoiles islamiques en frise</p>
+          <div style="height:36px; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:0;">
+            <span style="display:block; width:80px; height:1px; background:var(--border);"></span>
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 10px;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:20px; height:20px; opacity:0.15; margin:0 10px;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:28px; height:28px; opacity:0.25; margin:0 10px;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:20px; height:20px; opacity:0.15; margin:0 10px;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 10px;">
+            <span style="display:block; width:80px; height:1px; background:var(--border);"></span>
+          </div>
+        </div>
+
+        <!-- C — Arabic art star (solid) -->
+        <div>
+          <p class="zellige-label">C — Étoiles arabes en frise</p>
+          <div style="height:36px; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:0;">
+            <span style="display:block; width:60px; height:1px; background:var(--border);"></span>
+            <img src="https://static.thenounproject.com/png/4915039-200.png" style="width:12px; height:12px; opacity:0.08; margin:0 16px;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" style="width:16px; height:16px; opacity:0.12; margin:0 16px;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" style="width:24px; height:24px; opacity:0.18; margin:0 16px;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" style="width:16px; height:16px; opacity:0.12; margin:0 16px;">
+            <img src="https://static.thenounproject.com/png/4915039-200.png" style="width:12px; height:12px; opacity:0.08; margin:0 16px;">
+            <span style="display:block; width:60px; height:1px; background:var(--border);"></span>
+          </div>
+        </div>
+
+        <!-- D — Mix: Arabesque floral -->
+        <div>
+          <p class="zellige-label">D — Arabesque florale en frise</p>
+          <div style="height:36px; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:0;">
+            <span style="display:block; width:40px; height:1px; background:var(--border);"></span>
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.1; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.1; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.12; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/8082997-200.png" style="width:20px; height:20px; opacity:0.2; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.12; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.1; margin:0 8px;">
+            <img src="https://static.thenounproject.com/png/5304355-200.png" style="width:24px; height:24px; opacity:0.1; margin:0 8px;">
+            <span style="display:block; width:40px; height:1px; background:var(--border);"></span>
+          </div>
+        </div>
+
+        <!-- E — Tiled background repeat -->
+        <div>
+          <p class="zellige-label">E — Zellige en motif répété</p>
+          <div style="height:48px; background-image:url('https://static.thenounproject.com/png/2159658-200.png'); background-size:40px; background-repeat:repeat-x; background-position:center; opacity:0.08;"></div>
+        </div>
+
+        <!-- F — Geometric tile repeat -->
+        <div>
+          <p class="zellige-label">F — Motif géométrique en frise</p>
+          <div style="height:40px; background-image:url('https://static.thenounproject.com/png/1581102-200.png'); background-size:36px; background-repeat:repeat-x; background-position:center; opacity:0.1;"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4. ARCHES MAROCAINES ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">4. Arches Marocaines</p>
+      <p class="lab-section-desc">Icônes d'arcs marocains et islamiques. Portes de riad, fenêtres outrepassées, arcs décoratifs.</p>
+
+      <!-- A — Moroccan Arch -->
+      <div style="margin-top:32px;">
+        <p class="zellige-label">A — Arches Marocaines</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/245394-200.png" alt="Moroccan arch 1" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Monument ⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4948122-200.png" alt="Moroccan arch 2" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#2 — Porte solid</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947968-200.png" alt="Moroccan arch 3" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#3 — Porte ornée</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947941-200.png" alt="Moroccan arch 4" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#4 — Porte ligne ⭐⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4646640-200.png" alt="Moroccan arch 5" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#5 — Zellige ⭐⭐</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- B — Islamic Arch (544 résultats, sélection) -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">B — Arches Islamiques</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7298400-200.png" alt="Islamic arch 1" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Décoratif ligne ⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4247853-200.png" alt="Islamic arch 2" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#2 — Eid / Ramadan</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/938244-200.png" alt="Islamic arch 3" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#3 — Arabesque ⭐⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/938243-200.png" alt="Islamic arch 4" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#4 — Solid version</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/938242-200.png" alt="Islamic arch 5" style="width:80px; height:80px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#5 — Ornement</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- C — Usage : arche comme cadre -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">C — Composition : Arche comme cadre de contenu</p>
+        <div style="display:flex; gap:32px; justify-content:center; margin-top:24px;">
+          <!-- Arche avec texte -->
+          <div style="position:relative; width:200px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947941-200.png" alt="" style="width:200px; opacity:0.12;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:120px;">
+              <p style="font-family:'Amiri',serif; font-size:18px; color:var(--text); line-height:1.4;">Contes<br>du Maroc</p>
+              <p style="font-size:10px; color:var(--text-secondary); margin-top:4px;">12 histoires</p>
+            </div>
+          </div>
+          <!-- Arche avec icône -->
+          <div style="position:relative; width:200px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/4646640-200.png" alt="" style="width:200px; opacity:0.1;">
+            <div style="position:absolute; top:45%; left:50%; transform:translate(-50%,-50%);">
+              <i class="fas fa-music" style="font-size:32px; color:var(--accent-peach); opacity:0.6;"></i>
+              <p style="font-family:'Nunito',sans-serif; font-size:14px; font-weight:700; color:var(--text); margin-top:8px;">Berceuses</p>
+            </div>
+          </div>
+          <!-- Arche fond sombre -->
+          <div style="position:relative; width:200px; text-align:center; background:var(--bg-dark); border-radius:var(--radius); padding:16px;">
+            <img src="https://static.thenounproject.com/png/938244-200.png" alt="" style="width:160px; opacity:0.15; filter:invert(1);">
+            <div style="position:absolute; top:45%; left:50%; transform:translate(-50%,-50%);">
+              <i class="fas fa-moon" style="font-size:28px; color:var(--accent-yellow); opacity:0.7;"></i>
+              <p style="font-family:'Nunito',sans-serif; font-size:13px; font-weight:700; color:#fff; margin-top:8px;">Histoires du soir</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 5. MOTIFS AMAZIGH / BERBÈRE ═══ -->
+  <section class="lab-section" style="background: var(--bg-peach);">
+    <div class="container">
+      <p class="lab-section-title">5. Motifs Amazigh & Berbère</p>
+      <p class="lab-section-desc">Symbole Yaz (ⵣ) et motifs tribaux géométriques. Patrimoine amazigh pour enrichir l'identité culturelle de Nooba.</p>
+
+      <!-- A — Amazigh Yaz symbol -->
+      <div style="margin-top:32px;">
+        <p class="zellige-label">A — Symbole Yaz / ⵣ</p>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;">
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642017-200.png" alt="Amazigh 1" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#1 — Ligne épaisse</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642016-200.png" alt="Amazigh 2" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#2 — Solid</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642013-200.png" alt="Amazigh 5" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#5 — Ligne fine ⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642011-200.png" alt="Amazigh 7" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#7 — Solid clean ⭐⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642008-200.png" alt="Amazigh 10" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#10 — Bold</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/1642006-200.png" alt="Amazigh 12" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#12 — Compact</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- B — Tribal geometric -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">B — Motifs Berbères</p>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px;">
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/7942698-200.png" alt="Tribal 3" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#3 — Tapis cadre ⭐⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/2175371-200.png" alt="Tribal 9" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#9 — Pyramidal ⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/2175363-200.png" alt="Tribal 10" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#10 — Losange ⭐</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/2175331-200.png" alt="Tribal 15" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#15 — V chevron</p>
+            
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <img src="https://static.thenounproject.com/png/2175079-200.png" alt="Tribal 5" style="width:56px; height:56px;">
+            <p style="font-size:11px; font-weight:700; margin-top:8px;">#5 — Morning star</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- C — Composition : frise amazigh -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">C — Frise Amazigh</p>
+        <div style="display:flex; align-items:center; justify-content:center; gap:0; padding:24px 0;">
+          <span style="display:block; width:60px; height:1px; background:var(--accent-rose); opacity:0.2;"></span>
+          <img src="https://static.thenounproject.com/png/2175363-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/1642011-200.png" style="width:20px; height:20px; opacity:0.12; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/2175363-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/1642011-200.png" style="width:28px; height:28px; opacity:0.18; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/2175363-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/1642011-200.png" style="width:20px; height:20px; opacity:0.12; margin:0 8px;">
+          <img src="https://static.thenounproject.com/png/2175363-200.png" style="width:16px; height:16px; opacity:0.1; margin:0 8px;">
+          <span style="display:block; width:60px; height:1px; background:var(--accent-rose); opacity:0.2;"></span>
+        </div>
+      </div>
+
+      <!-- D — Composition : badge amazigh -->
+      <div style="margin-top:32px;">
+        <p class="zellige-label">D — Composition : Badge identité amazigh</p>
+        <div style="display:flex; gap:24px; justify-content:center; margin-top:16px;">
+          <div style="display:flex; align-items:center; gap:8px; padding:8px 16px; background:#fff; border-radius:40px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+            <img src="https://static.thenounproject.com/png/1642011-200.png" style="width:18px; height:18px; opacity:0.6;">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Patrimoine Amazigh</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:8px 16px; background:var(--bg-dark); border-radius:40px;">
+            <img src="https://static.thenounproject.com/png/1642013-200.png" style="width:18px; height:18px; opacity:0.6; filter:invert(1);">
+            <span style="font-size:13px; font-weight:600; color:#fff;">Imazighen</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; padding:8px 16px; border:1px solid var(--accent-rose); border-radius:40px;">
+            <img src="https://static.thenounproject.com/png/1642011-200.png" style="width:18px; height:18px; opacity:0.4;">
+            <span style="font-size:13px; font-weight:600; color:var(--accent-rose);">Tamazgha</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 8. MOTIFS ZELLIGE GÉNÉRÉS ═══ -->
+  <section class="lab-section" style="background: var(--bg-teal);">
+    <div class="container">
+      <p class="lab-section-title">8. Motifs Zellige — Générés par IA</p>
+      <p class="lab-section-desc">Textures zellige générées par IA. Utilisables comme fond de section, pattern de carte, ou élément décoratif.</p>
+
+      <div class="lab-grid">
+        <!-- Zellige Classique -->
+        <div class="lab-card" style="padding:24px;">
+          <p class="lab-card-label">A — Zellige Classique</p>
+          <div style="border-radius:12px; overflow:hidden; margin-bottom:16px;">
+            <img src="assets/zellige-classique.png" alt="Zellige classique" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:13px; color:var(--text-secondary);">
+            Motif riche et dense. Bleu profond, corail, or ambré. Style traditionnel authentique.
+            <br><strong>Usage :</strong> illustration, élément visuel fort, couverture audio.
+          </p>
+        </div>
+
+        <!-- Zellige Minimaliste -->
+        <div class="lab-card" style="padding:24px;">
+          <p class="lab-card-label">B — Zellige Minimaliste</p>
+          <div style="border-radius:12px; overflow:hidden; margin-bottom:16px;">
+            <img src="assets/zellige-minimaliste.png" alt="Zellige minimaliste" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:13px; color:var(--text-secondary);">
+            Étoiles 8 branches légères en bleu et peach. Aérien et subtil.
+            <br><strong>Usage :</strong> fond de section, texture de hero, pattern de carte.
+          </p>
+        </div>
+      </div>
+
+      <!-- Demo: as background -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">Aperçu comme fond de section</p>
+        <div style="position:relative; border-radius:var(--radius); overflow:hidden; padding:64px 48px; text-align:center;">
+          <img src="assets/zellige-minimaliste.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.08;">
+          <div style="position:relative; z-index:1;">
+            <h2 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:48px; line-height:1.2; color:var(--text);">
+              Raconte-moi <em style="font-style:normal; color:var(--accent-teal);">le Maroc</em>
+            </h2>
+            <p style="margin-top:16px; font-size:16px; color:var(--text-secondary); max-width:500px; margin-left:auto; margin-right:auto;">
+              1000 ans d'histoires à transmettre — contes, berceuses et découvertes en darija
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo: as card pattern -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">Aperçu comme motif de carte audio</p>
+        <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center;">
+          <div style="width:240px; border-radius:var(--radius); overflow:hidden; box-shadow:0 4px 20px rgba(30,45,61,0.08);">
+            <div style="position:relative; height:160px; overflow:hidden;">
+              <img src="assets/zellige-classique.png" alt="" style="width:100%; height:100%; object-fit:cover; opacity:0.25;">
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:48px; height:48px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <span style="font-size:18px; color:var(--accent-teal); margin-left:3px;">&#9654;</span>
+              </div>
+            </div>
+            <div style="padding:16px; background:#fff;">
+              <span style="font-size:10px; font-weight:700; text-transform:uppercase; color:var(--accent-peach); letter-spacing:1px;">Récits & Contes</span>
+              <h4 style="font-family:'Nunito',sans-serif; font-size:15px; font-weight:700; margin-top:4px;">Hmadou et Hmaydou</h4>
+              <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">8 min · Darija/FR · 3-5 ans</p>
+            </div>
+          </div>
+          <div style="width:240px; border-radius:var(--radius); overflow:hidden; box-shadow:0 4px 20px rgba(30,45,61,0.08);">
+            <div style="position:relative; height:160px; overflow:hidden;">
+              <img src="assets/zellige-minimaliste.png" alt="" style="width:100%; height:100%; object-fit:cover; opacity:0.35;">
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:48px; height:48px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <span style="font-size:18px; color:var(--accent-teal); margin-left:3px;">&#9654;</span>
+              </div>
+            </div>
+            <div style="padding:16px; background:#fff;">
+              <span style="font-size:10px; font-weight:700; text-transform:uppercase; color:var(--accent-teal); letter-spacing:1px;">Rythmes & Berceuses</span>
+              <h4 style="font-family:'Nunito',sans-serif; font-size:15px; font-weight:700; margin-top:4px;">A Mama, ya Mama</h4>
+              <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">4 min · Darija · 3-5 ans</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 7. ICÔNES VECTORIELLES — TOUCH MAROCAINE ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">7. Icônes Vectorielles — Touch Marocaine</p>
+      <p class="lab-section-desc">Icônes vectorielles sélectionnées pour les piliers, catégories ou éléments décoratifs.</p>
+
+      <!-- Grid of all selected icons -->
+      <div class="icons-grid">
+        <!-- TAJINE -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/6787519-200.png" alt="Tajine line">
+          <span class="icon-label">Tajine (line)</span>
+          <span class="icon-id">#6787519</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4947930-200.png" alt="Tajine line alt">
+          <span class="icon-label">Tajine (line v2)</span>
+          <span class="icon-id">#4947930</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4664016-200.png" alt="Tajine statue">
+          <span class="icon-label">Tajine statue</span>
+          <span class="icon-id">#4664016</span>
+        </div>
+
+        <!-- LANTERNE -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4914652-200.png" alt="Lanterne marocaine">
+          <span class="icon-label">Lanterne (line)</span>
+          <span class="icon-id">#4914652</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/8257985-200.png" alt="Lanterne arabe">
+          <span class="icon-label">Lanterne arabe</span>
+          <span class="icon-id">#8257985</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4914632-200.png" alt="Lanterne multiple">
+          <span class="icon-label">Lanterne (line v2)</span>
+          <span class="icon-id">#4914632</span>
+        </div>
+
+        <!-- BABOUCHE -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/8324365-200.png" alt="Babouche">
+          <span class="icon-label">Babouches</span>
+          <span class="icon-id">#8324365</span>
+        </div>
+
+        <!-- ÉTOILES / PATTERNS -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/210514-200.png" alt="Étoile marocaine 8 branches">
+          <span class="icon-label">Khatam (8 branches)</span>
+          <span class="icon-id">#210514</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/8324347-200.png" alt="Motif islamique">
+          <span class="icon-label">Motif géométrique</span>
+          <span class="icon-id">#8324347</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/8324342-200.png" alt="Pattern marocain">
+          <span class="icon-label">Pattern islamique</span>
+          <span class="icon-id">#8324342</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/160786-200.png" alt="Zellige pattern">
+          <span class="icon-label">Zellige tile</span>
+          <span class="icon-id">#160786</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/160779-200.png" alt="Moroccan pattern line">
+          <span class="icon-label">Zellige (line)</span>
+          <span class="icon-id">#160779</span>
+        </div>
+
+        <!-- THÉ À LA MENTHE -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4639750-200.png" alt="Thé menthe arabe">
+          <span class="icon-label">Thé à la menthe</span>
+          <span class="icon-id">#4639750</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4617141-200.png" alt="Théière">
+          <span class="icon-label">Théière</span>
+          <span class="icon-id">#4617141</span>
+        </div>
+
+        <!-- PORTES MAROCAINES -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/4948122-200.png" alt="Porte marocaine">
+          <span class="icon-label">Porte de riad</span>
+          <span class="icon-id">#4948122</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/1899832-200.png" alt="Porte marocaine détaillée">
+          <span class="icon-label">Porte marocaine</span>
+          <span class="icon-id">#1899832</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/1899829-200.png" alt="Porte riad line">
+          <span class="icon-label">Porte riad (line)</span>
+          <span class="icon-id">#1899829</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/8324375-200.png" alt="Porte arabe ornée">
+          <span class="icon-label">Porte arabe ornée</span>
+          <span class="icon-id">#8324375</span>
+        </div>
+
+        <!-- CHAMEAU -->
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/7732332-200.png" alt="Chameau désert">
+          <span class="icon-label">Chameau + désert</span>
+          <span class="icon-id">#7732332</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/7306097-200.png" alt="Chameau line">
+          <span class="icon-label">Chameau (line)</span>
+          <span class="icon-id">#7306097</span>
+        </div>
+        <div class="icon-item">
+          <img src="https://static.thenounproject.com/png/1047440-200.png" alt="Dromadaire">
+          <span class="icon-label">Dromadaire (line)</span>
+          <span class="icon-id">#1047440</span>
+        </div>
+      </div>
+
+      <!-- Color tinted versions -->
+      <div style="margin-top:64px;">
+        <p class="zellige-label">Déclinaisons couleurs Nooba</p>
+        <div class="icon-tinted">
+          <div class="icon-tinted-card icon-tinted-card--blue">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="">
+            <span class="tint-label">Skyride Blue</span>
+          </div>
+          <div class="icon-tinted-card icon-tinted-card--peach">
+            <img src="https://static.thenounproject.com/png/6787519-200.png" alt="">
+            <span class="tint-label">Peach Fizz</span>
+          </div>
+          <div class="icon-tinted-card icon-tinted-card--caramel">
+            <img src="https://static.thenounproject.com/png/210514-200.png" alt="">
+            <span class="tint-label">Caramel Pop</span>
+          </div>
+          <div class="icon-tinted-card icon-tinted-card--lilac">
+            <img src="https://static.thenounproject.com/png/1899829-200.png" alt="">
+            <span class="tint-label">Lilac Lollipop</span>
+          </div>
+          <div class="icon-tinted-card icon-tinted-card--red">
+            <img src="https://static.thenounproject.com/png/8324365-200.png" alt="">
+            <span class="tint-label">Carousel Red</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use case: 3 piliers with icons -->
+      <div class="usecase-demo">
+        <h3>Exemple d'utilisation — Piliers avec icônes</h3>
+        <div class="usecase-pillars">
+          <div class="usecase-pillar">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="">
+            <h4>Récits & Contes</h4>
+            <p>Les histoires qui ont bercé des générations, racontées en darija</p>
+          </div>
+          <div class="usecase-pillar">
+            <img src="https://static.thenounproject.com/png/6787519-200.png" alt="">
+            <h4>Rythmes & Berceuses</h4>
+            <p>Comptines et berceuses traditionnelles marocaines</p>
+          </div>
+          <div class="usecase-pillar">
+            <img src="https://static.thenounproject.com/png/1899829-200.png" alt="">
+            <h4>Découverte & Langue</h4>
+            <p>Initiation à la darija et aux traditions du Maroc</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 6. PREVIEW COMBINÉ ═══ -->
+  <section class="lab-section" style="background: var(--bg-peach);">
+    <div class="container">
+      <p class="lab-section-title">6. Preview — Hero combiné</p>
+      <p class="lab-section-desc">Aperçu combinant : calligraphie filigrane + étoiles flottantes + frise zellige en bas.</p>
+
+      <div class="lab-card hero-preview" style="min-height:400px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+
+        <!-- Arabic watermark -->
+        <div class="watermark">حكاية</div>
+
+        <!-- Floating stars -->
+        <div class="stars-floating">
+          <div class="star8 star8--animated" style="top:12%; left:8%;">
+            <svg width="24" height="24" viewBox="0 0 48 48"><path d="M24 2L29 17.2L44 10L36.8 19L46 24L36.8 29L44 38L29 30.8L24 46L19 30.8L4 38L11.2 29L2 24L11.2 19L4 10L19 17.2Z" fill="#0A4F85" opacity="0.12"/></svg>
+          </div>
+          <div class="star8 star8--animated-delay" style="top:20%; right:12%;">
+            <svg width="18" height="18" viewBox="0 0 48 48"><path d="M24 2L29 17.2L44 10L36.8 19L46 24L36.8 29L44 38L29 30.8L24 46L19 30.8L4 38L11.2 29L2 24L11.2 19L4 10L19 17.2Z" fill="#E3998C" opacity="0.2"/></svg>
+          </div>
+          <div class="star8 star8--animated-slow" style="bottom:25%; left:15%;">
+            <svg width="32" height="32" viewBox="0 0 48 48"><path d="M24 2L29 17.2L44 10L36.8 19L46 24L36.8 29L44 38L29 30.8L24 46L19 30.8L4 38L11.2 29L2 24L11.2 19L4 10L19 17.2Z" fill="#FC9E3D" opacity="0.15"/></svg>
+          </div>
+          <div class="star8 star8--animated" style="bottom:30%; right:10%;">
+            <svg width="14" height="14" viewBox="0 0 48 48"><path d="M24 2L29 17.2L44 10L36.8 19L46 24L36.8 29L44 38L29 30.8L24 46L19 30.8L4 38L11.2 29L2 24L11.2 19L4 10L19 17.2Z" fill="#BFB5CC" opacity="0.25"/></svg>
+          </div>
+          <div class="star8 star8--animated-delay" style="top:60%; left:5%;">
+            <svg width="20" height="20" viewBox="0 0 48 48"><path d="M24 2L29 17.2L44 10L36.8 19L46 24L36.8 29L44 38L29 30.8L24 46L19 30.8L4 38L11.2 29L2 24L11.2 19L4 10L19 17.2Z" fill="#0A4F85" opacity="0.08"/></svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <h2 style="position:relative;z-index:1;">Raconte-moi<br><em>le Maroc</em></h2>
+
+        <!-- Zellige separator -->
+        <div style="width:200px; margin-top:32px; position:relative; z-index:1;">
+          <svg viewBox="0 0 200 16" fill="none" style="width:100%; height:16px;">
+            <pattern id="preview-zellige" x="0" y="0" width="40" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="8" r="2.5" fill="#0A4F85" opacity="0.12"/>
+              <line x1="0" y1="8" x2="14" y2="8" stroke="#E3998C" stroke-width="0.8" opacity="0.15"/>
+              <line x1="26" y1="8" x2="40" y2="8" stroke="#E3998C" stroke-width="0.8" opacity="0.15"/>
+            </pattern>
+            <rect width="200" height="16" fill="url(#preview-zellige)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9. MOTIFS FILIGRANE — Noir & Blanc ═══ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">9. Motifs Filigrane — Noir & Blanc</p>
+      <p class="lab-section-desc">Motifs générés en noir sur blanc, pensés pour être utilisés en filigrane (5-10% opacité). Fond supprimable facilement. 4 familles × 2 variantes.</p>
+
+      <!-- Grid of all 8 patterns -->
+      <div class="lab-grid" style="grid-template-columns: repeat(4, 1fr); gap:24px;">
+
+        <!-- Zellige A -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Zellige A</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-zellige-a.png" alt="Zellige A" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Losanges entrelacés</p>
+        </div>
+
+        <!-- Zellige B -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Zellige B</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-zellige-b.png" alt="Zellige B" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Étoiles denses</p>
+        </div>
+
+        <!-- Moucharabieh A -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Moucharabieh A ⭐</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-moucharabieh-a.png" alt="Moucharabieh A" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Dentelle étoilée fine</p>
+        </div>
+
+        <!-- Moucharabieh B -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Moucharabieh B</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-moucharabieh-b.png" alt="Moucharabieh B" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Dense étoilé</p>
+        </div>
+
+        <!-- Arabesque A -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Arabesque A ⭐</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-arabesque-a.png" alt="Arabesque A" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Volutes florales</p>
+        </div>
+
+        <!-- Arabesque B -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Arabesque B</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-arabesque-b.png" alt="Arabesque B" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Fleurs & étoiles</p>
+        </div>
+
+        <!-- Frise A -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Frise A ⭐</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-frise-a.png" alt="Frise A" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Étoiles hexagonales</p>
+        </div>
+
+        <!-- Frise B -->
+        <div class="lab-card" style="padding:16px; text-align:center;">
+          <p class="lab-card-label">Frise B ⭐</p>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <img src="assets/filigrane-frise-b.png" alt="Frise B" style="width:100%; display:block;">
+          </div>
+          <p style="font-size:11px; color:var(--text-secondary); margin-top:8px;">Bandeau horizontal</p>
+        </div>
+
+      </div>
+
+      <!-- Demo: filigrane usage -->
+      <div style="margin-top:64px;">
+        <p class="zellige-label">Aperçu filigrane — Zellige A à 6% opacité</p>
+        <div style="position:relative; border-radius:var(--radius); overflow:hidden; padding:80px 48px; text-align:center; background: linear-gradient(135deg, var(--bg) 0%, var(--bg-peach) 100%);">
+          <img src="assets/filigrane-zellige-a.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.06; mix-blend-mode:multiply;">
+          <div style="position:relative; z-index:1;">
+            <h2 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:52px; line-height:1.15; color:var(--text);">
+              Raconte-moi <em style="font-style:normal; color:var(--accent-teal);">le Maroc</em>
+            </h2>
+            <p style="margin-top:16px; font-size:18px; color:var(--text-secondary); max-width:520px; margin-left:auto; margin-right:auto;">
+              1000 ans d'histoires à transmettre — contes, berceuses et découvertes en darija
+            </p>
+            <button style="margin-top:32px; padding:14px 36px; background:var(--accent-teal); color:#fff; border:none; border-radius:40px; font-size:16px; font-weight:700; cursor:pointer;">
+              Découvrir les histoires
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo: frise as separator -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">Aperçu frise — séparateur de section à 8%</p>
+        <div style="text-align:center; padding:32px 0;">
+          <img src="assets/filigrane-frise-b.png" alt="" style="width:80%; max-width:800px; opacity:0.08; mix-blend-mode:multiply;">
+        </div>
+      </div>
+
+      <!-- Demo: moucharabieh on dark bg -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">Aperçu moucharabieh — fond sombre, blanc à 5%</p>
+        <div style="position:relative; border-radius:var(--radius); overflow:hidden; padding:80px 48px; text-align:center; background:var(--bg-dark);">
+          <img src="assets/filigrane-moucharabieh-a.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.05; filter:invert(1);">
+          <div style="position:relative; z-index:1;">
+            <h2 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:48px; line-height:1.15; color:#fff;">
+              Un voyage sonore au <em style="font-style:normal; color:var(--accent-yellow);">Maroc</em>
+            </h2>
+            <p style="margin-top:16px; font-size:16px; color:rgba(255,255,255,0.6); max-width:500px; margin-left:auto; margin-right:auto;">
+              Contes, berceuses, comptines — en darija et en français
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 10. ICÔNES FONT AWESOME — BIBLIOTHÈQUE NOOBA ═══ -->
+  <section class="lab-section" style="background: var(--bg-peach);">
+    <div class="container">
+      <p class="lab-section-title">10. Icônes Font Awesome — Bibliothèque Nooba</p>
+      <p class="lab-section-desc">Sélection d'icônes FA 6 disponibles dans le projet. Organisées par usage : catégories de contenu, navigation, player, et touch culturelle.</p>
+
+      <!-- A. Catégories de contenu -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">A — Catégories de contenu</p>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-book-open" style="font-size:32px; color:var(--accent-teal);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Contes & Récits</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-book-open</code>
+          </div>
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-music" style="font-size:32px; color:var(--accent-peach);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Berceuses</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-music</code>
+          </div>
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-moon" style="font-size:32px; color:var(--accent-lavender);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Histoires du soir</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-moon</code>
+          </div>
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-globe-africa" style="font-size:32px; color:var(--accent-mint);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Découverte</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-globe-africa</code>
+          </div>
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-mosque" style="font-size:32px; color:var(--accent-yellow);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Patrimoine</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-mosque</code>
+          </div>
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-masks-theater" style="font-size:32px; color:var(--accent-rose);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px; color:var(--text);">Personnages</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-masks-theater</code>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- B. Player & Audio -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">B — Player & Audio</p>
+        <div style="display:grid; grid-template-columns:repeat(8,1fr); gap:12px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-headphones" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">headphones</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-circle-play" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">circle-play</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-play" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">play</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-pause" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">pause</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-forward" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">forward</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-backward" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">backward</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-volume-high" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">volume-high</p>
+          </div>
+          <div class="lab-card" style="padding:20px; text-align:center;">
+            <i class="fas fa-download" style="font-size:28px; color:var(--accent-teal);"></i>
+            <p style="font-size:10px; font-weight:600; margin-top:8px;">download</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- C. Famille & Tranches d'âge -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">C — Famille & Tranches d'âge</p>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-baby" style="font-size:32px; color:var(--accent-peach);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">0-3 ans</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-baby</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-child" style="font-size:32px; color:var(--accent-yellow);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">3-6 ans</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-child</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-child-dress" style="font-size:32px; color:var(--accent-lavender);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">6-10 ans</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-child-dress</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-people-group" style="font-size:32px; color:var(--accent-teal);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Famille</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-people-group</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-heart" style="font-size:32px; color:var(--accent-rose);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Favoris</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-heart</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-star" style="font-size:32px; color:var(--accent-yellow);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Étoile / Note</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-star</code>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- D. Touch culturelle & marocaine -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">D — Touch culturelle & marocaine</p>
+        <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;">
+
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-star-and-crescent" style="font-size:32px; color:var(--accent-teal);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Identité</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-star-and-crescent</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-mug-hot" style="font-size:32px; color:var(--accent-mint);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Thé / Convivialité</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-mug-hot</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-sun" style="font-size:32px; color:var(--accent-yellow);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Soleil / Chaleur</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-sun</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-hand-sparkles" style="font-size:32px; color:var(--accent-peach);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Khamsa / Magie</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-hand-sparkles</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-language" style="font-size:32px; color:var(--accent-lavender);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">Darija / FR</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-language</code>
+          </div>
+          <div class="lab-card" style="padding:24px; text-align:center;">
+            <i class="fas fa-mobile-screen" style="font-size:32px; color:var(--text-secondary);"></i>
+            <p style="font-size:12px; font-weight:700; margin-top:12px;">App Mobile</p>
+            <code style="font-size:10px; color:var(--text-secondary);">fa-mobile-screen</code>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- E. Composant exemple : Card catégorie avec icône -->
+      <div style="margin-top:64px;">
+        <p class="zellige-label">E — Exemple de composition : Cards catégories</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:24px;">
+
+          <!-- Card Contes -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 24px; text-align:center; box-shadow:0 4px 20px rgba(30,45,61,0.06); transition:transform .2s;">
+            <div style="width:64px; height:64px; border-radius:50%; background:rgba(10,79,133,0.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <i class="fas fa-book-open" style="font-size:24px; color:var(--accent-teal);"></i>
+            </div>
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:16px; color:var(--text);">Contes & Récits</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Les grandes histoires du patrimoine oral marocain</p>
+            <span style="display:inline-block; margin-top:12px; font-size:12px; font-weight:700; color:var(--accent-teal);">12 histoires <i class="fas fa-arrow-right" style="font-size:10px; margin-left:4px;"></i></span>
+          </div>
+
+          <!-- Card Berceuses -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 24px; text-align:center; box-shadow:0 4px 20px rgba(30,45,61,0.06);">
+            <div style="width:64px; height:64px; border-radius:50%; background:rgba(227,153,140,0.12); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <i class="fas fa-music" style="font-size:24px; color:var(--accent-peach);"></i>
+            </div>
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:16px; color:var(--text);">Berceuses</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Mélodies douces pour l'heure du dodo</p>
+            <span style="display:inline-block; margin-top:12px; font-size:12px; font-weight:700; color:var(--accent-peach);">8 berceuses <i class="fas fa-arrow-right" style="font-size:10px; margin-left:4px;"></i></span>
+          </div>
+
+          <!-- Card Découverte -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 24px; text-align:center; box-shadow:0 4px 20px rgba(30,45,61,0.06);">
+            <div style="width:64px; height:64px; border-radius:50%; background:rgba(252,158,61,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <i class="fas fa-globe-africa" style="font-size:24px; color:var(--accent-yellow);"></i>
+            </div>
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:16px; color:var(--text);">Découverte</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Villes, saveurs et traditions du Maroc</p>
+            <span style="display:inline-block; margin-top:12px; font-size:12px; font-weight:700; color:var(--accent-yellow);">6 épisodes <i class="fas fa-arrow-right" style="font-size:10px; margin-left:4px;"></i></span>
+          </div>
+
+          <!-- Card Histoires du soir -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 24px; text-align:center; box-shadow:0 4px 20px rgba(30,45,61,0.06);">
+            <div style="width:64px; height:64px; border-radius:50%; background:rgba(191,181,204,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+              <i class="fas fa-moon" style="font-size:24px; color:var(--accent-lavender);"></i>
+            </div>
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:16px; color:var(--text);">Histoires du soir</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">5 minutes pour voyager avant de dormir</p>
+            <span style="display:inline-block; margin-top:12px; font-size:12px; font-weight:700; color:var(--accent-lavender);">10 histoires <i class="fas fa-arrow-right" style="font-size:10px; margin-left:4px;"></i></span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- F. Composant exemple : Mini player -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">F — Exemple de composition : Mini player audio</p>
+        <div style="max-width:480px; margin:24px auto 0; background:#fff; border-radius:var(--radius); padding:20px 24px; box-shadow:0 4px 20px rgba(30,45,61,0.08); display:flex; align-items:center; gap:16px;">
+          <!-- Cover -->
+          <div style="width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg, var(--accent-teal), var(--accent-mint)); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <i class="fas fa-book-open" style="font-size:20px; color:#fff;"></i>
+          </div>
+          <!-- Info -->
+          <div style="flex:1; min-width:0;">
+            <p style="font-size:14px; font-weight:700; color:var(--text); font-family:'Nunito',sans-serif;">Hmadou et Hmaydou</p>
+            <p style="font-size:12px; color:var(--text-secondary); margin-top:2px;">
+              <i class="fas fa-clock" style="font-size:10px; margin-right:4px;"></i>8 min
+              <span style="margin:0 6px; opacity:0.3;">•</span>
+              <i class="fas fa-language" style="font-size:10px; margin-right:4px;"></i>Darija/FR
+              <span style="margin:0 6px; opacity:0.3;">•</span>
+              <i class="fas fa-child" style="font-size:10px; margin-right:4px;"></i>3-5 ans
+            </p>
+            <!-- Progress bar -->
+            <div style="margin-top:8px; height:4px; background:rgba(10,79,133,0.1); border-radius:2px; overflow:hidden;">
+              <div style="width:35%; height:100%; background:var(--accent-teal); border-radius:2px;"></div>
+            </div>
+          </div>
+          <!-- Controls -->
+          <div style="display:flex; align-items:center; gap:12px; flex-shrink:0;">
+            <i class="fas fa-backward" style="font-size:14px; color:var(--text-secondary); cursor:pointer;"></i>
+            <div style="width:40px; height:40px; border-radius:50%; background:var(--accent-teal); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+              <i class="fas fa-pause" style="font-size:14px; color:#fff; margin-left:0;"></i>
+            </div>
+            <i class="fas fa-forward" style="font-size:14px; color:var(--text-secondary); cursor:pointer;"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- G. Séparateur décoratif avec étoiles -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">G — Séparateur décoratif</p>
+        <div style="text-align:center; padding:32px 0;">
+          <span style="color:var(--accent-yellow); opacity:0.3;">
+            <i class="fas fa-star" style="font-size:8px;"></i>
+            <span style="margin:0 12px; color:var(--border);">————</span>
+            <i class="fas fa-star" style="font-size:12px; color:var(--accent-teal); opacity:0.5;"></i>
+            <span style="margin:0 12px; color:var(--border);">————</span>
+            <i class="fas fa-star-and-crescent" style="font-size:16px; color:var(--accent-yellow); opacity:0.6;"></i>
+            <span style="margin:0 12px; color:var(--border);">————</span>
+            <i class="fas fa-star" style="font-size:12px; color:var(--accent-teal); opacity:0.5;"></i>
+            <span style="margin:0 12px; color:var(--border);">————</span>
+            <i class="fas fa-star" style="font-size:8px;"></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ 11. ILLUSTRATIONS WEB ═══ -->
+  <section class="lab-section" style="background: var(--bg-teal);">
+    <div class="container">
+      <p class="lab-section-title">11. Illustrations Web — Sources Libres</p>
+      <p class="lab-section-desc">Illustrations, cadres ornementaux et éléments visuels trouvés sur le web. Majoritairement CC0 / domaine public. Parfaits pour enrichir les compositions.</p>
+
+      <!-- A. Cadres ornementaux marocains (PNG transparents) -->
+      <div style="margin-top:40px;">
+        <p class="zellige-label">A — Cadres ornementaux marocains (PNG transparents)</p>
+        <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Utilisables comme cadre de carte, encadrement de citation, ou élément décoratif</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:20px;">
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX18zNjc5ZTQ4Yi0zMjZhLTRkNDUtODk3YS0wYjViNTkyYWU5YWIucG5n.png" alt="Cadre marocain 1" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre géométrique floral</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX19kZmUwMWYzZi03OTcyLTRmNzYtODI1Ni03ZWUyNjVkNTg0ZTIucG5n.png" alt="Cadre marocain 2" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre rectangle orné</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX181ZTYxZjIzMi1hZjJkLTQxZjAtOThlOC00YzYxNTVkZDU3MjQucG5n.png" alt="Cadre marocain 3" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre art décoratif</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX180NjQzNmE1ZC0zNzZjLTQ2ODUtYjc1NC02YmVkNGU4OTViNTEucG5n.png" alt="Cadre marocain 4" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre décoration</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX19hZjE0N2QzMy05OWM4LTRkZGMtODMwZi0zNWU3N2NmNDlkMDAucG5n.png" alt="Cadre marocain 5" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre architecture</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX19mZmU1NDNiNS1hZTZlLTQwYzgtYjc3ZS00OGM4NDA3ZjE5YzEucG5n.png" alt="Cadre marocain 6" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre ornement</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX19mNmM0OTgxMS02ZTRjLTQ0MTAtOGNmYS05NGQ0MTNhODJhYWUucG5n.png" alt="Cadre marocain 7" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre pattern art</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark);">
+            <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAxL3Jhd3BpeGVsb2ZmaWNlOF9zaW5nbGVfbW9yb2NjYW5fb3JuYW1lbnRhbF9mcmFtZV9pbnRyaWNhdGVfYXJhYl9jZjU2ZTk1OC00MGNlLTQ1ZmMtOGFjOC1mMmE1ZWE5MjllZjAtbWswenFjdG8ucG5n.png" alt="Cadre marocain 8" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Cadre géométrique intriqué</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- B. Lanternes marocaines (PNG) -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">B — Lanternes marocaines</p>
+        <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Ambiance chaleureuse, utilisable comme élément d'illustration ou fond de section</p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:20px;">
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark); border-radius:var(--radius); overflow:hidden;">
+            <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAyL3NyLWltYWdlLTE2MDIyNi1iYm0xNy1zLTI0NS1tbHJ1cjNsay5wbmc.png" alt="Lanternes marocaines" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Lanternes suspendues (PNG transparent)</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark); border-radius:var(--radius); overflow:hidden;">
+            <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAyL3NyLWltYWdlLTE2MDIyNi1iYm0xNy1zLTI0MC1tbHJ2MG1ubS5wbmc.png" alt="Lanternes vintage" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Lanternes ornées vintage (PNG transparent)</p>
+          </div>
+
+          <div class="lab-card" style="padding:16px; text-align:center; background:var(--bg-dark); border-radius:var(--radius); overflow:hidden;">
+            <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAzL3NyLWltYWdlLTA0MDMyNi1oaTEtcy0wNDZfMS5wbmc.png" alt="Lanterne dorée" style="width:100%; border-radius:8px;">
+            <p style="font-size:11px; color:rgba(255,255,255,0.6); margin-top:8px;">Lanterne dorée unique (PNG transparent)</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- C. Tiles & Patterns zellige authentiques -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">C — Tiles & Zellige authentiques (photos)</p>
+        <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Photos et reproductions de zellige réels · Domaine public</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:20px;">
+
+          <div class="lab-card" style="padding:0; overflow:hidden; border-radius:var(--radius);">
+            <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGQyMS1iay1ubS01ODYzLWpqXzIuanBn.jpg" alt="Panneau 96 tiles Rijksmuseum" style="width:100%; display:block;">
+            <div style="padding:12px;">
+              <p style="font-size:11px; font-weight:600; color:var(--text);">Panneau 96 carreaux (1840-1860)</p>
+              <p style="font-size:10px; color:var(--text-secondary);">Rijksmuseum · Domaine public</p>
+            </div>
+          </div>
+
+          <div class="lab-card" style="padding:0; overflow:hidden; border-radius:var(--radius);">
+            <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZmwxMTY1MjQ1OTQ5NC1pbWFnZS1rcHcwZWRtZi5qcGc.jpg" alt="Architecture marocaine colorée" style="width:100%; display:block;">
+            <div style="padding:12px;">
+              <p style="font-size:11px; font-weight:600; color:var(--text);">Architecture marocaine colorée</p>
+              <p style="font-size:10px; color:var(--text-secondary);">Flickr · CC0 domaine public</p>
+            </div>
+          </div>
+
+          <div class="lab-card" style="padding:0; overflow:hidden; border-radius:var(--radius);">
+            <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtY2hpbS0xMTA5MDUtam9iLTAxYy5qcGc.jpg" alt="Moroccan vintage blue flower" style="width:100%; display:block;">
+            <div style="padding:12px;">
+              <p style="font-size:11px; font-weight:600; color:var(--text);">Zellige fleur bleue vintage</p>
+              <p style="font-size:10px; color:var(--text-secondary);">Libre de droits</p>
+            </div>
+          </div>
+
+          <div class="lab-card" style="padding:0; overflow:hidden; border-radius:var(--radius);">
+            <img src="https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcGYtY2hpbS0xMTA5MDUtam9iMTU3LTAxYV8xLmpwZw.jpg" alt="Mediterranean green flower tiles" style="width:100%; display:block;">
+            <div style="padding:12px;">
+              <p style="font-size:11px; font-weight:600; color:var(--text);">Carreaux fleurs vert méditerranéen</p>
+              <p style="font-size:10px; color:var(--text-secondary);">Libre de droits</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- D. Composition exemple : Citation encadrée -->
+      <div style="margin-top:64px;">
+        <p class="zellige-label">D — Composition : Citation dans cadre marocain</p>
+        <div style="max-width:600px; margin:24px auto 0; position:relative; padding:48px;">
+          <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsX29mZmljZV80M19tb3JvY2Nhbl9vcm5hbWVudF9mcmFtZV9ncmFwaGljX2lzb2xhdGVkX29uX180NjQzNmE1ZC0zNzZjLTQ2ODUtYjc1NC02YmVkNGU4OTViNTEucG5n.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; opacity:0.15;">
+          <div style="position:relative; z-index:1; text-align:center;">
+            <i class="fas fa-quote-left" style="font-size:24px; color:var(--accent-yellow); opacity:0.4;"></i>
+            <p style="font-family:'Amiri',serif; font-size:22px; line-height:1.6; color:var(--text); margin-top:12px; font-style:italic;">
+              Kan ya ma kan, fi qadim ezzman...<br>
+              <span style="font-size:15px; color:var(--text-secondary);">Il était une fois, dans les temps anciens...</span>
+            </p>
+            <div style="margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px;">
+              <span style="width:32px; height:1px; background:var(--accent-yellow); opacity:0.4;"></span>
+              <i class="fas fa-star" style="font-size:8px; color:var(--accent-yellow); opacity:0.4;"></i>
+              <span style="width:32px; height:1px; background:var(--accent-yellow); opacity:0.4;"></span>
+            </div>
+            <p style="font-size:13px; font-weight:600; color:var(--accent-teal); margin-top:12px;">Tradition orale marocaine</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- E. Composition exemple : Section avec lanterne -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">E — Composition : Hero section avec lanterne</p>
+        <div style="position:relative; border-radius:var(--radius); overflow:hidden; background:var(--bg-dark); padding:80px 48px; margin-top:24px;">
+          <!-- Lantern left -->
+          <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAzL3NyLWltYWdlLTA0MDMyNi1oaTEtcy0wNDZfMS5wbmc.png" alt="" style="position:absolute; top:-20px; left:-30px; width:200px; opacity:0.2;">
+          <!-- Lantern right -->
+          <img src="https://images.rawpixel.com/dark_image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI2LTAzL3NyLWltYWdlLTA0MDMyNi1oaTEtcy0wNDZfMS5wbmc.png" alt="" style="position:absolute; top:-20px; right:-30px; width:200px; opacity:0.2; transform:scaleX(-1);">
+          <!-- Filigrane -->
+          <img src="assets/filigrane-moucharabieh-a.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.03; filter:invert(1);">
+          <div style="position:relative; z-index:1; text-align:center;">
+            <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent-yellow); opacity:0.7;">
+              <i class="fas fa-star" style="font-size:8px; margin-right:8px;"></i>
+              Nooba
+              <i class="fas fa-star" style="font-size:8px; margin-left:8px;"></i>
+            </p>
+            <h2 style="font-family:'Nunito',sans-serif; font-weight:800; font-size:48px; line-height:1.15; color:#fff; margin-top:16px;">
+              Un voyage sonore au <em style="font-style:normal; color:var(--accent-yellow);">Maroc</em>
+            </h2>
+            <p style="margin-top:16px; font-size:17px; color:rgba(255,255,255,0.55); max-width:480px; margin-left:auto; margin-right:auto;">
+              Contes, berceuses et comptines — en darija et en français, pour les petits et les grands
+            </p>
+            <div style="margin-top:32px; display:flex; gap:16px; justify-content:center;">
+              <button style="padding:14px 32px; background:var(--accent-yellow); color:var(--bg-dark); border:none; border-radius:40px; font-size:15px; font-weight:700; cursor:pointer;">
+                <i class="fas fa-headphones" style="margin-right:8px;"></i>Écouter maintenant
+              </button>
+              <button style="padding:14px 32px; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.2); border-radius:40px; font-size:15px; font-weight:600; cursor:pointer;">
+                Découvrir le catalogue
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 12 — OBJETS CULTURELS MAROCAINS
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="lab-section" style="background: var(--bg-peach);">
+    <div class="container">
+      <p class="lab-section-title">12 — Objets Culturels Marocains</p>
+      <p class="lab-section-desc">
+        Icônes d'objets emblématiques de la culture marocaine — tarbouche, babouche, bendir, chameau, khamsa, théière, palmier, tajine, lanterne.
+      </p>
+
+      <!-- ─── A. Tarbouche (Fez Hat) ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">A — Tarbouche / Fez</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="Tarbouche #4" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/3578638-200.png" alt="Tarbouche #8" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/5447500-200.png" alt="Tarbouche #12" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/245391-200.png" alt="Tarbouche #20" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+        </div>
+        <!-- Colored versions -->
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <p style="font-size:10px; color:var(--accent-teal); margin-top:4px;">Skyride Blue</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);">
+            <p style="font-size:10px; color:var(--accent-peach); margin-top:4px;">Peach Fizz</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);">
+            <p style="font-size:10px; color:var(--accent-yellow); margin-top:4px;">Caramel Pop</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── B. Babouche ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">B — Babouche</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8324365-200.png" alt="Babouche" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8324365-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <p style="font-size:10px; color:var(--accent-teal); margin-top:4px;">Skyride Blue</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8324365-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);">
+            <p style="font-size:10px; color:var(--accent-yellow); margin-top:4px;">Caramel Pop</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── C. Bendir / Tambour ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">C — Bendir / Tambour</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4452796-200.png" alt="Djembé" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Djembé</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7053566-200.png" alt="Bendir" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Bendir</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7678589-200.png" alt="Djembé line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Djembé</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/5700816-200.png" alt="Drum" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tambour</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── D. Chameau ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">D — Chameau / Dromadaire</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8292266-200.png" alt="Chameau décoré" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Décoré</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8264751-200.png" alt="Chameau profil" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Profil</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="Chameau cute" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Cute</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8300087-200.png" alt="Caravane" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Caravane</p>
+          </div>
+        </div>
+        <!-- Colored cute camel -->
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);">
+            <p style="font-size:10px; color:var(--accent-yellow); margin-top:4px;">Caramel Pop</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);">
+            <p style="font-size:10px; color:var(--accent-peach); margin-top:4px;">Peach Fizz</p>
+          </div>
+          <div style="text-align:center; background:var(--bg-dark); border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(1);">
+            <p style="font-size:10px; color:rgba(255,255,255,0.5); margin-top:4px;">Blanc sur dark</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── E. Khamsa / Main de Fatma ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">E — Khamsa / Main de Fatma</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7977760-200.png" alt="Khamsa line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Épuré</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7899617-200.png" alt="Khamsa ornamental" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Ornée</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="Khamsa décoré" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Décoré</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/1261407-200.png" alt="Khamsa classique" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Classique</p>
+          </div>
+        </div>
+        <!-- Colored versions -->
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="" style="width:64px; height:64px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <p style="font-size:10px; color:var(--accent-teal); margin-top:4px;">Skyride Blue</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="" style="width:64px; height:64px; object-fit:contain; filter: invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);">
+            <p style="font-size:10px; color:var(--accent-peach); margin-top:4px;">Peach Fizz</p>
+          </div>
+          <div style="text-align:center; background:#fff; border-radius:12px; padding:16px 20px;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="" style="width:64px; height:64px; object-fit:contain; filter: invert(70%) sepia(20%) saturate(300%) hue-rotate(210deg) brightness(95%);">
+            <p style="font-size:10px; color:var(--accent-lavender); margin-top:4px;">Lillac Lollipop</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── F. Théière Marocaine ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">F — Théière Marocaine</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/5608068-200.png" alt="Théière line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/5607495-200.png" alt="Théière ornée" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Ornée</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947954-200.png" alt="Théière solid" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947925-200.png" alt="Théière line 2" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/245397-200.png" alt="Théière classic" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Classic</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── G. Tajine ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">G — Tajine</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7521503-200.png" alt="Tajine line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4947930-200.png" alt="Tajine line 2" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8324339-200.png" alt="Tajine solid" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/6787519-200.png" alt="Tajine fine" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Fine</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4639756-200.png" alt="Tajine détaillé" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Détaillé</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── H. Lanterne Marocaine ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">H — Lanterne Marocaine</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="Lanterne line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/4914632-200.png" alt="Lanterne line 2" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8257985-200.png" alt="Lanterne rayons" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Rayons</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7681314-200.png" alt="Lanterne ornée" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Ornée</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/7681339-200.png" alt="Lanterne classique" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Classique</p>
+          </div>
+        </div>
+        <!-- Dark background demo -->
+        <div style="display:flex; gap:24px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center; background:var(--bg-dark); border-radius:12px; padding:20px 24px;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(1);">
+            <p style="font-size:10px; color:rgba(255,255,255,0.5); margin-top:4px;">Blanc sur dark</p>
+          </div>
+          <div style="text-align:center; background:var(--bg-dark); border-radius:12px; padding:20px 24px;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="width:56px; height:56px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);">
+            <p style="font-size:10px; color:var(--accent-yellow); margin-top:4px;">Caramel Pop</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── I. Palmier ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">I — Palmier / Oasis</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; align-items:end; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/2148932-200.png" alt="Palmier solid" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Solid</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8308695-200.png" alt="Palmier line" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Line</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8304597-200.png" alt="Palmier tropical" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tropical</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="https://static.thenounproject.com/png/8313807-200.png" alt="Palmier islamic" style="width:80px; height:80px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Date Palm</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── J. Composition : Frise d'objets culturels ─── -->
+      <div style="margin-top:64px;">
+        <p class="zellige-label">J — Composition : Frise d'icônes culturelles</p>
+        <div style="background:#fff; border-radius:var(--radius); padding:40px; margin-top:24px; text-align:center;">
+          <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent-teal); margin-bottom:24px;">La culture marocaine en icônes</p>
+          <div style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; opacity:0.25;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/8324365-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/7053566-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/8264751-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/5608068-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/7521503-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+            <img src="https://static.thenounproject.com/png/2148932-200.png" alt="" style="width:40px; height:40px; object-fit:contain;">
+          </div>
+          <p style="font-size:12px; color:var(--text-secondary); margin-top:24px;">Utilisable en filigrane léger derrière du contenu, en frise décorative ou en badges de catégories</p>
+        </div>
+      </div>
+
+      <!-- ─── K. Composition : Cards avec icônes ─── -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">K — Composition : Cards catégorie avec icônes culturelles</p>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-top:24px;">
+          <!-- Card 1 : Contes -->
+          <div style="background:#fff; border-radius:16px; padding:32px 24px; text-align:center; position:relative; overflow:hidden;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="position:absolute; top:-10px; right:-10px; width:100px; opacity:0.06;">
+            <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="width:48px; height:48px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%); margin-bottom:12px;">
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:700; font-size:16px; color:var(--text);">Contes du soir</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">À la lumière d'une lanterne…</p>
+          </div>
+          <!-- Card 2 : Musique -->
+          <div style="background:#fff; border-radius:16px; padding:32px 24px; text-align:center; position:relative; overflow:hidden;">
+            <img src="https://static.thenounproject.com/png/7053566-200.png" alt="" style="position:absolute; top:-10px; right:-10px; width:100px; opacity:0.06;">
+            <img src="https://static.thenounproject.com/png/7053566-200.png" alt="" style="width:48px; height:48px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%); margin-bottom:12px;">
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:700; font-size:16px; color:var(--text);">Comptines</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Rythmes du bendir</p>
+          </div>
+          <!-- Card 3 : Voyages -->
+          <div style="background:#fff; border-radius:16px; padding:32px 24px; text-align:center; position:relative; overflow:hidden;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="" style="position:absolute; top:-10px; right:-10px; width:100px; opacity:0.06;">
+            <img src="https://static.thenounproject.com/png/8307640-200.png" alt="" style="width:48px; height:48px; object-fit:contain; filter: invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%); margin-bottom:12px;">
+            <h4 style="font-family:'Nunito',sans-serif; font-weight:700; font-size:16px; color:var(--text);">Aventures</h4>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Caravanes du désert</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── L. Composition : Badge/Tag style ─── -->
+      <div style="margin-top:48px;">
+        <p class="zellige-label">L — Composition : Badges thématiques</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:24px;">
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:40px; padding:8px 20px 8px 12px;">
+            <img src="https://static.thenounproject.com/png/5608068-200.png" alt="" style="width:24px; height:24px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Thé à la menthe</span>
+          </div>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:40px; padding:8px 20px 8px 12px;">
+            <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="width:24px; height:24px; object-fit:contain; filter: invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Tradition</span>
+          </div>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:40px; padding:8px 20px 8px 12px;">
+            <img src="https://static.thenounproject.com/png/3979918-200.png" alt="" style="width:24px; height:24px; object-fit:contain; filter: invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Protection</span>
+          </div>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:40px; padding:8px 20px 8px 12px;">
+            <img src="https://static.thenounproject.com/png/7521503-200.png" alt="" style="width:24px; height:24px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Cuisine</span>
+          </div>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:40px; padding:8px 20px 8px 12px;">
+            <img src="https://static.thenounproject.com/png/2148932-200.png" alt="" style="width:24px; height:24px; object-fit:contain; filter: invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);">
+            <span style="font-size:13px; font-weight:600; color:var(--text);">Oasis</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 13 — MASCOTTES MAROCANISÉES
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="lab-section">
+    <div class="container">
+      <p class="lab-section-title">13 — Mascottes Marocanisées</p>
+      <p class="lab-section-desc">
+        Option 3 — Hybride : garder l'esprit géométrique kawaii des mascottes originales, en fusionnant chaque forme avec un élément culturel marocain.
+      </p>
+
+      <!-- ─── Originales vs Marocanisées ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Comparaison : Originales → Marocanisées</p>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:32px; margin-top:32px;">
+
+          <!-- Cercle → Cercle + Tarbouche -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 20px; text-align:center;">
+            <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-peach); margin-bottom:16px;">Cercle → Tarbouche</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+              <div>
+                <div style="width:80px; height:80px; border-radius:50%; background:#E3998C; margin:0 auto; display:flex; align-items:center; justify-content:center; background-image:radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px); background-size:8px 8px;">
+                  <span style="font-size:20px;">🙂</span>
+                </div>
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">Originale</p>
+              </div>
+              <div style="font-size:20px; color:var(--accent-peach);">↓</div>
+              <div>
+                <img src="assets/mascot-circle-tarbouche-2.png" alt="Cercle + Tarbouche" style="width:120px; height:120px; object-fit:contain;">
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">+ Tarbouche + Zellige</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carré → Carré Amazigh -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 20px; text-align:center;">
+            <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-yellow); margin-bottom:16px;">Carré → Amazigh</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+              <div>
+                <div style="width:72px; height:80px; border-radius:14px; background:#FC9E3D; margin:0 auto; display:flex; align-items:center; justify-content:center; background-image:repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255,255,255,0.15) 6px, rgba(255,255,255,0.15) 8px);">
+                  <span style="font-size:20px;">🙂</span>
+                </div>
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">Originale</p>
+              </div>
+              <div style="font-size:20px; color:var(--accent-yellow);">↓</div>
+              <div>
+                <img src="assets/mascot-square-amazigh-2.png" alt="Carré Amazigh" style="width:120px; height:120px; object-fit:contain;">
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">+ Motif amazigh + Babouches</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Triangle → Tajine -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 20px; text-align:center;">
+            <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-lavender); margin-bottom:16px;">Triangle → Tajine</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+              <div>
+                <div style="width:0; height:0; border-left:40px solid transparent; border-right:40px solid transparent; border-bottom:72px solid #BFB5CC; margin:0 auto; position:relative;">
+                </div>
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">Originale</p>
+              </div>
+              <div style="font-size:20px; color:var(--accent-lavender);">↓</div>
+              <div>
+                <img src="assets/mascot-tajine-1.png" alt="Tajine" style="width:120px; height:120px; object-fit:contain;">
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">→ Forme de tajine</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demi-cercle → Arche -->
+          <div style="background:#fff; border-radius:var(--radius); padding:32px 20px; text-align:center;">
+            <p style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-teal); margin-bottom:16px;">Demi-cercle → Arche</p>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+              <div>
+                <div style="width:80px; height:44px; border-radius:80px 80px 0 0; background:#0A4F85; margin:0 auto; display:flex; align-items:center; justify-content:center; background-image:repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255,255,255,0.1) 6px, rgba(255,255,255,0.1) 8px);">
+                  <span style="font-size:16px;">😊</span>
+                </div>
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">Originale</p>
+              </div>
+              <div style="font-size:20px; color:var(--accent-teal);">↓</div>
+              <div>
+                <img src="assets/mascot-arch-1.png" alt="Arche" style="width:120px; height:120px; object-fit:contain;">
+                <p style="font-size:9px; color:var(--text-secondary); margin-top:6px;">→ Arche mauresque</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─── Toutes les variantes ─── -->
+      <div style="margin-bottom:56px;">
+        <p class="zellige-label">Variantes générées (2 par mascotte)</p>
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; margin-top:24px;">
+          <div style="text-align:center;">
+            <img src="assets/mascot-circle-tarbouche-1.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tarbouche v1</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-circle-tarbouche-2.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tarbouche v2 ⭐</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-square-amazigh-1.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Amazigh v1</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-square-amazigh-2.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Amazigh v2 ⭐</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-tajine-1.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tajine v1 ⭐</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-tajine-2.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Tajine v2</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-arch-1.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Arche v1 ⭐</p>
+          </div>
+          <div style="text-align:center;">
+            <img src="assets/mascot-arch-2.png" alt="" style="width:140px; height:140px; object-fit:contain;">
+            <p style="font-size:10px; color:var(--text-secondary); margin-top:6px;">Arche v2</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Composition : Les 4 ensemble ─── -->
+      <div>
+        <p class="zellige-label">Composition : La bande des 4</p>
+        <div style="background:var(--bg); border-radius:var(--radius); padding:64px 40px; margin-top:24px; text-align:center; position:relative; overflow:hidden;">
+          <!-- Filigrane bg -->
+          <img src="assets/filigrane-arabesque-a.png" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; opacity:0.03;">
+          <div style="position:relative; z-index:1;">
+            <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--accent-teal); opacity:0.7; margin-bottom:32px;">
+              Les mascottes Nooba
+            </p>
+            <div style="display:flex; justify-content:center; align-items:end; gap:48px; flex-wrap:wrap;">
+              <div style="text-align:center;">
+                <img src="assets/mascot-circle-tarbouche-2.png" alt="Peach" style="width:100px; height:100px; object-fit:contain;">
+                <p style="font-size:12px; font-weight:600; color:var(--accent-peach); margin-top:8px;">Noura</p>
+              </div>
+              <div style="text-align:center;">
+                <img src="assets/mascot-square-amazigh-2.png" alt="Caramel" style="width:100px; height:100px; object-fit:contain;">
+                <p style="font-size:12px; font-weight:600; color:var(--accent-yellow); margin-top:8px;">Ziri</p>
+              </div>
+              <div style="text-align:center;">
+                <img src="assets/mascot-tajine-1.png" alt="Lavande" style="width:100px; height:100px; object-fit:contain;">
+                <p style="font-size:12px; font-weight:600; color:var(--accent-lavender); margin-top:8px;">Taji</p>
+              </div>
+              <div style="text-align:center;">
+                <img src="assets/mascot-arch-1.png" alt="Blue" style="width:100px; height:100px; object-fit:contain;">
+                <p style="font-size:12px; font-weight:600; color:var(--accent-teal); margin-top:8px;">Bab</p>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--text-secondary); margin-top:32px; max-width:500px; margin-left:auto; margin-right:auto;">
+              Chaque mascotte incarne un élément de la culture marocaine :<br>
+              <strong>Noura</strong> (lumière) · <strong>Ziri</strong> (amazigh) · <strong>Taji</strong> (tajine) · <strong>Bab</strong> (porte/arche)
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 14 — MASCOTTES : AUTRES DIRECTIONS
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="lab-section" style="background: var(--bg-teal);">
+    <div class="container">
+      <p class="lab-section-title">14 — Mascottes : Exploration de Directions</p>
+      <p class="lab-section-desc">
+        5 pistes créatives pour les mascottes marocanisées — objets culturels, animaux du Maroc, formes + vêtements traditionnels, cuisine marocaine, formes zellige. 2 variantes par direction.
+      </p>
+
+      <!-- ─── Direction A : Objets Culturels ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Direction A — Objets Culturels (théière · lanterne · khamsa · porte)</p>
+        <div style="display:flex; flex-direction:column; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-peach); margin-bottom:16px;">Variante 1</p>
+            <img src="assets/mascot-objets-set-1.png" alt="Objets v1" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-peach); margin-bottom:16px;">Variante 2</p>
+            <img src="assets/mascot-objets-set-2.png" alt="Objets v2" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Direction B : Animaux du Maroc ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Direction B — Animaux du Maroc (dromadaire · fennec · caméléon · hérisson)</p>
+        <div style="display:flex; flex-direction:column; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-yellow); margin-bottom:16px;">Variante 1</p>
+            <img src="assets/mascot-animals-set-1.png" alt="Animals v1" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-yellow); margin-bottom:16px;">Variante 2</p>
+            <img src="assets/mascot-animals-set-2.png" alt="Animals v2" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Direction C : Formes + Vêtements Traditionnels ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Direction C — Formes Géométriques + Vêtements Traditionnels (djellaba · caftan · burnous · turban)</p>
+        <div style="display:flex; flex-direction:column; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-lavender); margin-bottom:16px;">Variante 1 ⭐</p>
+            <img src="assets/mascot-djellaba-set-1.png" alt="Djellaba v1" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-lavender); margin-bottom:16px;">Variante 2</p>
+            <img src="assets/mascot-djellaba-set-2.png" alt="Djellaba v2" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Direction D : Cuisine Marocaine ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Direction D — Cuisine Marocaine (msemen · chebakia · thé à la menthe · tajine) 🥇</p>
+        <div style="display:flex; flex-direction:column; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-rose); margin-bottom:16px;">Variante 1 ⭐</p>
+            <img src="assets/mascot-food-set-1.png" alt="Food v1" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-rose); margin-bottom:16px;">Variante 2 ⭐</p>
+            <img src="assets/mascot-food-set-2.png" alt="Food v2" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Direction E : Formes Zellige ─── -->
+      <div style="margin-bottom:64px;">
+        <p class="zellige-label">Direction E — Formes Zellige (étoile 8 branches · hexagone · losange · croix)</p>
+        <div style="display:flex; flex-direction:column; gap:24px; margin-top:24px;">
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-teal); margin-bottom:16px;">Variante 1</p>
+            <img src="assets/mascot-zellige-set-1.png" alt="Zellige v1" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+          <div style="background:#fff; border-radius:var(--radius); padding:32px; text-align:center;">
+            <p style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent-teal); margin-bottom:16px;">Variante 2</p>
+            <img src="assets/mascot-zellige-set-2.png" alt="Zellige v2" style="width:100%; max-width:700px; object-fit:contain;">
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Tableau comparatif ─── -->
+      <div>
+        <p class="zellige-label">Récapitulatif — Comparaison des directions</p>
+        <div style="background:#fff; border-radius:var(--radius); padding:40px; margin-top:24px; overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:13px;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--border); text-align:left;">
+                <th style="padding:12px 16px; font-weight:700; color:var(--accent-teal);">Direction</th>
+                <th style="padding:12px 16px; font-weight:700; color:var(--accent-teal);">Identité marocaine</th>
+                <th style="padding:12px 16px; font-weight:700; color:var(--accent-teal);">Adapté enfants</th>
+                <th style="padding:12px 16px; font-weight:700; color:var(--accent-teal);">Cohérence style</th>
+                <th style="padding:12px 16px; font-weight:700; color:var(--accent-teal);">Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:12px 16px; font-weight:600;">A · Objets</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px; font-weight:700; color:var(--text-secondary);">#4</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:12px 16px; font-weight:600;">B · Animaux</td>
+                <td style="padding:12px 16px;">⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px; font-weight:700; color:var(--accent-yellow);">#3</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:12px 16px; font-weight:600;">C · Djellaba</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px; font-weight:700; color:var(--accent-peach);">#2</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border); background:rgba(252,158,61,0.06);">
+                <td style="padding:12px 16px; font-weight:600;">D · Cuisine 🥇</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐⭐⭐</td>
+                <td style="padding:12px 16px; font-weight:700; color:var(--accent-rose);">#1</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 16px; font-weight:600;">E · Zellige</td>
+                <td style="padding:12px 16px;">⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐</td>
+                <td style="padding:12px 16px;">⭐⭐⭐</td>
+                <td style="padding:12px 16px; font-weight:700; color:var(--text-secondary);">#5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
