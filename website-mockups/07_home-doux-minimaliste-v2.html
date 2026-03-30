@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOOBA — Direction C : Doux & Minimaliste v2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: 'Cardenio Modern';
+      src: url('assets/CardenioModern-Regular.otf') format('opentype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Cardenio Modern';
+      src: url('assets/CardenioModern-Bold.otf') format('opentype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'Creativo';
+      src: url('assets/Creativo Regular.otf') format('opentype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Senang Banyol';
+      src: url('assets/Senang Banyol.ttf') format('truetype');
+      font-weight: 400;
+    }
+    /* ══════════════════════════════════════════
+       RESET
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS — Doux & Minimaliste
+    ══════════════════════════════════════════ */
+    :root {
+      --bg: #FEFBF6;
+      --bg-peach: #FBF0ED;
+      --bg-teal: #E4ECF3;
+      --bg-dark: #1E2D3D;
+      --text: #1E2D3D;
+      --text-secondary: #5A6B7B;
+      --accent-teal: #0A4F85;
+      --accent-peach: #E3998C;
+      --accent-lavender: #BFB5CC;
+      --accent-mint: #4A7FA8;
+      --accent-yellow: #FC9E3D;
+      --accent-rose: #CC293D;
+      --border: #E8E0D8;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --radius-full: 999px;
+      --shadow: 0 2px 16px rgba(30,45,61,0.06);
+      --shadow-lg: 0 8px 32px rgba(30,45,61,0.08);
+      --max-w: 1200px;
+    }
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .section { padding: 96px 0; }
+    .section--peach { background: var(--bg-peach); }
+    .section--teal { background: var(--bg-teal); }
+    .section--dark { background: var(--bg-dark); color: #fff; }
+    .section-label {
+      font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--accent-teal); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Creativo', 'Nunito', sans-serif; font-weight: 400; font-size: 40px;
+      line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-subtitle { font-size: 16px; color: var(--text-secondary); max-width: 560px; line-height: 1.7; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header .section-subtitle { margin: 0 auto; }
+
+    /* ══════════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════════ */
+    .navbar {
+      position: relative; z-index: 100;
+      background: rgba(254,251,246,0.95); backdrop-filter: blur(16px);
+      box-shadow: 0 1px 8px rgba(30,45,61,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .navbar.sticky {
+      position: fixed; top: 0; left: 0; right: 0;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .navbar-spacer { display: none; height: 68px; }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .navbar-logo { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 26px; color: var(--text); }
+    .navbar-logo span { color: var(--accent-teal); }
+    .navbar-links { display: flex; align-items: center; gap: 24px; }
+    .navbar-link { font-size: 14px; font-weight: 600; color: var(--text-secondary); transition: color 0.2s; }
+    .navbar-link:hover { color: var(--text); }
+    .navbar-cta {
+      background: var(--accent-teal); color: #fff; font-size: 14px; font-weight: 700;
+      padding: 10px 24px; border-radius: var(--radius-full); transition: background 0.2s;
+    }
+    .navbar-cta:hover { background: #237069; }
+    .navbar-toggle-input { display: none; }
+    .navbar-burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .navbar-burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .navbar-mobile-menu { display: none; }
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .navbar-burger { display: flex; }
+      .navbar-toggle-input:checked ~ .navbar-mobile-menu {
+        display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--bg); box-shadow: 0 8px 24px rgba(30,45,61,0.08); padding: 16px 32px;
+      }
+      .navbar-toggle-input:checked ~ .navbar-burger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .navbar-toggle-input:checked ~ .navbar-burger span:nth-child(2) { opacity: 0; }
+      .navbar-toggle-input:checked ~ .navbar-burger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+      .navbar-mobile-link { padding: 12px 0; font-size: 15px; color: var(--text-secondary); font-weight: 600; display: flex; align-items: center; gap: 12px; }
+      .navbar-mobile-cta { margin-top: 8px; background: var(--accent-teal); color: #fff; text-align: center; padding: 12px; border-radius: var(--radius-full); font-weight: 700; }
+    }
+
+    /* ══════════════════════════════════════════
+       HERO — Soft with geometric characters
+    ══════════════════════════════════════════ */
+    .hero {
+      min-height: 85vh; display: flex; align-items: center;
+      padding: 40px 0 80px; position: relative; overflow: hidden;
+    }
+    .hero .container { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
+    .hero-row { display: flex; align-items: center; gap: 64px; width: 100%; }
+    .hero-content { flex: 1; }
+    .hero-title {
+      font-family: 'Creativo', 'Nunito', sans-serif; font-weight: 400;
+      font-size: 92px; line-height: 1.05; margin-bottom: 24px;
+    }
+    .hero-title em { font-style: normal; color: var(--accent-teal); }
+    .hero-subtitle { font-family: 'Nunito', sans-serif; font-size: 18px; color: var(--text-secondary); max-width: 480px; margin-bottom: 40px; line-height: 1.8; }
+    .hero-ctas { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent-teal); color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 36px; border-radius: var(--radius-full); transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(42,123,136,0.25);
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(42,123,136,0.35); }
+    .hero-cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent-teal); font-size: 15px; font-weight: 700;
+      padding: 14px 28px; border-radius: var(--radius-full); transition: all 0.2s;
+      border: 2px solid var(--accent-teal);
+    }
+    .hero-cta-secondary:hover { background: var(--accent-teal); color: #fff; }
+
+    /* Mascot characters — Moroccan Tales Friends */
+    .hero-characters {
+      position: relative; width: 380px; height: 380px; flex-shrink: 0;
+    }
+    .mascot {
+      position: absolute;
+      object-fit: contain;
+    }
+    .mascot--msemen {
+      width: 155px; height: 155px;
+      top: 0; left: 10px;
+      transform: rotate(-8deg);
+    }
+    .mascot--chebakia {
+      width: 120px; height: 120px;
+      top: 50px; right: 0;
+      transform: rotate(6deg);
+    }
+    .mascot--tea {
+      width: 100px; height: 130px;
+      bottom: 60px; left: 90px;
+      transform: rotate(4deg);
+    }
+    .mascot--tajine {
+      width: 145px; height: 145px;
+      bottom: 0; right: 25px;
+      transform: rotate(-5deg);
+    }
+    /* Sparkles */
+    .sparkle {
+      position: absolute; opacity: 0.7;
+    }
+    .sparkle--1 { top: 0; left: 0; }
+    .sparkle--2 { top: 60px; right: 0; }
+    .sparkle--3 { bottom: 0; left: 100px; }
+    .sparkle--4 { bottom: 120px; right: 80px; }
+    .sparkle--5 { top: 160px; left: 0; }
+
+    @media (max-width: 768px) {
+      .hero .container { text-align: center; }
+      .hero-row { flex-direction: column; }
+      .hero-title { font-size: 48px; }
+      .hero-subtitle { margin: 0 auto 40px; }
+      .hero-ctas { justify-content: center; }
+      .hero-characters { width: 280px; height: 280px; }
+      .mascot--msemen { width: 115px; height: 115px; top: 0; left: 10px; }
+      .mascot--chebakia { width: 90px; height: 90px; top: 35px; right: 0; }
+      .mascot--tea { width: 75px; height: 100px; bottom: 45px; left: 65px; }
+      .mascot--tajine { width: 105px; height: 105px; bottom: 0; right: 15px; }
+    }
+
+    /* ══════════════════════════════════════════
+       SOCIAL PROOF
+    ══════════════════════════════════════════ */
+    .social-proof { background: var(--accent-teal); padding: 18px 0; position: relative; overflow: hidden; }
+    .social-proof::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://static.thenounproject.com/png/2159658-200.png');
+      background-size: 60px; background-repeat: repeat;
+      opacity: 0.03; filter: invert(1);
+      pointer-events: none;
+    }
+    .social-proof-inner { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .social-proof-stat { text-align: center; }
+    .social-proof-stat-number { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; color: #fff; }
+    .social-proof-stat-label { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 2px; }
+    .social-proof-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.25); }
+    .social-proof-badges { display: flex; gap: 12px; }
+    .social-proof-badge { font-size: 12px; color: rgba(255,255,255,0.75); display: flex; align-items: center; gap: 6px; }
+    @media (max-width: 768px) { .social-proof-divider { display: none; } }
+
+    /* ══════════════════════════════════════════
+       PILLARS
+    ══════════════════════════════════════════ */
+    .manifeste-text {
+      font-size: 17px; color: var(--text-secondary); max-width: 600px;
+      margin: 0 auto 24px; text-align: center; line-height: 1.8;
+    }
+    .manifeste-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent-teal); font-weight: 700; font-size: 15px;
+      border: 2px solid var(--accent-teal); border-radius: var(--radius-full);
+      padding: 10px 24px; transition: all 0.2s; margin-bottom: 48px;
+    }
+    .manifeste-link:hover { background: var(--accent-teal); color: #fff; }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .pillar-card {
+      background: #fff; border-radius: var(--radius); padding: 36px 28px; text-align: center;
+      box-shadow: var(--shadow); transition: transform 0.2s;
+    }
+    .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .pillar-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 24px;
+    }
+    .pillar-card:nth-child(1) .pillar-icon { background: rgba(245,166,125,0.2); color: var(--accent-peach); }
+    .pillar-card:nth-child(2) .pillar-icon { background: rgba(184,169,212,0.2); color: var(--accent-lavender); }
+    .pillar-card:nth-child(3) .pillar-icon { background: rgba(124,197,184,0.2); color: var(--accent-mint); }
+    .pillar-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 12px; }
+    .pillar-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    @media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       CATALOGUE — Zellige mosaic layout
+    ══════════════════════════════════════════ */
+    .catalog-filters {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .catalog-filter {
+      padding: 8px 20px; border-radius: var(--radius-full); font-size: 14px; font-weight: 600;
+      border: 2px solid var(--border); color: var(--text-secondary); cursor: pointer;
+      transition: all 0.2s; background: transparent;
+    }
+    .catalog-filter:hover { border-color: var(--accent-teal); color: var(--accent-teal); }
+    .catalog-filter--active { background: var(--accent-teal); color: #fff; border-color: var(--accent-teal); }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .audio-card {
+      background: #fff; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); transition: transform 0.2s;
+    }
+    .audio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .audio-card-cover {
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      position: relative; font-size: 40px;
+    }
+    .audio-card-cover > i { opacity: 0.3; color: #fff; font-size: 48px; }
+    .audio-card-play i { opacity: 1; color: var(--text); }
+    .audio-card--peach .audio-card-cover { background-color: var(--accent-peach); }
+    .audio-card--lavender .audio-card-cover { background-color: var(--accent-lavender); }
+    .audio-card--teal .audio-card-cover { background-color: var(--accent-teal); }
+    .audio-card--mint .audio-card-cover { background-color: var(--accent-mint); }
+    .audio-card--yellow .audio-card-cover { background-color: var(--accent-yellow); }
+    .audio-card--rose .audio-card-cover { background-color: var(--accent-rose); }
+    .audio-card-play {
+      position: absolute; bottom: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+      color: var(--text); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .audio-card-body { padding: 16px; }
+    .audio-card-badge {
+      display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;
+    }
+    .audio-card-badge--recits { background: rgba(227,153,140,0.2); color: var(--accent-peach); }
+    .audio-card-badge--rythmes { background: rgba(191,181,204,0.2); color: #8B7BA8; }
+    .audio-card-badge--decouverte { background: rgba(74,127,168,0.2); color: var(--accent-mint); }
+    .audio-card-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+    .audio-card-meta { font-size: 13px; color: var(--text-secondary); }
+    .audio-card-hint { font-size: 12px; color: var(--accent-teal); margin-top: 8px; font-weight: 600; }
+    .audio-card-hint i { margin-right: 4px; }
+    .catalog-cta-wrap { text-align: center; margin-top: 40px; }
+    .catalog-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent-teal); font-weight: 700; font-size: 15px;
+      border: 2px solid var(--accent-teal); border-radius: var(--radius-full);
+      padding: 12px 28px; transition: all 0.2s;
+    }
+    .catalog-cta:hover { background: var(--accent-teal); color: #fff; }
+    @media (max-width: 768px) {
+      .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .catalog-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════════
+       COMMENT ÇA MARCHE
+    ══════════════════════════════════════════ */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 44px; left: 15%; right: 15%;
+      height: 2px; background: linear-gradient(to right, var(--accent-peach), var(--accent-lavender), var(--accent-mint));
+      z-index: 0;
+    }
+    .step-card {
+      background: #fff; border-radius: var(--radius); padding: 36px 28px; text-align: center;
+      box-shadow: var(--shadow); position: relative; z-index: 1;
+    }
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 50%;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px;
+      margin-bottom: 20px; color: #fff;
+    }
+    .step-card:nth-child(1) .step-number { background: var(--accent-peach); }
+    .step-card:nth-child(2) .step-number { background: var(--accent-lavender); }
+    .step-card:nth-child(3) .step-number { background: var(--accent-mint); }
+    .step-icon {
+      font-size: 20px; margin-bottom: 8px; color: var(--text-secondary);
+    }
+    .step-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 12px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    @media (max-width: 768px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .steps-grid::before { display: none; }
+    }
+
+    /* ══════════════════════════════════════════
+       SCIENCE
+    ══════════════════════════════════════════ */
+    .science-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .science-card {
+      background: #fff; border-radius: var(--radius); padding: 32px 24px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .science-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 22px;
+    }
+    .science-card:nth-child(1) .science-icon { background: rgba(245,166,125,0.2); color: var(--accent-peach); }
+    .science-card:nth-child(2) .science-icon { background: rgba(184,169,212,0.2); color: var(--accent-lavender); }
+    .science-card:nth-child(3) .science-icon { background: rgba(124,197,184,0.2); color: var(--accent-mint); }
+    .science-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; margin-bottom: 10px; }
+    .science-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .science-source {
+      display: block; margin-top: 12px; font-size: 11px; color: var(--accent-teal);
+      font-weight: 600; font-style: italic; opacity: 0.8;
+    }
+    @media (max-width: 768px) { .science-grid { grid-template-columns: 1fr; } }
+
+
+    /* ══════════════════════════════════════════
+       FOUNDERS
+    ══════════════════════════════════════════ */
+    .founders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 800px; margin: 0 auto; }
+    .founder-card {
+      background: #fff; border-radius: var(--radius); padding: 36px 28px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .founder-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 24px;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff;
+    }
+    .founder-card:nth-child(1) .founder-avatar { background: var(--accent-peach); }
+    .founder-card:nth-child(2) .founder-avatar { background: var(--accent-lavender); }
+    .founder-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 20px; margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .founder-quote { font-size: 15px; color: var(--text-secondary); font-style: italic; line-height: 1.7; text-align: left; border-left: 3px solid var(--accent-teal); padding-left: 16px; }
+    @media (max-width: 768px) { .founders-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════ */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card { background: #fff; border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); }
+    .testimonial-stars { color: var(--accent-teal); font-size: 14px; margin-bottom: 16px; display: flex; gap: 2px; }
+    .testimonial-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      color: #fff; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .testimonial-card:nth-child(1) .testimonial-avatar { background: var(--accent-peach); }
+    .testimonial-card:nth-child(2) .testimonial-avatar { background: var(--accent-mint); }
+    .testimonial-card:nth-child(3) .testimonial-avatar { background: var(--accent-lavender); }
+    .testimonial-author-name { font-weight: 700; font-size: 14px; }
+    .testimonial-author-detail { font-size: 12px; color: var(--text-secondary); }
+    @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       CTA PRICING
+    ══════════════════════════════════════════ */
+    .pricing-section { padding: 96px 0; background: var(--bg-dark); color: #fff; }
+    .pricing-cta { display: flex; gap: 48px; align-items: center; }
+    .pricing-left { flex: 1; }
+    .pricing-left .section-label { color: var(--accent-mint); }
+    .pricing-left .section-title { color: #fff; }
+    .pricing-amount { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 52px; color: var(--accent-teal); }
+    .pricing-period { font-size: 18px; color: rgba(255,255,255,0.6); }
+    .pricing-trial {
+      display: inline-block; background: rgba(74,127,168,0.2); color: var(--accent-mint);
+      font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: var(--radius-full);
+      margin-top: 8px; margin-bottom: 8px;
+    }
+    .pricing-benefits { margin: 24px 0 32px; }
+    .pricing-benefit { display: flex; align-items: center; gap: 12px; padding: 6px 0; font-size: 14px; color: rgba(255,255,255,0.7); }
+    .pricing-benefit-icon { color: var(--accent-mint); font-size: 14px; width: 20px; }
+    .pricing-btns { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .pricing-subscribe-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent-teal); color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 36px; border-radius: var(--radius-full); transition: all 0.2s;
+    }
+    .pricing-subscribe-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(42,123,136,0.4); }
+    .pricing-trial-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent-mint); font-size: 15px; font-weight: 700;
+      border: 2px solid var(--accent-mint); border-radius: var(--radius-full);
+      padding: 14px 28px; transition: all 0.2s;
+    }
+    .pricing-trial-btn:hover { background: var(--accent-mint); color: #fff; }
+
+    /* Phone mockup — realistic iPhone proportions */
+    .phone-mockup {
+      width: 300px; flex-shrink: 0; background: #2A3A4D; border-radius: 44px;
+      padding: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      aspect-ratio: 9 / 19.5;
+      display: flex; flex-direction: column;
+    }
+    .phone-mockup-inner {
+      background: var(--bg); border-radius: 34px; overflow: hidden;
+      flex: 1; display: flex; flex-direction: column;
+    }
+    .phone-mockup-statusbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 20px 2px; font-size: 11px; font-weight: 600; color: var(--text);
+    }
+    .phone-mockup-statusbar-time { font-weight: 700; font-size: 12px; min-width: 32px; }
+    .phone-mockup-statusbar-icons { display: flex; align-items: center; gap: 4px; font-size: 9px; min-width: 50px; justify-content: flex-end; }
+    .phone-mockup-notch {
+      width: 100px; height: 24px; background: #2A3A4D;
+      border-radius: 14px; flex-shrink: 0;
+    }
+    .phone-mockup-home-indicator {
+      width: 120px; height: 5px; background: var(--text-secondary);
+      border-radius: 3px; margin: 8px auto 10px; opacity: 0.3;
+    }
+    .phone-mockup-screen { flex: 1; padding: 0 16px 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .phone-mockup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding: 10px 4px 0; }
+    .phone-mockup-logo { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px; color: var(--text); }
+    .phone-mockup-logo span { color: var(--accent-teal); }
+    .phone-mockup-bell { color: var(--text-secondary); font-size: 14px; }
+    .phone-mockup-label { font-size: 10px; color: var(--accent-teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .phone-mockup-title { font-family: 'Nunito', sans-serif; font-size: 14px; color: var(--text); font-weight: 700; margin: 4px 0 12px; }
+    .phone-mockup-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .phone-mockup-item-cover { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; color: rgba(255,255,255,0.5); }
+    .phone-mockup-item-name { font-size: 12px; color: var(--text); font-weight: 600; }
+    .phone-mockup-item-meta { font-size: 10px; color: var(--text-secondary); }
+    .phone-mockup-item-play { margin-left: auto; width: 24px; height: 24px; border-radius: 50%; background: var(--accent-teal); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 8px; flex-shrink: 0; }
+    .phone-mockup-tabbar { display: flex; justify-content: space-around; padding: 10px 0 6px; border-top: 1px solid var(--border); margin-top: auto; }
+    .phone-mockup-tab { text-align: center; font-size: 9px; color: var(--text-secondary); }
+    .phone-mockup-tab--active { color: var(--accent-teal); }
+    .phone-mockup-tab i { display: block; font-size: 14px; margin-bottom: 2px; }
+    @media (max-width: 768px) {
+      .pricing-cta { flex-direction: column; }
+      .phone-mockup { width: 260px; margin: 0 auto; }
+    }
+
+    /* ══════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════ */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border); overflow: hidden;
+    }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0; cursor: pointer; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 17px; color: var(--text);
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--accent-teal); }
+    .faq-question i {
+      font-size: 14px; color: var(--accent-teal); transition: transform 0.3s;
+      flex-shrink: 0; margin-left: 16px;
+    }
+    .faq-toggle { display: none; }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 15px; color: var(--text-secondary); line-height: 1.7;
+    }
+    .faq-toggle:checked ~ .faq-answer { max-height: 300px; padding-bottom: 24px; }
+    .faq-toggle:checked ~ .faq-question i { transform: rotate(180deg); }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer { background: var(--bg-dark); padding: 64px 0 32px; color: #fff; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 24px; margin-bottom: 12px; }
+    .footer-brand-name span { color: var(--accent-teal); }
+    .footer-brand-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: var(--accent-mint); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.6); padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; font-size: 12px; color: rgba(255,255,255,0.5); }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: rgba(255,255,255,0.5); font-size: 16px; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--accent-teal); }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ══════════════════════════════════════════
+       MOROCCAN TOUCH
+    ══════════════════════════════════════════ */
+    .hero-zellige-arc {
+      position: absolute; top: 0; left: 0;
+      width: 550px; height: 550px;
+      object-fit: contain; object-position: top left;
+      pointer-events: none; z-index: 0;
+      opacity: 0.025;
+    }
+    .moroccan-separator {
+      display: flex; align-items: center; justify-content: center;
+      padding: 6px 0; gap: 8px; opacity: 0.12;
+      position: relative; z-index: 10;
+      margin-top: -18px; margin-bottom: -18px;
+    }
+    .moroccan-separator img { width: 24px; height: 24px; object-fit: contain; }
+    .moroccan-filigrane {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; pointer-events: none; z-index: 0;
+    }
+    .khatam-star { width: 14px; height: 14px; object-fit: contain; display: inline-block; }
+    @media (max-width: 768px) {
+      .hero-zellige-arc { width: 350px; height: 350px; }
+    }
+    @media (max-width: 480px) {
+      .hero-zellige-arc { width: 250px; height: 250px; }
+    }
+
+    @media print {
+      body { background: #fff; color: #1a1a1a; font-size: 12px; }
+      .navbar, .social-proof, .phone-mockup, .hero-characters { display: none; }
+      .section--dark { background: #f5f5f5; color: #1a1a1a; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <!-- Moroccan touch: zellige arc — top-left corner -->
+    <img src="assets/zellige-arc-corner.png" alt="" class="hero-zellige-arc">
+    <div class="container">
+      <h1 class="hero-title" style="text-align:center;width:100%;margin-bottom:48px;">Raconte-moi<br><em>le Maroc</em></h1>
+      <div class="hero-row">
+        <div class="hero-content">
+          <p style="font-size:24px;font-weight:400;font-family:'Creativo','Nunito',sans-serif;color:var(--accent-rose);margin-bottom:14px;">1000 ans d'histoires a transmettre</p>
+          <p class="hero-subtitle">
+            <strong>Contes, berceuses et decouvertes</strong> en francais et en darija pour vos enfants.
+            Une experience 100 % audio, sans ecran, pensee pour transmettre la culture marocaine.
+          </p>
+          <div class="hero-ctas">
+            <a href="#catalogue" class="hero-cta"><i class="fa-solid fa-play"></i> Ecouter un extrait gratuit</a>
+            <a href="#comment-ca-marche" class="hero-cta-secondary"><i class="fa-solid fa-arrow-down"></i> Comment ca marche</a>
+          </div>
+        </div>
+        <div class="hero-characters">
+        <span class="sparkle sparkle--1"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:22px;height:22px;opacity:0.5;filter:invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);"></span>
+        <span class="sparkle sparkle--2"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:16px;height:16px;opacity:0.4;filter:invert(70%) sepia(20%) saturate(300%) hue-rotate(210deg) brightness(95%);"></span>
+        <span class="sparkle sparkle--3"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:20px;height:20px;opacity:0.35;filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></span>
+        <span class="sparkle sparkle--4"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:14px;height:14px;opacity:0.5;filter:invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);"></span>
+        <span class="sparkle sparkle--5"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:12px;height:12px;opacity:0.3;filter:invert(25%) sepia(80%) saturate(2000%) hue-rotate(340deg) brightness(80%);"></span>
+        <img src="assets/mascot-msemen.png" alt="Msemen" class="mascot mascot--msemen">
+        <img src="assets/mascot-chebakia.png" alt="Chebakia" class="mascot mascot--chebakia">
+        <img src="assets/mascot-tea.png" alt="The a la menthe" class="mascot mascot--tea">
+        <img src="assets/mascot-tajine-new.png" alt="Tajine" class="mascot mascot--tajine">
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOCIAL PROOF ═══ -->
+  <div class="social-proof">
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="social-proof-inner">
+        <div class="social-proof-stat"><div class="social-proof-stat-number">100%</div><div class="social-proof-stat-label">Audio — zero ecran</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat"><div class="social-proof-stat-number">3-12 ans</div><div class="social-proof-stat-label">Contenus adaptes par age</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat"><div class="social-proof-stat-number">FR / دارجة</div><div class="social-proof-stat-label">Bilingue francais-darija</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-badges"><div class="social-proof-badge"><i class="fa-brands fa-apple"></i> App Store</div><div class="social-proof-badge"><i class="fa-brands fa-google-play"></i> Google Play</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NAVBAR — below social proof, sticky on scroll ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="#" class="navbar-logo"><img src="assets/logo_Nooba_baseline.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="#manifeste" class="navbar-link">Notre mission</a>
+        <a href="#catalogue" class="navbar-link"><i class="fa-solid fa-headphones"></i> Ecouter gratuit</a>
+        <a href="#fondatrices" class="navbar-link">Qui sommes-nous</a>
+        <a href="#" class="navbar-link"><i class="fa-solid fa-user"></i> Se connecter</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="#manifeste" class="navbar-mobile-link"><i class="fa-solid fa-compass"></i> Notre mission</a>
+        <a href="#catalogue" class="navbar-mobile-link"><i class="fa-solid fa-headphones"></i> Ecouter gratuit</a>
+        <a href="#fondatrices" class="navbar-mobile-link"><i class="fa-solid fa-users"></i> Qui sommes-nous</a>
+        <a href="#" class="navbar-mobile-link"><i class="fa-solid fa-user"></i> Se connecter</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ MISSION + PILIERS ═══ -->
+  <section id="manifeste" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Notre mission</p>
+        <h2 class="section-title">Transmettre, ecouter, grandir</h2>
+      </div>
+      <p class="manifeste-text"><strong>La transmission culturelle ne se fait plus.</strong> Nos enfants grandissent satures d'ecrans, loin de l'oralite au coeur de notre heritage.<br><br><strong>NOOBA ramene les histoires, les berceuses et la darija</strong> dans leur quotidien.</p>
+      <div style="text-align:center; margin-bottom:48px;"><a href="#" class="manifeste-link"><span>Decouvrir notre manifeste</span> <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="pillars-grid">
+        <div class="pillar-card"><div class="pillar-icon"><img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="width:32px;height:32px;filter:invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);"></div><h3 class="pillar-title">Recits & Contes</h3><p class="pillar-desc"><strong>Hdidane, Mahboul</strong> — les contes et legendes qui ont berce des generations, racontes en <strong>darija et en francais</strong>.</p></div>
+        <div class="pillar-card"><div class="pillar-icon"><img src="https://static.thenounproject.com/png/7053566-200.png" alt="" style="width:32px;height:32px;filter:invert(70%) sepia(20%) saturate(300%) hue-rotate(210deg) brightness(95%);"></div><h3 class="pillar-title">Rythmes & Berceuses</h3><p class="pillar-desc"><strong>Nini ya Moumou, A Jrada Malha</strong> — les berceuses et comptines qui endormaient des generations.</p></div>
+        <div class="pillar-card"><div class="pillar-icon"><img src="https://static.thenounproject.com/png/5608068-200.png" alt="" style="width:32px;height:32px;filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><h3 class="pillar-title">Decouverte & Langue</h3><p class="pillar-desc"><strong>Initiation a la darija</strong>, decouverte des regions et traditions. Votre enfant explore son heritage <strong>par les sons</strong>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CATALOGUE — Zellige mosaic layout ═══ -->
+  <section id="catalogue" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Le catalogue</p>
+        <h2 class="section-title">Ecoutez avant de vous abonner</h2>
+        <p class="section-subtitle">Chaque contenu propose un extrait de 30 secondes — assez pour tomber sous le charme.</p>
+      </div>
+
+      <!-- Category filters -->
+      <div class="catalog-filters">
+        <button class="catalog-filter catalog-filter--active">Tous</button>
+        <button class="catalog-filter">Recits & Contes</button>
+        <button class="catalog-filter">Rythmes & Berceuses</button>
+        <button class="catalog-filter">Decouverte & Langue</button>
+      </div>
+
+      <div class="catalog-grid">
+        <!-- Card 1 — featured, large -->
+        <div class="audio-card audio-card--peach">
+          <div class="audio-card-cover"><i class="fa-solid fa-book-open"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Recits & Contes</span>
+            <h3 class="audio-card-title">Hmadou et Hmaydou</h3>
+            <p class="audio-card-meta">8 min · 3-5 ans · Darija / Francais</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="audio-card audio-card--lavender">
+          <div class="audio-card-cover"><i class="fa-solid fa-music"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--rythmes">Berceuse</span>
+            <h3 class="audio-card-title">A Mama, ya Mama</h3>
+            <p class="audio-card-meta">4 min · 3-5 ans</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="audio-card audio-card--teal">
+          <div class="audio-card-cover"><i class="fa-solid fa-book-open"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Recits & Contes</span>
+            <h3 class="audio-card-title">Hdidane et l'ogresse</h3>
+            <p class="audio-card-meta">12 min · 6-8 ans</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="audio-card audio-card--mint">
+          <div class="audio-card-cover"><i class="fa-solid fa-earth-africa"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--decouverte">Decouverte</span>
+            <h3 class="audio-card-title">Les couleurs du souk</h3>
+            <p class="audio-card-meta">6 min · 3-5 ans</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="audio-card audio-card--yellow">
+          <div class="audio-card-cover"><i class="fa-solid fa-book-open"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Recits & Contes</span>
+            <h3 class="audio-card-title">La legende de Lalla Mira</h3>
+            <p class="audio-card-meta">9 min · 6-8 ans</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="audio-card audio-card--rose">
+          <div class="audio-card-cover"><i class="fa-solid fa-music"></i><button class="audio-card-play"><i class="fa-solid fa-play"></i></button></div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--rythmes">Comptines</span>
+            <h3 class="audio-card-title">Comptines de chez Jidda</h3>
+            <p class="audio-card-meta">5 min · 3-5 ans</p>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30s</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: explore full catalog -->
+      <div class="catalog-cta-wrap">
+        <a href="#" class="catalog-cta">Explorer tout le catalogue <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMMENT ÇA MARCHE ═══ -->
+  <section id="comment-ca-marche" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Simple et rapide</p>
+        <h2 class="section-title">Comment ca marche</h2>
+        <p class="section-subtitle">En trois etapes, vos enfants ecoutent les histoires du Maroc.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h3 class="step-title">Abonnez-vous</h3>
+          <p class="step-desc">Choisissez l'abonnement annuel directement sur le site. <strong>Paiement securise</strong> par Stripe. <strong>Acces immediat</strong> au catalogue complet.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3 class="step-title">Telechargez l'app</h3>
+          <p class="step-desc">Disponible sur <strong>iOS et Android</strong>. Configurez les profils de vos enfants et telechargez vos premiers contenus pour le <strong>mode offline</strong>.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fa-solid fa-headphones"></i></div>
+          <h3 class="step-title">Ecoutez, transmettez</h3>
+          <p class="step-desc">En voiture, au coucher, en promenade — lancez un conte ou une berceuse et laissez la <strong>magie de la darija</strong> faire le reste.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SCIENCE ═══ -->
+  <section class="section section--teal" style="position:relative; overflow:hidden;">
+    <!-- Moroccan touch: scattered cultural icons as filigrane -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden;">
+      <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="position:absolute; top:8%; left:5%; width:60px; opacity:0.12; transform:rotate(-15deg);">
+      <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="position:absolute; top:15%; right:8%; width:50px; opacity:0.10; transform:rotate(10deg);">
+      <img src="https://static.thenounproject.com/png/7521503-200.png" alt="" style="position:absolute; bottom:20%; left:8%; width:55px; opacity:0.09; transform:rotate(8deg);">
+      <img src="https://static.thenounproject.com/png/5608068-200.png" alt="" style="position:absolute; bottom:10%; right:5%; width:45px; opacity:0.12; transform:rotate(-12deg);">
+      <img src="https://static.thenounproject.com/png/2148932-200.png" alt="" style="position:absolute; top:50%; left:2%; width:40px; opacity:0.08; transform:rotate(20deg);">
+      <img src="https://static.thenounproject.com/png/8264751-200.png" alt="" style="position:absolute; top:40%; right:3%; width:50px; opacity:0.10; transform:rotate(-8deg);">
+    </div>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="section-header">
+        <p class="section-label">La science derriere</p>
+        <h2 class="section-title">Pourquoi l'audio transforme l'apprentissage</h2>
+      </div>
+      <div class="science-grid">
+        <div class="science-card">
+          <div class="science-icon"><i class="fa-solid fa-ear-listen"></i></div>
+          <h3 class="science-title">Reservoir sonore</h3>
+          <p class="science-desc">L'enfant construit un reservoir de sons qui facilite l'apprentissage naturel de la langue. Les bebes distinguent tous les contrastes phonetiques — une capacite qui se specialise selon l'exposition sonore recue.</p>
+          <span class="science-source">Patricia Kuhl, University of Washington — Nature Reviews Neuroscience, 2004</span>
+        </div>
+        <div class="science-card">
+          <div class="science-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="science-title">Imagination active</h3>
+          <p class="science-desc">Sans support visuel, le cerveau cree ses propres images. L'IRM fonctionnelle montre que l'ecoute d'histoires sans images active davantage les reseaux de visualisation mentale chez les 3-5 ans.</p>
+          <span class="science-source">John Hutton, Cincinnati Children's Hospital — Pediatrics, 2015</span>
+        </div>
+        <div class="science-card">
+          <div class="science-icon"><i class="fa-solid fa-language"></i></div>
+          <h3 class="science-title">Immersion linguistique</h3>
+          <p class="science-desc">Le mix francais-darija cree une immersion naturelle. Les enfants bilingues surpassent les monolingues en controle attentionnel et flexibilite cognitive des l'age de 2 ans.</p>
+          <span class="science-source">Ellen Bialystok, York University — Trends in Cognitive Sciences, 2012</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ FONDATRICES ═══ -->
+  <section id="fondatrices" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Qui sommes-nous</p>
+        <h2 class="section-title">Des meres, comme vous</h2>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card"><div class="founder-avatar">M</div><h3 class="founder-name">Maha Benali</h3><p class="founder-role">Co-fondatrice</p><p class="founder-quote">Mes enfants comprennent la darija mais <strong>ne la parlent pas</strong>. Je voulais un outil qui rende la transmission naturelle — <strong>pas un cours de langue, une experience de vie</strong>.</p></div>
+        <div class="founder-card"><div class="founder-avatar">B</div><h3 class="founder-name">Boutaina Alami</h3><p class="founder-role">Co-fondatrice</p><p class="founder-quote">Ma mere me chantait A Mama tous les soirs. <strong>Mon fils de 7 ans ne connait pas cette berceuse.</strong> NOOBA est ne de cette absence.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ TEMOIGNAGES ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Temoignages</p>
+        <h2 class="section-title">Ce que disent les parents</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><p class="testimonial-text">Mes enfants reclament "leur histoire du Maroc" tous les soirs. En trois semaines, ma fille a commence a utiliser des mots en darija spontanement.</p><div class="testimonial-author"><div class="testimonial-avatar">S</div><div><p class="testimonial-author-name">Samia L.</p><p class="testimonial-author-detail">Maman de 2 enfants · Paris</p></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><p class="testimonial-text">Enfin une app qui ne met pas un ecran devant les yeux de ma fille. On l'utilise dans la voiture, elle adore les berceuses.</p><div class="testimonial-author"><div class="testimonial-avatar">Y</div><div><p class="testimonial-author-name">Youssef M.</p><p class="testimonial-author-detail">Papa d'une petite fille · Casablanca</p></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%); opacity:0.4;"></div><p class="testimonial-text">Je cherchais un moyen naturel de transmettre notre culture. NOOBA fait exactement ca — sans forcer, juste des histoires qui donnent envie.</p><div class="testimonial-author"><div class="testimonial-avatar">N</div><div><p class="testimonial-author-name">Nadia K.</p><p class="testimonial-author-detail">Maman de 3 enfants · Bruxelles</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA PRICING ═══ -->
+  <section class="pricing-section" style="position:relative; overflow:hidden;">
+    <!-- Moroccan touch: zellige arc — bottom-right corner -->
+    <img src="assets/zellige-arc-corner.png" alt="" style="position:absolute; bottom:0; right:0; width:450px; height:450px; object-fit:contain; object-position:bottom right; pointer-events:none; z-index:0; opacity:0.04; filter:invert(1); transform:rotate(180deg);">
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="pricing-cta">
+        <div class="pricing-left">
+          <p class="section-label" style="color:var(--accent-mint);">Abonnement</p>
+          <h2 class="section-title" style="color:#fff;">Offrez a vos enfants<br>un tresor culturel</h2>
+          <p style="color:rgba(255,255,255,0.65); margin-bottom:24px;">Un an de contes, berceuses et decouvertes en francais et en darija.</p>
+          <div style="margin-bottom:8px;"><span class="pricing-amount">49,90&#8364;</span><span class="pricing-period"> / an</span></div>
+          <div class="pricing-trial"><i class="fa-solid fa-gift"></i> 7 jours d'essai gratuit inclus</div>
+          <div class="pricing-benefits">
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Catalogue complet en darija et francais</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Mode offline — ecoutez sans connexion</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Nouveautes ajoutees chaque semaine</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>100% audio — zero ecran</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Annulation possible a tout moment</span></div>
+          </div>
+          <div class="pricing-btns">
+            <a href="#" class="pricing-subscribe-btn">Essayer gratuitement 7 jours <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="pricing-trial-btn">S'abonner directement</a>
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-mockup-inner">
+            <div class="phone-mockup-statusbar">
+              <span class="phone-mockup-statusbar-time">9:41</span>
+              <div class="phone-mockup-notch"></div>
+              <span class="phone-mockup-statusbar-icons">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full"></i>
+              </span>
+            </div>
+            <div class="phone-mockup-screen">
+              <div class="phone-mockup-header"><img src="assets/logo_Nooba_baseline.png" alt="NOOBA" style="height:24px;width:auto;"><i class="fa-solid fa-bell phone-mockup-bell"></i></div>
+              <p class="phone-mockup-label">Nouveautes</p>
+              <p class="phone-mockup-title">Ajoutes cette semaine</p>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-peach);"><i class="fa-solid fa-book-open"></i></div><div><p class="phone-mockup-item-name">Hmadou et Hmaydou</p><p class="phone-mockup-item-meta">8 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-lavender);"><i class="fa-solid fa-music"></i></div><div><p class="phone-mockup-item-name">A Mama, ya Mama</p><p class="phone-mockup-item-meta">4 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-mint);"><i class="fa-solid fa-earth-africa"></i></div><div><p class="phone-mockup-item-name">Les couleurs du souk</p><p class="phone-mockup-item-meta">6 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-tabbar">
+                <div class="phone-mockup-tab phone-mockup-tab--active"><i class="fa-solid fa-house"></i><span>Accueil</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-heart"></i><span>Favoris</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-arrow-down"></i><span>Offline</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-user"></i><span>Profil</span></div>
+              </div>
+            </div>
+            <div class="phone-mockup-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Questions frequentes</p>
+        <h2 class="section-title">Tout ce que vous devez savoir</h2>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq-1" class="faq-toggle">
+          <label for="faq-1" class="faq-question">Mon enfant utilise-t-il le telephone seul ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Non. NOOBA est concu pour que <strong>le parent controle, l'enfant ecoute</strong>. Vous choisissez le contenu, lancez la lecture, et votre enfant profite de l'histoire — sans jamais interagir avec l'ecran. C'est l'equivalent moderne de la cassette audio.</div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq-2" class="faq-toggle">
+          <label for="faq-2" class="faq-question">Les contenus sont en quelle langue exactement ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Nos contenus sont en <strong>mix francais-darija</strong>. Certains sont principalement en darija avec des explications en francais, d'autres en francais avec des mots et expressions en darija. L'objectif est une <strong>immersion linguistique naturelle</strong>, comme dans une conversation familiale.</div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq-3" class="faq-toggle">
+          <label for="faq-3" class="faq-question">Est-ce que je peux ecouter sans connexion internet ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Oui ! Le <strong>mode offline</strong> vous permet de telecharger vos contenus preferes sur votre telephone. Ideal pour les trajets en voiture, les vacances ou les moments sans reseau.</div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq-4" class="faq-toggle">
+          <label for="faq-4" class="faq-question">Pour quel age sont les contenus ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">NOOBA propose des contenus pour les <strong>3 a 12 ans</strong>. Chaque histoire, berceuse ou contenu de decouverte est classe par tranche d'age. L'app vous recommande automatiquement les contenus adaptes selon le profil de chaque enfant.</div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq-5" class="faq-toggle">
+          <label for="faq-5" class="faq-question">Puis-je annuler mon abonnement a tout moment ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Absolument. Vous beneficiez de <strong>7 jours d'essai gratuit</strong>. Si vous n'etes pas convaincu, annulez avant la fin de la periode d'essai sans etre debite. Apres, l'abonnement est annuel et peut etre annule a tout moment.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et decouvertes en francais et en darija pour vos enfants de 3 a 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Decouvrir</p><a href="#">Notre mission</a><a href="#">Notre manifeste</a><a href="#">Le catalogue</a><a href="#">Qui sommes-nous</a></div>
+        <div class="footer-col"><p class="footer-col-title">Acces</p><a href="#">S'abonner</a><a href="#">Telecharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Legal</p><a href="#">Conditions generales</a><a href="#">Confidentialite</a><a href="#">Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
