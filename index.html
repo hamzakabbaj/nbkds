@@ -1,434 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wireframes — NOOBA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    a { color: inherit; text-decoration: none; }
-
-    :root {
-      --bg: #0D0B09;
-      --bg-card: #1A1612;
-      --bg-card-hover: #221E18;
-      --border: rgba(200, 146, 60, 0.12);
-      --border-hover: rgba(200, 146, 60, 0.35);
-      --accent: #C8923C;
-      --accent-subtle: rgba(200, 146, 60, 0.1);
-      --text: #F5EDE0;
-      --text-secondary: #9C8B7A;
-      --text-tertiary: #6B5D4F;
-      --radius: 16px;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-serif: 'Playfair Display', Georgia, serif;
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Cards Grid ── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      max-width: 960px;
-      width: 100%;
-    }
-
-    @media (max-width: 768px) {
-      .cards {
-        grid-template-columns: 1fr;
-        max-width: 400px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframes — NOOBA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
-    }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+      :root {
+        --bg: #0d0b09;
+        --bg-card: #1a1612;
+        --bg-card-hover: #221e18;
+        --border: rgba(200, 146, 60, 0.12);
+        --border-hover: rgba(200, 146, 60, 0.35);
+        --accent: #c8923c;
+        --accent-subtle: rgba(200, 146, 60, 0.1);
+        --text: #f5ede0;
+        --text-secondary: #9c8b7a;
+        --text-tertiary: #6b5d4f;
+        --radius: 16px;
+        --font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-serif: "Playfair Display", Georgia, serif;
+      }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    .card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-    }
+      /* ── Cards Grid ── */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        max-width: 960px;
+        width: 100%;
+      }
 
-    .card:hover::before {
-      opacity: 1;
-    }
+      @media (max-width: 768px) {
+        .cards {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+      }
 
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .card-icon--mobile {
-      background: rgba(200, 146, 60, 0.12);
-      color: var(--accent);
-    }
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
 
-    .card-icon--website {
-      background: rgba(46, 125, 91, 0.15);
-      color: #4ADE80;
-    }
+      .card:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
 
-    .card-icon--admin {
-      background: rgba(59, 130, 246, 0.12);
-      color: #60A5FA;
-    }
+      .card:hover::before {
+        opacity: 1;
+      }
 
-    .card-icon--mockup {
-      background: rgba(168, 85, 247, 0.12);
-      color: #C084FC;
-    }
+      .card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
 
-    .card-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+      .card-icon--mobile {
+        background: rgba(200, 146, 60, 0.12);
+        color: var(--accent);
+      }
 
-    .card-desc {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 20px;
-      flex: 1;
-    }
+      .card-icon--website {
+        background: rgba(46, 125, 91, 0.15);
+        color: #4ade80;
+      }
 
-    .card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
+      .card-icon--admin {
+        background: rgba(59, 130, 246, 0.12);
+        color: #60a5fa;
+      }
 
-    .card-count {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-tertiary);
-    }
+      .card-icon--mockup {
+        background: rgba(168, 85, 247, 0.12);
+        color: #c084fc;
+      }
 
-    .card-count strong {
-      color: var(--text-secondary);
-    }
+      .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
 
-    .card-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--accent-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 13px;
-      transition: all 0.3s ease;
-    }
+      .card-desc {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+        flex: 1;
+      }
 
-    .card:hover .card-arrow {
-      background: var(--accent);
-      color: var(--bg);
-    }
+      .card-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+      }
 
-    /* ── Modal ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
+      .card-count {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-tertiary);
+      }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+      .card-count strong {
+        color: var(--text-secondary);
+      }
 
-    .modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      width: 90%;
-      max-width: 520px;
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
-    }
+      .card-arrow {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--accent-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 13px;
+        transition: all 0.3s ease;
+      }
 
-    .modal-overlay.active .modal {
-      transform: translateY(0);
-    }
+      .card:hover .card-arrow {
+        background: var(--accent);
+        color: var(--bg);
+      }
 
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
+      /* ── Modal ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
 
-    .modal-title {
-      font-size: 18px;
-      font-weight: 700;
-    }
+      .modal-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-    .modal-close {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-secondary);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      transition: all 0.2s ease;
-    }
+      .modal {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+        width: 90%;
+        max-width: 520px;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+      }
 
-    .modal-close:hover {
-      background: var(--bg-card-hover);
-      color: var(--text);
-    }
+      .modal-overlay.active .modal {
+        transform: translateY(0);
+      }
 
-    .modal-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
 
-    .modal-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      color: var(--text);
-      transition: all 0.2s ease;
-    }
+      .modal-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
 
-    .modal-item:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-hover);
-    }
+      .modal-close {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text-secondary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.2s ease;
+      }
 
-    .modal-item--chosen {
-      border-color: rgba(168, 85, 247, 0.4);
-      background: rgba(168, 85, 247, 0.08);
-    }
+      .modal-close:hover {
+        background: var(--bg-card-hover);
+        color: var(--text);
+      }
 
-    .modal-item--chosen:hover {
-      border-color: rgba(168, 85, 247, 0.6);
-      background: rgba(168, 85, 247, 0.14);
-    }
+      .modal-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
 
-    .modal-item-number {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--accent-subtle);
-      color: var(--text-secondary);
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+      .modal-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        transition: all 0.2s ease;
+      }
 
-    .modal-item--chosen .modal-item-number {
-      background: rgba(168, 85, 247, 0.2);
-      color: #C084FC;
-    }
+      .modal-item:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-hover);
+      }
 
-    .modal-item-label {
-      font-size: 14px;
-      font-weight: 500;
-      flex: 1;
-    }
+      .modal-item--chosen {
+        border-color: rgba(168, 85, 247, 0.4);
+        background: rgba(168, 85, 247, 0.08);
+      }
 
-    .modal-item-badge {
-      font-size: 11px;
-      font-weight: 600;
-      color: #C084FC;
-      background: rgba(168, 85, 247, 0.15);
-      padding: 3px 10px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
+      .modal-item--chosen:hover {
+        border-color: rgba(168, 85, 247, 0.6);
+        background: rgba(168, 85, 247, 0.14);
+      }
 
-    .modal-item-arrow {
-      color: var(--text-tertiary);
-      font-size: 12px;
-      transition: color 0.2s ease;
-    }
+      .modal-item-number {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--accent-subtle);
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
 
-    .modal-item:hover .modal-item-arrow {
-      color: var(--text);
-    }
+      .modal-item--chosen .modal-item-number {
+        background: rgba(168, 85, 247, 0.2);
+        color: #c084fc;
+      }
 
-  </style>
-</head>
-<body>
+      .modal-item-label {
+        font-size: 14px;
+        font-weight: 500;
+        flex: 1;
+      }
 
-  <div class="cards">
+      .modal-item-badge {
+        font-size: 11px;
+        font-weight: 600;
+        color: #c084fc;
+        background: rgba(168, 85, 247, 0.15);
+        padding: 3px 10px;
+        border-radius: 20px;
+        flex-shrink: 0;
+      }
 
-    <!-- Mobile App -->
-    <a href="mobile-app/01a_onboarding_welcome.html" class="card">
-      <div class="card-icon card-icon--mobile">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-      </div>
-      <h2 class="card-title">Application Mobile</h2>
-      <p class="card-desc">
-        App iOS & Android pour les parents. Catalogue audio, lecteur, favoris, téléchargements, profils enfants et onboarding.
-      </p>
-      <div class="card-meta">
-        <span class="card-count"><strong>22</strong> écrans</span>
-        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-    </a>
+      .modal-item-arrow {
+        color: var(--text-tertiary);
+        font-size: 12px;
+        transition: color 0.2s ease;
+      }
 
-    <!-- Website -->
-    <a href="website/01_home.html" class="card">
-      <div class="card-icon card-icon--website">
-        <i class="fa-solid fa-globe"></i>
-      </div>
-      <h2 class="card-title">Site Vitrine</h2>
-      <p class="card-desc">
-        Site web de présentation et conversion. Landing page, abonnement Stripe, manifeste, FAQ et pages légales.
-      </p>
-      <div class="card-meta">
-        <span class="card-count"><strong>10</strong> pages</span>
-        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-    </a>
+      .modal-item:hover .modal-item-arrow {
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <!-- Mobile App -->
+      <a href="mobile-app/01a_onboarding_welcome.html" class="card">
+        <div class="card-icon card-icon--mobile">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <h2 class="card-title">Application Mobile</h2>
+        <p class="card-desc">
+          App iOS & Android pour les parents. Catalogue audio, lecteur, favoris,
+          téléchargements, profils enfants et onboarding.
+        </p>
+        <div class="card-meta">
+          <span class="card-count"><strong>22</strong> écrans</span>
+          <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
 
-    <!-- Admin -->
-    <a href="admin/01_login.html" class="card">
-      <div class="card-icon card-icon--admin">
-        <i class="fa-solid fa-shield-halved"></i>
-      </div>
-      <h2 class="card-title">Back-Office Admin</h2>
-      <p class="card-desc">
-        Interface d'administration. Gestion du catalogue, abonnés, statistiques, paramètres et états système.
-      </p>
-      <div class="card-meta">
-        <span class="card-count"><strong>13</strong> écrans</span>
-        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
-    </a>
+      <!-- Website -->
+      <a href="website/01_home.html" class="card">
+        <div class="card-icon card-icon--website">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <h2 class="card-title">Site Vitrine</h2>
+        <p class="card-desc">
+          Site web de présentation et conversion. Landing page, abonnement
+          Stripe, manifeste, FAQ et pages légales.
+        </p>
+        <div class="card-meta">
+          <span class="card-count"><strong>10</strong> pages</span>
+          <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
 
-    <!-- Styled Mockups -->
-    <div class="card" onclick="document.getElementById('mockupModal').classList.add('active')" style="cursor:pointer">
-      <div class="card-icon card-icon--mockup">
-        <i class="fa-solid fa-palette"></i>
-      </div>
-      <h2 class="card-title">Maquettes Stylisées</h2>
-      <p class="card-desc">
-        Explorations graphiques du site vitrine. Direction « Doux & Minimaliste » — tons chauds, typographie douce et mise en page épurée.
-      </p>
-      <div class="card-meta">
-        <span class="card-count"><strong>6</strong> variantes</span>
-        <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <!-- Admin -->
+      <a href="admin/01_login.html" class="card">
+        <div class="card-icon card-icon--admin">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h2 class="card-title">Back-Office Admin</h2>
+        <p class="card-desc">
+          Interface d'administration. Gestion du catalogue, abonnés,
+          statistiques, paramètres et états système.
+        </p>
+        <div class="card-meta">
+          <span class="card-count"><strong>13</strong> écrans</span>
+          <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </a>
+
+      <!-- Styled Mockups -->
+      <div
+        class="card"
+        onclick="document.getElementById('mockupModal').classList.add('active')"
+        style="cursor: pointer"
+      >
+        <div class="card-icon card-icon--mockup">
+          <i class="fa-solid fa-palette"></i>
+        </div>
+        <h2 class="card-title">Maquettes Stylisées</h2>
+        <p class="card-desc">
+          Explorations graphiques du site vitrine. Direction « Doux &
+          Minimaliste » — tons chauds, typographie douce et mise en page épurée.
+        </p>
+        <div class="card-meta">
+          <span class="card-count"><strong>6</strong> variantes</span>
+          <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- Mockups Modal -->
-  <div class="modal-overlay" id="mockupModal" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Maquettes Stylisées</h3>
-        <button class="modal-close" onclick="document.getElementById('mockupModal').classList.remove('active')">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="modal-list">
-        <a href="website-mockups/01_home-terre-oralite.html" class="modal-item">
-          <span class="modal-item-number">01</span>
-          <span class="modal-item-label">Terre & Oralité</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
-        <a href="website-mockups/02_home-zellige-contemporain.html" class="modal-item">
-          <span class="modal-item-number">02</span>
-          <span class="modal-item-label">Zellige Contemporain</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
-        <a href="website-mockups/03_home-doux-minimaliste.html" class="modal-item">
-          <span class="modal-item-number">03</span>
-          <span class="modal-item-label">Doux & Minimaliste</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
-        <a href="website-mockups/04_home-terre-oralite-v1.html" class="modal-item">
-          <span class="modal-item-number">04</span>
-          <span class="modal-item-label">Terre & Oralité — v1</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
-        <a href="website-mockups/05_home-zellige-contemporain-v1.html" class="modal-item">
-          <span class="modal-item-number">05</span>
-          <span class="modal-item-label">Zellige Contemporain — v1</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
-        <a href="website-mockups/06_home-doux-minimaliste-v1.html" class="modal-item modal-item--chosen">
-          <span class="modal-item-number">06</span>
-          <span class="modal-item-label">Doux & Minimaliste — v1</span>
-          <span class="modal-item-badge">Retenue</span>
-          <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-        </a>
+    <!-- Mockups Modal -->
+    <div
+      class="modal-overlay"
+      id="mockupModal"
+      onclick="if (event.target === this) this.classList.remove('active');"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title">Maquettes Stylisées</h3>
+          <button
+            class="modal-close"
+            onclick="
+              document.getElementById('mockupModal').classList.remove('active')
+            "
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-list">
+          <a
+            href="website-mockups/01_home-terre-oralite.html"
+            class="modal-item"
+          >
+            <span class="modal-item-number">01</span>
+            <span class="modal-item-label">Terre & Oralité</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+          <a
+            href="website-mockups/02_home-zellige-contemporain.html"
+            class="modal-item"
+          >
+            <span class="modal-item-number">02</span>
+            <span class="modal-item-label">Zellige Contemporain</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+          <a
+            href="website-mockups/03_home-doux-minimaliste.html"
+            class="modal-item"
+          >
+            <span class="modal-item-number">03</span>
+            <span class="modal-item-label">Doux & Minimaliste</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+          <a
+            href="website-mockups/04_home-terre-oralite-v1.html"
+            class="modal-item"
+          >
+            <span class="modal-item-number">04</span>
+            <span class="modal-item-label">Terre & Oralité — v1</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+          <a
+            href="website-mockups/05_home-zellige-contemporain-v1.html"
+            class="modal-item"
+          >
+            <span class="modal-item-number">05</span>
+            <span class="modal-item-label">Zellige Contemporain — v1</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+          <a
+            href="website-mockups/07_home-doux-minimaliste-v2.html"
+            class="modal-item modal-item--chosen"
+          >
+            <span class="modal-item-number">06</span>
+            <span class="modal-item-label">Doux & Minimaliste — v1</span>
+            <span class="modal-item-badge">Retenue</span>
+            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-
-</body>
+  </body>
 </html>
