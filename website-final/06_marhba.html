@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marhba — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══ Marhba page-specific styles ═══ */
+
+    /* Marhba accent: mint green — distinct from Nooba's deep teal */
+    :root {
+      --marhba-accent: #2A9D8F;
+      --marhba-accent-light: #E6F5F2;
+      --marhba-accent-dark: #1E7A6E;
+      --marhba-hero-bg: #D4EDE8;
+    }
+
+    .marhba-hero {
+      background: var(--marhba-hero-bg);
+      padding: 96px 0 72px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .marhba-filigrane {
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Amiri', serif; font-size: 160px; color: var(--marhba-accent);
+      opacity: 0.08; pointer-events: none; white-space: nowrap; z-index: 0; line-height: 1;
+    }
+    .marhba-hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .marhba-hero-subtitle {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 24px;
+      color: var(--marhba-accent-dark);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+      position: relative; z-index: 1;
+    }
+
+    /* Accroche quote — same pattern as all other pages */
+    .marhba-accroche {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--marhba-accent);
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+      padding: 40px 48px;
+      border: none;
+      background: var(--marhba-accent-light);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .marhba-accroche::before {
+      content: '\201C';
+      font-family: 'Amiri', serif;
+      font-size: 100px;
+      color: var(--marhba-accent);
+      opacity: 0.2;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+
+    /* Prose text — consistent with other pages */
+    .marhba-prose {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .marhba-prose p {
+      margin-bottom: 24px;
+    }
+    .marhba-prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Contact form */
+    .contact-form-wrapper {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+    .form-group label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 14px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--marhba-accent);
+      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%235A6B7B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-submit {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 40px;
+      border: none;
+      border-radius: var(--radius-full);
+      background: var(--marhba-accent);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover {
+      background: var(--marhba-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42, 157, 143, 0.25);
+    }
+
+    /* Heritage grid: form + illustration side by side */
+    .marhba-heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .marhba-heritage-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Social cards */
+    .social-grid {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .social-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid var(--marhba-accent);
+    }
+    .social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .social-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 24px;
+    }
+    .social-card-icon--instagram {
+      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+      color: #fff;
+    }
+    .social-card-icon--facebook {
+      background: #1877F2;
+      color: #fff;
+    }
+    .social-card-icon--tiktok {
+      background: #010101;
+      color: #fff;
+    }
+    .social-card-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .social-card-handle {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .contact-email {
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+    .contact-email a {
+      color: var(--marhba-accent);
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    .contact-email a:hover {
+      color: var(--marhba-accent-dark);
+    }
+
+    /* FAQ overrides for warm styling */
+    .faq-section .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-section .faq-question {
+      color: var(--text);
+    }
+    .faq-section .faq-question i {
+      color: var(--marhba-accent);
+    }
+
+    /* Blockquote */
+    .marhba-quote {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--marhba-accent);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 32px auto 0;
+      padding: 32px 40px;
+      border-left: 4px solid var(--marhba-accent);
+      background: var(--marhba-accent-light);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      text-align: left;
+    }
+
+    /* Next page link — retour accueil */
+    .marhba-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--marhba-accent); border: 2px solid var(--marhba-accent);
+      padding: 12px 32px; border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .marhba-next-link:hover {
+      background: var(--marhba-accent); color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .marhba-hero-title {
+        font-size: 32px;
+      }
+      .marhba-hero-subtitle {
+        font-size: 16px;
+      }
+      .marhba-accroche {
+        font-size: 22px;
+        padding: 28px 24px;
+      }
+      .marhba-heritage-grid {
+        grid-template-columns: 1fr;
+      }
+      .social-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .social-card {
+        max-width: 100%;
+        width: 100%;
+      }
+      .form-submit {
+        align-self: stretch;
+        text-align: center;
+      }
+      .marhba-quote {
+        font-size: 20px;
+        padding: 24px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar sticky" id="main-nav" style="position:relative;">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link navbar-link--active">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link" style="font-weight:700;">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="marhba-hero">
+    <span class="marhba-filigrane">مرحبا</span>
+    <div class="container" style="position:relative; z-index:1;">
+      <h1 class="marhba-hero-title">Marhba</h1>
+      <p class="marhba-hero-subtitle">Nous sommes tout ou&iuml;e</p>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO — Accroche + Adresse ═══ -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="marhba-accroche">
+        &Eacute;crivez-nous, nous vous r&eacute;pondrons avec le sourire et la douceur du miel ;-)
+      </blockquote>
+      <div class="marhba-prose">
+        <p>Votre avis et vos questions sont les graines qui font grandir Nooba. Que vous soyez parent, enseignant, m&eacute;diateur culturel, chercheur ou simplement passionn&eacute; de contes — cette page est votre espace d'&eacute;change.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOUS ECRIRE — form + image grid ═══ -->
+  <section class="section" style="background: var(--marhba-accent-light);">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--marhba-accent)">On vous &eacute;coute</p>
+        <h2 class="section-title">Nous &eacute;crire</h2>
+      </div>
+      <div class="marhba-heritage-grid">
+        <div class="contact-form-wrapper" style="max-width:100%;width:100%;">
+          <form class="contact-form" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label for="contact-nom">Nom</label>
+              <input type="text" id="contact-nom" placeholder="Votre nom" />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="votre@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="contact-sujet">Sujet</label>
+              <select id="contact-sujet">
+                <option value="" disabled selected>Choisir un sujet&hellip;</option>
+                <option value="general">Question g&eacute;n&eacute;rale</option>
+                <option value="partenariat">Partenariat</option>
+                <option value="presse">Presse</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" placeholder="Votre message&hellip;"></textarea>
+            </div>
+            <button type="submit" class="form-submit"><i class="fa-solid fa-paper-plane" style="margin-right:8px;"></i>Envoyer</button>
+          </form>
+        </div>
+        <div class="marhba-heritage-img">
+          <img src="assets/marhba_porte.jpg" alt="Porte ouverte d'un riad marocain — bienvenue" onerror="this.parentElement.innerHTML='<div style=&quot;background:var(--marhba-accent-light);border:2px dashed var(--marhba-accent);border-radius:var(--radius);padding:80px 40px;text-align:center;&quot;><i class=&quot;fa-solid fa-door-open&quot; style=&quot;font-size:48px;color:var(--marhba-accent);margin-bottom:16px;display:block;&quot;></i><p style=&quot;font-family:Nunito,sans-serif;font-size:15px;color:var(--marhba-accent);&quot;>Illustration &agrave; venir</p></div>';">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et decouvertes en francais et en darija pour les enfants de 1 an a 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

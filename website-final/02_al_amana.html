@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Amana — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══ Al Amana page-specific styles ═══ */
+    .amana-hero {
+      background: #F5E8C4;
+      padding: 96px 0 72px;
+      text-align: center;
+    }
+    .amana-filigrane {
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Amiri', serif; font-size: 160px; color: var(--accent-yellow);
+      opacity: 0.08; pointer-events: none; white-space: nowrap; z-index: 0; line-height: 1;
+    }
+    .amana-hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .amana-hero-subtitle {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 24px;
+      color: var(--accent-yellow);
+      font-weight: 400;
+    }
+
+    /* Accroche quote */
+    .amana-accroche {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--accent-yellow);
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+      padding: 40px 48px;
+      border: none;
+      background: #FDF6E3;
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .amana-accroche::before {
+      content: '\201C';
+      font-family: 'Amiri', serif;
+      font-size: 100px;
+      color: var(--accent-yellow);
+      opacity: 0.2;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+
+    .amana-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .amana-intro p {
+      margin-bottom: 24px;
+    }
+    .amana-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Heritage grid: text + image */
+    .amana-heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .amana-heritage {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+    .amana-heritage p {
+      margin-bottom: 24px;
+    }
+    .amana-heritage p:last-child {
+      margin-bottom: 0;
+    }
+    .amana-heritage-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    /* Value card icon */
+    .value-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(240, 158, 0, 0.1);
+      color: var(--accent-yellow);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .value-card-subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      color: var(--accent-yellow);
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+    /* Next page link */
+    .amana-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--accent-yellow); border: 2px solid var(--accent-yellow);
+      padding: 12px 32px; border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .amana-next-link:hover {
+      background: var(--accent-yellow); color: #fff;
+    }
+    .value-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid var(--accent-yellow);
+    }
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .value-card-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .value-card-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .amana-closing {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .amana-closing p {
+      margin-bottom: 32px;
+    }
+    .amana-quote {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--accent-yellow);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px 40px;
+      border-left: 4px solid var(--accent-yellow);
+      background: #fff;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      text-align: left;
+    }
+
+    @media (max-width: 700px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .amana-heritage-grid { grid-template-columns: 1fr; }
+      .amana-hero-title { font-size: 36px; }
+      .amana-filigrane { font-size: 160px; }
+      .amana-accroche { font-size: 20px; }
+      .amana-quote { font-size: 20px; padding: 24px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar sticky" id="main-nav" style="position:relative;">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link navbar-link--active">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link" style="font-weight:700;">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="amana-hero" style="position:relative; overflow:hidden;">
+    <span class="amana-filigrane">الأمانة</span>
+    <div class="container" style="position:relative; z-index:1;">
+      <h1 class="amana-hero-title">Al Amana</h1>
+      <p class="amana-hero-subtitle">Ce Trésor que nous portons en Commun</p>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO — Accroche + Adresse aux parents ═══ -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="amana-accroche">
+        « C'est en s'éloignant de ses racines qu'on réalise à quel point elles nous sont essentielles. »
+      </blockquote>
+      <div class="amana-intro">
+        <p>Pour nous, parents de la diaspora, cette vérité résonne chaque jour un peu plus : comment faire fleurir nos racines dans le cœur de nos enfants, ici et maintenant ?</p>
+        <p>Vivre loin de notre terre d'origine est une aventure courageuse. Entre plusieurs langues et mille urgences nous nous demandons souvent que va-t-il rester de notre essence dans le souffle de nos enfants ? C'est cette interrogation, cette flamme refusant de s'éteindre, qui a fait éclore Nooba. Parce que loin de dispenser des leçons, nous souhaitons tout simplement préserver cette Amâna — ce dépôt sacré — dont nous sommes, tous ensemble, les dépositaires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HERITAGE ESTHETIQUE — texte + image ═══ -->
+  <section class="section" style="background:#FDF6E3;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-yellow)">Notre héritage</p>
+        <h2 class="section-title">Bien plus qu'une culture de saveurs et de couleurs</h2>
+      </div>
+      <div class="amana-heritage-grid">
+        <div class="amana-heritage">
+          <p>Quand on pense à notre beau pays, on pense souvent, et à juste titre, à une culture de saveurs, de couleurs et de rythmes. On vante le raffinement de nos riads, l'arabesque savante de nos zelliges, la science de nos épices ou la soie de nos caftans brodés de fil d'or. On écoute, vibrants, les noubas andalouses et les transes gnaouas qui franchissent les sommets de l'Atlas pour venir frissonner dans nos âmes.</p>
+          <p>Tout cela est vrai. L'héritage esthétique du Maroc est immense. Mais il n'est que l'écorce protectrice. Le fruit, le vrai, mûrit ailleurs. Ce joyau que nos ancêtres nous ont confié — cette Amâna que nous devons transmettre avant qu'elle ne s'évapore dans l'anonymat du monde moderne — c'est notre <strong>Savoir-Être</strong>.</p>
+        </div>
+        <div class="amana-heritage-img">
+          <img src="assets/pilier_histoires.jpg" alt="Histoires et légendes du Maroc" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LES 4 VALEURS ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-yellow)">Les piliers de notre Amâna</p>
+        <h2 class="section-title">Quatre valeurs au cœur de notre héritage</h2>
+      </div>
+      <div class="values-grid">
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-compass"></i></div>
+          <h3 class="value-card-title">Niyya</h3>
+          <p class="value-card-subtitle">Notre Socle Invisible</p>
+          <p class="value-card-text">Au commencement de tout, il y a Niyya. Plus qu'une intention, c'est cette force tranquille qui transforme nos efforts quotidiens en actes de lumière. Transmettre « Niyya » à nos enfants, c'est leur offrir une boussole intérieure : leur apprendre que la sincérité du cœur et la confiance en la vie valent plus que toutes les apparences.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3 class="value-card-title">L'Art du « Nous »</h3>
+          <p class="value-card-subtitle">Une Famille sans Frontières</p>
+          <p class="value-card-text">Nous venons d'une culture où l'on ne grandit jamais seul. Notre Amâna, c'est cette solidarité organique qui fait de l'enfant du voisin notre propre enfant. À travers Nooba, nous voulons participer à cette « paternité collective » : apprendre à nos enfants qu'ils font partie d'une chaîne humaine immense, où veiller sur l'autre est la plus haute des libertés.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+          <h3 class="value-card-title">La Baraka des Anciens</h3>
+          <p class="value-card-subtitle">Redate el oualidine</p>
+          <p class="value-card-text">Nous savons tous que la maison s'illumine par la présence et le respect de nos aînés. Cette quête de Redate el oualidine (la satisfaction des parents) est un héritage précieux. C'est une école de l'humilité et de la gratitude. En honorant nos anciens, nous montrons à nos enfants le chemin d'une vie bénie.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <h3 class="value-card-title">La Noblesse du Partage</h3>
+          <p class="value-card-subtitle">Karam diyafa</p>
+          <p class="value-card-text">La culture marocaine possède cette élégance rare : savoir offrir le meilleur de soi, même dans la simplicité. C'est la magie du pain partagé, du thé toujours chaud pour l'invité surprise. C'est cette karamat diyafa que nous souhaitons préserver : apprendre à nos enfants que la vraie richesse est celle que l'on distribue.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING ═══ -->
+  <section class="section" style="background:#FAF0D6;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-yellow)">Notre promesse</p>
+        <h2 class="section-title">Un Voyage que nous faisons Ensemble</h2>
+      </div>
+      <div class="amana-closing">
+        <p>Nous savons que dans l'urgence de nos vies, il est parfois ardu de trouver les mots justes pour léguer cette langue singulière et cette culture unique. Aussi, nous avons imaginé Nooba comme un gardien du temple, une main tendue pour nous accompagner dans cet acte délicat, mais ô combien essentiel, de la préservation et de la transmission. Pour que notre héritage ne soit pas un folklore de vacances, mais une boussole et un art de vivre qui rendent nos enfants plus fiers, plus ancrés, plus grands car comme le dit si bien la sagesse universelle :</p>
+        <blockquote class="amana-quote">
+          « Il n'y a que deux héritages durables que nous puissions espérer laisser à nos enfants : des racines et des ailes. »
+        </blockquote>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="03_al_wassiya.html" class="amana-next-link">Découvrir Al Wassiya <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et decouvertes en francais et en darija pour les enfants de 1 an a 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

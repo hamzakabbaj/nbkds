@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Assal — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══ Al Assal page-specific styles ═══ */
+    .assel-hero {
+      background: #F0D5CE;
+      padding: 96px 0 72px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .assel-filigrane {
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Amiri', serif; font-size: 160px; color: var(--accent-peach);
+      opacity: 0.12; pointer-events: none; white-space: nowrap; z-index: 0; line-height: 1;
+    }
+    .assel-hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .assel-hero-subtitle {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 24px;
+      color: var(--accent-peach);
+      font-weight: 400;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.5;
+      position: relative; z-index: 1;
+    }
+    /* Accroche quote */
+    .assel-accroche {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--accent-peach);
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+      padding: 40px 48px;
+      border: none;
+      background: var(--bg-peach);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .assel-accroche::before {
+      content: '\201C';
+      font-family: 'Amiri', serif;
+      font-size: 100px;
+      color: var(--accent-peach);
+      opacity: 0.2;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+
+    /* Founders grid */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .founder-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 48px 36px 40px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border-top: 4px solid var(--accent-peach);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .founder-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .founder-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      border: 4px solid var(--bg-peach);
+      box-shadow: 0 4px 20px rgba(227, 153, 140, 0.2);
+    }
+    .founder-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .founder-quote {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: left;
+    }
+
+    /* Content sections */
+    .assel-section-text {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .assel-section-text p {
+      margin-bottom: 24px;
+    }
+    .assel-section-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Blockquote */
+    .assel-quote {
+      font-family: 'Amiri', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: var(--accent-peach);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 32px auto 0;
+      padding: 32px 40px;
+      border-left: 4px solid var(--accent-peach);
+      background: var(--bg-peach);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      text-align: left;
+    }
+
+    /* Heritage grid */
+    .assel-heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .assel-heritage-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    /* Next page link */
+    .assel-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--accent-peach); border: 2px solid var(--accent-peach);
+      padding: 12px 32px; border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .assel-next-link:hover {
+      background: var(--accent-peach); color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .founders-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .assel-hero-title {
+        font-size: 34px;
+      }
+      .assel-hero-subtitle {
+        font-size: 18px;
+      }
+      .founder-card {
+        padding: 36px 24px 32px;
+      }
+      .assel-quote {
+        font-size: 20px;
+        padding: 24px 24px;
+      }
+      .assel-heritage-grid {
+        grid-template-columns: 1fr;
+      }
+      .assel-accroche {
+        font-size: 22px;
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar sticky" id="main-nav" style="position:relative;">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link navbar-link--active">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link" style="font-weight:700;">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="assel-hero">
+    <span class="assel-filigrane">الأصل</span>
+    <div class="container" style="position:relative; z-index:1;">
+      <h1 class="assel-hero-title">Al Assal</h1>
+      <p class="assel-hero-subtitle">Derrière Nooba, il y a nos cœurs de mamans et nos parcours de vie.</p>
+    </div>
+  </section>
+
+  <!-- ═══ FOUNDERS ═══ -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="assel-accroche">
+        Nous ne sommes pas là pour donner des leçons, mais pour être des passeuses.
+      </blockquote>
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-peach)">Qui sommes-nous</p>
+        <h2 class="section-title">Deux histoires, une même Niyya</h2>
+      </div>
+      <div class="founders-grid">
+
+        <div class="founder-card">
+          <img src="assets/boutaina.jpeg" alt="Bouta&iuml;na" class="founder-photo">
+          <h3 class="founder-name">Bouta&iuml;na</h3>
+          <div class="founder-quote">
+            <p>&laquo;&nbsp;J'ai grandi en France, avec un Maroc qui tenait dans une valise de souvenirs&nbsp;: l'effervescence des vacances, les rires des cousins, l'odeur du couscous du vendredi et la m&eacute;lodie des douaas de ma grand-m&egrave;re. Mais au-del&agrave; de ces images, je me sentais parfois comme une invit&eacute;e dans ma propre culture. Sans la ma&icirc;trise de la langue, sans les codes profonds, mon ancrage restait fragile.&nbsp;&raquo;</p>
+            <p>&laquo;&nbsp;C'est en m'appuyant sur les valeurs de mes parents et en m'effor&ccedil;ant d'apprivoiser la Darija que j'ai commenc&eacute; &agrave; go&ucirc;ter &agrave; l'essence de nos tr&eacute;sors. Mais au quotidien, ce lien restait un d&eacute;fi. Quand je suis devenue maman, la transmission est devenue une question vertigineuse&nbsp;: comment donner ce que l'on a peur de ne poss&eacute;der qu'&agrave; moiti&eacute;&nbsp;? J'ai port&eacute; cette inqui&eacute;tude de voir mes enfants rejeter leur marocanit&eacute;, de la trouver trop complexe ou "moins attrayante" face &agrave; une culture occidentale omnipr&eacute;sente et ultra-moderne. Ma crainte&nbsp;? Qu'ils ne se sentent jamais vraiment "chez eux" dans leur propre h&eacute;ritage.&nbsp;&raquo;</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <img src="assets/maha.jpeg" alt="Maha" class="founder-photo">
+          <h3 class="founder-name">Maha</h3>
+          <div class="founder-quote">
+            <p>&laquo;&nbsp;De mon c&ocirc;t&eacute;, j'ai toujours grandi en immersion totale, habit&eacute;e par ma culture marocaine comme par une seconde peau. Je n'aurais jamais soup&ccedil;onn&eacute; la difficult&eacute; de maintenir ce lien... jusqu'&agrave; ce que je m'installe &agrave; Londres avec mon mari et mes enfants. Loin du pays, j'ai mesur&eacute; &agrave; quel point ce fil est fragile quand il n'est plus nourri par le quotidien.&nbsp;&raquo;</p>
+            <p>&laquo;&nbsp;J'ai alors fait un constat frappant&nbsp;: le manque cruel de contenus de qualit&eacute; pour accompagner mes enfants. En cherchant des histoires en fran&ccedil;ais ou en Darija, je ne trouvais rien qui soit &agrave; la hauteur de leurs attentes. Sans outils pour raconter notre histoire, la transmission se transformait en un combat de chaque instant. J'ai compris que l'identit&eacute; est un &eacute;quilibre d&eacute;licat&nbsp;: il suffit de peu pour que le fil se d&eacute;tende, que l'on vive &agrave; l'&eacute;tranger ou m&ecirc;me au Maroc.&nbsp;&raquo;</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LE CONSTAT D'UNE URGENCE ═══ -->
+  <section class="section" style="background:var(--bg-peach);">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-peach)">Le déclic</p>
+        <h2 class="section-title">Le constat d'une urgence</h2>
+      </div>
+      <div class="assel-heritage-grid">
+        <div class="assel-section-text" style="text-align:left;">
+          <p>En tant que mamans, nous nous sommes mises en quête de contenus pertinents pour nos propres enfants. Mais la réalité nous a frappées : ce que nous trouvions était souvent médiocre. Qualité sonore décevante, graphismes datés, récits sans souffle... Rien qui ne puisse rivaliser avec les standards internationaux auxquels nos fils et filles sont habitués.</p>
+          <p>Pire encore, nous avons réalisé qu'au Maroc même, les générations se suivent mais ne s'héritent plus forcément. Notre culture s'érode, et ce phénomène est doublement violent pour nous, parents de la diaspora.</p>
+        </div>
+        <div class="assel-heritage-img">
+          <img src="assets/urgence_C_sablier.jpg" alt="Le sablier culturel — l'urgence de la transmission">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RÉINVENTER LE PATRIMOINE ═══ -->
+  <section class="section" style="background:#F7E4DF;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:var(--accent-peach)">Notre mission</p>
+        <h2 class="section-title">Réinventer le patrimoine avec exigence</h2>
+      </div>
+      <div class="assel-section-text">
+        <p>Nooba est né de ce refus de la fatalité et de notre désir de faire briller cet héritage. Nous ne voulions pas d'un « folklore de seconde zone », mais d'une proposition à la hauteur de l'intelligence et de l'imaginaire de nos enfants.</p>
+        <p>Nous avons conçu Nooba pour les 1 à 12 ans, pensé comme des capsules sonores immersives. Nous y réinventons notre patrimoine en plaçant la Darija au centre, avec une exigence de production digne des plus grands studios.</p>
+        <blockquote class="assel-quote">
+          « Prépare pour tes enfants, le couchage des enfants des autres. »
+        </blockquote>
+        <p style="margin-top: 32px;">C'est cette intention qui nous porte. Nous créons ce que nous souhaitons offrir à nos propres fils et filles : un pont sonore d'excellence entre hier et aujourd'hui, pour que notre culture ne soit plus un effort, mais une fierté naturelle et une évidence partagée.</p>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="06_marhba.html" class="assel-next-link">Découvrir Marhba <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et decouvertes en francais et en darija pour les enfants de 1 an a 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nooba — NOOBA Wireframes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ═══ PAGE-SPECIFIC: 06_nooba ═══ */
+
+    .nooba-hero {
+      background: #005F82;
+      color: #fff;
+      text-align: center;
+      padding: 96px 0 72px;
+      position: relative; overflow: hidden;
+    }
+    .nooba-filigrane {
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Amiri', serif; font-size: 160px; color: #fff;
+      opacity: 0.06; pointer-events: none; white-space: nowrap; z-index: 0; line-height: 1;
+    }
+    .nooba-hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .nooba-hero-subtitle {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      opacity: 0.9;
+      position: relative; z-index: 1;
+    }
+
+    /* Accroche quote */
+    .nooba-accroche {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: var(--accent-teal);
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+      padding: 40px 48px;
+      border: none;
+      background: #E4ECF3;
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .nooba-accroche::before {
+      content: '\201C';
+      font-family: 'Amiri', serif;
+      font-size: 100px;
+      color: var(--accent-teal);
+      opacity: 0.2;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+
+    .nooba-section {
+      padding: 80px 0;
+    }
+    .nooba-section--blue-light {
+      background: #E4ECF3;
+    }
+    .nooba-section--white {
+      background: #fff;
+    }
+    .nooba-section--blue-medium {
+      background: #D6E4ED;
+    }
+    .nooba-section--echo {
+      background: #EDF2F7;
+      text-align: center;
+    }
+
+    .nooba-section-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      margin-bottom: 32px;
+      color: var(--text);
+    }
+    .nooba-section-label {
+      font-size: 13px; font-weight: 700; color: var(--accent-teal);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .nooba-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .nooba-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .nooba-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .nooba-bold-closing {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent-teal) !important;
+      text-align: center;
+      margin-top: 16px;
+    }
+    /* Heritage grid */
+    .nooba-heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .nooba-heritage-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    /* Next page link */
+    .nooba-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--accent-teal); border: 2px solid var(--accent-teal);
+      padding: 12px 32px; border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .nooba-next-link:hover {
+      background: var(--accent-teal); color: #fff;
+    }
+
+    /* Feature cards for Section 3 */
+    .nooba-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 40px auto;
+      max-width: 860px;
+    }
+    .nooba-features .nooba-feature-card:last-child {
+      grid-column: 1 / -1;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .nooba-feature-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--accent-teal);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .nooba-feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .nooba-feature-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(0, 123, 168, 0.1);
+      color: var(--accent-teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .nooba-feature-text {
+      flex: 1;
+    }
+    .nooba-feature-card strong {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      color: var(--accent-teal);
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .nooba-feature-card span {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Echo section (listen button) */
+    .nooba-echo-icon {
+      font-size: 36px;
+      color: var(--accent-teal);
+      margin-bottom: 16px;
+    }
+    .nooba-echo-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    .nooba-echo-text {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+    .nooba-listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-teal);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 1px;
+      padding: 16px 40px;
+      border-radius: var(--radius-full);
+      transition: background 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+    .nooba-listen-btn:hover {
+      background: #005f82;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .nooba-hero { padding: 80px 0 64px; }
+      .nooba-hero-title { font-size: 36px; }
+      .nooba-hero-subtitle { font-size: 18px; }
+      .nooba-filigrane { font-size: 100px; }
+      .nooba-accroche { font-size: 22px; padding: 28px 24px; }
+      .nooba-section { padding: 56px 0; }
+      .nooba-section-title { font-size: 26px; }
+      .nooba-feature-card { padding: 20px 22px; }
+      .nooba-heritage-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar sticky" id="main-nav" style="position:relative;">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link navbar-link--active">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link" style="font-weight:700;">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div id="nav-spacer" class="navbar-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="nooba-hero">
+    <span class="nooba-filigrane">النوبة</span>
+    <div class="container" style="position:relative; z-index:1;">
+      <h1 class="nooba-hero-title">NOOBA</h1>
+      <p class="nooba-hero-subtitle">Les fréquences sonores du Maroc</p>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 1: Pourquoi "Nooba" ? ═══ -->
+  <section class="nooba-section">
+    <div class="container">
+      <blockquote class="nooba-accroche">
+        Hier, nos aînés nous racontaient le Maroc ; aujourd'hui, c'est à notre tour de donner de la voix.
+      </blockquote>
+      <div class="nooba-content">
+        <p class="nooba-section-label">L'origine du nom</p>
+        <h2 class="nooba-section-title">Pourquoi "Nooba" ?</h2>
+        <p>Peu de gens le savent, mais les Noubas sont des joyaux de notre patrimoine musical andalou. Chaque Nouba est une suite de mélodies qui s'assemblent pour créer une harmonie parfaite. C'est une architecture sonore millénaire qui unit le Maghreb tout entier dans une même harmonie. De Cordoue à Fès, de Tlemcen à Tunis, les Noubas sont ces chants universels qui ont traversé les siècles pour s'enraciner chez nous, au Maroc, avec une splendeur inégalée.</p>
+        <p>En choisissant ce nom, nous réhabilitons ce terme précieux et souvent méconnu. Pour nous, Nooba, c'est aussi ce magnifique concept de « tour de rôle ».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 2: L'Écho de l'Oralité ═══ -->
+  <section class="nooba-section nooba-section--blue-light">
+    <div class="container">
+      <div class="nooba-heritage-grid">
+        <div class="nooba-content">
+          <p class="nooba-section-label">Notre philosophie</p>
+          <h2 class="nooba-section-title">L'Écho de l'Oralité : Le pouvoir du Verbe</h2>
+          <p>Le Maroc est une terre de parole. Notre culture de l'oralité est une poésie vivante qui se transmet de bouche à oreille, de cœur à cœur. C'est une culture de la proximité, où le récit crée le lien. Il y a une beauté sacrée dans la voix qui porte l'histoire, une vibration que l'écrit ne peut égaler.</p>
+          <p>En choisissant l'audio, nous renouons avec cette tradition millénaire : celle du conteur qui captive et de l'enfant qui s'immerge tout entier, se laisse porter par le souffle du récit et s'élève, les oreilles grandes ouvertes, pour conquérir son propre héritage.</p>
+        </div>
+        <div class="nooba-heritage-img">
+          <img src="assets/pilier_ame_musicale.jpg" alt="L'âme musicale du Maroc" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 3: Choyer nos Princes et Princesses ═══ -->
+  <section class="nooba-section nooba-section--white">
+    <div class="container">
+      <div class="nooba-content">
+        <p class="nooba-section-label">Notre promesse</p>
+        <h2 class="nooba-section-title">Choyer nos Princes et Princesses</h2>
+        <p>Jadis, les plus grands artistes jouaient les Noubas à la cour des sultans pour apaiser les cœurs et élever les esprits. C'est également comme cela que nous considérons nos enfants comme des petits princes et princesses qui méritent d'être choyés par le beau.</p>
+        <p>Nous avons conçu chaque fiction sonore comme une offrande royale, ciselée avec le même soin que l'on apporte aux belles réceptions familiales. C'est une immersion totale, sans écrans, pour :</p>
+      </div>
+
+      <div class="nooba-features">
+        <div class="nooba-feature-card">
+          <div class="nooba-feature-icon"><i class="fa-solid fa-door-open"></i></div>
+          <div class="nooba-feature-text"><strong>DÉCOUVRIR</strong><span>Le quotidien vibrant de nos ruelles, les secrets de notre artisanat, la poésie de nos traditions</span></div>
+        </div>
+        <div class="nooba-feature-card">
+          <div class="nooba-feature-icon"><i class="fa-solid fa-music"></i></div>
+          <div class="nooba-feature-text"><strong>VIBRER</strong><span>Au rythme de nos chansons ancestrales et de l'humour unique de notre Darija</span></div>
+        </div>
+        <div class="nooba-feature-card">
+          <div class="nooba-feature-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div class="nooba-feature-text"><strong>S'IMPRÉGNER</strong><span>De la sagesse de nos proverbes et de la malice de nos contes populaires pour mieux se construire</span></div>
+        </div>
+        <div class="nooba-feature-card">
+          <div class="nooba-feature-icon"><i class="fa-solid fa-compass"></i></div>
+          <div class="nooba-feature-text"><strong>S'AVENTURER</strong><span>Au cœur de nos légendes et partir à la rencontre des héros qui ont façonné notre histoire</span></div>
+        </div>
+        <div class="nooba-feature-card">
+          <div class="nooba-feature-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="nooba-feature-text"><strong>INCARNER et RAYONNER</strong><span>Cette noblesse de cœur qui fera de lui un héritier fier et accompli</span></div>
+        </div>
+      </div>
+
+      <div class="nooba-content">
+        <p>Chaque contenu audio est une pépite de culture, un voyage où le patrimoine devient une expérience fun, moderne et irrésistible. Pour nous, le Maroc ne se regarde pas : il s'écoute, se vit et se conquiert.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 4: L'expérience Nooba ═══ -->
+  <section class="nooba-section nooba-section--blue-medium">
+    <div class="container">
+      <div class="nooba-content">
+        <p class="nooba-section-label">L'expérience</p>
+        <h2 class="nooba-section-title">Le son au service du lien</h2>
+        <p>Nous avons conçu Nooba pour les enfants de 1 à 12 ans, pensé comme des capsules sonores immersives. Nos histoires sont principalement contées en français puis s'imprègnent progressivement de Darija, au rythme de l'apprentissage de chaque enfant. Qu'ils grandissent au sein de la diaspora ou qu'ils étudient au Maroc, chaque récit offre aux enfants un chemin ludique et naturel pour se reconnecter à notre héritage. Nous y réinventons notre patrimoine en plaçant la Darija au centre, avec une exigence de production digne des plus grands studios.</p>
+        <p>Chaque histoire est un voyage : une aventure inspirée du folklore, une immersion dans les paysages du Maroc ou une exploration joyeuse du quotidien. En écoutant et en s'impliquant, les enfants ne font pas que renforcer leur lien avec le Maroc ; ils préservent aussi le dialogue avec leurs grands-parents, cousins, tantes et oncles, tissant des liens familiaux par-delà les distances.</p>
+        <p>Le son est au cœur de notre approche. Nos histoires s'ouvrent et se ferment sur un jingle signature, tandis que des musiques d'inspiration marocaine, des effets sonores subtils et des références culturelles familières — chants populaires, hymne national, refrains de supporters ou slogans célèbres — donnent vie aux récits. Ces sons font bien plus qu'éveiller l'imaginaire des enfants : ils aident aussi les parents à retrouver et partager leurs propres souvenirs, rendant la transmission de notre culture et de notre héritage plus naturelle et vivante que jamais.</p>
+        <p class="nooba-bold-closing">Désormais c'est notre Nooba et c'est leur histoire !</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION 5: L'Écho de nos Jardins ═══ -->
+  <section class="nooba-section nooba-section--echo">
+    <div class="container">
+      <div class="nooba-echo-icon">&#127926;</div>
+      <h2 class="nooba-echo-title">L'Écho de nos Jardins</h2>
+      <p class="nooba-echo-text">Avant de plonger dans nos récits, laissons nos cœurs s'accorder à la fréquence du Maroc en écoutant ce fragment de Nouba, Chams El Achiya, une architecture de sons et de poésie qui fait vibrer nos maisons et nos mémoires depuis des siècles.</p>
+      <a href="https://www.youtube.com/watch?v=Zq_jYMB3tSI" target="_blank" rel="noopener" class="nooba-listen-btn"><i class="fa-solid fa-play" style="font-size:14px;"></i> ÉCOUTER NOTRE HÉRITAGE</a>
+      <div style="margin-top:48px;">
+        <a href="05_al_assel.html" class="nooba-next-link">Découvrir Al Assal <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et découvertes en français et en darija pour les enfants de 1 an à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

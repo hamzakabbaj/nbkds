@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Wassiya — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ═══ Al Wassiya page-specific styles ═══ */
+    .wassiya-hero {
+      background: #C4B8D6;
+      padding: 96px 0 72px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .wassiya-filigrane {
+      position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Amiri', serif; font-size: 160px; color: #8B7EB8;
+      opacity: 0.1; pointer-events: none; white-space: nowrap; z-index: 0; line-height: 1;
+    }
+    .wassiya-hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .wassiya-hero-subtitle {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 24px;
+      color: #6B5B8A;
+      margin-bottom: 24px;
+      position: relative; z-index: 1;
+    }
+    /* Accroche quote */
+    .wassiya-accroche {
+      font-family: 'Amiri', serif;
+      font-size: 28px;
+      font-style: italic;
+      color: #8B7EB8;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+      line-height: 1.6;
+      padding: 40px 48px;
+      border: none;
+      background: #EDE8F3;
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .wassiya-accroche::before {
+      content: '\201C';
+      font-family: 'Amiri', serif;
+      font-size: 100px;
+      color: #8B7EB8;
+      opacity: 0.2;
+      position: absolute;
+      top: -10px; left: 20px;
+      line-height: 1;
+    }
+
+    .wassiya-prose {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .wassiya-prose p {
+      margin-bottom: 24px;
+    }
+    .wassiya-prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .wassiya-section-title {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* Question / highlight cards */
+    .question-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 720px;
+      margin: 40px auto;
+    }
+    .question-card {
+      background: #fff;
+      border-left: 4px solid var(--accent-lavender);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 24px 32px;
+      box-shadow: var(--shadow);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .question-card:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .question-card i {
+      color: var(--accent-lavender);
+      margin-right: 10px;
+    }
+
+    /* Petits gestes cards */
+    .gestes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1000px;
+      margin: 40px auto 0;
+    }
+    .geste-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 40px 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid var(--accent-lavender);
+    }
+    .geste-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .geste-card-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--accent-lavender);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 22px;
+      color: #fff;
+    }
+    .geste-card-title {
+      font-family: 'Creativo', 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .geste-card-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Closing section */
+    .wassiya-closing {
+      max-width: 780px;
+      margin: 0 auto;
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      text-align: center;
+    }
+    .wassiya-closing p {
+      margin-bottom: 28px;
+    }
+    .wassiya-closing p:last-child {
+      margin-bottom: 0;
+    }
+    .wassiya-closing p strong {
+      color: var(--text);
+    }
+
+    /* Heritage grid: text + image */
+    .wassiya-heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .wassiya-heritage-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Next page link */
+    .wassiya-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: #8B7EB8; border: 2px solid #8B7EB8;
+      padding: 12px 32px; border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+    .wassiya-next-link:hover {
+      background: #8B7EB8; color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .wassiya-hero-title {
+        font-size: 32px;
+      }
+      .wassiya-epigraph {
+        font-size: 18px;
+        padding: 20px 20px;
+      }
+      .gestes-grid {
+        grid-template-columns: 1fr;
+      }
+      .wassiya-heritage-grid {
+        grid-template-columns: 1fr;
+      }
+      .wassiya-section-title {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar sticky" id="main-nav" style="position:relative;">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link navbar-link--active">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link" style="font-weight:700;">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="wassiya-hero">
+    <span class="wassiya-filigrane">الوصية</span>
+    <div class="container">
+      <h1 class="wassiya-hero-title">Al Wassiya</h1>
+      <p class="wassiya-hero-subtitle">Honorer le Passé, Éclairer leur Avenir</p>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ═══ -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="wassiya-accroche">
+        « Nous n'héritons pas de la terre de nos ancêtres, nous l'empruntons à nos enfants. »
+      </blockquote>
+      <div class="wassiya-prose">
+        <p>Cette sagesse r&eacute;sonne en nous avec une force particuli&egrave;re. Pour nous, parents de la diaspora, la culture marocaine n'est pas un mus&eacute;e poussi&eacute;reux que l'on visite une fois par an&nbsp;; c'est une semence vivante. Notre r&ocirc;le&nbsp;? &Ecirc;tre cette terre fertile qui permet &agrave; la graine de s'&eacute;panouir, m&ecirc;me loin de ses racines d'origine.</p>
+        <p>Si Al Am&acirc;na est le tr&eacute;sor que nous avons re&ccedil;u en h&eacute;ritage, Al Wassiya est notre souffle&nbsp;: l'engagement de faire vibrer ce tr&eacute;sor dans le c&oelig;ur de nos enfants pour qu'il ne s'&eacute;teigne jamais.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION: Traductrices et traducteurs de l'Âme ═══ -->
+  <section class="section" style="background:#EDE8F3;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:#8B7EB8">Notre mission de parent</p>
+        <h2 class="section-title">Devenir les &laquo;&nbsp;Traductrices et traducteurs de l'&Acirc;me&nbsp;&raquo;</h2>
+      </div>
+      <div class="wassiya-prose">
+        <p>On le sait tous, le risque est de voir notre identit&eacute; se transformer en un simple &laquo;&nbsp;folklore de vacances&nbsp;&raquo;. Mais nous voulons plus pour eux. Derri&egrave;re chaque geste, chaque mot, il y a une essence, un &eacute;tat d'esprit qui forge le caract&egrave;re&nbsp;:</p>
+      </div>
+
+      <div class="question-cards">
+        <div class="question-card">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          Pourquoi embrasse-t-on la main de nos a&icirc;n&eacute;s avec tant de tendresse&nbsp;?
+        </div>
+        <div class="question-card">
+          <i class="fa-solid fa-heart-pulse"></i>
+          Pourquoi la Niyya (l'intention pure) est-elle le moteur de chacune de nos actions&nbsp;?
+        </div>
+        <div class="question-card">
+          <i class="fa-solid fa-people-group"></i>
+          Pourquoi un ancien nous appelle-t-il &laquo;&nbsp;Oueldi&nbsp;&raquo; ou &laquo;&nbsp;Benti&nbsp;&raquo;, transformant l'inconnu en famille&nbsp;?
+        </div>
+      </div>
+
+      <div class="wassiya-prose">
+        <p>Si nous ne leur murmurons pas le &laquo;&nbsp;pourquoi&nbsp;&raquo;, le &laquo;&nbsp;comment&nbsp;&raquo; finira par s'effacer. Notre mission de parent est de traduire l'invisible&nbsp;: leur montrer que ces traditions sont, en r&eacute;alit&eacute;, un code d'honneur et une &eacute;thique de vie d'une &eacute;l&eacute;gance rare.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION: Un Rempart contre l'Effacement ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:#8B7EB8">Notre force</p>
+        <h2 class="section-title">Un Rempart contre l'Effacement</h2>
+      </div>
+      <div class="wassiya-heritage-grid">
+        <div class="wassiya-prose" style="text-align:left;">
+          <p>Dans un monde qui court après l'uniformité et l'individualisme, offrir ce legs à nos enfants, c'est leur donner un relief unique. C'est leur offrir une boussole dans le brouillard.</p>
+          <p>Là où le monde prône le « Moi », nous leur insufflons la force du « Nous ». En leur transmettant la noblesse de caractère, le souci du voisin, la protection du plus fragile, nous leur forgeons des anticorps contre la solitude moderne. C'est notre plus beau cadeau : faire d'eux des êtres ancrés et solides.</p>
+        </div>
+        <div class="wassiya-heritage-img">
+          <img src="assets/cercle_des_sages.jpg" alt="Le Cercle des Sages — enfants dans un salon marocain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION: La Wassiya du Quotidien ═══ -->
+  <section class="section" style="background:#E3DDE9;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:#8B7EB8">Au fil des jours</p>
+        <h2 class="section-title">La Wassiya du Quotidien : La Magie des Petits Gestes</h2>
+      </div>
+      <div class="wassiya-prose">
+        <p>La transmission ne niche pas dans les grands discours, mais dans l'infusion douce de nos journ&eacute;es. C'est l&agrave; que tout se joue&nbsp;:</p>
+      </div>
+
+      <div class="gestes-grid">
+        <div class="geste-card">
+          <div class="geste-card-icon"><i class="fa-solid fa-comment-dots"></i></div>
+          <h3 class="geste-card-title">La langue du c&oelig;ur</h3>
+          <p class="geste-card-text">Ces mots qui vibrent diff&eacute;remment&hellip; un <em>Bismillah</em> pour commencer, un <em>Hamdoulillah</em> pour remercier, un <em>Allah 3atik rda</em> pour b&eacute;nir.</p>
+        </div>
+        <div class="geste-card">
+          <div class="geste-card-icon"><i class="fa-solid fa-bread-slice"></i></div>
+          <h3 class="geste-card-title">La table du partage</h3>
+          <p class="geste-card-text">Le respect sacr&eacute; du pain et cette porte toujours ouverte pour l'invit&eacute; impr&eacute;vu.</p>
+        </div>
+        <div class="geste-card">
+          <div class="geste-card-icon"><i class="fa-solid fa-hands-praying"></i></div>
+          <h3 class="geste-card-title">L'honneur des anciens</h3>
+          <p class="geste-card-text">Faire de la qu&ecirc;te de <em>Rdate l'oualidine</em> (la satisfaction des parents) non pas une contrainte, mais la boussole de leur propre succ&egrave;s.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING: Porter le flambeau ═══ -->
+  <section class="section" style="background:#F3F0F7;">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color:#8B7EB8">Notre engagement</p>
+        <h2 class="section-title">Porter le flambeau, ensemble</h2>
+      </div>
+      <div class="wassiya-closing">
+        <p>Nous partageons tous cette crainte de voir le fil se rompre. Mais cette responsabilit&eacute; devient une joie immense d&egrave;s qu'elle est partag&eacute;e.</p>
+        <p>C'est pour cela que nous avons imagin&eacute; <strong>Nooba</strong>. Pour transformer ce devoir de transmission en un voyage passionnant. Nous ne voulons pas que nos enfants soient des h&eacute;ritiers passifs, mais des acteurs fiers de leur histoire.</p>
+        <p>Qu'ils marchent la tête haute, conscients qu'ils sont les maillons d'une chaîne millénaire de beauté, de générosité et de dignité.</p>
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="04_nooba.html" class="wassiya-next-link">Découvrir Nooba <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et decouvertes en francais et en darija pour les enfants de 1 an a 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>

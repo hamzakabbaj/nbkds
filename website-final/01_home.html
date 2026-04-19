@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil — NOOBA Wireframes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <img src="assets/zellige-arc-corner.png" alt="" class="hero-zellige-arc">
+    <div class="container">
+      <h1 class="hero-title" style="text-align:center;width:100%;margin-bottom:12px;">Raconte-moi<br><em>le Maroc</em></h1>
+      <p class="hero-tagline" style="text-align:center;width:100%;margin-bottom:48px;">Celui qui fait briller les yeux de nos enfants !</p>
+      <div class="hero-row">
+        <div class="hero-content">
+          <p style="font-size:24px;font-weight:400;font-family:'Creativo','Nunito',sans-serif;color:var(--accent-rose);margin-bottom:14px;">1200 ans d'histoires a transmettre et une source infinie d'inspiration.</p>
+          <p class="hero-subtitle">
+            Contes, berceuses et contenus audios tissés de fil d'or en français/darija. Une expérience 100% audio et sans écran, pour transmettre les trésors de notre culture aux enfants de 12 mois à 12 ans.
+          </p>
+          <a href="#catalogue" class="hero-cta"><i class="fa-solid fa-play"></i> Decouvrez un extrait</a>
+        </div>
+        <div class="hero-characters">
+          <span class="sparkle sparkle--1"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:22px;height:22px;opacity:0.5;filter:invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);"></span>
+          <span class="sparkle sparkle--2"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:16px;height:16px;opacity:0.4;filter:invert(70%) sepia(20%) saturate(300%) hue-rotate(210deg) brightness(95%);"></span>
+          <span class="sparkle sparkle--3"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:20px;height:20px;opacity:0.35;filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></span>
+          <span class="sparkle sparkle--4"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:14px;height:14px;opacity:0.5;filter:invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);"></span>
+          <span class="sparkle sparkle--5"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:12px;height:12px;opacity:0.3;filter:invert(25%) sepia(80%) saturate(2000%) hue-rotate(340deg) brightness(80%);"></span>
+          <img src="assets/poufi.png" alt="Poufi le pouf" class="mascot mascot--poufi">
+          <img src="assets/njima.png" alt="Njima l'etoile" class="mascot mascot--njima">
+          <img src="assets/berrad.png" alt="Berrad la theiere" class="mascot mascot--berrad">
+          <img src="assets/tajina.png" alt="Tajina le tajine" class="mascot mascot--tajina">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOCIAL PROOF ═══ -->
+  <div class="social-proof">
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="social-proof-inner">
+        <div class="social-proof-stat"><div class="social-proof-stat-number">100%</div><div class="social-proof-stat-label">Audio — zero ecran</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat"><div class="social-proof-stat-number">1-12 ans</div><div class="social-proof-stat-label">Contenus adaptes par age</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat"><div class="social-proof-stat-number">FR / دارجة</div><div class="social-proof-stat-label">Bilingue francais-darija</div></div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-badges"><div class="social-proof-badge"><i class="fa-brands fa-apple"></i> App Store</div><div class="social-proof-badge"><i class="fa-brands fa-google-play"></i> Google Play</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NAVBAR — below social proof, sticky on scroll ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="#" class="navbar-logo"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:50px;width:auto;"></a>
+      <div class="navbar-links">
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-link navbar-link--active">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="#" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ NYA — NOS VALEURS ═══ -->
+  <section id="nya" class="section section--nya">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">NIYYA — Notre humble intention</p>
+        <h2 class="section-title">Cherir nos racines, favoriser l'envol</h2>
+      </div>
+      <div class="nya-intro">
+        <p>Chacun de nous jongle avec le quotidien, tout en portant au fond de lui le désir immense que ses enfants n'oublient pas d'où ils viennent. Nous sentons bien que le fil de la transmission se fragilise, grignoté par les écrans et le rythme effréné de la vie à l'étranger.</p>
+        <p><strong>Nooba</strong> est né de cette humble volonté : redevenir, ensemble, les maillons d'une chaîne millénaire. Nous ramenons les histoires, les berceuses et la poésie de la <em>Darija</em> au creux des oreilles de nos enfants, pour que leur héritage ne soit pas qu'un souvenir lointain, mais une force vivante dans leur quotidien.</p>
+        <p><strong>Niyya</strong> dialna humblement: transmettre ce socle de valeurs et de culture qui permet l'envol d'une génération fière, capable de briller partout dans le monde, sans jamais oublier d'où elle vient.</p>
+      </div>
+      <div class="nya-grid">
+        <div class="nya-card">
+          <div class="nya-icon-circle"><img src="https://static.thenounproject.com/png/5064309-200.png" alt="Al Amana"></div>
+          <h3 class="nya-title">Al Amana</h3>
+          <p class="nya-subtitle">Le depot sacre</p>
+          <p class="nya-desc">Notre culture et ses tresors millenaires</p>
+          <div class="nya-card-bottom"><p class="nya-arabic">الأمانة</p><span class="nya-more">Decouvrir <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+        <div class="nya-card">
+          <div class="nya-icon-circle"><img src="https://static.thenounproject.com/png/8235892-200.png" alt="Al Wassiya"></div>
+          <h3 class="nya-title">Al Wassiya</h3>
+          <p class="nya-subtitle">Le legs</p>
+          <p class="nya-desc">Notre responsabilite de passeurs envers nos enfants</p>
+          <div class="nya-card-bottom"><p class="nya-arabic">الوصية</p><span class="nya-more">Decouvrir <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+        <div class="nya-card nya-card--highlight">
+          <div class="nya-icon-circle"><img src="https://static.thenounproject.com/png/4344489-200.png" alt="Nooba"></div>
+          <h3 class="nya-title">Nooba</h3>
+          <p class="nya-subtitle">Notre contribution</p>
+          <p class="nya-desc">Comment nos histoires audios participent a la transmission</p>
+          <div class="nya-card-bottom"><p class="nya-arabic">نوبة</p><span class="nya-more">Decouvrir <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+        <div class="nya-card">
+          <div class="nya-icon-circle"><img src="https://static.thenounproject.com/png/6059116-200.png" alt="Al Assal"></div>
+          <h3 class="nya-title">Al Assal</h3>
+          <p class="nya-subtitle">Les initiatrices</p>
+          <p class="nya-desc">Les personnes derriere Nooba</p>
+          <div class="nya-card-bottom"><p class="nya-arabic">الأصل</p><span class="nya-more">Decouvrir <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+        <div class="nya-card">
+          <div class="nya-icon-circle"><img src="https://static.thenounproject.com/png/8357916-200.png" alt="Marhba"></div>
+          <h3 class="nya-title">Marhba</h3>
+          <p class="nya-subtitle">Bienvenue</p>
+          <p class="nya-desc">Nous sommes a l'ecoute de vos retours et besoins</p>
+          <div class="nya-card-bottom"><p class="nya-arabic">مرحبا</p><span class="nya-more">Decouvrir <i class="fa-solid fa-arrow-right"></i></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOS UNIVERS ═══ -->
+  <section id="univers" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Nos Univers</p>
+        <h2 class="section-title">Un parcours progressif selon l'âge et les connaissances langagières et culturelles de nos enfants</h2>
+      </div>
+      <div class="univers-grid">
+        <div class="univers-card">
+          <div class="univers-img"><img src="assets/univers-1.jpg" alt="Le jardin des sens"></div>
+          <div class="univers-age">12 mois — 4 ans</div>
+          <h3 class="univers-title">Le jardin des sens</h3>
+          <p class="univers-subtitle">Un cocon sonore pour s'éveiller au monde.</p>
+          <p class="univers-desc">Rituels du quotidien, berceuses de nos grands-mères, fables de la nature, des mots à la douceur du miel et au parfum de fleur d'oranger</p>
+        </div>
+        <div class="univers-card">
+          <div class="univers-img"><img src="assets/univers-2.jpg" alt="La caravane des contes"></div>
+          <div class="univers-age">4 — 8 ans</div>
+          <h3 class="univers-title">La caravane des contes</h3>
+          <p class="univers-subtitle">En route pour l'épopée des contes et légendes</p>
+          <p class="univers-desc">Des contes et légendes épiques aux secrets de notre patrimoine, une odyssée de mots et d'histoires ouvrant sur des horizons aussi vaste et mystérieux que les sables du désert</p>
+        </div>
+        <div class="univers-card">
+          <div class="univers-img"><img src="assets/univers-3.jpg" alt="Le cercle des sages"></div>
+          <div class="univers-age">8 — 12 ans</div>
+          <h3 class="univers-title">Le cercle des sages</h3>
+          <p class="univers-subtitle">L'éveil de la pensée et la force des racines</p>
+          <p class="univers-desc">Contes philosophiques, proverbes ancestraux, secrets de résilience, des récits qui s'ancrent dans notre héritage pour nous élever comme la cime d'un arganier millénaire</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CATALOGUE ═══ -->
+  <section id="catalogue" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Aperçu des catégories par univers</p>
+        <h2 class="section-title">Écoutez avant de nous rejoindre</h2>
+        <p class="section-subtitle">Un avant-goût de tout le contenu disponible sur l'application Nooba.</p>
+      </div>
+      <!-- Univers tabs -->
+      <div class="catalog-filters">
+        <button class="catalog-filter catalog-filter--active" onclick="switchUnivers(0, this)">Le Jardin des Sens · 1-4 ans</button>
+        <button class="catalog-filter" onclick="switchUnivers(1, this)">La Caravane des Contes · 4-8 ans</button>
+        <button class="catalog-filter" onclick="switchUnivers(2, this)">Le Cercle des Sages · 8-12 ans</button>
+      </div>
+
+      <!-- Univers 1: Le Jardin des Sens -->
+      <div class="univers-panel univers-panel--active" data-univers="0">
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Mon quotidien au Maroc-1.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les animaux du souk</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les couleurs de ma maison</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Histoires et légendes V2-1.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hmadou et Hmaydou</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le petit hérisson du Rif</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier l'ame musicale-1.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>A Mama, ya Mama</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Comptines de chez Jidda</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Sagesse et sérénité-1.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Berceuse du soir</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les étoiles de Mama</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Univers 2: La Caravane des Contes -->
+      <div class="univers-panel" data-univers="1">
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Mon quotidien au Maroc-1.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les métiers de la médina</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Un jour au hammam</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Histoires et légendes V2-1.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hdidane et l'ogresse</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>La légende de Lalla Mira</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier l'ame musicale-1.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les rythmes gnawa</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Danse de l'Atlas</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Sagesse et sérénité-1.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le sage de Chefchaouen</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Respire avec le vent</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Univers 3: Le Cercle des Sages -->
+      <div class="univers-panel" data-univers="2">
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Mon quotidien au Maroc-1.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les routes du commerce</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Marrakech d'hier et d'aujourd'hui</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Histoires et légendes V2-1.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Tariq Ibn Ziyad</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les mystères de Volubilis</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier l'ame musicale-1.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>L'art du malhoun</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Nass El Ghiwane, l'esprit rebelle</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="../../../../context/visuels/Pilier Sagesse et sérénité-1.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Proverbes de nos grands-parents</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Méditation du désert</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA: explore full catalog -->
+      <div class="catalog-cta-wrap">
+        <a href="#" class="catalog-cta">Explorer chaque catégorie <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMMENT ÇA MARCHE ═══ -->
+  <section id="comment-ca-marche" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Simple et rapide</p>
+        <h2 class="section-title">Comment ça marche ?</h2>
+        <p class="section-subtitle">En trois étapes, nos enfants se mettent aux fréquences du Maroc.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h3 class="step-title">S'abonner</h3>
+          <ol class="step-list">
+            <li>Choisissez votre abonnement.</li>
+            <li>Procédez au paiement sécurisé par Stripe.</li>
+            <li>Accédez immédiatement au catalogue complet.</li>
+          </ol>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3 class="step-title">Télécharger l'app</h3>
+          <p class="step-desc">Disponible sur <strong>iOS et Android</strong>. Configurez les profils de vos enfants. Fonctionne aussi en <strong>mode offline</strong> avec téléchargement du contenu.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon"><i class="fa-solid fa-headphones"></i></div>
+          <h3 class="step-title">Écouter, s'immerger</h3>
+          <p class="step-desc">En voiture, en promenade, au coucher — sélectionnez un conte ou une berceuse et laissez le <strong>charme opérer</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SCIENCE ═══ -->
+  <section class="section section--teal" style="position:relative; overflow:hidden;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:hidden;">
+      <img src="https://static.thenounproject.com/png/8342888-200.png" alt="" style="position:absolute; top:8%; left:5%; width:60px; opacity:0.12; transform:rotate(-15deg);">
+      <img src="https://static.thenounproject.com/png/4914652-200.png" alt="" style="position:absolute; top:15%; right:8%; width:50px; opacity:0.10; transform:rotate(10deg);">
+      <img src="https://static.thenounproject.com/png/7521503-200.png" alt="" style="position:absolute; bottom:20%; left:8%; width:55px; opacity:0.09; transform:rotate(8deg);">
+      <img src="https://static.thenounproject.com/png/5608068-200.png" alt="" style="position:absolute; bottom:10%; right:5%; width:45px; opacity:0.12; transform:rotate(-12deg);">
+      <img src="https://static.thenounproject.com/png/2148932-200.png" alt="" style="position:absolute; top:50%; left:2%; width:40px; opacity:0.08; transform:rotate(20deg);">
+      <img src="https://static.thenounproject.com/png/8264751-200.png" alt="" style="position:absolute; top:40%; right:3%; width:50px; opacity:0.10; transform:rotate(-8deg);">
+    </div>
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="section-header">
+        <p class="section-label">La science derrière Nooba</p>
+        <h2 class="section-title">Pourquoi l'absence d'image multiplie par 10 l'apprentissage ?</h2>
+      </div>
+      <div class="science-accordion">
+        <div class="science-acc-item science-acc-item--open" onclick="toggleScience(this)">
+          <div class="science-acc-header">
+            <div class="science-acc-icon"><i class="fa-solid fa-ear-listen"></i></div>
+            <div class="science-acc-intro">
+              <h3 class="science-acc-title">Le bain sonore</h3>
+              <p class="science-acc-tagline">Écouter, c'est apprendre en profondeur</p>
+            </div>
+            <i class="fa-solid fa-chevron-down science-acc-chevron"></i>
+          </div>
+          <div class="science-acc-body">
+            <p>Les écrans captent jusqu'à 80 % de l'activité cognitive des enfants… au détriment de l'essentiel : leur capacité à écouter, comprendre et s'exprimer.</p>
+            <p>À l'inverse, l'audio libère leur attention. Sans distraction visuelle, l'enfant se concentre pleinement sur les sons, les rythmes et les intonations.</p>
+            <p>Il développe naturellement une sensibilité pour la langue, essentielle pour une mémorisation aisée et une prononciation juste.</p>
+            <div class="science-acc-sources">
+              <span>Kuhl, P. K. (2010). <em>Brain Mechanisms in Early Language Acquisition.</em></span>
+              <span>Smith, L., et al. (2024). <em>"Auditory Narratives as a Tool for Reducing Cognitive Overload in Early Childhood Education."</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="science-acc-item" onclick="toggleScience(this)">
+          <div class="science-acc-header">
+            <div class="science-acc-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="science-acc-intro">
+              <h3 class="science-acc-title">L'imagination active</h3>
+              <p class="science-acc-tagline">Quand l'enfant écoute, son cerveau crée</p>
+            </div>
+            <i class="fa-solid fa-chevron-down science-acc-chevron"></i>
+          </div>
+          <div class="science-acc-body">
+            <p>L'audio engage et permet à l'enfant de construire ses propres images mentales, grâce à l'activation de plusieurs zones du cerveau.</p>
+            <p>Ce processus favorise la mémorisation, la capacité d'abstraction et une appropriation plus profonde et plus durable qu'avec une vidéo.</p>
+            <div class="science-acc-sources">
+              <span>Wang, Z., et al. (2022). <em>"The Effects of Audio vs. Video Stories on Children's Narrative Comprehension and Cognitive Load."</em></span>
+            </div>
+          </div>
+        </div>
+        <div class="science-acc-item" onclick="toggleScience(this)">
+          <div class="science-acc-header">
+            <div class="science-acc-icon"><i class="fa-solid fa-language"></i></div>
+            <div class="science-acc-intro">
+              <h3 class="science-acc-title">L'immersion cognitive</h3>
+              <p class="science-acc-tagline">Écouter, c'est entrer pleinement dans l'histoire</p>
+            </div>
+            <i class="fa-solid fa-chevron-down science-acc-chevron"></i>
+          </div>
+          <div class="science-acc-body">
+            <p>L'audio favorise une attention profonde et durable, et aide l'enfant à intégrer naturellement les logiques narratives — début, développement, conclusion — ainsi que des structures linguistiques plus complexes.</p>
+            <p>Mais l'audio va plus loin.</p>
+            <p>La voix porte une charge affective unique qui permet de créer une connexion forte et de renforcer la mémorisation.</p>
+            <p><strong>Résultat : la langue n'est plus seulement apprise. Elle est ressentie, vécue et intégrée en profondeur.</strong></p>
+            <div class="science-acc-sources">
+              <span>Zak, P. J. (2015). <em>Why Inspiring Stories Make Us React.</em></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FONDATRICES ═══ -->
+  <section id="fondatrices" class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Les personnes derrière Nooba</p>
+        <h2 class="section-title">Des parents, comme vous</h2>
+      </div>
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-avatar"><img src="assets/maha.jpeg" alt="Maha Benali"></div>
+          <h3 class="founder-name">Maha Benali</h3>
+          <p class="founder-role">Co-fondatrice</p>
+          <p class="founder-quote">« J'ai toujours grandi en immersion totale, habitée par ma culture marocaine comme par une seconde peau. Je n'aurais jamais soupçonné la difficulté de maintenir ce lien… jusqu'à ce que je m'installe à Londres avec mon mari et mes enfants. Loin du pays, j'ai mesuré à quel point ce fil est fragile quand il n'est plus nourri par le quotidien. »</p>
+          <a href="https://www.linkedin.com/in/maha-benali-a769909" target="_blank" class="founder-linkedin"><i class="fa-brands fa-linkedin"></i> Profil LinkedIn</a>
+        </div>
+        <div class="founder-card">
+          <div class="founder-avatar"><img src="assets/boutaina.jpeg" alt="Boutaina Alami"></div>
+          <h3 class="founder-name">Boutaina Alami</h3>
+          <p class="founder-role">Co-fondatrice</p>
+          <p class="founder-quote">« J'ai grandi en France, avec un Maroc qui tenait dans une valise de souvenirs : l'effervescence des vacances, les rires des cousins, l'odeur du couscous du vendredi et la mélodie des douaas de ma grand-mère. Mais au-delà de ces images, je me sentais parfois comme une invitée dans ma propre culture. Sans la maîtrise de la langue, sans les codes profonds, mon ancrage restait fragile. »</p>
+          <a href="https://www.linkedin.com/in/bouta%C3%AFna-alami-7b9b56" target="_blank" class="founder-linkedin"><i class="fa-brands fa-linkedin"></i> Profil LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEMOIGNAGES ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">La voix des parents</p>
+        <h2 class="section-title">Ils en parlent mieux que nous</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><p class="testimonial-text">Mes enfants reclament "leur histoire du Maroc" tous les soirs. En trois semaines, ma fille a commence a utiliser des mots en darija spontanement.</p><div class="testimonial-author"><div class="testimonial-avatar">S</div><div><p class="testimonial-author-name">Samia L.</p><p class="testimonial-author-detail">Maman de 2 enfants · Paris</p></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><p class="testimonial-text">Enfin une app qui ne met pas un ecran devant les yeux de ma fille. On l'utilise dans la voiture, elle adore les berceuses.</p><div class="testimonial-author"><div class="testimonial-avatar">Y</div><div><p class="testimonial-author-name">Youssef M.</p><p class="testimonial-author-detail">Papa d'une petite fille · Casablanca</p></div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"><img src="https://static.thenounproject.com/png/4915039-200.png" class="khatam-star" alt="" style="filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></div><p class="testimonial-text">Je cherchais un moyen naturel de transmettre notre culture. NOOBA fait exactement ca — sans forcer, juste des histoires qui donnent envie.</p><div class="testimonial-author"><div class="testimonial-avatar">N</div><div><p class="testimonial-author-name">Nadia K.</p><p class="testimonial-author-detail">Maman de 3 enfants · Bruxelles</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA PRICING ═══ -->
+  <section class="pricing-section" style="position:relative; overflow:hidden;">
+    <img src="assets/zellige-arc-corner.png" alt="" style="position:absolute; bottom:0; right:0; width:450px; height:450px; object-fit:contain; object-position:bottom right; pointer-events:none; z-index:0; opacity:0.04; filter:invert(1); transform:rotate(180deg);">
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="pricing-cta">
+        <div class="pricing-left">
+          <p class="section-label" style="color:var(--accent-mint);">Abonnement</p>
+          <h2 class="section-title" style="color:#fff;">Offrons à nos enfants un trésor de langue et un concentré de culture</h2>
+          <p style="color:rgba(255,255,255,0.65); margin-bottom:24px;">365 jours de contes, berceuses, découvertes culturelles en français/darija.</p>
+          <div style="margin-bottom:4px;"><span class="pricing-amount">49,90&#8364;</span><span class="pricing-period"> / an</span></div>
+          <p style="color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:24px;">Sans engagement</p>
+
+          <div class="pricing-benefits">
+            <!-- General benefits -->
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Plus de 70 comptines, berceuses et contenu audio complet en français/darija</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Immersion naturelle dans le quotidien du Maroc</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Transmission ludique et progressive de l'héritage culturel</span></div>
+            <!-- Age-specific benefits -->
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span><strong class="pricing-age-inline">12 mois–4 ans</strong> · Facilite l'endormissement, développe le langage, favorise l'éveil</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span><strong class="pricing-age-inline">4–8 ans</strong> · Développe le vocabulaire, stimule l'imagination</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span><strong class="pricing-age-inline">8–12 ans</strong> · Libère la créativité, renforce l'esprit critique</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Mode offline — écoutez sans connexion</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Nouveautés ajoutées chaque semaine</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>100% audio — zéro écran (écran désactivé pendant l'écoute de contenu)</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Un allié à portée de main pour aider les parents dans leur rôle de passeur</span></div>
+            <div class="pricing-benefit"><div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div><span>Annulation possible à tout moment</span></div>
+          </div>
+          <div class="pricing-btns">
+            <a href="#" class="pricing-subscribe-btn">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#" class="pricing-trial-btn">Offrir un abonnement <span style="font-size:11px; opacity:0.7;">(via code bénéficiaire)</span></a>
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="phone-mockup-inner">
+            <div class="phone-mockup-statusbar">
+              <span class="phone-mockup-statusbar-time">9:41</span>
+              <div class="phone-mockup-notch"></div>
+              <span class="phone-mockup-statusbar-icons">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full"></i>
+              </span>
+            </div>
+            <div class="phone-mockup-screen">
+              <div class="phone-mockup-header"><img src="assets/logo_Nooba_baseline.png" alt="NOOBA" style="height:24px;width:auto;"><i class="fa-solid fa-bell phone-mockup-bell"></i></div>
+              <p class="phone-mockup-label">Nouveautes</p>
+              <p class="phone-mockup-title">Ajoutes cette semaine</p>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-peach);"><i class="fa-solid fa-book-open"></i></div><div><p class="phone-mockup-item-name">Hmadou et Hmaydou</p><p class="phone-mockup-item-meta">8 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-lavender);"><i class="fa-solid fa-music"></i></div><div><p class="phone-mockup-item-name">A Mama, ya Mama</p><p class="phone-mockup-item-meta">4 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-item"><div class="phone-mockup-item-cover" style="background:var(--accent-mint);"><i class="fa-solid fa-earth-africa"></i></div><div><p class="phone-mockup-item-name">Les couleurs du souk</p><p class="phone-mockup-item-meta">6 min · 3-5 ans</p></div><div class="phone-mockup-item-play"><i class="fa-solid fa-play"></i></div></div>
+              <div class="phone-mockup-tabbar">
+                <div class="phone-mockup-tab phone-mockup-tab--active"><i class="fa-solid fa-house"></i><span>Accueil</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-heart"></i><span>Favoris</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-arrow-down"></i><span>Offline</span></div>
+                <div class="phone-mockup-tab"><i class="fa-solid fa-user"></i><span>Profil</span></div>
+              </div>
+            </div>
+            <div class="phone-mockup-home-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Questions fréquentes</p>
+        <h2 class="section-title">Tout ce que vous devez savoir</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <input type="checkbox" id="faq-1" class="faq-toggle">
+          <label for="faq-1" class="faq-question">Mon enfant utilise-t-il le téléphone seul ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Non. NOOBA est conçu pour que <strong>le parent contrôle, l'enfant écoute</strong>. Vous choisissez le contenu, lancez la lecture, et votre enfant profite de l'histoire — sans jamais interagir avec l'écran. C'est l'équivalent moderne de la cassette audio.</div>
+        </div>
+        <div class="faq-item">
+          <input type="checkbox" id="faq-2" class="faq-toggle">
+          <label for="faq-2" class="faq-question">Les contenus sont en quelle langue exactement ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Nos contenus sont en <strong>mix français-darija</strong>. Certains sont principalement en darija avec des explications en français, d'autres en français avec des mots et expressions en darija. L'objectif est une <strong>immersion linguistique naturelle</strong>, comme dans une conversation familiale.</div>
+        </div>
+        <div class="faq-item">
+          <input type="checkbox" id="faq-3" class="faq-toggle">
+          <label for="faq-3" class="faq-question">Est-ce que je peux écouter sans connexion internet ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Oui ! Le <strong>mode offline</strong> vous permet de télécharger vos contenus préférés sur votre téléphone. Idéal pour les trajets en voiture, les vacances ou les moments sans réseau.</div>
+        </div>
+        <div class="faq-item">
+          <input type="checkbox" id="faq-4" class="faq-toggle">
+          <label for="faq-4" class="faq-question">Pour quel âge sont les contenus ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">NOOBA propose des contenus pour les <strong>12 mois à 12 ans</strong>. Chaque histoire, berceuse ou contenu de découverte est classé par tranche d'âge. L'app vous recommande automatiquement les contenus adaptés selon le profil de chaque enfant.</div>
+        </div>
+        <div class="faq-item">
+          <input type="checkbox" id="faq-5" class="faq-toggle">
+          <label for="faq-5" class="faq-question">Puis-je annuler mon abonnement à tout moment ? <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="faq-answer">Absolument. Vous bénéficiez de <strong>7 jours d'essai gratuit</strong>. Si vous n'êtes pas convaincu, annulez avant la fin de la période d'essai sans être débité. Après, l'abonnement est annuel et peut être annulé à tout moment.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logo_Nooba_blanc.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Raconte-moi le Maroc. Contes, berceuses et découvertes en français et en darija pour les enfants de 1 an à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="02_al_amana.html">Al Amana</a><a href="03_al_wassiya.html">Al Wassiya</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="#">S'abonner</a><a href="#">Télécharger l'app</a><a href="#">Se connecter</a><a href="#">Mon espace</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="#">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits reserves</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  // Sticky navbar: becomes fixed when scrolled past its natural position
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('sticky');
+      spacer.style.display = 'block';
+    } else {
+      nav.classList.remove('sticky');
+      spacer.style.display = 'none';
+    }
+  });
+
+  /* Science accordion */
+  function toggleScience(item) {
+    const wasOpen = item.classList.contains('science-acc-item--open');
+    document.querySelectorAll('.science-acc-item').forEach(i => i.classList.remove('science-acc-item--open'));
+    if (!wasOpen) item.classList.add('science-acc-item--open');
+  }
+
+  /* Univers tab switching */
+  function switchUnivers(index, btn) {
+    document.querySelectorAll('.univers-panel').forEach(p => p.classList.remove('univers-panel--active'));
+    document.querySelectorAll('.catalog-filter').forEach(b => b.classList.remove('catalog-filter--active'));
+    document.querySelector('[data-univers="' + index + '"]').classList.add('univers-panel--active');
+    btn.classList.add('catalog-filter--active');
+  }
+</script>
+</body>
+</html>
