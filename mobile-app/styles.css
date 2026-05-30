@@ -9,55 +9,56 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 input { font: inherit; }
 
 /* ================================================================
-   DESIGN TOKENS — Dark Theme
+   DESIGN TOKENS — Light Theme (aligné au Site Vitrine)
 
    App Mobile — Nooba
-   Direction: Noble, moderne, chaleureux. Mode sombre.
-   Fond noir/bleu nuit + accents dorés.
+   Direction: Clair, chaleureux, marocain. Surfaces crème,
+   texte bleu nuit, accents teal/rose/pêche. Mêmes couleurs et
+   typographies que le site vitrine (Nunito + Lobster Two + Inter).
 ================================================================ */
 :root {
-  /* ── Surfaces (Dark) ── */
-  --bg-app: #0D0B09;
-  --bg-panel: #1A1612;
-  --bg-elevated: #252018;
-  --bg-hover: #302A22;
-  --bg-active: #3D3428;
+  /* ── Surfaces (Light) ── */
+  --bg-app: #FEFBF6;          /* crème (vitrine --bg) */
+  --bg-panel: #FFFFFF;        /* cartes */
+  --bg-elevated: #FFFCF7;     /* surface surélevée */
+  --bg-hover: #FBF0ED;        /* pêche doux (vitrine --bg-peach) */
+  --bg-active: #F3E4DE;       /* pêche appuyé */
 
   /* ── Borders ── */
-  --border: #2C2520;
-  --border-strong: #3D3428;
-  --border-focus: #C8923C;
+  --border: #E8E0D8;          /* vitrine --border */
+  --border-strong: #DACFC4;
+  --border-focus: #007BA8;    /* teal */
 
   /* ── Text ── */
-  --text-primary: #F5EDE0;
-  --text-secondary: #9C8B7A;
-  --text-tertiary: #6B5D4F;
-  --text-disabled: #4A3F32;
-  --text-inverse: #0D0B09;
+  --text-primary: #1E2D3D;    /* vitrine --text */
+  --text-secondary: #5A6B7B;  /* vitrine --text-secondary */
+  --text-tertiary: #8A98A5;
+  --text-disabled: #B5BEC6;
+  --text-inverse: #FFFFFF;    /* texte sur accent */
 
   /* ── Accent ── */
-  --accent: #C8923C;
-  --accent-hover: #D4A04A;
-  --accent-subtle: rgba(200, 146, 60, 0.15);
-  --accent-muted: rgba(200, 146, 60, 0.25);
+  --accent: #007BA8;          /* teal vitrine (couleur interactive principale) */
+  --accent-hover: #00658C;
+  --accent-subtle: rgba(0, 123, 168, 0.12);
+  --accent-muted: rgba(0, 123, 168, 0.22);
 
   /* ── Category colors ── */
-  --cat-recits: #C8923C;
-  --cat-recits-bg: linear-gradient(145deg, #2A2010 0%, #352A14 50%, #3D3018 100%);
-  --cat-recits-subtle: rgba(200, 146, 60, 0.12);
+  --cat-recits: #C2705F;      /* terracotta/pêche profond */
+  --cat-recits-bg: linear-gradient(145deg, #FBEDE7 0%, #F6DED3 100%);
+  --cat-recits-subtle: rgba(194, 112, 95, 0.12);
 
-  --cat-rythmes: #B86B7A;
-  --cat-rythmes-bg: linear-gradient(145deg, #2A1820 0%, #351E28 50%, #3D2430 100%);
-  --cat-rythmes-subtle: rgba(184, 107, 122, 0.12);
+  --cat-rythmes: #9A6BA8;     /* lavande-violet assombri (lisibilité) */
+  --cat-rythmes-bg: linear-gradient(145deg, #F1ECF5 0%, #E6DBEF 100%);
+  --cat-rythmes-subtle: rgba(154, 107, 168, 0.12);
 
-  --cat-decouverte: #5B8D7A;
-  --cat-decouverte-bg: linear-gradient(145deg, #142A22 0%, #1A3528 50%, #203D30 100%);
-  --cat-decouverte-subtle: rgba(91, 141, 122, 0.12);
+  --cat-decouverte: #007BA8;  /* teal/mint */
+  --cat-decouverte-bg: linear-gradient(145deg, #E4ECF3 0%, #D6E6EE 100%);
+  --cat-decouverte-subtle: rgba(0, 123, 168, 0.12);
 
   /* ── Semantic ── */
-  --success: #5B8D6A;
-  --warning: #D4A543;
-  --error: #C45442;
+  --success: #2A9D8F;         /* sauge (Marhba) */
+  --warning: #F09E00;         /* jaune vitrine */
+  --error: #BF0018;           /* rose vitrine */
 
   /* ── Radii ── */
   --radius-xs: 4px;
@@ -68,11 +69,11 @@ input { font: inherit; }
   --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* ── Shadows ── */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 24px rgba(200, 146, 60, 0.2);
+  /* ── Shadows (douces, teintées bleu nuit comme le vitrine) ── */
+  --shadow-sm: 0 2px 16px rgba(30, 45, 61, 0.06);
+  --shadow-md: 0 4px 16px rgba(30, 45, 61, 0.08);
+  --shadow-lg: 0 12px 32px rgba(30, 45, 61, 0.12);
+  --shadow-glow: 0 0 24px rgba(0, 123, 168, 0.18);
 
   /* ── Spacing scale (4px base) ── */
   --space-1: 4px;
@@ -89,9 +90,11 @@ input { font: inherit; }
   --space-14: 56px;
   --space-16: 64px;
 
-  /* ── Typography ── */
+  /* ── Typography (alignée au vitrine) ── */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Nunito', sans-serif;   /* titres — repointé depuis Playfair */
+  --font-script: 'Lobster Two', cursive; /* accents de marque / flourishes */
+  --font-arabic: 'Amiri', serif;
 
   /* ── Transitions ── */
   --transition-fast: 0.15s ease;
@@ -103,7 +106,7 @@ input { font: inherit; }
 ================================================================ */
 body {
   font-family: var(--font-sans);
-  background: #1A1612;
+  background: #F2EAE0;
   color: var(--text-primary);
   font-size: 15px;
   line-height: 1.5;
@@ -122,10 +125,10 @@ body {
   min-height: 812px;
   background: var(--bg-app);
   border-radius: 44px;
-  border: 5px solid #2C2520;
+  border: 5px solid #1E2D3D;
   box-shadow:
-    0 0 0 1px rgba(200, 146, 60, 0.08),
-    0 20px 60px rgba(0, 0, 0, 0.6);
+    0 0 0 1px rgba(30, 45, 61, 0.08),
+    0 20px 60px rgba(30, 45, 61, 0.25);
   overflow: hidden;
   position: relative;
   display: flex;
@@ -483,7 +486,7 @@ body {
   letter-spacing: 0.06em;
   padding: 2px 6px;
   border-radius: var(--radius-xs);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.82);
   color: var(--text-primary);
   backdrop-filter: blur(4px);
 }
@@ -646,12 +649,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(4px);
 }
 
 .content-card-badge-offline { color: var(--success); }
-.content-card-badge-fav { color: #E8585A; }
+.content-card-badge-fav { color: var(--error); }
 
 .content-card-body {
   padding: var(--space-2) var(--space-3) var(--space-3);
@@ -765,7 +768,7 @@ body {
   flex-shrink: 0;
 }
 
-.content-list-action--fav { color: #E8585A; }
+.content-list-action--fav { color: var(--error); }
 .content-list-action--offline { color: var(--success); }
 
 /* ================================================================
@@ -982,7 +985,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -1244,7 +1247,8 @@ body {
   width: 22px;
   height: 22px;
   border-radius: var(--radius-full);
-  background: var(--text-primary);
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(30, 45, 61, 0.25);
   top: 2px;
   left: 2px;
   transition: transform var(--transition-fast);
@@ -1350,7 +1354,7 @@ body {
 }
 
 .onboarding-icon--success {
-  background: rgba(91, 141, 106, 0.15);
+  background: rgba(42, 157, 143, 0.14);
 }
 
 .onboarding-icon--success i {
@@ -1568,11 +1572,19 @@ body {
    UTILITY: Logo in onboarding
 ================================================================ */
 .logo {
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 800;
+  font-family: var(--font-script);
+  font-size: 32px;
+  font-weight: 700;
   text-align: center;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
+}
+
+/* Logo réel (image) — bloc de marque onboarding/login */
+.logo-img {
+  height: 96px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .logo span {
@@ -1644,7 +1656,8 @@ body {
 .player-ended-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13, 11, 9, 0.6);
+  background: rgba(254, 251, 246, 0.92);
+  backdrop-filter: blur(8px);
   border-radius: var(--radius-2xl);
   display: flex;
   align-items: center;
@@ -1655,7 +1668,7 @@ body {
   width: 72px;
   height: 72px;
   border-radius: var(--radius-full);
-  background: rgba(91, 141, 106, 0.2);
+  background: rgba(42, 157, 143, 0.16);
   border: 3px solid var(--success);
   display: flex;
   align-items: center;
@@ -1990,9 +2003,9 @@ body {
 }
 
 .notif-icon--new { background: var(--accent-subtle); color: var(--accent); }
-.notif-icon--resume { background: rgba(91, 141, 106, 0.15); color: var(--success); }
-.notif-icon--ritual { background: rgba(184, 107, 122, 0.15); color: var(--cat-rythmes); }
-.notif-icon--download { background: rgba(91, 141, 106, 0.15); color: var(--success); }
+.notif-icon--resume { background: rgba(42, 157, 143, 0.14); color: var(--success); }
+.notif-icon--ritual { background: rgba(154, 107, 168, 0.14); color: var(--cat-rythmes); }
+.notif-icon--download { background: rgba(42, 157, 143, 0.14); color: var(--success); }
 .notif-icon--reengagement { background: var(--accent-subtle); color: var(--accent); }
 
 .notif-content {
@@ -2051,7 +2064,7 @@ body {
 }
 
 .push-notification {
-  background: rgba(37, 32, 24, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-xl);
   padding: var(--space-3) var(--space-4);
@@ -2247,7 +2260,7 @@ body {
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13, 11, 9, 0.7);
+  background: rgba(30, 45, 61, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2339,7 +2352,7 @@ body {
 }
 
 .blocking-icon--warning {
-  background: rgba(212, 165, 67, 0.15);
+  background: rgba(240, 158, 0, 0.14);
 }
 
 .blocking-icon--warning i {
@@ -2347,7 +2360,7 @@ body {
 }
 
 .blocking-icon--error {
-  background: rgba(196, 84, 66, 0.15);
+  background: rgba(191, 0, 24, 0.10);
 }
 
 .blocking-icon--error i {
@@ -2412,7 +2425,7 @@ body {
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3);
-  background: rgba(196, 84, 66, 0.15);
+  background: rgba(191, 0, 24, 0.10);
   color: var(--error);
   font-size: 13px;
   font-weight: 600;
