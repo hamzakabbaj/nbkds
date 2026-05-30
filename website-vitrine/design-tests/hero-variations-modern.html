@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero — Modern Variations · NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ════════════ Section chooser ════════════ */
+    .variation-label {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 72px 40px 20px;
+    }
+    .variation-label-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 14px;
+    }
+    .variation-label-kicker::before {
+      content: ''; width: 28px; height: 1.5px; background: currentColor;
+    }
+    .variation-label h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .variation-label p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .variation-divider {
+      max-width: 1280px;
+      margin: 96px auto 0;
+      padding: 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ════════════ Shared utilities ════════════ */
+    .hero-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 40px;
+    }
+    .mini-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px 6px 8px;
+      background: rgba(0,123,168,0.08);
+      border: 1px solid rgba(0,123,168,0.16);
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: var(--accent-teal);
+      letter-spacing: 0.02em;
+    }
+    .mini-pill-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent-teal);
+      box-shadow: 0 0 0 4px rgba(0,123,168,0.18);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0,123,168,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(0,123,168,0.12); }
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px;
+      background: var(--text);
+      color: #fff;
+      border-radius: 999px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 14.5px;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 16px rgba(30,45,61,0.18);
+    }
+    .btn-primary:hover {
+      background: var(--accent-teal);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0,123,168,0.28);
+    }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 22px;
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 14.5px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--accent-teal); }
+    .btn-ghost i { font-size: 12px; transition: transform 0.2s; }
+    .btn-ghost:hover i { transform: translateX(3px); }
+
+    /* ════════════════════════════════════════════════════
+       VARIATION D — « Édition » (Magazine cover)
+       ════════════════════════════════════════════════════ */
+    .v-d {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      min-height: 620px;
+      background: #2C1F1A;
+    }
+    .v-d__bg {
+      position: absolute; inset: 0;
+      background: url('assets/pages/hero_image.jpg') center 30% / cover no-repeat;
+    }
+    .v-d__overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(30,20,15,0.0) 30%, rgba(20,12,8,0.55) 75%, rgba(15,8,5,0.85) 100%),
+        linear-gradient(90deg, rgba(20,12,8,0.45) 0%, rgba(20,12,8,0) 50%);
+    }
+    .v-d__content {
+      position: relative; z-index: 2;
+      padding: 48px 56px;
+      height: 100%;
+      min-height: 620px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    .v-d__top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .v-d__eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 11.5px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+    }
+    .v-d__eyebrow::before {
+      content: ''; width: 32px; height: 1.5px; background: rgba(255,255,255,0.7);
+    }
+    .v-d__edition-tag {
+      color: rgba(255,255,255,0.7);
+      font-family: 'Amiri', serif; font-style: italic; font-size: 14px;
+    }
+    .v-d__heading {
+      align-self: center;
+      max-width: 720px;
+    }
+    .v-d__heading h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 76px;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 0.98;
+      margin-bottom: 22px;
+    }
+    .v-d__heading h1 em {
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      color: #F4B95E;
+      letter-spacing: 0;
+    }
+    .v-d__lede {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: rgba(255,255,255,0.88);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+    .v-d__golden {
+      margin-top: 14px;
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      font-size: 22px;
+      color: #F4B95E;
+      max-width: 560px;
+      line-height: 1.35;
+    }
+    .v-d__bottom {
+      display: flex; justify-content: space-between; align-items: end; gap: 24px;
+    }
+    .v-d__actions {
+      display: flex; gap: 12px; align-items: center;
+    }
+    .v-d__actions .btn-primary {
+      background: #fff; color: var(--text);
+    }
+    .v-d__actions .btn-primary:hover {
+      background: #F4B95E; color: var(--text);
+    }
+    .v-d__actions .btn-ghost { color: rgba(255,255,255,0.9); }
+    .v-d__actions .btn-ghost:hover { color: #F4B95E; }
+
+    .v-d__meta {
+      display: flex; gap: 32px; align-items: center;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Nunito', sans-serif; font-size: 12.5px;
+      letter-spacing: 0.06em;
+    }
+    .v-d__meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .v-d__meta-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 22px; color: #fff;
+      letter-spacing: 0;
+    }
+    .v-d__meta-label {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* Floating preview chip */
+    .v-d__chip {
+      position: absolute; top: 56px; right: 56px; z-index: 3;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 14px 18px 14px 14px;
+      display: flex; align-items: center; gap: 14px;
+      color: #fff;
+      min-width: 280px;
+    }
+    .v-d__chip-play {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #fff; color: var(--accent-rose);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .v-d__chip-text { flex: 1; line-height: 1.3; }
+    .v-d__chip-title {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+    }
+    .v-d__chip-meta {
+      font-family: 'Nunito', sans-serif; font-size: 11px;
+      color: rgba(255,255,255,0.65); letter-spacing: 0.04em;
+    }
+    .v-d__chip-wave {
+      display: flex; gap: 2.5px; align-items: end; height: 18px;
+    }
+    .v-d__chip-wave span {
+      display: block; width: 2.5px; background: rgba(255,255,255,0.75); border-radius: 2px;
+      animation: wave 1.4s ease-in-out infinite;
+    }
+    .v-d__chip-wave span:nth-child(1) { height: 30%; animation-delay: -0.4s; }
+    .v-d__chip-wave span:nth-child(2) { height: 70%; animation-delay: -0.2s; }
+    .v-d__chip-wave span:nth-child(3) { height: 100%; animation-delay: 0s; }
+    .v-d__chip-wave span:nth-child(4) { height: 50%; animation-delay: -0.3s; }
+    .v-d__chip-wave span:nth-child(5) { height: 80%; animation-delay: -0.1s; }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.45); }
+      50% { transform: scaleY(1); }
+    }
+
+    /* ════════════════════════════════════════════════════
+       VARIATION E — « Studio » (Refined SaaS bento)
+       ════════════════════════════════════════════════════ */
+    .v-e {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+      min-height: 580px;
+    }
+    .v-e__main {
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 56px 60px 48px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      gap: 32px;
+      position: relative; overflow: hidden;
+    }
+    .v-e__main::before {
+      /* very subtle decorative arc */
+      content: ''; position: absolute;
+      width: 360px; height: 360px;
+      right: -120px; top: -120px;
+      border: 1px solid rgba(0,123,168,0.1);
+      border-radius: 50%;
+    }
+    .v-e__main::after {
+      content: ''; position: absolute;
+      width: 220px; height: 220px;
+      right: -60px; top: -60px;
+      border: 1px solid rgba(191,0,24,0.08);
+      border-radius: 50%;
+    }
+    .v-e__top { position: relative; z-index: 1; }
+    .v-e__heading {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 62px;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      margin: 24px 0 24px;
+    }
+    .v-e__heading em {
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      color: var(--accent-rose);
+      letter-spacing: 0;
+    }
+    .v-e__lede {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+    .v-e__golden {
+      margin-top: 14px;
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      font-size: 21px;
+      color: var(--accent-rose);
+      max-width: 480px;
+      line-height: 1.3;
+    }
+    .v-e__actions {
+      display: flex; gap: 8px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .v-e__sub {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      position: relative; z-index: 1;
+    }
+    .v-e__sub-item {
+      display: flex; flex-direction: column; gap: 2px;
+      padding-right: 24px;
+    }
+    .v-e__sub-item + .v-e__sub-item { border-left: 1px solid var(--border); padding-left: 24px; }
+    .v-e__sub-num {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 22px; color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .v-e__sub-label {
+      font-family: 'Nunito', sans-serif; font-size: 12px;
+      color: var(--text-secondary); letter-spacing: 0.04em;
+    }
+
+    .v-e__image {
+      border-radius: 28px;
+      background: url('assets/pages/hero_image.jpg') center / cover no-repeat;
+      position: relative; overflow: hidden;
+      min-height: 580px;
+    }
+    .v-e__image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
+    }
+    .v-e__image-card {
+      position: absolute; bottom: 24px; left: 24px; right: 24px; z-index: 2;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 18px;
+      padding: 18px 22px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .v-e__image-play {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--text); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .v-e__image-card:hover .v-e__image-play { background: var(--accent-teal); transform: scale(1.06); }
+    .v-e__image-meta { flex: 1; line-height: 1.3; }
+    .v-e__image-meta-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14.5px;
+      color: var(--text);
+    }
+    .v-e__image-meta-sub {
+      font-family: 'Nunito', sans-serif; font-size: 12px;
+      color: var(--text-secondary); margin-top: 2px;
+    }
+    .v-e__image-duration {
+      font-family: 'Nunito', sans-serif; font-size: 12px;
+      color: var(--text-secondary); letter-spacing: 0.04em;
+    }
+
+    /* ════════════════════════════════════════════════════
+       VARIATION F — « Plateau » (Product-led with audio mock)
+       ════════════════════════════════════════════════════ */
+    .v-f {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .v-f__copy {
+      padding: 24px 8px 24px 0;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .v-f__copy h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 64px;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.02;
+      margin: 24px 0 22px;
+    }
+    .v-f__copy h1 em {
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      color: var(--accent-teal);
+      letter-spacing: 0;
+    }
+    .v-f__lede {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 12px;
+    }
+    .v-f__golden {
+      margin-bottom: 32px;
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      font-size: 21px;
+      color: var(--accent-teal);
+      max-width: 500px;
+      line-height: 1.3;
+    }
+    .v-f__actions {
+      display: flex; gap: 10px; align-items: center; margin-bottom: 40px;
+    }
+    .v-f__proofs {
+      display: flex; gap: 24px; align-items: center;
+      color: var(--text-secondary);
+      font-family: 'Nunito', sans-serif; font-size: 13px;
+    }
+    .v-f__proofs strong {
+      color: var(--text); font-weight: 800;
+      display: block; font-size: 16px;
+    }
+    .v-f__proof-divider {
+      width: 1px; height: 28px; background: var(--border);
+    }
+
+    .v-f__right {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 16px;
+    }
+    .v-f__image {
+      border-radius: 24px;
+      background: url('assets/pages/hero_image.jpg') center / cover no-repeat;
+      position: relative; overflow: hidden;
+      min-height: 380px;
+    }
+    .v-f__image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 70%, rgba(0,0,0,0.3) 100%);
+    }
+    .v-f__image-pill {
+      position: absolute; top: 20px; left: 20px; z-index: 2;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 6px 12px 6px 8px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif; font-size: 11.5px; font-weight: 700;
+      color: var(--text); letter-spacing: 0.02em;
+    }
+    .v-f__image-pill-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent-rose);
+      box-shadow: 0 0 0 3px rgba(191,0,24,0.18);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Player mock card */
+    .v-f__player {
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px 22px;
+      display: flex; align-items: center; gap: 18px;
+    }
+    .v-f__player-cover {
+      width: 72px; height: 72px; flex-shrink: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #F4B95E, #E3998C 55%, #BF0018);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 28px;
+      box-shadow: 0 6px 16px rgba(191,0,24,0.18);
+    }
+    .v-f__player-info { flex: 1; min-width: 0; }
+    .v-f__player-eyebrow {
+      font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700;
+      color: var(--accent-teal); letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .v-f__player-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 16px;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .v-f__player-progress {
+      height: 4px; background: var(--border); border-radius: 4px; position: relative;
+      margin-bottom: 6px;
+    }
+    .v-f__player-progress::after {
+      content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 38%;
+      background: var(--accent-teal); border-radius: 4px;
+    }
+    .v-f__player-progress::before {
+      content: ''; position: absolute; left: 38%; top: 50%;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #fff; border: 2px solid var(--accent-teal);
+      transform: translate(-50%, -50%);
+    }
+    .v-f__player-times {
+      display: flex; justify-content: space-between;
+      font-family: 'Nunito', sans-serif; font-size: 11px; color: var(--text-secondary);
+    }
+    .v-f__player-controls {
+      display: flex; gap: 6px; align-items: center; flex-shrink: 0;
+    }
+    .v-f__player-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: transparent; color: var(--text-secondary);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+      border: none; font-size: 12px;
+    }
+    .v-f__player-btn:hover { color: var(--text); background: var(--bg-peach); }
+    .v-f__player-btn--play {
+      width: 44px; height: 44px;
+      background: var(--text); color: #fff; font-size: 14px;
+    }
+    .v-f__player-btn--play:hover { background: var(--accent-teal); color: #fff; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .v-d__heading h1 { font-size: 44px; }
+      .v-d__chip { display: none; }
+      .v-d__content { padding: 32px 32px; }
+      .v-d__bottom { flex-direction: column; align-items: flex-start; }
+      .v-e, .v-f { grid-template-columns: 1fr; }
+      .v-e__heading, .v-f__copy h1 { font-size: 40px; }
+      .v-e__main { padding: 36px 28px; }
+      .v-e__sub { grid-template-columns: 1fr; gap: 16px; }
+      .v-e__sub-item + .v-e__sub-item { border-left: none; padding-left: 0; padding-top: 16px; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────── VARIATION D ─────────── -->
+  <div class="variation-label">
+    <span class="variation-label-kicker">Variation D · Éditorial</span>
+    <h2>Édition — une couverture de magazine</h2>
+    <p>L'image règne sur toute la largeur, comme la couverture du New Yorker. Titre surdimensionné en blanc, accent doré subtil sur « voix », chip glassmorphic en haut à droite simulant un extrait en cours. Stats discrètes en bas. Cinématique, premium, confiant.</p>
+  </div>
+
+  <section class="hero-wrap">
+    <div class="v-d">
+      <div class="v-d__bg"></div>
+      <div class="v-d__overlay"></div>
+
+      <div class="v-d__chip">
+        <div class="v-d__chip-play"><i class="fa-solid fa-play"></i></div>
+        <div class="v-d__chip-text">
+          <div class="v-d__chip-title">Hdidane et l'ogresse</div>
+          <div class="v-d__chip-meta">Conte populaire marocain · 6 min</div>
+        </div>
+        <div class="v-d__chip-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="v-d__content">
+        <div class="v-d__top">
+          <span class="v-d__eyebrow">Nooba · Raconte-moi le Maroc</span>
+          <span class="v-d__edition-tag">Raconte-moi le Maroc — 2026</span>
+        </div>
+
+        <div class="v-d__heading">
+          <h1>L'âme du Maroc,<br>à portée de <em>voix</em>.</h1>
+          <p class="v-d__lede">De berceuses en contes, de fables en récits — 1 200 ans d'histoires en français-darija. Une immersion douce, 100% audio et sans écran, pour s'enraciner avec fierté dans notre culture.</p>
+          <p class="v-d__golden">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
+        </div>
+
+        <div class="v-d__bottom">
+          <div class="v-d__actions">
+            <a href="#" class="btn-primary"><i class="fa-solid fa-play"></i> Découvrir un extrait</a>
+            <a href="#" class="btn-ghost">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="v-d__meta">
+            <div class="v-d__meta-item">
+              <span class="v-d__meta-num">+70</span>
+              <span class="v-d__meta-label">Histoires</span>
+            </div>
+            <div class="v-d__meta-item">
+              <span class="v-d__meta-num">12 mo – 12 ans</span>
+              <span class="v-d__meta-label">3 univers</span>
+            </div>
+            <div class="v-d__meta-item">
+              <span class="v-d__meta-num">FR · دارجة</span>
+              <span class="v-d__meta-label">Bilingue</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variation-divider"></div>
+
+  <!-- ─────────── VARIATION E ─────────── -->
+  <div class="variation-label">
+    <span class="variation-label-kicker">Variation E · Studio</span>
+    <h2>Studio — bento SaaS raffiné</h2>
+    <p>Inspiration Vercel/Linear : deux grands modules côte-à-côte, beaucoup d'air, hairline borders, palette monochrome avec un seul accent. Cercles décoratifs subtils. Mini-player flottant sur l'image. Le plus « product-grade ».</p>
+  </div>
+
+  <section class="hero-wrap">
+    <div class="v-e">
+      <div class="v-e__main">
+        <div class="v-e__top">
+          <h1 class="v-e__heading">L'âme du Maroc,<br>à portée de <em>voix</em>.</h1>
+          <p class="v-e__lede">De berceuses en contes, de fables en récits — 1 200 ans d'histoires en français-darija. Une immersion douce et progressive, 100% audio et sans écran, de 12 mois à 12 ans.</p>
+          <p class="v-e__golden">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
+        </div>
+
+        <div class="v-e__actions">
+          <a href="#" class="btn-primary"><i class="fa-solid fa-play"></i> Découvrir un extrait</a>
+          <a href="#" class="btn-ghost">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="v-e__sub">
+          <div class="v-e__sub-item">
+            <span class="v-e__sub-num">100% audio</span>
+            <span class="v-e__sub-label">Zéro écran</span>
+          </div>
+          <div class="v-e__sub-item">
+            <span class="v-e__sub-num">+70</span>
+            <span class="v-e__sub-label">Contes & berceuses</span>
+          </div>
+          <div class="v-e__sub-item">
+            <span class="v-e__sub-num">FR · Darija</span>
+            <span class="v-e__sub-label">Bilingue naturel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-e__image">
+        <div class="v-e__image-card">
+          <div class="v-e__image-play"><i class="fa-solid fa-play"></i></div>
+          <div class="v-e__image-meta">
+            <div class="v-e__image-meta-title">Hdidane et l'ogresse</div>
+            <div class="v-e__image-meta-sub">Conte populaire marocain · 6-8 ans</div>
+          </div>
+          <span class="v-e__image-duration">6:24</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variation-divider"></div>
+
+  <!-- ─────────── VARIATION F ─────────── -->
+  <div class="variation-label">
+    <span class="variation-label-kicker">Variation F · Plateau</span>
+    <h2>Plateau — produit-led, mockup d'écoute</h2>
+    <p>Hiérarchie classique deux colonnes : à gauche le récit (eyebrow, titre, sous-titre, CTA, preuves inline) ; à droite, l'image en haut puis un vrai mockup de lecteur audio avec progression. Démontre le produit. Le plus rassurant pour des parents.</p>
+  </div>
+
+  <section class="hero-wrap">
+    <div class="v-f">
+      <div class="v-f__copy">
+        <h1>L'âme du Maroc,<br>à portée de <em>voix</em>.</h1>
+        <p class="v-f__lede">De berceuses en contes, de fables en récits — une immersion douce 100% audio et sans écran, pensée selon une progression naturelle pour s'imprégner de la Darija et grandir avec fierté dans notre culture.</p>
+        <p class="v-f__golden">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
+
+        <div class="v-f__actions">
+          <a href="#" class="btn-primary"><i class="fa-solid fa-play"></i> Découvrir un extrait</a>
+          <a href="#" class="btn-ghost">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="v-f__proofs">
+          <div><strong>+70</strong>histoires</div>
+          <div class="v-f__proof-divider"></div>
+          <div><strong>12 mo → 12 ans</strong>3 univers</div>
+          <div class="v-f__proof-divider"></div>
+          <div><strong>FR · Darija</strong>bilingue</div>
+        </div>
+      </div>
+
+      <div class="v-f__right">
+        <div class="v-f__image">
+          <span class="v-f__image-pill"><span class="v-f__image-pill-dot"></span> Écoute en cours</span>
+        </div>
+
+        <div class="v-f__player">
+          <div class="v-f__player-cover"><i class="fa-solid fa-book-open"></i></div>
+          <div class="v-f__player-info">
+            <div class="v-f__player-eyebrow">Conte populaire marocain · 6-8 ans</div>
+            <div class="v-f__player-title">Hdidane et l'ogresse</div>
+            <div class="v-f__player-progress"></div>
+            <div class="v-f__player-times">
+              <span>2:24</span>
+              <span>6:24</span>
+            </div>
+          </div>
+          <div class="v-f__player-controls">
+            <button class="v-f__player-btn" aria-label="Précédent"><i class="fa-solid fa-backward-step"></i></button>
+            <button class="v-f__player-btn v-f__player-btn--play" aria-label="Lecture"><i class="fa-solid fa-play"></i></button>
+            <button class="v-f__player-btn" aria-label="Suivant"><i class="fa-solid fa-forward-step"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 120px;"></div>
+
+</body>
+</html>

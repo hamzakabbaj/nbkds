@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Télécharger l'app — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --dl-accent: #007BA8;
+      --dl-accent-light: #E4ECF3;
+      --dl-accent-dark: #005E80;
+    }
+
+    /* ── Hero ── */
+    .dl-hero { padding: 56px 0 64px; }
+    .dl-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+    .dl-hero-arabic { font-family: 'Amiri', serif; font-size: 26px; color: var(--dl-accent); opacity: 0.85; margin: 0 0 6px 0; }
+    .dl-hero-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 44px; line-height: 1.12; color: var(--text); margin: 0 0 18px 0; }
+    .dl-hero-title em { font-style: normal; color: var(--dl-accent); }
+    .dl-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; color: var(--text-secondary); margin: 0 0 28px 0; max-width: 46ch; }
+    .dl-requirements { display: flex; align-items: flex-start; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); margin: 22px 0 0 0; line-height: 1.5; }
+    .dl-requirements i { color: var(--dl-accent); margin-top: 2px; }
+
+    /* ── Store buttons ── */
+    .dl-stores { display: flex; flex-wrap: wrap; gap: 14px; }
+    .store-btn { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; background: var(--bg-dark); color: #fff; border-radius: var(--radius-full); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .store-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(30,45,61,0.22); }
+    .store-btn i { font-size: 28px; }
+    .store-btn-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .store-btn-small { font-family: 'Inter', sans-serif; font-size: 11px; opacity: 0.8; }
+    .store-btn-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; }
+
+    /* ── QR card ── */
+    .dl-qr-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 32px; text-align: center; max-width: 320px; margin: 0 auto; }
+    .dl-qr { width: 200px; height: 200px; margin: 0 auto 18px; border-radius: var(--radius-sm); background: var(--dl-accent-light); display: flex; align-items: center; justify-content: center; color: var(--dl-accent); font-size: 120px; }
+    .dl-qr-label { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+
+    /* ── Features ── */
+    .dl-features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .dl-feature { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); }
+    .dl-feature-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--dl-accent-light); color: var(--dl-accent); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
+    .dl-feature-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0 0 8px 0; }
+    .dl-feature-desc { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+
+    /* ── Bottom CTA ── */
+    .dl-cta { text-align: center; }
+    .dl-cta p { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-secondary); margin: 0 0 16px 0; }
+    .dl-cta-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--accent-rose); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; border-radius: var(--radius-full); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .dl-cta-link:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(191,0,24,0.25); }
+
+    @media (max-width: 880px) {
+      .dl-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .dl-hero-title { font-size: 34px; }
+      .dl-features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .dl-features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <div class="navbar-item"><a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a></div>
+        <div class="navbar-item"><a href="02_al_amana.html" class="navbar-link">Al Amana</a></div>
+        <div class="navbar-item"><a href="04_nooba.html" class="navbar-link">Nooba</a></div>
+        <div class="navbar-item"><a href="05_al_assel.html" class="navbar-link">Al Assal</a></div>
+        <div class="navbar-item"><a href="06_marhba.html" class="navbar-link">Marhba</a></div>
+        <a href="08_subscribe.html" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="08_subscribe.html" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="section dl-hero">
+    <div class="container">
+      <div class="dl-hero-grid">
+        <div class="dl-hero-content">
+          <p class="section-label">Application mobile</p>
+          <h1 class="dl-hero-title">Emportez <em>le Maroc</em> partout avec vous</h1>
+          <p class="dl-hero-subtitle">
+            Téléchargez l'application NOOBA sur votre téléphone. Contes, berceuses et
+            découvertes en français-darija — disponibles offline pour les trajets en
+            voiture, le coucher et tous les moments du quotidien.
+          </p>
+          <div class="dl-stores">
+            <a href="#" class="store-btn">
+              <i class="fa-brands fa-apple"></i>
+              <span class="store-btn-text">
+                <span class="store-btn-small">Télécharger sur</span>
+                <span class="store-btn-name">App Store</span>
+              </span>
+            </a>
+            <a href="#" class="store-btn">
+              <i class="fa-brands fa-google-play"></i>
+              <span class="store-btn-text">
+                <span class="store-btn-small">Disponible sur</span>
+                <span class="store-btn-name">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <p class="dl-requirements">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>Nécessite iOS 15+ ou Android 8+. Un abonnement actif est requis pour accéder au catalogue complet.</span>
+          </p>
+        </div>
+        <div class="dl-hero-qr">
+          <div class="dl-qr-card">
+            <div class="dl-qr"><i class="fa-solid fa-qrcode"></i></div>
+            <p class="dl-qr-label">Scannez ce QR code avec l'appareil photo de votre téléphone</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="section section--peach">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">L'app en bref</p>
+        <h2 class="section-title">Pensée pour les parents</h2>
+      </div>
+      <div class="dl-features-grid">
+        <div class="dl-feature">
+          <div class="dl-feature-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+          <h3 class="dl-feature-title">Mode offline</h3>
+          <p class="dl-feature-desc">Téléchargez les contenus à la maison. Écoutez sans connexion en voiture, en avion ou en promenade.</p>
+        </div>
+        <div class="dl-feature">
+          <div class="dl-feature-icon"><i class="fa-solid fa-children"></i></div>
+          <h3 class="dl-feature-title">Profils enfants</h3>
+          <p class="dl-feature-desc">Créez un profil par enfant avec son âge. Le catalogue se filtre automatiquement pour afficher les contenus adaptés.</p>
+        </div>
+        <div class="dl-feature">
+          <div class="dl-feature-icon"><i class="fa-solid fa-headphones"></i></div>
+          <h3 class="dl-feature-title">Lecture en fond</h3>
+          <p class="dl-feature-desc">Lancez une histoire, verrouillez l'écran. L'audio continue — l'enfant écoute, le parent conduit sereinement.</p>
+        </div>
+        <div class="dl-feature">
+          <div class="dl-feature-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3 class="dl-feature-title">Favoris</h3>
+          <p class="dl-feature-desc">Sauvegardez les contenus préférés de vos enfants pour les retrouver en un tap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="dl-cta">
+        <p>Pas encore abonné&nbsp;?</p>
+        <a href="08_subscribe.html" class="dl-cta-link">S'abonner à NOOBA — 49,90€/an <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a><a href="06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) { nav.classList.add('sticky'); spacer.style.display = 'block'; }
+    else { nav.classList.remove('sticky'); spacer.style.display = 'none'; }
+  });
+</script>
+</body>
+</html>

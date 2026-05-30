@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOOBA — Direction A : Terre & Oralite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ══════════════════════════════════════════
+       RESET
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button { border: none; cursor: pointer; font-family: inherit; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS — Terre & Oralite
+       Inspired by: Dar Lilei (warm human tone),
+       Popham Design (terracotta zellige),
+       Lacoste Heritage (patchwork storytelling)
+    ══════════════════════════════════════════ */
+    :root {
+      /* Surfaces */
+      --bg-cream: #FAF5EE;
+      --bg-warm: #F2EAE0;
+      --bg-dark: #2B1D14;
+      --bg-dark-warm: #3D2B1F;
+      --white: #FFFFFF;
+
+      /* Palette terre */
+      --terracotta: #C2634A;
+      --terracotta-deep: #A04E38;
+      --ocre: #C8923C;
+      --ocre-light: rgba(200,146,60,0.12);
+      --olive: #6B7F4A;
+      --olive-light: rgba(107,127,74,0.12);
+      --bleu-nuit: #1E3A5F;
+      --bleu-light: rgba(30,58,95,0.10);
+      --sable: #D4C5A9;
+
+      /* Texte */
+      --text: #2B1D14;
+      --text-secondary: #6B5B4D;
+      --text-muted: #9A8B7D;
+      --text-light: #FAF5EE;
+      --text-light-secondary: rgba(250,245,238,0.7);
+
+      /* Bordures */
+      --border: #E2D8CC;
+      --border-dark: rgba(250,245,238,0.12);
+
+      /* Rayons */
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 999px;
+
+      /* Ombres */
+      --shadow-sm: 0 1px 3px rgba(43,29,20,0.06);
+      --shadow: 0 4px 16px rgba(43,29,20,0.08);
+      --shadow-lg: 0 12px 40px rgba(43,29,20,0.12);
+
+      /* Layout */
+      --max-w: 1120px;
+    }
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg-cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+    /* ══════════════════════════════════════════
+       NAVBAR — Sticky, minimal, warm
+    ══════════════════════════════════════════ */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,245,238,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center;
+    }
+    .nav-logo-img { height: 40px; width: auto; }
+    .phone-logo-img { height: 20px; width: auto; }
+    .footer-logo-img { height: 36px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      font-size: 14px; font-weight: 500; color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-link--free {
+      color: var(--terracotta); font-weight: 600;
+    }
+    .nav-cta {
+      background: var(--terracotta); color: var(--white); font-size: 13px;
+      font-weight: 600; padding: 9px 22px; border-radius: var(--radius-full);
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--terracotta-deep); }
+
+    /* Burger mobile */
+    .nav-burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; }
+    .nav-burger span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle { display: none; }
+    .nav-mobile { display: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-toggle:checked ~ .nav-mobile {
+        display: flex; flex-direction: column; position: absolute;
+        top: 64px; left: 0; right: 0; background: var(--bg-cream);
+        border-bottom: 1px solid var(--border); padding: 12px 28px 20px;
+        gap: 4px;
+      }
+      .nav-mobile a {
+        display: block; padding: 10px 0; font-size: 15px; color: var(--text-secondary);
+        font-weight: 500;
+      }
+      .nav-mobile-cta {
+        margin-top: 8px; background: var(--terracotta); color: var(--white);
+        text-align: center; padding: 12px; border-radius: var(--radius-full);
+        font-weight: 600;
+      }
+    }
+
+    /* ══════════════════════════════════════════
+       HERO — Full-width immersive, earthy
+    ══════════════════════════════════════════ */
+    .hero {
+      background: var(--bg-dark);
+      padding: 80px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Subtle zellige-inspired pattern overlay */
+    .hero::after {
+      content: ''; position: absolute; inset: 0; opacity: 0.04;
+      background:
+        repeating-conic-gradient(rgba(255,255,255,0.5) 0% 25%, transparent 0% 50%) 0 0 / 24px 24px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      align-items: end; position: relative; z-index: 1;
+    }
+    .hero-text { padding-bottom: 80px; }
+    .hero-eyebrow {
+      font-family: 'Amiri', serif; font-size: 18px;
+      color: var(--ocre); margin-bottom: 16px; opacity: 0.85;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif; font-size: 52px;
+      color: var(--text-light); line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero-title em { color: var(--terracotta); font-style: italic; }
+    .hero-desc {
+      font-size: 17px; color: var(--text-light-secondary);
+      max-width: 440px; line-height: 1.8; margin-bottom: 36px;
+    }
+    .hero-desc strong { color: var(--text-light); font-weight: 600; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--terracotta); color: var(--white);
+      font-size: 15px; font-weight: 600; padding: 14px 30px;
+      border-radius: var(--radius-full); transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--terracotta-deep); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid rgba(250,245,238,0.25); color: var(--text-light-secondary);
+      font-size: 14px; font-weight: 500; padding: 13px 26px;
+      border-radius: var(--radius-full); transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(250,245,238,0.5); color: var(--text-light); }
+
+    /* Patchwork mosaic — right side of hero */
+    .hero-mosaic {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 80px);
+      gap: 6px;
+      align-self: end;
+    }
+    .tile {
+      border-radius: 6px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tile--terra { background: var(--terracotta); }
+    .tile--ocre { background: var(--ocre); }
+    .tile--olive { background: var(--olive); }
+    .tile--bleu { background: var(--bleu-nuit); }
+    .tile--sable { background: var(--sable); }
+    .tile--dark { background: var(--bg-dark-warm); }
+    .tile--span-2c { grid-column: span 2; }
+    .tile--span-2r { grid-row: span 2; }
+    .tile i { font-size: 22px; color: rgba(255,255,255,0.2); position: relative; z-index: 1; }
+    /* Micro-patterns per tile */
+    .tile--terra::after { content:''; position:absolute; inset:0; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 14px); }
+    .tile--bleu::after { content:''; position:absolute; inset:0; background: radial-gradient(circle 2px, rgba(255,255,255,0.07) 50%, transparent 50%) 0 0/12px 12px; }
+    .tile--olive::after { content:''; position:absolute; inset:0; background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 10px); }
+    .tile--ocre::after { content:''; position:absolute; inset:0; background: repeating-conic-gradient(rgba(255,255,255,0.04) 0% 25%, transparent 0% 50%) 0 0/14px 14px; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 56px 0 0; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-text { padding-bottom: 40px; text-align: center; }
+      .hero-title { font-size: 38px; }
+      .hero-desc { margin: 0 auto 36px; font-size: 15px; }
+      .hero-actions { justify-content: center; }
+      .hero-mosaic { grid-template-rows: repeat(3, 60px); }
+    }
+
+    /* ══════════════════════════════════════════
+       BANDEAU — Key facts
+    ══════════════════════════════════════════ */
+    .bandeau {
+      background: var(--bg-warm); border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .bandeau-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .bandeau-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .bandeau-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--terracotta);
+    }
+    .bandeau-item strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 768px) { .bandeau-inner { gap: 20px; } }
+
+    /* ══════════════════════════════════════════
+       COMMENT CA MARCHE — 3 steps
+       (Inspired by Magic Tale)
+    ══════════════════════════════════════════ */
+    .steps { padding: 88px 0; }
+    .section-eyebrow {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--terracotta); margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif; font-size: 34px;
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 16px; color: var(--text-secondary); max-width: 520px;
+      line-height: 1.7;
+    }
+    .section-header--center { text-align: center; margin-bottom: 56px; }
+    .section-header--center .section-desc { margin: 0 auto; }
+
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .step-card {
+      text-align: center; padding: 32px 24px;
+    }
+    .step-number {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--terracotta); color: var(--white);
+      font-family: 'DM Serif Display', serif; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step-title {
+      font-family: 'DM Serif Display', serif; font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .step-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .step-arrow {
+      display: none; align-items: center; color: var(--border);
+      font-size: 20px; margin-top: 40px;
+    }
+    @media (min-width: 769px) {
+      .steps-grid { position: relative; }
+      .step-arrow { display: flex; position: absolute; top: 56px; }
+      .step-arrow--1 { left: calc(33.33% - 10px); }
+      .step-arrow--2 { left: calc(66.66% - 10px); }
+    }
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+    /* ══════════════════════════════════════════
+       MISSION / MANIFESTE
+    ══════════════════════════════════════════ */
+    .manifeste {
+      background: var(--bg-warm); padding: 88px 0;
+    }
+    .manifeste-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+      align-items: center;
+    }
+    .manifeste-quote {
+      font-family: 'DM Serif Display', serif; font-size: 28px;
+      color: var(--text); line-height: 1.4; position: relative;
+      padding-left: 24px; border-left: 3px solid var(--terracotta);
+    }
+    .manifeste-quote em { color: var(--terracotta); font-style: italic; }
+    .manifeste-body { font-size: 15px; color: var(--text-secondary); line-height: 1.8; }
+    .manifeste-body p + p { margin-top: 16px; }
+    .manifeste-body strong { color: var(--text); }
+    .manifeste-pillars { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .pillar {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px; background: var(--white);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .pillar-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .pillar-icon--recits { background: rgba(194,99,74,0.1); color: var(--terracotta); }
+    .pillar-icon--rythmes { background: var(--bleu-light); color: var(--bleu-nuit); }
+    .pillar-icon--decouverte { background: var(--olive-light); color: var(--olive); }
+    .pillar-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+    .pillar-detail { font-size: 13px; color: var(--text-secondary); }
+
+    @media (max-width: 768px) {
+      .manifeste-layout { grid-template-columns: 1fr; gap: 32px; }
+      .manifeste-quote { font-size: 22px; }
+    }
+
+    /* ══════════════════════════════════════════
+       CATALOGUE — Free content highlighted
+    ══════════════════════════════════════════ */
+    .catalogue { padding: 88px 0; }
+    .catalogue-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+    }
+    .catalogue-header-right {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; color: var(--terracotta);
+    }
+    .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cat-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .cat-cover {
+      aspect-ratio: 4/3; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cat-cover i { font-size: 32px; color: rgba(255,255,255,0.25); position: relative; z-index: 1; }
+    .cat-cover--recits { background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep)); }
+    .cat-cover--rythmes { background: linear-gradient(135deg, var(--bleu-nuit), #2A4F7A); }
+    .cat-cover--decouverte { background: linear-gradient(135deg, var(--olive), #4A6830); }
+    .cat-play {
+      position: absolute; bottom: 12px; right: 12px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--white); color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; box-shadow: var(--shadow); z-index: 2;
+    }
+    .cat-free {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--ocre); color: var(--white);
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; padding: 4px 10px;
+      border-radius: var(--radius-full); z-index: 2;
+    }
+    .cat-body { padding: 16px; }
+    .cat-badge {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.3px;
+      padding: 3px 9px; border-radius: var(--radius-full); margin-bottom: 8px;
+    }
+    .cat-badge--recits { background: rgba(194,99,74,0.1); color: var(--terracotta); }
+    .cat-badge--rythmes { background: var(--bleu-light); color: var(--bleu-nuit); }
+    .cat-badge--decouverte { background: var(--olive-light); color: var(--olive); }
+    .cat-title {
+      font-family: 'DM Serif Display', serif; font-size: 17px;
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .cat-meta { font-size: 13px; color: var(--text-muted); }
+    .cat-meta span + span::before { content: ' · '; }
+
+    @media (max-width: 768px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .cat-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       SCIENCE — Why audio works
+       (Inspired by Duolingo ABC "Science Behind")
+    ══════════════════════════════════════════ */
+    .science { background: var(--bg-dark); padding: 88px 0; color: var(--text-light); }
+    .science .section-eyebrow { color: var(--ocre); }
+    .science .section-title { color: var(--text-light); }
+    .science .section-desc { color: var(--text-light-secondary); }
+    .science-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .science-card {
+      background: var(--bg-dark-warm); border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+    }
+    .science-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 20px;
+    }
+    .science-icon--ear { background: rgba(200,146,60,0.15); color: var(--ocre); }
+    .science-icon--brain { background: rgba(194,99,74,0.15); color: var(--terracotta); }
+    .science-icon--lang { background: rgba(107,127,74,0.15); color: #8FAF5F; }
+    .science-card h3 {
+      font-family: 'DM Serif Display', serif; font-size: 19px;
+      color: var(--text-light); margin-bottom: 10px;
+    }
+    .science-card p { font-size: 14px; color: var(--text-light-secondary); line-height: 1.7; }
+
+    @media (max-width: 768px) { .science-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       FONDATRICES — Storytelling section
+       (Inspired by Dar Lilei's human tone)
+    ══════════════════════════════════════════ */
+    .fondatrices { padding: 88px 0; background: var(--bg-warm); }
+    .fondatrices-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    }
+    .fondatrice-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 32px;
+      position: relative;
+    }
+    .fondatrice-card::before {
+      content: '\201C'; position: absolute; top: 20px; right: 28px;
+      font-family: 'DM Serif Display', serif; font-size: 64px;
+      color: var(--border); line-height: 1;
+    }
+    .fondatrice-top {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    }
+    .fondatrice-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 22px;
+      color: var(--white);
+    }
+    .fondatrice-card:nth-child(1) .fondatrice-avatar { background: var(--terracotta); }
+    .fondatrice-card:nth-child(2) .fondatrice-avatar { background: var(--bleu-nuit); }
+    .fondatrice-name {
+      font-family: 'DM Serif Display', serif; font-size: 18px;
+    }
+    .fondatrice-role {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted);
+    }
+    .fondatrice-quote {
+      font-size: 15px; color: var(--text-secondary); line-height: 1.8;
+      font-style: italic;
+    }
+    .fondatrice-quote strong { color: var(--text); font-style: normal; }
+
+    @media (max-width: 768px) { .fondatrices-layout { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       TEMOIGNAGES
+    ══════════════════════════════════════════ */
+    .temoignages { padding: 88px 0; }
+    .temoignages-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .temoin-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 24px;
+    }
+    .temoin-stars { color: var(--ocre); font-size: 13px; margin-bottom: 14px; display: flex; gap: 2px; }
+    .temoin-text {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .temoin-author {
+      display: flex; align-items: center; gap: 10px;
+      padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .temoin-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--white); flex-shrink: 0;
+    }
+    .temoin-card:nth-child(1) .temoin-avatar { background: var(--terracotta); }
+    .temoin-card:nth-child(2) .temoin-avatar { background: var(--olive); }
+    .temoin-card:nth-child(3) .temoin-avatar { background: var(--bleu-nuit); }
+    .temoin-name { font-size: 13px; font-weight: 600; }
+    .temoin-detail { font-size: 12px; color: var(--text-muted); }
+
+    @media (max-width: 768px) { .temoignages-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════
+       CTA — App preview + pricing
+    ══════════════════════════════════════════ */
+    .cta-section { padding: 88px 0; background: var(--bg-warm); }
+    .cta-box {
+      background: var(--bg-dark); border-radius: var(--radius-xl);
+      padding: 56px 48px; display: grid;
+      grid-template-columns: 1fr 280px; gap: 48px; align-items: center;
+    }
+    .cta-box .section-eyebrow { color: var(--ocre); }
+    .cta-box .section-title { color: var(--text-light); font-size: 30px; }
+    .cta-price {
+      margin: 24px 0;
+    }
+    .cta-amount {
+      font-family: 'DM Serif Display', serif; font-size: 44px; color: var(--ocre);
+    }
+    .cta-period { font-size: 16px; color: var(--text-light-secondary); }
+    .cta-benefits { margin-bottom: 28px; }
+    .cta-benefit {
+      display: flex; align-items: center; gap: 10px;
+      padding: 5px 0; font-size: 14px; color: var(--text-light-secondary);
+    }
+    .cta-benefit i { color: var(--ocre); font-size: 12px; width: 16px; }
+
+    /* Phone mockup */
+    .phone {
+      width: 260px; background: #1A1410; border-radius: 28px;
+      padding: 10px; box-shadow: var(--shadow-lg);
+    }
+    .phone-screen {
+      background: var(--bg-cream); border-radius: 20px;
+      overflow: hidden; padding: 14px;
+    }
+    .phone-top {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px;
+    }
+    .phone-brand {
+      display: flex; align-items: center;
+    }
+    .phone-bell { font-size: 12px; color: var(--text-muted); }
+    .phone-label {
+      font-size: 9px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--terracotta);
+    }
+    .phone-heading {
+      font-family: 'DM Serif Display', serif; font-size: 13px;
+      color: var(--text); margin: 3px 0 10px;
+    }
+    .phone-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+    }
+    .phone-item-thumb {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0;
+    }
+    .phone-item-thumb--r { background: rgba(194,99,74,0.12); color: var(--terracotta); }
+    .phone-item-thumb--b { background: var(--bleu-light); color: var(--bleu-nuit); }
+    .phone-item-thumb--v { background: var(--olive-light); color: var(--olive); }
+    .phone-item-name { font-size: 11px; font-weight: 600; color: var(--text); }
+    .phone-item-meta { font-size: 9px; color: var(--text-muted); }
+    .phone-item-play {
+      margin-left: auto; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--terracotta); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 7px; flex-shrink: 0;
+    }
+    .phone-tabs {
+      display: flex; justify-content: space-around;
+      padding: 8px 0 4px; border-top: 1px solid var(--border); margin-top: 10px;
+    }
+    .phone-tab { text-align: center; font-size: 8px; color: var(--text-muted); }
+    .phone-tab--active { color: var(--terracotta); }
+    .phone-tab i { display: block; font-size: 12px; margin-bottom: 2px; }
+
+    @media (max-width: 768px) {
+      .cta-box { grid-template-columns: 1fr; padding: 36px 24px; }
+      .phone { width: 220px; margin: 0 auto; }
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    .footer { background: var(--bg-dark); padding: 56px 0 28px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px;
+      margin-bottom: 36px;
+    }
+    .footer-brand {
+      margin-bottom: 10px;
+    }
+    .footer-tagline { font-size: 13px; color: var(--text-light-secondary); line-height: 1.7; }
+    .footer-col-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--ocre); margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block; font-size: 13px; color: var(--text-light-secondary);
+      padding: 3px 0; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--text-light); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid var(--border-dark); padding-top: 20px;
+      font-size: 12px; color: var(--text-light-secondary);
+    }
+    .footer-social { display: flex; gap: 16px; }
+    .footer-social a { color: var(--text-light-secondary); font-size: 15px; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--ocre); }
+
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ══════════════════════════════════════════
+       PRINT
+    ══════════════════════════════════════════ */
+    @media print {
+      body { background: #fff; color: #1a1a1a; font-size: 12px; }
+      .nav, .bandeau, .phone { display: none; }
+      .hero { background: #f5f5f5; min-height: auto; padding: 40px 0; }
+      .hero-title, .hero-desc { color: #1a1a1a; }
+      .science { background: #f5f5f5; color: #1a1a1a; }
+      .section, .steps, .manifeste, .catalogue, .fondatrices, .temoignages, .cta-section { padding: 32px 0; }
+      .footer { background: #f5f5f5; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="#" class="nav-logo"><img src="assets/logo_nooba_no_bg_bo_title.png" alt="NOOBA" class="nav-logo-img"></a>
+      <div class="nav-links">
+        <a href="#mission" class="nav-link">Notre mission</a>
+        <a href="#catalogue" class="nav-link nav-link--free"><i class="fa-solid fa-headphones"></i> Ecouter gratuit</a>
+        <a href="#fondatrices" class="nav-link">Notre histoire</a>
+        <a href="#" class="nav-link">Se connecter</a>
+        <a href="#" class="nav-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-t" class="nav-toggle">
+      <label for="nav-t" class="nav-burger"><span></span><span></span><span></span></label>
+      <div class="nav-mobile">
+        <a href="#mission">Notre mission</a>
+        <a href="#catalogue">Ecouter gratuit</a>
+        <a href="#fondatrices">Notre histoire</a>
+        <a href="#">Se connecter</a>
+        <a href="#" class="nav-mobile-cta">S'abonner</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">1000 ans d'histoires à transmettre</p>
+        <h1 class="hero-title">Raconte-moi<br><em>le Maroc</em></h1>
+        <p class="hero-desc">
+          <strong>Contes, berceuses et decouvertes</strong> en darija pour vos enfants.
+          Une experience <strong>100 % audio, sans ecran</strong>, pensee pour transmettre
+          la culture marocaine au quotidien.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalogue" class="btn-primary"><i class="fa-solid fa-play"></i> Ecouter un extrait gratuit</a>
+          <a href="#steps" class="btn-outline">Comment ca marche <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+      </div>
+      <div class="hero-mosaic">
+        <div class="tile tile--terra tile--span-2c tile--span-2r"><i class="fa-solid fa-headphones"></i></div>
+        <div class="tile tile--bleu"><i class="fa-solid fa-book-open"></i></div>
+        <div class="tile tile--ocre"><i class="fa-solid fa-music"></i></div>
+        <div class="tile tile--olive"><i class="fa-solid fa-earth-africa"></i></div>
+        <div class="tile tile--sable"></div>
+        <div class="tile tile--dark"></div>
+        <div class="tile tile--bleu"></div>
+        <div class="tile tile--terra"></div>
+        <div class="tile tile--ocre"></div>
+        <div class="tile tile--olive tile--span-2c"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BANDEAU ═══ -->
+  <div class="bandeau">
+    <div class="wrap bandeau-inner">
+      <div class="bandeau-item">
+        <div class="bandeau-icon"><i class="fa-solid fa-volume-high"></i></div>
+        <span><strong>100 % audio</strong> — zero ecran</span>
+      </div>
+      <div class="bandeau-item">
+        <div class="bandeau-icon"><i class="fa-solid fa-child"></i></div>
+        <span><strong>3-12 ans</strong> — adapte par age</span>
+      </div>
+      <div class="bandeau-item">
+        <div class="bandeau-icon"><i class="fa-solid fa-language"></i></div>
+        <span><strong>FR / Darija</strong> — bilingue</span>
+      </div>
+      <div class="bandeau-item">
+        <div class="bandeau-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+        <span><strong>Mode offline</strong> — sans connexion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ COMMENT CA MARCHE ═══ -->
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <div class="section-header--center">
+        <p class="section-eyebrow">Comment ca marche</p>
+        <h2 class="section-title">Pret en 3 etapes</h2>
+        <p class="section-desc">Aucune configuration complexe. Telechargez, choisissez, ecoutez.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Telechargez l'app</h3>
+          <p class="step-desc">Disponible sur App Store et Google Play. Creez votre compte en 30 secondes.</p>
+        </div>
+        <div class="step-arrow step-arrow--1"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Choisissez un contenu</h3>
+          <p class="step-desc">Contes, berceuses ou decouverte — parcourez le catalogue par theme et par age.</p>
+        </div>
+        <div class="step-arrow step-arrow--2"><i class="fa-solid fa-arrow-right"></i></div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Ecoutez, partout</h3>
+          <p class="step-desc">En voiture, au coucher, en balade. Telechargez vos favoris pour ecouter sans connexion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION / MANIFESTE ═══ -->
+  <section id="mission" class="manifeste">
+    <div class="wrap manifeste-layout">
+      <div>
+        <p class="section-eyebrow">Notre mission</p>
+        <h2 class="manifeste-quote">
+          La transmission culturelle ne se fait plus.
+          <em>NOOBA la ramene dans le quotidien de vos enfants.</em>
+        </h2>
+      </div>
+      <div>
+        <div class="manifeste-body">
+          <p>Nos enfants grandissent satures d'ecrans, loin de l'oralite qui est au coeur de notre heritage. Les histoires de <strong>Hdidane</strong>, les berceuses de <strong>Jidda</strong>, la musicalite de la darija — tout cela disparait peu a peu.</p>
+          <p>NOOBA cree un <strong>reservoir sonore</strong> pour vos enfants. Parce qu'une langue s'apprend par la <strong>musicalite</strong>, pas par l'ecran. Parce que la culture se transmet par l'<strong>emotion</strong>, pas par la lecon.</p>
+        </div>
+        <div class="manifeste-pillars">
+          <div class="pillar">
+            <div class="pillar-icon pillar-icon--recits"><i class="fa-solid fa-book-open"></i></div>
+            <div>
+              <p class="pillar-name">Recits & Contes</p>
+              <p class="pillar-detail">Hdidane, Mahboul — les legendes qui ont berce des generations, en darija et en francais.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon pillar-icon--rythmes"><i class="fa-solid fa-music"></i></div>
+            <div>
+              <p class="pillar-name">Rythmes & Berceuses</p>
+              <p class="pillar-detail">Nini ya Moumou, A Jrada Malha — les comptines qui endormaient des generations.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon pillar-icon--decouverte"><i class="fa-solid fa-earth-africa"></i></div>
+            <div>
+              <p class="pillar-name">Decouverte & Langue</p>
+              <p class="pillar-detail">Initiation a la darija, decouverte des regions et traditions par les sons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CATALOGUE ═══ -->
+  <section id="catalogue" class="catalogue">
+    <div class="wrap">
+      <div class="catalogue-header">
+        <div>
+          <p class="section-eyebrow">Le catalogue</p>
+          <h2 class="section-title">Ecoutez avant de vous abonner</h2>
+          <p class="section-desc">Chaque contenu propose un extrait gratuit. Appuyez sur play et laissez-vous porter.</p>
+        </div>
+        <a href="#" class="catalogue-header-right">Voir tout le catalogue <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="cat-grid">
+        <!-- Card 1 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--recits">
+            <span class="cat-free">Gratuit</span>
+            <i class="fa-solid fa-book-open"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--recits">Recits & Contes</span>
+            <h3 class="cat-title">Hmadou et Hmaydou</h3>
+            <p class="cat-meta"><span>8 min</span><span>Darija / FR</span><span>3-5 ans</span></p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--rythmes">
+            <span class="cat-free">Gratuit</span>
+            <i class="fa-solid fa-music"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--rythmes">Rythmes & Berceuses</span>
+            <h3 class="cat-title">A Mama, ya Mama</h3>
+            <p class="cat-meta"><span>4 min</span><span>Darija</span><span>3-5 ans</span></p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--recits">
+            <i class="fa-solid fa-book-open"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--recits">Recits & Contes</span>
+            <h3 class="cat-title">Hdidane et l'ogresse</h3>
+            <p class="cat-meta"><span>12 min</span><span>Darija / FR</span><span>6-8 ans</span></p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--decouverte">
+            <i class="fa-solid fa-earth-africa"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--decouverte">Decouverte & Langue</span>
+            <h3 class="cat-title">Les couleurs du souk</h3>
+            <p class="cat-meta"><span>6 min</span><span>Darija / FR</span><span>3-5 ans</span></p>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--recits">
+            <i class="fa-solid fa-book-open"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--recits">Recits & Contes</span>
+            <h3 class="cat-title">La legende de Lalla Mira</h3>
+            <p class="cat-meta"><span>9 min</span><span>Darija / FR</span><span>6-8 ans</span></p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="cat-card">
+          <div class="cat-cover cat-cover--rythmes">
+            <i class="fa-solid fa-music"></i>
+            <button class="cat-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="cat-body">
+            <span class="cat-badge cat-badge--rythmes">Rythmes & Berceuses</span>
+            <h3 class="cat-title">Comptines de chez Jidda</h3>
+            <p class="cat-meta"><span>5 min</span><span>Darija</span><span>3-5 ans</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SCIENCE ═══ -->
+  <section class="science">
+    <div class="wrap">
+      <div class="section-header--center">
+        <p class="section-eyebrow">La science derriere</p>
+        <h2 class="section-title">Pourquoi l'audio transforme l'apprentissage</h2>
+        <p class="section-desc">Des recherches en neurosciences et en linguistique confirment l'efficacite de l'immersion sonore chez l'enfant.</p>
+      </div>
+      <div class="science-grid">
+        <div class="science-card">
+          <div class="science-icon science-icon--ear"><i class="fa-solid fa-ear-listen"></i></div>
+          <h3>Reservoir sonore</h3>
+          <p>L'enfant construit un reservoir de sons qui facilite l'apprentissage naturel de la langue. Plus l'exposition est precoce, plus l'oreille se forme.</p>
+        </div>
+        <div class="science-card">
+          <div class="science-icon science-icon--brain"><i class="fa-solid fa-brain"></i></div>
+          <h3>Imagination active</h3>
+          <p>Sans support visuel, le cerveau de l'enfant cree ses propres images — stimulant creativite, concentration et developpement cognitif.</p>
+        </div>
+        <div class="science-card">
+          <div class="science-icon science-icon--lang"><i class="fa-solid fa-language"></i></div>
+          <h3>Immersion linguistique</h3>
+          <p>Le mix francais-darija cree une immersion naturelle. La langue s'apprend par la musicalite et la repetition, pas par l'ecran.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FONDATRICES ═══ -->
+  <section id="fondatrices" class="fondatrices">
+    <div class="wrap">
+      <div class="section-header--center">
+        <p class="section-eyebrow">Notre histoire</p>
+        <h2 class="section-title">Des meres, comme vous</h2>
+        <p class="section-desc">NOOBA est ne d'un constat partage : nos enfants ne connaissent pas les histoires et les berceuses qui ont berce notre enfance.</p>
+      </div>
+      <div class="fondatrices-layout">
+        <div class="fondatrice-card">
+          <div class="fondatrice-top">
+            <div class="fondatrice-avatar">M</div>
+            <div>
+              <p class="fondatrice-name">Maha Benali</p>
+              <p class="fondatrice-role">Co-fondatrice</p>
+            </div>
+          </div>
+          <p class="fondatrice-quote">Mes enfants comprennent la darija mais <strong>ne la parlent pas</strong>. Je voulais un outil qui rende la transmission naturelle — <strong>pas un cours de langue, une experience de vie</strong>.</p>
+        </div>
+        <div class="fondatrice-card">
+          <div class="fondatrice-top">
+            <div class="fondatrice-avatar">B</div>
+            <div>
+              <p class="fondatrice-name">Boutaina Alami</p>
+              <p class="fondatrice-role">Co-fondatrice</p>
+            </div>
+          </div>
+          <p class="fondatrice-quote">Ma mere me chantait A Mama tous les soirs. <strong>Mon fils de 7 ans ne connait pas cette berceuse.</strong> NOOBA est ne de cette absence — et de la volonte de la combler.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEMOIGNAGES ═══ -->
+  <section class="temoignages">
+    <div class="wrap">
+      <div class="section-header--center">
+        <p class="section-eyebrow">Temoignages</p>
+        <h2 class="section-title">Ce que disent les parents</h2>
+        <p class="section-desc">Des familles comme la votre ont decouvert NOOBA.</p>
+      </div>
+      <div class="temoignages-grid">
+        <div class="temoin-card">
+          <div class="temoin-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="temoin-text">Mes enfants reclament "leur histoire du Maroc" tous les soirs. En trois semaines, ma fille de 5 ans a commence a utiliser des mots en darija spontanement. C'est exactement ce dont on avait besoin.</p>
+          <div class="temoin-author">
+            <div class="temoin-avatar">S</div>
+            <div><p class="temoin-name">Samia L.</p><p class="temoin-detail">Maman de 2 enfants · Paris</p></div>
+          </div>
+        </div>
+        <div class="temoin-card">
+          <div class="temoin-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="temoin-text">Enfin une application qui ne met pas un ecran devant les yeux de ma fille. On l'utilise dans la voiture, et elle adore les berceuses. Je retrouve les chansons de mon enfance.</p>
+          <div class="temoin-author">
+            <div class="temoin-avatar">Y</div>
+            <div><p class="temoin-name">Youssef M.</p><p class="temoin-detail">Papa d'une petite fille · Casablanca</p></div>
+          </div>
+        </div>
+        <div class="temoin-card">
+          <div class="temoin-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <p class="temoin-text">Je cherchais depuis des annees un moyen naturel de transmettre notre culture a mes enfants. NOOBA fait exactement ca — sans forcer, juste des histoires qui donnent envie d'en savoir plus.</p>
+          <div class="temoin-author">
+            <div class="temoin-avatar">N</div>
+            <div><p class="temoin-name">Nadia K.</p><p class="temoin-detail">Maman de 3 enfants · Bruxelles</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA PRICING + APP ═══ -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <p class="section-eyebrow">Abonnement</p>
+          <h2 class="section-title">Offrez a vos enfants<br>un tresor culturel</h2>
+          <p style="color:var(--text-light-secondary); margin-top: 8px;">Un an de contes, berceuses et decouvertes en darija. Sans engagement, sans ecran, sans limite d'ecoute.</p>
+          <div class="cta-price">
+            <span class="cta-amount">49,90&#8364;</span>
+            <span class="cta-period"> / an</span>
+          </div>
+          <div class="cta-benefits">
+            <div class="cta-benefit"><i class="fa-solid fa-check"></i><span>Catalogue complet en darija et francais</span></div>
+            <div class="cta-benefit"><i class="fa-solid fa-check"></i><span>Mode offline — ecoutez sans connexion</span></div>
+            <div class="cta-benefit"><i class="fa-solid fa-check"></i><span>Nouveautes ajoutees chaque semaine</span></div>
+            <div class="cta-benefit"><i class="fa-solid fa-check"></i><span>Contenus adaptes par age — 3 a 12 ans</span></div>
+            <div class="cta-benefit"><i class="fa-solid fa-check"></i><span>100% audio — zero ecran</span></div>
+          </div>
+          <a href="#" class="btn-primary">S'abonner maintenant <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-top">
+              <span class="phone-brand"><img src="assets/logo_nooba_no_bg_bo_title.png" alt="NOOBA" class="phone-logo-img"></span>
+              <i class="fa-solid fa-bell phone-bell"></i>
+            </div>
+            <p class="phone-label">Nouveautes</p>
+            <p class="phone-heading">Ajoutes cette semaine</p>
+            <div class="phone-item">
+              <div class="phone-item-thumb phone-item-thumb--r"><i class="fa-solid fa-book-open"></i></div>
+              <div><p class="phone-item-name">Hmadou et Hmaydou</p><p class="phone-item-meta">8 min · 3-5 ans</p></div>
+              <div class="phone-item-play"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="phone-item">
+              <div class="phone-item-thumb phone-item-thumb--b"><i class="fa-solid fa-music"></i></div>
+              <div><p class="phone-item-name">A Mama, ya Mama</p><p class="phone-item-meta">4 min · 3-5 ans</p></div>
+              <div class="phone-item-play"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="phone-item">
+              <div class="phone-item-thumb phone-item-thumb--v"><i class="fa-solid fa-earth-africa"></i></div>
+              <div><p class="phone-item-name">Les couleurs du souk</p><p class="phone-item-meta">6 min · 3-5 ans</p></div>
+              <div class="phone-item-play"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="phone-tabs">
+              <div class="phone-tab phone-tab--active"><i class="fa-solid fa-house"></i><span>Accueil</span></div>
+              <div class="phone-tab"><i class="fa-solid fa-heart"></i><span>Favoris</span></div>
+              <div class="phone-tab"><i class="fa-solid fa-arrow-down"></i><span>Offline</span></div>
+              <div class="phone-tab"><i class="fa-solid fa-user"></i><span>Profil</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand"><img src="assets/logo_nooba_no_bg.png" alt="NOOBA" class="footer-logo-img"></p>
+          <p class="footer-tagline">Raconte-moi le Maroc. Contes, berceuses et decouvertes en darija pour vos enfants de 3 a 12 ans.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Decouvrir</p>
+          <a href="#">Notre mission</a>
+          <a href="#">Notre manifeste</a>
+          <a href="#">Le catalogue</a>
+          <a href="#">Notre histoire</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Acces</p>
+          <a href="#">S'abonner</a>
+          <a href="#">Telecharger l'app</a>
+          <a href="#">Se connecter</a>
+          <a href="#">Mon espace</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Legal</p>
+          <a href="#">Conditions generales</a>
+          <a href="#">Politique de confidentialite</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 NOOBA — Tous droits reserves</span>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

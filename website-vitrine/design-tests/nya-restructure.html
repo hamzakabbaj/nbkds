@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIYYA — Réorganisation · NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ════════════ Section chooser ════════════ */
+    .variation-label {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px 40px 12px;
+    }
+    .variation-label-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-teal); margin-bottom: 12px;
+    }
+    .variation-label-kicker::before {
+      content: ''; width: 28px; height: 1.5px; background: currentColor;
+    }
+    .variation-label h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 32px;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .variation-label p {
+      font-family: 'Inter', sans-serif; font-size: 14px;
+      color: var(--text-secondary); max-width: 720px; line-height: 1.6;
+    }
+    .variation-divider {
+      max-width: 1200px; margin: 96px auto 0; padding: 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ════════════════════════════════════════════════════
+       PROPOSITION 1 — « Trois Mouvements »
+       3 cards mapped to Ancrer · Transmettre · Élever
+       ════════════════════════════════════════════════════ */
+    .nya-p1 {
+      max-width: 1200px; margin: 0 auto; padding: 24px 40px 64px;
+    }
+    .nya-p1__header { text-align: center; margin-bottom: 56px; }
+    .nya-p1__eyebrow {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent-teal); margin-bottom: 14px;
+    }
+    .nya-p1__title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 42px;
+      color: var(--text); letter-spacing: -0.01em; line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .nya-p1__lede {
+      font-family: 'Nunito', sans-serif; font-size: 17px;
+      color: var(--text-secondary); max-width: 640px;
+      margin: 0 auto; line-height: 1.7;
+    }
+    .nya-p1__lede strong { color: var(--text); }
+
+    .nya-p1__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-bottom: 56px;
+    }
+    .nya-p1__card {
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 36px 32px 32px;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+    .nya-p1__card-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--bg-teal);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .nya-p1__card-icon img {
+      width: 30px; height: 30px;
+      filter: invert(28%) sepia(89%) saturate(1500%) hue-rotate(180deg) brightness(85%) contrast(95%);
+    }
+    .nya-p1__card--accent .nya-p1__card-icon {
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0,123,168,0.12);
+    }
+    .nya-p1__card--accent .nya-p1__card-icon img {
+      filter: invert(15%) sepia(95%) saturate(7000%) hue-rotate(345deg) brightness(85%) contrast(110%);
+    }
+    .nya-p1__card-num {
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      font-size: 16px; color: var(--accent-rose);
+      margin-bottom: 4px;
+    }
+    .nya-p1__card-verb {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 32px; color: var(--text);
+      letter-spacing: -0.01em; line-height: 1; margin-bottom: 22px;
+      position: relative; padding-bottom: 18px;
+    }
+    .nya-p1__card-verb::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      width: 36px; height: 2px; background: var(--accent-teal);
+      border-radius: 2px;
+    }
+    .nya-p1__card-lead {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px;
+      color: var(--text); line-height: 1.45; margin-bottom: 14px;
+    }
+    .nya-p1__card-body {
+      font-family: 'Nunito', sans-serif; font-size: 14.5px;
+      color: var(--text-secondary); line-height: 1.7;
+    }
+    .nya-p1__card-body em {
+      font-style: italic; color: var(--accent-teal); font-weight: 600;
+    }
+    .nya-p1__card--accent {
+      background: var(--bg-teal);
+      border-color: rgba(0,123,168,0.15);
+    }
+    .nya-p1__card--accent .nya-p1__card-verb::after { background: var(--accent-rose); }
+
+    .nya-p1__coda {
+      background: var(--text); color: #fff;
+      border-radius: 22px;
+      padding: 40px 48px;
+      display: flex; align-items: center; gap: 32px;
+      max-width: 920px; margin: 0 auto;
+    }
+    .nya-p1__coda-tag {
+      font-family: 'Lobster Two', cursive; font-style: italic; font-weight: 400;
+      font-size: 28px; color: #F4B95E;
+      flex-shrink: 0; line-height: 1.1;
+    }
+    .nya-p1__coda-text {
+      font-family: 'Nunito', sans-serif; font-size: 16px;
+      color: rgba(255,255,255,0.88); line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════════════
+       PROPOSITION 2 — « Manifeste Éditorial »
+       Single narrow column, left-aligned, with pull-quotes
+       ════════════════════════════════════════════════════ */
+    .nya-p2 {
+      max-width: 1100px; margin: 0 auto; padding: 24px 40px 64px;
+    }
+    .nya-p2__header {
+      display: grid; grid-template-columns: 1fr 1.7fr;
+      gap: 64px; align-items: start; margin-bottom: 56px;
+    }
+    .nya-p2__header-left {
+      position: sticky; top: 100px;
+    }
+    .nya-p2__eyebrow {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent-teal); margin-bottom: 14px;
+    }
+    .nya-p2__title {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 44px;
+      color: var(--text); letter-spacing: -0.01em; line-height: 1.05;
+    }
+    .nya-p2__body {
+      font-family: 'Nunito', sans-serif; font-size: 17px;
+      color: var(--text-secondary); line-height: 1.85;
+    }
+    .nya-p2__body > p { margin-bottom: 22px; text-align: left; }
+    .nya-p2__body > p:last-child { margin-bottom: 0; }
+    .nya-p2__body em {
+      font-style: italic; color: var(--accent-teal); font-weight: 600;
+    }
+    .nya-p2__body strong { color: var(--text); }
+
+    .nya-p2__pullquote {
+      font-family: 'Lobster Two', cursive;
+      font-style: italic; font-weight: 400;
+      font-size: 36px; line-height: 1.25;
+      color: var(--accent-rose);
+      max-width: 100%;
+      margin: 36px 0 28px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent-rose);
+    }
+    .nya-p2__highlight {
+      display: block;
+      background: linear-gradient(180deg, transparent 60%, rgba(244,185,94,0.35) 60%);
+      padding: 0 4px;
+    }
+
+    .nya-p2__coda {
+      margin-top: 56px;
+      padding: 32px 36px;
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 880px; margin-left: auto; margin-right: auto;
+      display: grid; grid-template-columns: auto 1fr; gap: 28px;
+      align-items: center;
+    }
+    .nya-p2__coda-label {
+      font-family: 'Lobster Two', cursive; font-style: italic;
+      font-size: 26px; color: var(--accent-rose);
+      line-height: 1; padding-right: 28px;
+      border-right: 1px solid var(--border);
+    }
+    .nya-p2__coda-text {
+      font-family: 'Nunito', sans-serif; font-size: 16px;
+      color: var(--text); line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nya-p1__grid { grid-template-columns: 1fr; }
+      .nya-p1__coda { flex-direction: column; text-align: center; padding: 32px 28px; }
+      .nya-p2__header { grid-template-columns: 1fr; gap: 28px; }
+      .nya-p2__header-left { position: static; }
+      .nya-p2__pullquote { font-size: 26px; }
+      .nya-p2__coda { grid-template-columns: 1fr; }
+      .nya-p2__coda-label { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 16px; padding-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="#" class="navbar-cta">S'abonner</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─────────── PROPOSITION 1 ─────────── -->
+  <div class="variation-label">
+    <span class="variation-label-kicker">Proposition 1 · Trois mouvements</span>
+    <h2>Le titre devient une grille : Ancrer · Transmettre · Élever</h2>
+    <p>Les 5 paragraphes sont regroupés en 3 cartes qui correspondent aux trois verbes du titre. Chaque carte porte un mouvement : le constat, la réponse, la promesse. La carte centrale est mise en valeur (fond teal). La coda « Niyya dialna » devient un bandeau sombre éditorial qui clôt la section.</p>
+  </div>
+
+  <section class="nya-p1">
+    <div class="nya-p1__header">
+      <div class="nya-p1__eyebrow">NIYYA — Notre humble intention</div>
+      <h2 class="nya-p1__title">Ancrer · Transmettre · Élever</h2>
+      <p class="nya-p1__lede">Dans un quotidien dense, entre écrans omniprésents et surstimulation, une question demeure pour chaque parent : <strong>comment transmettre sans perdre l'essentiel ?</strong></p>
+    </div>
+
+    <div class="nya-p1__grid">
+      <div class="nya-p1__card">
+        <div class="nya-p1__card-icon"><img src="https://static.thenounproject.com/png/8290371-200.png" alt="Boussole"></div>
+        <span class="nya-p1__card-num">01</span>
+        <h3 class="nya-p1__card-verb">Ancrer</h3>
+        <p class="nya-p1__card-lead">Le même désir, en chacun de nous.</p>
+        <p class="nya-p1__card-body">Que nos enfants avancent dans le monde avec confiance… sans jamais se couper de leurs racines.</p>
+      </div>
+
+      <div class="nya-p1__card nya-p1__card--accent">
+        <div class="nya-p1__card-icon"><img src="https://static.thenounproject.com/png/4947953-200.png" alt="Rhaita — instrument de musique marocain"></div>
+        <span class="nya-p1__card-num">02</span>
+        <h3 class="nya-p1__card-verb">Transmettre</h3>
+        <p class="nya-p1__card-lead">Nooba est née d'une intention simple : <em>réactiver le lien.</em></p>
+        <p class="nya-p1__card-body">Par la voix. Par l'écoute. Par ces histoires, ces berceuses et cette poésie en <em>darija</em> qui façonnent bien plus qu'un langage : leur identité.</p>
+      </div>
+
+      <div class="nya-p1__card">
+        <div class="nya-p1__card-icon"><img src="https://static.thenounproject.com/png/245394-200.png" alt="Arc marocain — monument"></div>
+        <span class="nya-p1__card-num">03</span>
+        <h3 class="nya-p1__card-verb">Élever</h3>
+        <p class="nya-p1__card-lead">Une présence vivante, intime, quotidienne.</p>
+        <p class="nya-p1__card-body">Nous ramenons cet héritage au creux des oreilles de vos enfants — pour qu'il ne soit pas un souvenir lointain, mais un compagnon de chaque jour.</p>
+      </div>
+    </div>
+
+    <div class="nya-p1__coda">
+      <div class="nya-p1__coda-tag">Niyya<br>dialna.</div>
+      <p class="nya-p1__coda-text">Offrir à nos enfants un socle de valeurs et de culture solide qui permet l'envol d'une génération fière, ancrée, et ouverte au monde.</p>
+    </div>
+  </section>
+
+  <div class="variation-divider"></div>
+
+  <!-- ─────────── PROPOSITION 2 ─────────── -->
+  <div class="variation-label">
+    <span class="variation-label-kicker">Proposition 2 · Manifeste éditorial</span>
+    <h2>Un manifeste : titre fixe à gauche, prose à droite</h2>
+    <p>Hiérarchie typographique d'op-ed magazine. À gauche, le titre reste « collé » pendant qu'on lit le manifeste à droite. La question-clé devient un pull-quote en Lobster Two rose ; le mot « darija » se distingue en italique teal ; « réactiver le lien » est surligné comme dans un livre de chevet. La coda « Niyya dialna » est un encart final cream.</p>
+  </div>
+
+  <section class="nya-p2">
+    <div class="nya-p2__header">
+      <div class="nya-p2__header-left">
+        <div class="nya-p2__eyebrow">NIYYA — Notre humble intention</div>
+        <h2 class="nya-p2__title">Ancrer ·<br>Transmettre ·<br>Élever</h2>
+      </div>
+      <div class="nya-p2__body">
+        <p>Dans un quotidien dense, entre écrans omniprésents et surstimulation, une question demeure pour chaque parent.</p>
+
+        <blockquote class="nya-p2__pullquote">« Comment transmettre sans perdre l'essentiel ? »</blockquote>
+
+        <p>Car au fond, nous partageons tous ce même désir : que nos enfants avancent dans le monde avec confiance… sans jamais se couper de leurs racines.</p>
+
+        <p><strong>Nooba est née de cette intention simple mais essentielle :</strong> <span class="nya-p2__highlight">réactiver le lien.</span></p>
+
+        <p>Par la voix. Par l'écoute. Par ces histoires, ces berceuses et cette poésie en <em>darija</em> qui façonnent bien plus qu'un langage : leur identité.</p>
+
+        <p>Nous les ramenons au creux des oreilles de vos enfants, pour que leur héritage ne soit pas un souvenir lointain, mais <strong>une présence vivante, intime, quotidienne.</strong></p>
+      </div>
+    </div>
+
+    <div class="nya-p2__coda">
+      <div class="nya-p2__coda-label">Niyya<br>dialna.</div>
+      <p class="nya-p2__coda-text">Offrir à nos enfants un socle de valeurs et de culture solide qui permet l'envol d'une génération fière, ancrée, et ouverte au monde.</p>
+    </div>
+  </section>
+
+  <div style="height: 120px;"></div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de confidentialité — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --legal-accent: #007BA8;
+      --legal-accent-light: #E4ECF3;
+      --legal-accent-dark: #005E80;
+    }
+
+    /* Hero (compact, asymmetric like marhba) */
+    .legal-hero { background: var(--legal-accent-light); padding: 28px 0 24px; }
+    .legal-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+    .legal-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
+    .legal-hero-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.15; color: var(--text); margin: 0; }
+    .legal-hero-arabic { font-family: 'Amiri', serif; font-size: 36px; color: var(--legal-accent); line-height: 1; opacity: 0.9; position: relative; top: 6px; }
+    .legal-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
+    .legal-hero-right { border-left: 1px solid rgba(0,123,168,0.3); padding-left: 48px; }
+    .legal-hero-eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--legal-accent); margin: 0 0 14px 0; }
+    .legal-hero-updated { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .legal-hero-updated strong { color: var(--text); }
+
+    /* Content */
+    .legal-section { padding: 48px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .legal-container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
+
+    /* TOC */
+    .legal-toc { background: var(--legal-accent-light); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px; }
+    .legal-toc-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--legal-accent); margin: 0 0 12px 0; }
+    .legal-toc-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 24px; }
+    .legal-toc-list li { padding: 4px 0; }
+    .legal-toc-list a { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .legal-toc-list a:hover { color: var(--legal-accent); text-decoration: underline; }
+
+    /* Body */
+    .legal-body { font-family: 'Inter', sans-serif; color: var(--text-secondary); }
+    .legal-body section { margin-bottom: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .legal-body section:first-child { border-top: none; padding-top: 0; }
+    .legal-body h2 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); margin: 0 0 16px 0; }
+    .legal-body h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); margin: 24px 0 10px 0; }
+    .legal-body p { font-size: 15px; line-height: 1.75; margin: 0 0 16px 0; }
+    .legal-body ul { padding-left: 22px; margin: 0 0 16px 0; }
+    .legal-body li { font-size: 15px; line-height: 1.75; margin-bottom: 6px; }
+    .legal-body strong { color: var(--text); font-weight: 600; }
+    .legal-body a { color: var(--legal-accent); font-weight: 500; text-decoration: none; }
+    .legal-body a:hover { color: var(--legal-accent-dark); text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .legal-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .legal-hero-right { border-left: none; border-top: 1px solid rgba(0,123,168,0.3); padding-left: 0; padding-top: 24px; }
+      .legal-toc-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <div class="navbar-item"><a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a></div>
+        <div class="navbar-item"><a href="02_al_amana.html" class="navbar-link">Al Amana</a></div>
+        <div class="navbar-item"><a href="04_nooba.html" class="navbar-link">Nooba</a></div>
+        <div class="navbar-item"><a href="05_al_assel.html" class="navbar-link">Al Assal</a></div>
+        <div class="navbar-item"><a href="06_marhba.html" class="navbar-link">Marhba</a></div>
+        <a href="08_subscribe.html" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="08_subscribe.html" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ CONTENT ═══ -->
+  <section class="section legal-section">
+    <div class="legal-container">
+
+      <!-- TOC -->
+      <nav class="legal-toc" aria-label="Sommaire">
+        <p class="legal-toc-title">Sommaire</p>
+        <ol class="legal-toc-list">
+          <li><a href="#intro">1. Introduction</a></li>
+          <li><a href="#donnees">2. Données collectées</a></li>
+          <li><a href="#utilisation">3. Utilisation des données</a></li>
+          <li><a href="#paiements">4. Paiements</a></li>
+          <li><a href="#securite">5. Hébergement &amp; sécurité</a></li>
+          <li><a href="#droits">6. Vos droits (RGPD)</a></li>
+          <li><a href="#cookies">7. Cookies</a></li>
+          <li><a href="#contact">8. Contact</a></li>
+        </ol>
+      </nav>
+
+      <div class="legal-body">
+
+        <section id="intro">
+          <h2>1. Introduction</h2>
+          <p>Nooba (« nous », « notre ») s'engage à protéger la vie privée de ses utilisateurs et de leurs enfants. Cette politique décrit comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous utilisez notre site web (nooba.ma) et notre application mobile.</p>
+          <p>Nous accordons une attention particulière à la protection des données des mineurs. Nooba est un service destiné aux parents — les enfants n'interagissent pas directement avec l'application de gestion.</p>
+        </section>
+
+        <section id="donnees">
+          <h2>2. Données collectées</h2>
+
+          <h3>Données du compte parent</h3>
+          <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Mot de passe (chiffré)</li>
+            <li>Informations de paiement (traitées par Stripe — nous ne stockons pas vos données bancaires)</li>
+          </ul>
+
+          <h3>Données des profils enfants</h3>
+          <ul>
+            <li>Prénom de l'enfant</li>
+            <li>Date d'anniversaire (pour le filtrage par tranche d'âge)</li>
+          </ul>
+          <p><strong>Important :</strong> nous ne collectons aucune donnée permettant d'identifier directement un enfant. Le prénom est utilisé uniquement pour personnaliser l'affichage dans l'application du parent.</p>
+
+          <h3>Données d'utilisation</h3>
+          <ul>
+            <li>Contenus écoutés et durée d'écoute</li>
+            <li>Contenus téléchargés et favoris</li>
+            <li>Préférences de notification</li>
+          </ul>
+        </section>
+
+        <section id="utilisation">
+          <h2>3. Utilisation des données</h2>
+          <p>Nous utilisons vos données pour :</p>
+          <ul>
+            <li>Gérer votre compte et votre abonnement</li>
+            <li>Personnaliser le catalogue selon l'âge de vos enfants</li>
+            <li>Sauvegarder vos favoris et votre progression d'écoute</li>
+            <li>Vous envoyer des notifications (nouveaux contenus, rappels)</li>
+            <li>Améliorer notre service et notre catalogue</li>
+          </ul>
+          <p>Nous ne vendons <strong>jamais</strong> vos données à des tiers. Nous n'utilisons pas vos données à des fins publicitaires.</p>
+        </section>
+
+        <section id="paiements">
+          <h2>4. Paiements et données bancaires</h2>
+          <p>Les paiements sont traités par <strong>Stripe</strong>, un prestataire certifié PCI DSS Niveau 1. Vos données bancaires sont envoyées directement à Stripe et ne transitent jamais par nos serveurs. Nous conservons uniquement les 4 derniers chiffres de votre carte et la date d'expiration pour l'affichage dans votre <a href="10_account.html">espace abonné</a>.</p>
+        </section>
+
+        <section id="securite">
+          <h2>5. Hébergement et sécurité</h2>
+          <p>Vos données sont hébergées au sein de l'Union européenne. Nous utilisons le chiffrement SSL/TLS pour toutes les communications et le chiffrement au repos pour les données sensibles.</p>
+        </section>
+
+        <section id="droits">
+          <h2>6. Vos droits (RGPD)</h2>
+          <p>Conformément au Règlement Général sur la Protection des Données, vous disposez des droits suivants :</p>
+          <ul>
+            <li><strong>Accès :</strong> obtenir une copie de vos données personnelles</li>
+            <li><strong>Rectification :</strong> corriger vos données inexactes</li>
+            <li><strong>Suppression :</strong> demander l'effacement de vos données</li>
+            <li><strong>Portabilité :</strong> recevoir vos données dans un format lisible</li>
+            <li><strong>Opposition :</strong> vous opposer au traitement de vos données</li>
+          </ul>
+          <p>Pour exercer ces droits, contactez-nous via la <a href="06_marhba.html">page Marhba</a> ou par email à <a href="mailto:privacy@nooba.ma">privacy@nooba.ma</a>. Nous répondrons dans un délai de 30 jours.</p>
+        </section>
+
+        <section id="cookies">
+          <h2>7. Cookies</h2>
+          <p>Notre site utilise uniquement des cookies essentiels au fonctionnement du service (session de connexion, préférences). Nous n'utilisons pas de cookies publicitaires ni de traceurs tiers.</p>
+        </section>
+
+        <section id="contact">
+          <h2>8. Contact</h2>
+          <p>Pour toute question concernant cette politique de confidentialité :</p>
+          <ul>
+            <li>Email : <a href="mailto:privacy@nooba.ma">privacy@nooba.ma</a></li>
+            <li>Formulaire : <a href="06_marhba.html">page Marhba</a></li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a><a href="06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) { nav.classList.add('sticky'); spacer.style.display = 'block'; }
+    else { nav.classList.remove('sticky'); spacer.style.display = 'none'; }
+  });
+</script>
+</body>
+</html>

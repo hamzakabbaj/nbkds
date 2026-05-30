@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue dans la famille NOOBA !</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --conf-accent: #2A9D8F;
+      --conf-accent-light: #E6F5F2;
+      --conf-accent-dark: #1E7A6E;
+      --conf-warm: #C9A34A;
+      --conf-warm-light: #FBF3DD;
+    }
+
+    .conf-section { padding: 56px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .conf-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 48px; text-align: center; border-top: 4px solid var(--conf-accent); position: relative; overflow: hidden; }
+
+    /* Confetti decoration */
+    .conf-confetti { position: absolute; font-size: 24px; opacity: 0.55; animation: confetti-fall 3s ease-in-out infinite; }
+    .conf-confetti--1 { top: 16px; left: 12%; color: var(--conf-warm); animation-delay: 0s; }
+    .conf-confetti--2 { top: 30px; left: 32%; color: var(--conf-accent); animation-delay: 0.5s; }
+    .conf-confetti--3 { top: 12px; left: 55%; color: var(--accent-rose); animation-delay: 1s; }
+    .conf-confetti--4 { top: 30px; left: 75%; color: var(--conf-warm); animation-delay: 1.5s; }
+    .conf-confetti--5 { top: 14px; left: 88%; color: var(--conf-accent); animation-delay: 2s; }
+    @keyframes confetti-fall {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(15deg); }
+    }
+
+    /* Success icon */
+    .conf-icon-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
+    .conf-icon { width: 80px; height: 80px; border-radius: 50%; background: var(--conf-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 36px; box-shadow: 0 12px 30px rgba(42,157,143,0.3); animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .conf-arabic { font-family: 'Amiri', serif; font-size: 28px; color: var(--conf-accent); margin: 0 0 8px 0; opacity: 0.9; }
+    .conf-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 30px; color: var(--text); margin: 0 0 12px 0; line-height: 1.2; }
+    .conf-subtitle { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-secondary); line-height: 1.6; max-width: 480px; margin: 0 auto 18px; }
+    .conf-mail-info { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 28px; font-style: italic; }
+    .conf-mail-info strong { color: var(--text); font-style: normal; }
+
+    /* Summary */
+    .conf-summary { background: var(--conf-warm-light); border-radius: var(--radius-sm); padding: 22px 28px; margin: 0 auto 32px; max-width: 480px; text-align: left; }
+    .conf-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: 'Inter', sans-serif; font-size: 14px; }
+    .conf-summary-row + .conf-summary-row { border-top: 1px solid rgba(201,163,74,0.25); }
+    .conf-summary-label { color: var(--text-secondary); }
+    .conf-summary-value { color: var(--text); font-weight: 600; }
+
+    /* Next steps */
+    .conf-next { background: var(--bg-peach); border-radius: var(--radius); padding: 32px; margin-bottom: 28px; }
+    .conf-step-badge { display: inline-block; background: var(--accent-rose); color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10px; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .conf-next-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); margin: 0 0 8px 0; }
+    .conf-next-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.55; margin: 0 0 24px 0; }
+
+    .conf-download-grid { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; text-align: left; }
+    .conf-qr { width: 140px; height: 140px; background: #fff; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); border: 1.5px dashed var(--border); }
+    .conf-qr i { font-size: 72px; color: var(--text); opacity: 0.85; }
+    .conf-qr-label { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 8px; }
+    .conf-stores { display: flex; flex-direction: column; gap: 10px; }
+    .conf-store { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--text); color: #fff; border-radius: var(--radius-sm); text-decoration: none; transition: transform 0.15s; }
+    .conf-store:hover { transform: translateY(-2px); }
+    .conf-store i { font-size: 28px; }
+    .conf-store-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .conf-store-small { font-family: 'Inter', sans-serif; font-size: 10px; opacity: 0.8; }
+    .conf-store-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; }
+
+    /* CTAs */
+    .conf-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .conf-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-full); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; border: 1.5px solid var(--conf-accent); color: var(--conf-accent); background: #fff; }
+    .conf-btn:hover { background: var(--conf-accent-light); transform: translateY(-1px); }
+    .conf-btn--ghost { border-color: var(--border); color: var(--text-secondary); }
+    .conf-btn--ghost:hover { color: var(--text); border-color: var(--text-secondary); background: #fff; }
+    .conf-btn--primary { background: var(--conf-accent); color: #fff; border-color: var(--conf-accent); }
+    .conf-btn--primary:hover { background: var(--conf-accent-dark); border-color: var(--conf-accent-dark); color: #fff; }
+
+    @media (max-width: 640px) {
+      .conf-card { padding: 32px 22px; }
+      .conf-title { font-size: 24px; }
+      .conf-download-grid { grid-template-columns: 1fr; text-align: center; }
+      .conf-qr { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <div class="navbar-item"><a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a></div>
+        <div class="navbar-item"><a href="02_al_amana.html" class="navbar-link">Al Amana</a></div>
+        <div class="navbar-item"><a href="04_nooba.html" class="navbar-link">Nooba</a></div>
+        <div class="navbar-item"><a href="05_al_assel.html" class="navbar-link">Al Assal</a></div>
+        <div class="navbar-item"><a href="06_marhba.html" class="navbar-link">Marhba</a></div>
+        <a href="10_account.html" class="navbar-cta" style="background:var(--conf-accent);"><i class="fa-solid fa-user" style="margin-right:6px;"></i> Mon espace</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="10_account.html" class="navbar-mobile-cta">Mon espace <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ CONFIRMATION ═══ -->
+  <section class="section conf-section">
+    <div class="container">
+      <div class="conf-card">
+        <span class="conf-confetti conf-confetti--1"><i class="fa-solid fa-star"></i></span>
+        <span class="conf-confetti conf-confetti--2"><i class="fa-solid fa-heart"></i></span>
+        <span class="conf-confetti conf-confetti--3"><i class="fa-solid fa-sparkles"></i></span>
+        <span class="conf-confetti conf-confetti--4"><i class="fa-solid fa-star"></i></span>
+        <span class="conf-confetti conf-confetti--5"><i class="fa-solid fa-heart"></i></span>
+
+        <div class="conf-icon-wrap">
+          <div class="conf-icon"><i class="fa-solid fa-check"></i></div>
+        </div>
+
+        <h1 class="conf-title">Bienvenue chez Nooba&nbsp;!</h1>
+        <p class="conf-subtitle">Votre abonnement est validé. C'est le moment de créer le profil de votre/vos enfant(s) et de télécharger l'application.</p>
+        <p class="conf-mail-info">Un mail de confirmation a été envoyé à l'adresse renseignée — pensez à vérifier votre boîte mail (et la rubrique spams) s'il n'apparaît pas.</p>
+
+        <div class="conf-summary">
+          <div class="conf-summary-row"><span class="conf-summary-label">Abonnement</span><span class="conf-summary-value">Nooba — Annuel</span></div>
+          <div class="conf-summary-row"><span class="conf-summary-label">Montant</span><span class="conf-summary-value">49,90€</span></div>
+          <div class="conf-summary-row"><span class="conf-summary-label">Valide jusqu'au</span><span class="conf-summary-value">17 mai 2027</span></div>
+        </div>
+
+        <div class="conf-next" id="conf-download">
+          <span class="conf-step-badge">Étape suivante</span>
+          <h2 class="conf-next-title">Téléchargez l'application Nooba</h2>
+          <p class="conf-next-desc">Scannez le QR code ou cliquez sur les boutons ci-dessous pour installer l'app et commencer l'aventure.</p>
+          <div class="conf-download-grid">
+            <div>
+              <div class="conf-qr"><i class="fa-solid fa-qrcode"></i></div>
+              <p class="conf-qr-label">Scannez pour télécharger</p>
+            </div>
+            <div class="conf-stores">
+              <a href="#" class="conf-store"><i class="fa-brands fa-apple"></i><div class="conf-store-text"><span class="conf-store-small">Télécharger sur</span><span class="conf-store-name">App Store</span></div></a>
+              <a href="#" class="conf-store"><i class="fa-brands fa-google-play"></i><div class="conf-store-text"><span class="conf-store-small">Disponible sur</span><span class="conf-store-name">Google Play</span></div></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="conf-actions">
+          <a href="01_home.html" class="conf-btn conf-btn--ghost">Retour à l'accueil <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a><a href="06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) { nav.classList.add('sticky'); spacer.style.display = 'block'; }
+    else { nav.classList.remove('sticky'); spacer.style.display = 'none'; }
+  });
+</script>
+</body>
+</html>

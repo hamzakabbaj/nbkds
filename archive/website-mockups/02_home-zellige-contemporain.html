@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOOBA — Direction B : Zellige Contemporain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Amiri&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ══════════════════════════════════════════
+       RESET
+    ══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; text-decoration: none; }
+    button { border: none; cursor: pointer; font-family: inherit; }
+    img { max-width: 100%; display: block; }
+    html { scroll-behavior: smooth; }
+
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS — Zellige Contemporain
+       Inspired by: Mubasic (vivid grid, bold minimal),
+       Popham Design (contemporary zellige tiles),
+       Hello Merlin (rounded, sticky nav, bright pastels)
+    ══════════════════════════════════════════ */
+    :root {
+      /* Core palette — vivid geometric */
+      --safran: #E8A838;
+      --safran-light: #FDF3DD;
+      --coral: #E06050;
+      --coral-light: #FDECEB;
+      --menthe: #38B295;
+      --menthe-light: #E2F5F0;
+      --indigo: #4255D4;
+      --indigo-light: #ECEEFF;
+      --blanc: #FFFFFF;
+      --creme: #FAFAF7;
+      --gris-clair: #F2F2EE;
+
+      /* Dark surfaces */
+      --noir: #111111;
+      --noir-doux: #1C1C1C;
+      --noir-carte: #262626;
+
+      /* Text */
+      --text: #111111;
+      --text-sec: #555555;
+      --text-ter: #888888;
+      --text-inv: #FAFAF7;
+
+      /* Layout */
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 22px;
+      --r-xl: 40px;
+      --container: 1180px;
+    }
+
+    /* ══════════════════════════════════════════
+       BASE
+    ══════════════════════════════════════════ */
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--blanc);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ══════════════════════════════════════════
+       NAVBAR — Sticky, clean, geometric
+    ══════════════════════════════════════════ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+    }
+    .nav-brand-img {
+      height: 48px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-sec);
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-link--free {
+      color: var(--coral);
+      font-weight: 600;
+    }
+    .nav-cta {
+      background: var(--indigo);
+      color: var(--text-inv);
+      padding: 10px 24px;
+      border-radius: var(--r-xl);
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .nav-cta:hover {
+      background: #3344BB;
+      transform: translateY(-1px);
+    }
+
+    /* ══════════════════════════════════════════
+       HERO — Bold, 3 words, grid mosaic
+       Inspired by Mubasic's immediate immersion
+    ══════════════════════════════════════════ */
+    .hero {
+      padding: 80px 0 40px;
+      background: var(--blanc);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-family: 'Amiri', serif;
+      font-size: 18px;
+      color: var(--safran);
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-title span { color: var(--indigo); }
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-sec);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: white;
+      padding: 14px 32px;
+      border-radius: var(--r-xl);
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(224,96,80,0.3);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-sec);
+      padding: 14px 32px;
+      border-radius: var(--r-xl);
+      font-size: 16px;
+      font-weight: 500;
+      border: 2px solid rgba(0,0,0,0.12);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--indigo);
+      color: var(--indigo);
+    }
+
+    /* Zellige Mosaic — Dense 5×5 CSS grid of colored tiles */
+    .zellige-mosaic {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 10px;
+      aspect-ratio: 1;
+    }
+    .z-tile {
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: white;
+      min-height: 0;
+    }
+    .z-tile--safran { background: var(--safran); }
+    .z-tile--coral { background: var(--coral); }
+    .z-tile--menthe { background: var(--menthe); }
+    .z-tile--indigo { background: var(--indigo); }
+    .z-tile--safran-light { background: var(--safran-light); color: var(--safran); }
+    .z-tile--coral-light { background: var(--coral-light); color: var(--coral); }
+    .z-tile--menthe-light { background: var(--menthe-light); color: var(--menthe); }
+    .z-tile--indigo-light { background: var(--indigo-light); color: var(--indigo); }
+    .z-tile--big { grid-column: span 2; grid-row: span 2; border-radius: var(--r-lg); font-size: 36px; }
+    .z-tile--wide { grid-column: span 2; }
+    .z-tile--tall { grid-row: span 2; }
+
+    /* ══════════════════════════════════════════
+       FACTS STRIP — Colored chips
+    ══════════════════════════════════════════ */
+    .facts {
+      background: var(--gris-clair);
+      padding: 20px 0;
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .facts-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .fact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: var(--r-xl);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .fact-chip--safran { background: var(--safran-light); color: #8B6510; }
+    .fact-chip--coral { background: var(--coral-light); color: #A03530; }
+    .fact-chip--menthe { background: var(--menthe-light); color: #1A6B55; }
+    .fact-chip--indigo { background: var(--indigo-light); color: #2A35A0; }
+    .fact-chip i { font-size: 14px; }
+
+    /* ══════════════════════════════════════════
+       SECTION — Reusable
+    ══════════════════════════════════════════ */
+    .section {
+      padding: 96px 0;
+    }
+    .section--grey { background: var(--gris-clair); }
+    .section--dark {
+      background: var(--noir);
+      color: var(--text-inv);
+    }
+    .sec-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .sec-label--safran { color: var(--safran); }
+    .sec-label--coral { color: var(--coral); }
+    .sec-label--menthe { color: var(--menthe); }
+    .sec-label--indigo { color: var(--indigo); }
+    .sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+    .sec-subtitle {
+      font-size: 17px;
+      color: var(--text-sec);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section--dark .sec-subtitle { color: rgba(250,250,247,0.55); }
+    .sec-header { margin-bottom: 52px; }
+    .sec-header--center { text-align: center; }
+    .sec-header--center .sec-subtitle { margin: 0 auto; }
+
+    /* ══════════════════════════════════════════
+       PILLARS — Colored tile cards
+       Inspired by Mubasic's colored blocks
+    ══════════════════════════════════════════ */
+    .pillars-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .pillar {
+      border-radius: var(--r-lg);
+      padding: 40px 32px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar--recits { background: var(--indigo); }
+    .pillar--rythmes { background: var(--coral); }
+    .pillar--decouverte { background: var(--menthe); }
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .pillar h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .pillar p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+    .pillar p strong { opacity: 1; font-weight: 600; }
+
+    /* ══════════════════════════════════════════
+       MANIFESTE — Split text + bold quote
+    ══════════════════════════════════════════ */
+    .manifeste-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .manifeste-body {
+      font-size: 17px;
+      color: var(--text-sec);
+      line-height: 1.8;
+    }
+    .manifeste-body strong { color: var(--text); font-weight: 600; }
+    .manifeste-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--indigo);
+    }
+    .manifeste-cta i { transition: transform 0.2s; }
+    .manifeste-cta:hover i { transform: translateX(4px); }
+    .manifeste-quote-block {
+      background: var(--noir);
+      border-radius: var(--r-lg);
+      padding: 48px 40px;
+      color: var(--text-inv);
+      position: relative;
+    }
+    .manifeste-quote-block::before {
+      content: '\201C';
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 120px;
+      position: absolute;
+      top: -10px;
+      left: 28px;
+      color: var(--safran);
+      opacity: 0.4;
+      line-height: 1;
+    }
+    .manifeste-quote-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+    .manifeste-quote-author {
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(250,250,247,0.5);
+    }
+
+    /* ══════════════════════════════════════════
+       CATALOGUE — Tile grid
+    ══════════════════════════════════════════ */
+    .catalog-tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .c-tile {
+      background: var(--blanc);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .c-tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .c-tile-cover {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .c-tile-cover i.bg-icon {
+      font-size: 48px;
+      opacity: 0.15;
+    }
+    .c-tile-cover--recits { background: var(--indigo-light); color: var(--indigo); }
+    .c-tile-cover--rythmes { background: var(--coral-light); color: var(--coral); }
+    .c-tile-cover--decouverte { background: var(--menthe-light); color: var(--menthe); }
+    .c-tile-play {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      transition: transform 0.2s;
+    }
+    .c-tile-play:hover { transform: scale(1.1); }
+    .c-tile-body { padding: 18px 20px; }
+    .c-tile-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .c-tile-badge--recits { background: var(--indigo-light); color: var(--indigo); }
+    .c-tile-badge--rythmes { background: var(--coral-light); color: var(--coral); }
+    .c-tile-badge--decouverte { background: var(--menthe-light); color: var(--menthe); }
+    .c-tile-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .c-tile-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-ter);
+    }
+    .c-tile-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-ter);
+    }
+    .c-tile-free {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--coral);
+    }
+    .c-tile-free i { margin-right: 4px; }
+
+    /* ══════════════════════════════════════════
+       HOW IT WORKS — 3 numbered blocks
+    ══════════════════════════════════════════ */
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: 16.66%;
+      right: 16.66%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--safran), var(--coral), var(--menthe));
+      opacity: 0.3;
+    }
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    .step-num {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+    .step:nth-child(1) .step-num { background: var(--safran); }
+    .step:nth-child(2) .step-num { background: var(--coral); }
+    .step:nth-child(3) .step-num { background: var(--menthe); }
+    .step h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 14px;
+      color: var(--text-sec);
+      line-height: 1.7;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .step p strong { color: var(--text); font-weight: 600; }
+
+    /* ══════════════════════════════════════════
+       SCIENCE — Dark tiles
+    ══════════════════════════════════════════ */
+    .science-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .science-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(250,250,247,0.6);
+    }
+    .science-text strong { color: var(--text-inv); font-weight: 600; }
+    .science-cards { display: flex; flex-direction: column; gap: 16px; }
+    .sci-card {
+      background: var(--noir-doux);
+      border-radius: var(--r-md);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sci-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .sci-icon--1 { background: var(--safran-light); color: #8B6510; }
+    .sci-icon--2 { background: var(--indigo-light); color: var(--indigo); }
+    .sci-icon--3 { background: var(--coral-light); color: var(--coral); }
+    .sci-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-inv);
+      margin-bottom: 4px;
+    }
+    .sci-desc {
+      font-size: 13px;
+      color: rgba(250,250,247,0.5);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════
+       FONDATRICES — Side by side cards
+    ══════════════════════════════════════════ */
+    .founders-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .f-card {
+      background: var(--blanc);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+    }
+    .f-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .f-card:nth-child(1) .f-avatar { background: var(--indigo); }
+    .f-card:nth-child(2) .f-avatar { background: var(--coral); }
+    .f-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .f-role {
+      font-size: 13px;
+      color: var(--text-ter);
+      margin-bottom: 14px;
+    }
+    .f-quote {
+      font-size: 15px;
+      color: var(--text-sec);
+      line-height: 1.7;
+      font-style: italic;
+      padding-left: 16px;
+      border-left: 3px solid var(--safran);
+    }
+    .f-quote strong { color: var(--text); font-weight: 600; font-style: normal; }
+
+    /* ══════════════════════════════════════════
+       TESTIMONIALS — Minimal cards
+    ══════════════════════════════════════════ */
+    .testi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .t-card {
+      background: var(--blanc);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-lg);
+      padding: 28px;
+    }
+    .t-stars {
+      display: flex;
+      gap: 2px;
+      color: var(--safran);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .t-text {
+      font-size: 14px;
+      color: var(--text-sec);
+      line-height: 1.7;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .t-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: white;
+    }
+    .t-card:nth-child(1) .t-avatar { background: var(--menthe); }
+    .t-card:nth-child(2) .t-avatar { background: var(--indigo); }
+    .t-card:nth-child(3) .t-avatar { background: var(--safran); }
+    .t-name { font-weight: 600; font-size: 13px; }
+    .t-detail { font-size: 12px; color: var(--text-ter); }
+
+    /* ══════════════════════════════════════════
+       CTA — Dark with phone mockup
+    ══════════════════════════════════════════ */
+    .cta-box {
+      background: var(--noir);
+      border-radius: var(--r-xl);
+      padding: 80px;
+      margin: 0 32px;
+      color: var(--text-inv);
+    }
+    .cta-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .cta-price {
+      margin: 28px 0;
+    }
+    .cta-amount {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+    }
+    .cta-period {
+      font-size: 18px;
+      color: rgba(250,250,247,0.4);
+      margin-left: 4px;
+    }
+    .cta-list { margin-bottom: 36px; }
+    .cta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 15px;
+      color: rgba(250,250,247,0.7);
+    }
+    .cta-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(56,178,149,0.2);
+      color: var(--menthe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--safran);
+      color: var(--noir);
+      padding: 16px 36px;
+      border-radius: var(--r-xl);
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,168,56,0.35);
+    }
+
+    /* Phone mockup */
+    .phone {
+      width: 280px;
+      margin: 0 auto;
+      background: #222;
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .phone-screen {
+      background: var(--creme);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    .phone-notch {
+      width: 100px;
+      height: 24px;
+      background: #222;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto;
+    }
+    .phone-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+    .phone-logo-img {
+      height: 22px;
+      width: auto;
+    }
+    .phone-content { padding: 0 14px 16px; }
+    .phone-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--coral);
+      margin-bottom: 4px;
+    }
+    .phone-sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .phone-cards {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .phone-card {
+      flex: 0 0 110px;
+      background: var(--blanc);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .phone-card-top {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      opacity: 0.25;
+    }
+    .phone-card-top--recits { background: var(--indigo-light); color: var(--indigo); }
+    .phone-card-top--rythmes { background: var(--coral-light); color: var(--coral); }
+    .phone-card-bot { padding: 6px 8px; }
+    .phone-card-t { font-size: 10px; font-weight: 600; }
+    .phone-card-m { font-size: 9px; color: var(--text-ter); }
+    .phone-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .phone-tab {
+      flex: 1;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 9px;
+      font-weight: 600;
+      border-radius: 6px;
+      color: var(--text-ter);
+    }
+    .phone-tab--active {
+      background: var(--indigo-light);
+      color: var(--indigo);
+    }
+    .phone-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .phone-row:last-child { border: none; }
+    .phone-row-thumb {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+    .phone-row-t { font-size: 11px; font-weight: 600; }
+    .phone-row-m { font-size: 9px; color: var(--text-ter); }
+    .phone-row-play {
+      margin-left: auto;
+      font-size: 9px;
+      color: var(--text-ter);
+    }
+    .phone-tabbar {
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 12px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      background: var(--creme);
+    }
+    .phone-tabbar-item {
+      text-align: center;
+      font-size: 8px;
+      color: var(--text-ter);
+    }
+    .phone-tabbar-item--active { color: var(--indigo); }
+    .phone-tabbar-item i {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER — Dark, minimal
+    ══════════════════════════════════════════ */
+    .footer {
+      background: var(--noir);
+      color: rgba(250,250,247,0.5);
+      padding: 56px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-logo-img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 10px;
+    }
+    .footer-desc { font-size: 14px; line-height: 1.6; }
+    .footer-col-title {
+      font-weight: 600;
+      font-size: 13px;
+      color: rgba(250,250,247,0.8);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      padding: 3px 0;
+      color: rgba(250,250,247,0.4);
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: rgba(250,250,247,0.9); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid rgba(250,250,247,0.06);
+      font-size: 12px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(250,250,247,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: rgba(250,250,247,0.4);
+      transition: all 0.2s;
+    }
+    .footer-social a:hover {
+      background: rgba(66,85,212,0.2);
+      color: var(--indigo);
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 48px; }
+      .hero-grid,
+      .manifeste-split,
+      .science-split,
+      .cta-inner,
+      .founders-row { grid-template-columns: 1fr; gap: 40px; }
+      .catalog-tiles,
+      .testi-row { grid-template-columns: repeat(2, 1fr); }
+      .zellige-mosaic { max-width: 400px; margin: 0 auto; }
+      .cta-box { padding: 60px 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-title { font-size: 36px; letter-spacing: -1px; }
+      .sec-title { font-size: 30px; }
+      .section { padding: 64px 0; }
+      .container { padding: 0 20px; }
+      .nav-links { display: none; }
+      .pillars-row,
+      .steps-row,
+      .catalog-tiles,
+      .testi-row { grid-template-columns: 1fr; }
+      .steps-row::before { display: none; }
+      .cta-box { margin: 0; border-radius: 0; padding: 48px 24px; }
+      .phone { width: 240px; }
+      .cta-amount { font-size: 40px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* ══════════════════════════════════════════
+       PRINT
+    ══════════════════════════════════════════ */
+    @media print {
+      body { background: white; color: #111; font-size: 12px; }
+      .nav, .phone, .footer-social { display: none; }
+      .section, .section--dark { padding: 32px 0; page-break-inside: avoid; background: white; color: #111; }
+      .cta-box { background: #f5f5f5; color: #111; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <img src="assets/logo_nooba_no_bg_bo_title.png" alt="NOOBA" class="nav-brand-img">
+      </a>
+      <div class="nav-links">
+        <a href="#manifeste" class="nav-link">Notre mission</a>
+        <a href="#catalogue" class="nav-link">Catalogue</a>
+        <a href="#science" class="nav-link">La science</a>
+        <a href="#fondatrices" class="nav-link">Qui sommes-nous</a>
+        <a href="#catalogue" class="nav-link nav-link--free"><i class="fa-solid fa-headphones"></i> Gratuit</a>
+        <a href="#" class="nav-cta">S'abonner</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════
+       HERO — Bold, geometric, immediate
+  ════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow">بسم الله الرحمن الرحيم</p>
+          <h1 class="hero-title">Contes.<br>Berceuses.<br><span>Darija.</span></h1>
+          <p class="hero-desc">
+            <strong>Le patrimoine oral marocain</strong> dans les oreilles de vos enfants.
+            Une expérience <strong>100 % audio, sans écran</strong>, pour transmettre
+            la culture avec authenticité.
+          </p>
+          <div class="hero-btns">
+            <a href="#catalogue" class="btn-primary">
+              <i class="fa-solid fa-headphones"></i>
+              Écouter gratuitement
+            </a>
+            <a href="#comment-ca-marche" class="btn-outline">
+              Comment ça marche
+            </a>
+          </div>
+        </div>
+        <div class="zellige-mosaic">
+          <!-- Row 1 -->
+          <div class="z-tile z-tile--safran" style="grid-column:1;grid-row:1;"><i class="fa-solid fa-star"></i></div>
+          <div class="z-tile z-tile--big z-tile--indigo" style="grid-column:2/4;grid-row:1/3;"><i class="fa-solid fa-book-open"></i></div>
+          <div class="z-tile z-tile--menthe" style="grid-column:4;grid-row:1;"><i class="fa-solid fa-earth-africa"></i></div>
+          <div class="z-tile z-tile--coral-light" style="grid-column:5;grid-row:1;"></div>
+          <!-- Row 2 -->
+          <div class="z-tile z-tile--tall z-tile--menthe-light" style="grid-column:1;grid-row:2/4;"><i class="fa-solid fa-language"></i></div>
+          <div class="z-tile z-tile--safran-light" style="grid-column:4;grid-row:2;"></div>
+          <div class="z-tile z-tile--coral" style="grid-column:5;grid-row:2;"><i class="fa-solid fa-music"></i></div>
+          <!-- Row 3 -->
+          <div class="z-tile z-tile--indigo-light" style="grid-column:2;grid-row:3;"></div>
+          <div class="z-tile z-tile--big z-tile--coral" style="grid-column:3/5;grid-row:3/5;"><i class="fa-solid fa-heart"></i></div>
+          <div class="z-tile z-tile--menthe" style="grid-column:5;grid-row:3;"><i class="fa-solid fa-headphones"></i></div>
+          <!-- Row 4 -->
+          <div class="z-tile z-tile--safran" style="grid-column:1;grid-row:4;"><i class="fa-solid fa-moon"></i></div>
+          <div class="z-tile z-tile--safran-light" style="grid-column:2;grid-row:4;"></div>
+          <div class="z-tile z-tile--indigo" style="grid-column:5;grid-row:4;"></div>
+          <!-- Row 5 -->
+          <div class="z-tile z-tile--wide z-tile--menthe" style="grid-column:1/3;grid-row:5;"><i class="fa-solid fa-children"></i></div>
+          <div class="z-tile z-tile--coral-light" style="grid-column:3;grid-row:5;"></div>
+          <div class="z-tile z-tile--safran" style="grid-column:4;grid-row:5;"><i class="fa-solid fa-volume-high"></i></div>
+          <div class="z-tile z-tile--indigo-light" style="grid-column:5;grid-row:5;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FACTS STRIP
+  ════════════════════════════════════════════════════════════ -->
+  <div class="facts">
+    <div class="container">
+      <div class="facts-row">
+        <div class="fact-chip fact-chip--safran"><i class="fa-solid fa-volume-high"></i> 100% Audio</div>
+        <div class="fact-chip fact-chip--coral"><i class="fa-solid fa-child"></i> 3–12 ans</div>
+        <div class="fact-chip fact-chip--menthe"><i class="fa-solid fa-language"></i> Français / دارجة</div>
+        <div class="fact-chip fact-chip--indigo"><i class="fa-solid fa-cloud-arrow-down"></i> Mode offline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       3 PILIERS — Colored full blocks
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-header sec-header--center">
+        <div class="sec-label sec-label--safran">Trois univers</div>
+        <h2 class="sec-title">Un catalogue pour chaque moment</h2>
+        <p class="sec-subtitle">
+          Au coucher, en voiture ou en promenade — il y a toujours une histoire.
+        </p>
+      </div>
+      <div class="pillars-row">
+        <div class="pillar pillar--recits">
+          <div class="pillar-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Récits & Contes</h3>
+          <p>
+            <strong>Hdidane, Hmadou et Hmaydou, Lalla Mira</strong> — les contes qui ont
+            bercé des générations, racontés en <strong>darija et en français</strong>.
+          </p>
+        </div>
+        <div class="pillar pillar--rythmes">
+          <div class="pillar-icon"><i class="fa-solid fa-music"></i></div>
+          <h3>Rythmes & Berceuses</h3>
+          <p>
+            <strong>Nini ya Moumou, A Mama</strong> — les berceuses et comptines
+            qui endormaient des générations, retrouvées en <strong>darija</strong>.
+          </p>
+        </div>
+        <div class="pillar pillar--decouverte">
+          <div class="pillar-icon"><i class="fa-solid fa-earth-africa"></i></div>
+          <h3>Découverte & Langue</h3>
+          <p>
+            <strong>Initiation à la darija</strong>, découverte des régions et traditions.
+            L'enfant explore son héritage <strong>par les sons et les mots</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       MANIFESTE
+  ════════════════════════════════════════════════════════════ -->
+  <section id="manifeste" class="section section--grey">
+    <div class="container">
+      <div class="manifeste-split">
+        <div>
+          <div class="sec-label sec-label--coral">Notre mission</div>
+          <h2 class="sec-title">Transmettre,<br>écouter, grandir</h2>
+          <p class="manifeste-body">
+            <strong>La transmission culturelle ne se fait plus.</strong> Nos enfants grandissent
+            entre deux mondes, saturés d'écrans, loin de l'oralité qui est au cœur
+            de notre héritage arabo-musulman.<br><br>
+            <strong>NOOBA ramène les histoires, les berceuses et la darija</strong> dans leur
+            quotidien. Parce qu'une langue s'apprend par la <strong>musicalité</strong>,
+            pas par l'écran.
+          </p>
+          <a href="#" class="manifeste-cta">
+            Lire notre manifeste <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="manifeste-quote-block">
+          <p class="manifeste-quote-text">
+            J'aimerais que mes enfants entendent la darija comme moi je l'entendais
+            petite — naturellement, dans les histoires et les chansons, pas comme une leçon.
+          </p>
+          <p class="manifeste-quote-author">— Samia, maman de 2 enfants, Paris</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       CATALOGUE PREVIEW
+  ════════════════════════════════════════════════════════════ -->
+  <section id="catalogue" class="section">
+    <div class="container">
+      <div class="sec-header sec-header--center">
+        <div class="sec-label sec-label--indigo">Le catalogue</div>
+        <h2 class="sec-title">Écoutez avant de vous abonner</h2>
+        <p class="sec-subtitle">
+          Chaque contenu propose un extrait gratuit de 30 secondes.
+        </p>
+      </div>
+      <div class="catalog-tiles">
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--recits">
+            <i class="fa-solid fa-book-open bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--recits">Récits & Contes</span>
+            <div class="c-tile-title">Hmadou et Hmaydou</div>
+            <div class="c-tile-meta">
+              <span>8 min</span><span class="c-tile-dot"></span>
+              <span>Darija / Français</span><span class="c-tile-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--rythmes">
+            <i class="fa-solid fa-music bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--rythmes">Rythmes & Berceuses</span>
+            <div class="c-tile-title">A Mama, ya Mama</div>
+            <div class="c-tile-meta">
+              <span>4 min</span><span class="c-tile-dot"></span>
+              <span>Darija</span><span class="c-tile-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--recits">
+            <i class="fa-solid fa-book-open bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--recits">Récits & Contes</span>
+            <div class="c-tile-title">Hdidane et l'ogresse</div>
+            <div class="c-tile-meta">
+              <span>12 min</span><span class="c-tile-dot"></span>
+              <span>Darija / Français</span><span class="c-tile-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--decouverte">
+            <i class="fa-solid fa-earth-africa bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--decouverte">Découverte & Langue</span>
+            <div class="c-tile-title">Les couleurs du souk</div>
+            <div class="c-tile-meta">
+              <span>6 min</span><span class="c-tile-dot"></span>
+              <span>Darija / Français</span><span class="c-tile-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--recits">
+            <i class="fa-solid fa-book-open bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--recits">Récits & Contes</span>
+            <div class="c-tile-title">La légende de Lalla Mira</div>
+            <div class="c-tile-meta">
+              <span>9 min</span><span class="c-tile-dot"></span>
+              <span>Darija / Français</span><span class="c-tile-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+        <div class="c-tile">
+          <div class="c-tile-cover c-tile-cover--rythmes">
+            <i class="fa-solid fa-music bg-icon"></i>
+            <button class="c-tile-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="c-tile-body">
+            <span class="c-tile-badge c-tile-badge--rythmes">Rythmes & Berceuses</span>
+            <div class="c-tile-title">Comptines de chez Jidda</div>
+            <div class="c-tile-meta">
+              <span>5 min</span><span class="c-tile-dot"></span>
+              <span>Darija</span><span class="c-tile-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="c-tile-free"><i class="fa-solid fa-headphones"></i> Extrait gratuit</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       COMMENT ÇA MARCHE — Gradient step numbers
+  ════════════════════════════════════════════════════════════ -->
+  <section id="comment-ca-marche" class="section section--grey">
+    <div class="container">
+      <div class="sec-header sec-header--center">
+        <div class="sec-label sec-label--menthe">Simple et rapide</div>
+        <h2 class="sec-title">Comment ça marche</h2>
+        <p class="sec-subtitle">
+          En trois étapes, vos enfants écoutent les histoires du Maroc.
+        </p>
+      </div>
+      <div class="steps-row">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Abonnez-vous</h3>
+          <p>Choisissez l'abonnement annuel sur le site. <strong>Paiement sécurisé</strong> par Stripe. Accès immédiat.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Téléchargez l'app</h3>
+          <p>Disponible sur <strong>iOS et Android</strong>. Configurez les profils enfants et téléchargez du contenu <strong>offline</strong>.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Écoutez, transmettez</h3>
+          <p>En voiture, au coucher, en promenade — lancez un conte et laissez la <strong>magie de la darija</strong> faire le reste.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       LA SCIENCE DERRIÈRE — Dark section
+  ════════════════════════════════════════════════════════════ -->
+  <section id="science" class="section section--dark">
+    <div class="container">
+      <div class="science-split">
+        <div>
+          <div class="sec-label sec-label--safran">La science derrière Nooba</div>
+          <h2 class="sec-title" style="color: var(--text-inv);">Pourquoi l'audio<br>change tout</h2>
+          <p class="science-text" style="margin-top: 20px;">
+            Les recherches en neurosciences montrent que
+            <strong>l'écoute active est le premier levier d'apprentissage linguistique</strong>
+            chez l'enfant. Avant de parler, l'enfant écoute — il constitue un
+            <strong>réservoir sonore</strong> qui sera la base de sa compréhension.<br><br>
+            L'audio <strong>fait travailler l'oreille, l'imagination et la mémoire</strong> —
+            les trois piliers d'une acquisition linguistique durable.
+          </p>
+        </div>
+        <div class="science-cards">
+          <div class="sci-card">
+            <div class="sci-icon sci-icon--1"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <div class="sci-title">Réservoir sonore</div>
+              <div class="sci-desc">L'enfant absorbe les sons, les intonations et la musicalité de la darija bien avant de pouvoir la parler.</div>
+            </div>
+          </div>
+          <div class="sci-card">
+            <div class="sci-icon sci-icon--2"><i class="fa-solid fa-lightbulb"></i></div>
+            <div>
+              <div class="sci-title">Imagination stimulée</div>
+              <div class="sci-desc">Sans images imposées, l'enfant construit ses propres représentations mentales. Sa créativité se développe.</div>
+            </div>
+          </div>
+          <div class="sci-card">
+            <div class="sci-icon sci-icon--3"><i class="fa-solid fa-heart"></i></div>
+            <div>
+              <div class="sci-title">Lien affectif</div>
+              <div class="sci-desc">L'écoute partagée crée un rituel. La voix et les mélodies deviennent un pont émotionnel avec la culture d'origine.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FONDATRICES
+  ════════════════════════════════════════════════════════════ -->
+  <section id="fondatrices" class="section">
+    <div class="container">
+      <div class="sec-header sec-header--center">
+        <div class="sec-label sec-label--indigo">Qui sommes-nous</div>
+        <h2 class="sec-title">Des mères, comme vous</h2>
+        <p class="sec-subtitle">
+          NOOBA est né d'un constat partagé : nos enfants ne connaissent pas
+          les histoires et les berceuses qui ont bercé notre enfance.
+        </p>
+      </div>
+      <div class="founders-row">
+        <div class="f-card">
+          <div class="f-avatar">M</div>
+          <div class="f-name">Maha Benali</div>
+          <p class="f-role">Co-fondatrice</p>
+          <p class="f-quote">
+            Mes enfants comprennent la darija mais <strong>ne la parlent pas</strong>.
+            Je voulais un outil qui rende la transmission naturelle —
+            <strong>pas un cours de langue, une expérience de vie</strong>.
+          </p>
+        </div>
+        <div class="f-card">
+          <div class="f-avatar">B</div>
+          <div class="f-name">Boutaina Alami</div>
+          <p class="f-role">Co-fondatrice</p>
+          <p class="f-quote">
+            Ma mère me chantait A Mama tous les soirs. <strong>Mon fils de 7 ans
+            ne connaît pas cette berceuse.</strong> NOOBA est né de cette absence —
+            et de la volonté de la combler.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       TÉMOIGNAGES
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section--grey">
+    <div class="container">
+      <div class="sec-header sec-header--center">
+        <div class="sec-label sec-label--menthe">Témoignages</div>
+        <h2 class="sec-title">Ce que disent les parents</h2>
+      </div>
+      <div class="testi-row">
+        <div class="t-card">
+          <div class="t-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="t-text">
+            « Mes enfants réclament "leur histoire du Maroc" tous les soirs.
+            En trois semaines, ma fille a commencé à utiliser des mots en darija spontanément. »
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">S</div>
+            <div>
+              <p class="t-name">Samia L.</p>
+              <p class="t-detail">Maman de 2 enfants · Paris</p>
+            </div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="t-text">
+            « Enfin une application sans écran. On l'utilise en voiture,
+            et elle adore les berceuses. Je retrouve les chansons de mon enfance. »
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">Y</div>
+            <div>
+              <p class="t-name">Youssef M.</p>
+              <p class="t-detail">Papa d'une petite fille · Casablanca</p>
+            </div>
+          </div>
+        </div>
+        <div class="t-card">
+          <div class="t-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <p class="t-text">
+            « Je cherchais un moyen naturel de transmettre notre culture.
+            NOOBA fait ça — sans forcer, juste des histoires qui donnent envie. »
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">N</div>
+            <div>
+              <p class="t-name">Nadia K.</p>
+              <p class="t-detail">Maman de 3 enfants · Bruxelles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       CTA ABONNEMENT + PHONE MOCKUP
+  ════════════════════════════════════════════════════════════ -->
+  <section style="padding: 80px 0;">
+    <div class="cta-box">
+      <div class="cta-inner">
+        <div>
+          <div class="sec-label" style="color: var(--safran);">Abonnement</div>
+          <h2 class="sec-title" style="color: var(--text-inv); font-size: 38px;">
+            Offrez à vos enfants<br>un trésor culturel
+          </h2>
+          <div class="cta-price">
+            <span class="cta-amount">49,90€</span>
+            <span class="cta-period">/ an</span>
+          </div>
+          <div class="cta-list">
+            <div class="cta-item"><div class="cta-check"><i class="fa-solid fa-check"></i></div>Catalogue complet en darija et français</div>
+            <div class="cta-item"><div class="cta-check"><i class="fa-solid fa-check"></i></div>Mode offline — écoutez sans connexion</div>
+            <div class="cta-item"><div class="cta-check"><i class="fa-solid fa-check"></i></div>Nouveautés ajoutées régulièrement</div>
+            <div class="cta-item"><div class="cta-check"><i class="fa-solid fa-check"></i></div>Contenus adaptés de 3 à 12 ans</div>
+            <div class="cta-item"><div class="cta-check"><i class="fa-solid fa-check"></i></div>100% audio — zéro écran</div>
+          </div>
+          <a href="#" class="cta-btn">
+            S'abonner maintenant <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-head">
+              <img src="assets/logo_nooba_no_bg_bo_title.png" alt="NOOBA" class="phone-logo-img">
+              <i class="fa-solid fa-bell" style="color: var(--text-ter); font-size: 13px;"></i>
+            </div>
+            <div class="phone-content">
+              <p class="phone-label">Nouveautés</p>
+              <p class="phone-sec-title">Ajoutés cette semaine</p>
+              <div class="phone-cards">
+                <div class="phone-card">
+                  <div class="phone-card-top phone-card-top--rythmes"><i class="fa-solid fa-music"></i></div>
+                  <div class="phone-card-bot">
+                    <p class="phone-card-t">Comptines de Jidda</p>
+                    <p class="phone-card-m">5 min · Darija</p>
+                  </div>
+                </div>
+                <div class="phone-card">
+                  <div class="phone-card-top phone-card-top--recits"><i class="fa-solid fa-book-open"></i></div>
+                  <div class="phone-card-bot">
+                    <p class="phone-card-t">Couleurs du souk</p>
+                    <p class="phone-card-m">6 min · FR / دارجة</p>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-tabs">
+                <span class="phone-tab phone-tab--active">Récits</span>
+                <span class="phone-tab">Rythmes</span>
+                <span class="phone-tab">Découverte</span>
+              </div>
+              <div class="phone-row">
+                <div class="phone-row-thumb" style="background: var(--indigo-light); color: var(--indigo);"><i class="fa-solid fa-book-open"></i></div>
+                <div><p class="phone-row-t">Hmadou et Hmaydou</p><p class="phone-row-m">8 min · 3-5 ans</p></div>
+                <span class="phone-row-play"><i class="fa-solid fa-play"></i></span>
+              </div>
+              <div class="phone-row">
+                <div class="phone-row-thumb" style="background: var(--indigo-light); color: var(--indigo);"><i class="fa-solid fa-book-open"></i></div>
+                <div><p class="phone-row-t">Hdidane et l'ogresse</p><p class="phone-row-m">12 min · 6-8 ans</p></div>
+                <span class="phone-row-play"><i class="fa-solid fa-play"></i></span>
+              </div>
+              <div class="phone-row" style="border:none;">
+                <div class="phone-row-thumb" style="background: var(--indigo-light); color: var(--indigo);"><i class="fa-solid fa-book-open"></i></div>
+                <div><p class="phone-row-t">Le berger et le sultan</p><p class="phone-row-m">10 min · 9-12 ans</p></div>
+                <span class="phone-row-play"><i class="fa-solid fa-play"></i></span>
+              </div>
+            </div>
+            <div class="phone-tabbar">
+              <div class="phone-tabbar-item phone-tabbar-item--active"><i class="fa-solid fa-house"></i> Accueil</div>
+              <div class="phone-tabbar-item"><i class="fa-solid fa-heart"></i> Favoris</div>
+              <div class="phone-tabbar-item"><i class="fa-solid fa-arrow-down"></i> Offline</div>
+              <div class="phone-tabbar-item"><i class="fa-solid fa-user"></i> Profil</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="assets/logo_nooba_no_bg.png" alt="NOOBA" class="footer-logo-img">
+          <p class="footer-desc">
+            Raconte-moi le Maroc. Contes, berceuses et découvertes
+            en darija pour vos enfants de 3 à 12 ans.
+          </p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Découvrir</p>
+          <a href="#">Notre mission</a>
+          <a href="#">Notre manifeste</a>
+          <a href="#">Le catalogue</a>
+          <a href="#">Qui sommes-nous</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Accès</p>
+          <a href="#">S'abonner</a>
+          <a href="#">Télécharger l'app</a>
+          <a href="#">Se connecter</a>
+          <a href="#">Mon espace</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Légal</p>
+          <a href="#">Conditions générales</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NOOBA — Tous droits réservés</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

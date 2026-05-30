@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil — NOOBA Site Vitrine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAV BAR
+  ════════════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar--full">
+    <div class="container">
+      <a href="#" class="navbar-logo">N<span>OO</span>BA</a>
+
+      <!-- Desktop links (hidden on mobile) -->
+      <div class="navbar-links">
+        <a href="#manifeste" class="navbar-link">Notre mission</a>
+        <a href="#catalogue" class="navbar-link">Catalogue</a>
+        <a href="#fondatrices" class="navbar-link">Qui sommes-nous</a>
+        <a href="#temoignages" class="navbar-link">Témoignages</a>
+        <a href="03_login.html" class="navbar-link"><i class="fa-solid fa-user"></i> Se connecter</a>
+        <a href="02_subscribe.html" class="navbar-cta">S'abonner</a>
+      </div>
+
+      <!-- Mobile burger toggle (CSS-only, no JS) -->
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- Mobile menu (revealed when burger is checked) -->
+      <div class="navbar-mobile-menu">
+        <a href="#manifeste" class="navbar-mobile-link">
+          <i class="fa-solid fa-compass"></i> Notre mission
+        </a>
+        <a href="#catalogue" class="navbar-mobile-link">
+          <i class="fa-solid fa-headphones"></i> Catalogue
+        </a>
+        <a href="#fondatrices" class="navbar-mobile-link">
+          <i class="fa-solid fa-users"></i> Qui sommes-nous
+        </a>
+        <a href="#temoignages" class="navbar-mobile-link">
+          <i class="fa-solid fa-comment-dots"></i> Témoignages
+        </a>
+        <a href="03_login.html" class="navbar-mobile-link">
+          <i class="fa-solid fa-user"></i> Se connecter
+        </a>
+        <a href="02_subscribe.html" class="navbar-mobile-cta">
+          S'abonner <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-bismillah">بسم الله الرحمن الرحيم</p>
+      <h1 class="hero-title">Raconte-moi <em>le Maroc</em></h1>
+      <p class="hero-subtitle">
+        <strong>Contes, berceuses et découvertes</strong> en darija pour vos enfants.
+        Une expérience <strong>100 % audio, sans écran</strong>, pensée pour transmettre
+        la <strong>culture marocaine</strong> au quotidien.
+      </p>
+
+      <div class="hero-video">
+        <div class="hero-video-placeholder">
+          <div class="hero-video-play">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <span class="hero-video-label">Vidéo de présentation — 1 min 30</span>
+        </div>
+      </div>
+
+      <a href="#catalogue" class="hero-cta">
+        <i class="fa-solid fa-play"></i>
+        Écouter un extrait gratuit
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SOCIAL PROOF BAR
+  ════════════════════════════════════════════════════════════ -->
+  <div class="social-proof">
+    <div class="container">
+      <div class="social-proof-inner">
+        <div class="social-proof-stat">
+          <div class="social-proof-stat-number">100%</div>
+          <div class="social-proof-stat-label">Audio — zéro écran</div>
+        </div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat">
+          <div class="social-proof-stat-number">3-12 ans</div>
+          <div class="social-proof-stat-label">Contenus adaptés par âge</div>
+        </div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-stat">
+          <div class="social-proof-stat-number">FR / دارجة</div>
+          <div class="social-proof-stat-label">Bilingue français-darija</div>
+        </div>
+        <div class="social-proof-divider"></div>
+        <div class="social-proof-badges">
+          <div class="social-proof-badge">
+            <i class="fa-brands fa-apple"></i> App Store
+          </div>
+          <div class="social-proof-badge">
+            <i class="fa-brands fa-google-play"></i> Google Play
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       MANIFESTE + 3 PILIERS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="manifeste" class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Notre mission</p>
+        <h2 class="section-title">Transmettre, écouter, grandir</h2>
+      </div>
+
+      <p class="manifeste-text">
+        <strong>La transmission culturelle ne se fait plus.</strong> Nos enfants grandissent
+        saturés d'écrans, loin de l'oralité au cœur de notre héritage.<br><br>
+        <strong>NOOBA ramène les histoires, les berceuses et la darija</strong> dans leur
+        quotidien. Parce qu'une langue s'apprend par la <strong>musicalité</strong>, pas par l'écran.
+      </p>
+
+      <a href="10_manifesto.html" class="manifeste-link">
+        <span class="manifeste-link-text">Découvrir notre manifeste</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <div class="pillars-grid">
+        <!-- Pilier 1 -->
+        <div class="pillar-card pillar-card--recits">
+          <div class="pillar-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <h3 class="pillar-title">Récits & Contes</h3>
+          <p class="pillar-desc">
+            <strong>Hdidane, Mahboul</strong> — les contes et légendes qui ont bercé
+            des générations, racontés en <strong>darija et en français</strong>.
+          </p>
+        </div>
+
+        <!-- Pilier 2 -->
+        <div class="pillar-card pillar-card--rythmes">
+          <div class="pillar-icon">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <h3 class="pillar-title">Rythmes & Berceuses</h3>
+          <p class="pillar-desc">
+            <strong>Nini ya Moumou, A Jrada Malha</strong> — les berceuses et comptines
+            qui endormaient des générations retrouvées en <strong>darija</strong>.
+          </p>
+        </div>
+
+        <!-- Pilier 3 -->
+        <div class="pillar-card pillar-card--decouverte">
+          <div class="pillar-icon">
+            <i class="fa-solid fa-earth-africa"></i>
+          </div>
+          <h3 class="pillar-title">Découverte & Langue</h3>
+          <p class="pillar-desc">
+            <strong>Initiation à la darija</strong>, découverte des régions et traditions.
+            Votre enfant explore son héritage <strong>par les sons et les mots</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       APERÇU CATALOGUE
+  ════════════════════════════════════════════════════════════ -->
+  <section id="catalogue" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Le catalogue</p>
+        <h2 class="section-title">Écoutez avant de vous abonner</h2>
+        <p class="section-subtitle">
+          Découvrez un aperçu de notre catalogue. Chaque contenu propose
+          un extrait de 30 secondes — assez pour tomber sous le charme.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+
+        <!-- Carte 1 — Récits -->
+        <div class="audio-card audio-card--recits">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Récits & Contes</span>
+            <h3 class="audio-card-title">Hmadou et Hmaydou</h3>
+            <div class="audio-card-meta">
+              <span>8 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija / Français</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+        <!-- Carte 2 — Rythmes -->
+        <div class="audio-card audio-card--rythmes">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--rythmes">Rythmes & Berceuses</span>
+            <h3 class="audio-card-title">A Mama, ya Mama</h3>
+            <div class="audio-card-meta">
+              <span>4 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+        <!-- Carte 3 — Récits -->
+        <div class="audio-card audio-card--recits">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Récits & Contes</span>
+            <h3 class="audio-card-title">Hdidane et l'ogresse</h3>
+            <div class="audio-card-meta">
+              <span>12 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija / Français</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+        <!-- Carte 4 — Découverte -->
+        <div class="audio-card audio-card--decouverte">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-earth-africa"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--decouverte">Découverte & Langue</span>
+            <h3 class="audio-card-title">Les couleurs du souk</h3>
+            <div class="audio-card-meta">
+              <span>6 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija / Français</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+        <!-- Carte 5 — Récits -->
+        <div class="audio-card audio-card--recits">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--recits">Récits & Contes</span>
+            <h3 class="audio-card-title">La légende de Lalla Mira</h3>
+            <div class="audio-card-meta">
+              <span>9 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija / Français</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>6-8 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+        <!-- Carte 6 — Rythmes -->
+        <div class="audio-card audio-card--rythmes">
+          <div class="audio-card-cover">
+            <div class="audio-card-cover-pattern">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <button class="audio-card-play">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+          <div class="audio-card-body">
+            <span class="audio-card-badge audio-card-badge--rythmes">Rythmes & Berceuses</span>
+            <h3 class="audio-card-title">Comptines de chez Jidda</h3>
+            <div class="audio-card-meta">
+              <span>5 min</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>Darija</span>
+              <span class="audio-card-meta-dot"></span>
+              <span>3-5 ans</span>
+            </div>
+            <p class="audio-card-hint"><i class="fa-solid fa-headphones"></i> Extrait de 30 secondes</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       COMMENT ÇA MARCHE
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Simple et rapide</p>
+        <h2 class="section-title">Comment ça marche</h2>
+        <p class="section-subtitle">
+          En trois étapes, vos enfants écoutent les histoires du Maroc.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <a href="02_subscribe.html" class="step-card step-card--link">
+          <div class="step-card-header">
+            <div class="step-icon">
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <span class="step-number">1</span>
+          </div>
+          <h3 class="step-title">Abonnez-vous</h3>
+          <p class="step-desc">
+            Choisissez l'abonnement annuel directement sur le site.
+            <strong>Paiement sécurisé</strong> par Stripe. <strong>Accès immédiat</strong> au catalogue complet.
+          </p>
+        </a>
+
+        <a href="06_download.html" class="step-card step-card--link">
+          <div class="step-card-header">
+            <div class="step-icon">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <span class="step-number">2</span>
+          </div>
+          <h3 class="step-title">Téléchargez l'app</h3>
+          <p class="step-desc">
+            Disponible sur <strong>iOS et Android</strong>.
+            Configurez les profils de vos enfants et téléchargez
+            vos premiers contenus pour le <strong>mode offline</strong>.
+          </p>
+        </a>
+
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-icon">
+              <i class="fa-solid fa-headphones"></i>
+            </div>
+            <span class="step-number">3</span>
+          </div>
+          <h3 class="step-title">Écoutez, transmettez</h3>
+          <p class="step-desc">
+            En voiture, au coucher, en promenade — lancez un conte ou une berceuse
+            et laissez la <strong>magie de la darija</strong> faire le reste.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       QUI SOMMES-NOUS — FONDATRICES
+  ════════════════════════════════════════════════════════════ -->
+  <section id="fondatrices" class="section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Qui sommes-nous</p>
+        <h2 class="section-title">Des mères, comme vous</h2>
+        <p class="section-subtitle">
+          NOOBA est né d'un constat partagé : nos enfants ne connaissent pas
+          les histoires et les berceuses qui ont bercé notre enfance.
+        </p>
+      </div>
+
+      <div class="founders-grid">
+        <div class="founder-card">
+          <div class="founder-avatar">
+            <i class="fa-solid fa-user"></i>
+            <span class="founder-avatar-initial">M</span>
+          </div>
+          <h3 class="founder-name">Maha Benali</h3>
+          <p class="founder-role">Co-fondatrice</p>
+          <p class="founder-quote">
+            Mes enfants comprennent la darija mais <strong>ne la parlent pas</strong>.
+            Je voulais un outil qui rende la transmission naturelle —
+            <strong>pas un cours de langue, une expérience de vie</strong>.
+          </p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-avatar">
+            <i class="fa-solid fa-user"></i>
+            <span class="founder-avatar-initial">B</span>
+          </div>
+          <h3 class="founder-name">Boutaina Alami</h3>
+          <p class="founder-role">Co-fondatrice</p>
+          <p class="founder-quote">
+            Ma mère me chantait A Mama tous les soirs. <strong>Mon fils de 7 ans
+            ne connaît pas cette berceuse.</strong> NOOBA est né de cette absence —
+            et de la volonté de la combler.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       TÉMOIGNAGES PARENTS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="temoignages" class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Témoignages</p>
+        <h2 class="section-title">Ce que disent les parents</h2>
+        <p class="section-subtitle">
+          Des familles comme la vôtre ont découvert NOOBA. Voici leurs impressions.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Témoignage 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            Mes enfants réclament "leur histoire du Maroc" tous les soirs avant de dormir.
+            En trois semaines, ma fille de 5 ans a commencé à utiliser des mots en darija
+            spontanément. C'est exactement ce dont on avait besoin.
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div class="testimonial-author-info">
+              <p class="testimonial-author-name">Samia L.</p>
+              <p class="testimonial-author-detail">Maman de 2 enfants · Paris</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Témoignage 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">
+            Enfin une application qui ne met pas un écran devant les yeux de ma fille.
+            On l'utilise dans la voiture, et elle adore les berceuses. Je retrouve les chansons
+            de mon enfance — ça me touche autant qu'elle.
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Y</div>
+            <div class="testimonial-author-info">
+              <p class="testimonial-author-name">Youssef M.</p>
+              <p class="testimonial-author-detail">Papa d'une petite fille · Casablanca</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Témoignage 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <p class="testimonial-text">
+            Je cherchais depuis des années un moyen naturel de transmettre notre culture
+            à mes enfants. NOOBA fait exactement ça — sans forcer, sans leçon, juste des histoires
+            et des sons qui donnent envie d'en savoir plus sur le Maroc.
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">N</div>
+            <div class="testimonial-author-info">
+              <p class="testimonial-author-name">Nadia K.</p>
+              <p class="testimonial-author-detail">Maman de 3 enfants · Bruxelles</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       CTA ABONNEMENT
+  ════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="pricing-cta">
+        <div class="pricing-left">
+          <p class="section-label">Abonnement</p>
+          <h2 class="section-title" style="color: #FFFFFF; font-size: 36px;">
+            Offrez à vos enfants<br>un trésor culturel
+          </h2>
+          <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">
+            Un an de contes, berceuses et découvertes en darija.
+            Sans engagement, sans écran, sans limite d'écoute.
+          </p>
+          <div class="pricing-price">
+            <span class="pricing-amount">49,90€</span>
+            <span class="pricing-period">/ an</span>
+          </div>
+          <div class="pricing-benefits">
+            <div class="pricing-benefit">
+              <div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Catalogue complet en darija et français</span>
+            </div>
+            <div class="pricing-benefit">
+              <div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Mode offline — écoutez sans connexion</span>
+            </div>
+            <div class="pricing-benefit">
+              <div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Nouveautés ajoutées chaque semaine</span>
+            </div>
+            <div class="pricing-benefit">
+              <div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Contenus adaptés par âge — 3 à 12 ans</span>
+            </div>
+            <div class="pricing-benefit">
+              <div class="pricing-benefit-icon"><i class="fa-solid fa-check"></i></div>
+              <span>100% audio — zéro écran</span>
+            </div>
+          </div>
+          <a href="02_subscribe.html" class="pricing-subscribe-btn">
+            S'abonner maintenant <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- ── Phone mockup (app preview) ── -->
+        <div class="phone-mockup phone-mockup--dark">
+          <div class="phone-mockup-glare"></div>
+          <div class="phone-mockup-inner-shadow"></div>
+          <div class="phone-mockup-statusbar">
+            <span class="phone-mockup-statusbar-time">9:41</span>
+            <div class="phone-mockup-notch"></div>
+            <span class="phone-mockup-statusbar-icons">
+              <i class="fa-solid fa-signal"></i>
+              <i class="fa-solid fa-wifi"></i>
+              <i class="fa-solid fa-battery-full"></i>
+            </span>
+          </div>
+          <div class="phone-mockup-header">
+            <span class="phone-mockup-logo">N<span>OO</span>BA</span>
+            <i class="fa-solid fa-bell" style="color: var(--text-tertiary); font-size: 14px;"></i>
+          </div>
+          <div class="phone-mockup-screen">
+
+            <!-- Resume listening -->
+            <div class="phone-mockup-resume">
+              <div class="phone-mockup-resume-cover">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div class="phone-mockup-resume-info">
+                <p class="phone-mockup-resume-label">Reprendre l'écoute</p>
+                <p class="phone-mockup-resume-title">Hdidane et l'ogresse</p>
+                <div class="phone-mockup-resume-bar">
+                  <div class="phone-mockup-resume-bar-fill"></div>
+                </div>
+              </div>
+              <div class="phone-mockup-resume-play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+
+            <!-- Carousel -->
+            <p class="phone-mockup-section-label">Nouveautés</p>
+            <p class="phone-mockup-section-title">Ajoutés cette semaine</p>
+            <div class="phone-mockup-carousel">
+              <div class="phone-mockup-card">
+                <div class="phone-mockup-card-cover phone-mockup-card-cover--rythmes">
+                  <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="phone-mockup-card-body">
+                  <p class="phone-mockup-card-title">Comptines de Jidda</p>
+                  <p class="phone-mockup-card-meta">5 min · Darija</p>
+                </div>
+              </div>
+              <div class="phone-mockup-card">
+                <div class="phone-mockup-card-cover phone-mockup-card-cover--decouverte">
+                  <i class="fa-solid fa-earth-africa"></i>
+                </div>
+                <div class="phone-mockup-card-body">
+                  <p class="phone-mockup-card-title">Couleurs du souk</p>
+                  <p class="phone-mockup-card-meta">6 min · FR / دارجة</p>
+                </div>
+              </div>
+              <div class="phone-mockup-card">
+                <div class="phone-mockup-card-cover phone-mockup-card-cover--recits">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="phone-mockup-card-body">
+                  <p class="phone-mockup-card-title">Lalla Mira</p>
+                  <p class="phone-mockup-card-meta">9 min · FR / دارجة</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category tabs -->
+            <div class="phone-mockup-tabs">
+              <span class="phone-mockup-cat-tab phone-mockup-cat-tab--active">
+                <i class="fa-solid fa-book-open"></i>Récits
+              </span>
+              <span class="phone-mockup-cat-tab">
+                <i class="fa-solid fa-music"></i>Rythmes
+              </span>
+              <span class="phone-mockup-cat-tab">
+                <i class="fa-solid fa-earth-africa"></i>Découverte
+              </span>
+            </div>
+
+            <!-- Content list -->
+            <div class="phone-mockup-content-list">
+              <div class="phone-mockup-content-item">
+                <div class="phone-mockup-content-cover" style="background: var(--cat-recits-bg);">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="phone-mockup-content-text">
+                  <p class="phone-mockup-content-name">Hmadou et Hmaydou</p>
+                  <p class="phone-mockup-content-meta">8 min · 3-5 ans</p>
+                </div>
+                <div class="phone-mockup-content-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <div class="phone-mockup-content-item">
+                <div class="phone-mockup-content-cover" style="background: var(--cat-recits-bg);">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="phone-mockup-content-text">
+                  <p class="phone-mockup-content-name">Hdidane et l'ogresse</p>
+                  <p class="phone-mockup-content-meta">12 min · 6-8 ans</p>
+                </div>
+                <div class="phone-mockup-content-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <div class="phone-mockup-content-item">
+                <div class="phone-mockup-content-cover" style="background: var(--cat-recits-bg);">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="phone-mockup-content-text">
+                  <p class="phone-mockup-content-name">Le berger et le sultan</p>
+                  <p class="phone-mockup-content-meta">10 min · 9-12 ans</p>
+                </div>
+                <div class="phone-mockup-content-play">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Tab bar -->
+          <div class="phone-mockup-tabbar">
+            <div class="phone-mockup-tab phone-mockup-tab--active">
+              <i class="fa-solid fa-house"></i>
+              <span>Accueil</span>
+            </div>
+            <div class="phone-mockup-tab">
+              <i class="fa-solid fa-heart"></i>
+              <span>Favoris</span>
+            </div>
+            <div class="phone-mockup-tab">
+              <i class="fa-solid fa-arrow-down"></i>
+              <span>Offline</span>
+            </div>
+            <div class="phone-mockup-tab">
+              <i class="fa-solid fa-user"></i>
+              <span>Profil</span>
+            </div>
+          </div>
+          <div class="phone-mockup-home-indicator"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-brand-name">N<span>OO</span>BA</p>
+          <p class="footer-brand-desc">
+            Raconte-moi le Maroc. Contes, berceuses et découvertes
+            en darija pour vos enfants de 3 à 12 ans.
+          </p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Découvrir</p>
+          <a href="#manifeste">Notre mission</a>
+          <a href="10_manifesto.html">Notre manifeste</a>
+          <a href="#catalogue">Le catalogue</a>
+          <a href="#fondatrices">Qui sommes-nous</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Accès</p>
+          <a href="02_subscribe.html">S'abonner</a>
+          <a href="06_download.html">Télécharger l'app</a>
+          <a href="03_login.html">Se connecter</a>
+          <a href="04_account.html">Mon espace</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">Légal</p>
+          <a href="#">Conditions générales</a>
+          <a href="08_privacy.html">Politique de confidentialité</a>
+          <a href="09_contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NOOBA — Tous droits réservés</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

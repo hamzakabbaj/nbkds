@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue — Écoutez avant de nous rejoindre · NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ═══ Catalogue page-specific styles ═══ */
+    .catalogue-hero {
+      background: var(--bg-peach);
+      padding: 88px 0 64px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .catalogue-hero-eyebrow {
+      font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-rose); margin-bottom: 14px;
+    }
+    .catalogue-hero-title {
+      font-family: 'Nunito', sans-serif; font-weight: 800;
+      font-size: 48px; line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .catalogue-hero-subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .catalogue-section {
+      padding: 56px 0 96px;
+      background: var(--bg);
+    }
+    @media (max-width: 768px) {
+      .catalogue-hero-title { font-size: 34px; }
+      .catalogue-hero { padding: 64px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <div class="navbar-item">
+          <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
+            <p class="navbar-hover-arabic">الوصية</p>
+            <p class="navbar-hover-title">Notre engagement</p>
+            <p class="navbar-hover-desc">Honorer le passé, éclairer leur avenir. Notre responsabilité de passeurs : traduire l'invisible et tisser le fil fragile de la transmission.</p>
+          </div></div>
+        </div>
+        <div class="navbar-item">
+          <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
+          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
+            <p class="navbar-hover-arabic">الأمانة</p>
+            <p class="navbar-hover-title">Notre sélection</p>
+            <p class="navbar-hover-desc">Le trésor que nous portons en commun — nos valeurs ancestrales et notre savoir-être : Niyya, l'art du « Nous », la baraka des anciens et la noblesse du partage.</p>
+          </div></div>
+        </div>
+        <div class="navbar-item">
+          <a href="04_nooba.html" class="navbar-link">Nooba</a>
+          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
+            <p class="navbar-hover-arabic">نوبة</p>
+            <p class="navbar-hover-title">Notre offre</p>
+            <p class="navbar-hover-desc">Les fréquences sonores du Maroc. Comment nos histoires audio, berceuses et contes en français-darija participent à la transmission aux enfants de 1 à 12 ans.</p>
+          </div></div>
+        </div>
+        <div class="navbar-item">
+          <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
+          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
+            <p class="navbar-hover-arabic">الأصل</p>
+            <p class="navbar-hover-title">Les initiatrices</p>
+            <p class="navbar-hover-desc">Deux mamans, deux parcours, une même niyya. Maha et Boutaïna partagent leur histoire entre France, Londres et Maroc.</p>
+          </div></div>
+        </div>
+        <div class="navbar-item">
+          <a href="06_marhba.html" class="navbar-link">Marhba</a>
+          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
+            <p class="navbar-hover-arabic">مرحبا</p>
+            <p class="navbar-hover-title">Nous contacter</p>
+            <p class="navbar-hover-desc">Nous sommes tout ouïe. Écrivez-nous : retours, questions, suggestions ou partenariats. Nous vous répondrons avec le sourire et la douceur du miel.</p>
+          </div></div>
+        </div>
+        <a href="08_subscribe.html" class="navbar-cta">S'abonner</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="08_subscribe.html" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="catalogue-hero">
+    <div class="container">
+      <p class="catalogue-hero-eyebrow">Aperçu des catégories par univers</p>
+      <h1 class="catalogue-hero-title">Écoutez avant de nous rejoindre</h1>
+      <p class="catalogue-hero-subtitle">Un avant-goût de tout le contenu disponible sur l'application Nooba.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CATALOGUE ═══ -->
+  <section id="catalogue" class="catalogue-section">
+    <div class="container">
+      <!-- Univers tabs -->
+      <div class="catalog-filters">
+        <button class="catalog-filter catalog-filter--active" onclick="switchUnivers(0, this)">Le Jardin des Sens · 1-6 ans</button>
+        <button class="catalog-filter" onclick="switchUnivers(1, this)">La Caravane des Contes · 6-9 ans</button>
+        <button class="catalog-filter catalog-filter--soon" onclick="switchUnivers(2, this)">Le Cercle des Sages · 9-12 ans<span class="catalog-filter-badge">À venir</span></button>
+      </div>
+
+      <!-- Univers 1: Le Jardin des Sens -->
+      <div id="jardin-des-sens" class="univers-panel univers-panel--active" data-univers="0">
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les animaux du souk</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les couleurs de ma maison</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hmadou et Hmaydou</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le petit hérisson du Rif</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>A Mama, ya Mama</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Comptines de chez Jidda</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Berceuse du soir</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les étoiles de Mama</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Univers 2: La Caravane des Contes -->
+      <div id="caravane-des-contes" class="univers-panel" data-univers="1">
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les métiers de la médina</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Un jour au hammam</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hdidane et l'ogresse</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>La légende de Lalla Mira</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les rythmes gnawa</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Danse de l'Atlas</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le sage de Chefchaouen</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Respire avec le vent</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Univers 3: Le Cercle des Sages -->
+      <div id="cercle-des-sages" class="univers-panel univers-panel--soon" data-univers="2">
+        <div class="univers-soon-banner">
+          <span class="univers-soon-tag">À venir</span>
+          <p>Cet univers est en préparation et n'est pas encore disponible. Voici un aperçu des piliers que vous y retrouverez bientôt.</p>
+        </div>
+        <div class="pilier-grid">
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
+              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
+              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les routes du commerce</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Marrakech d'hier et d'aujourd'hui</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Histoires et légendes</h3>
+              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
+              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Tariq Ibn Ziyad</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les mystères de Volubilis</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">L'âme musicale</h3>
+              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
+              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>L'art du malhoun</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Nass El Ghiwane, l'esprit rebelle</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pilier-card">
+            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
+            <div class="pilier-body">
+              <h3 class="pilier-title">Sagesse et sérénité</h3>
+              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
+              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
+              <div class="pilier-extraits">
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Proverbes de nos grands-parents</span><span class="pilier-duration">0:30</span></div>
+                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Méditation du désert</span><span class="pilier-duration">0:30</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  /* Univers tab switching */
+  function switchUnivers(index, btn) {
+    document.querySelectorAll('.univers-panel').forEach(p => p.classList.remove('univers-panel--active'));
+    document.querySelectorAll('.catalog-filter').forEach(b => b.classList.remove('catalog-filter--active'));
+    document.querySelector('[data-univers="' + index + '"]').classList.add('univers-panel--active');
+    if (btn) btn.classList.add('catalog-filter--active');
+  }
+
+  /* On page load, read URL hash and activate matching tab */
+  (function() {
+    const hashMap = {
+      'jardin-des-sens': 0,
+      'caravane-des-contes': 1,
+      'cercle-des-sages': 2
+    };
+    const hash = window.location.hash.slice(1);
+    if (hash && hashMap.hasOwnProperty(hash)) {
+      const index = hashMap[hash];
+      const filters = document.querySelectorAll('.catalog-filter');
+      switchUnivers(index, filters[index]);
+      // Scroll filters into view smoothly
+      setTimeout(() => {
+        document.querySelector('.catalog-filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+  })();
+</script>
+</body>
+</html>

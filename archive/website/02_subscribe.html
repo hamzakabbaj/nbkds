@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S'abonner — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="subscribe-page">
+
+    <!-- ════════════════════════════════════════════════════════════
+         NAV BAR (simplified)
+    ════════════════════════════════════════════════════════════ -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="01_home.html" class="navbar-logo">N<span>OO</span>BA</a>
+        <div class="navbar-links">
+          <a href="01_home.html" class="navbar-link">
+            <i class="fa-solid fa-arrow-left"></i> Retour au site
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SUBSCRIBE CONTENT — Split Layout
+    ════════════════════════════════════════════════════════════ -->
+    <main class="subscribe-content">
+      <div class="container">
+
+        <a href="01_home.html" class="back-link">
+          <i class="fa-solid fa-chevron-left"></i>
+          Retour à l'accueil
+        </a>
+
+        <div class="subscribe-grid">
+
+          <!-- ── LEFT: Résumé de l'offre ── -->
+          <div class="subscribe-summary">
+            <h1 class="subscribe-summary-title">Votre abonnement NOOBA</h1>
+            <p class="subscribe-summary-subtitle">
+              Un an de contes, berceuses et découvertes en darija.
+              Accès immédiat au catalogue complet pour toute la famille.
+            </p>
+
+            <div class="subscribe-price-block">
+              <span class="subscribe-price">49,90€</span>
+              <span class="subscribe-price-period">/ an — soit 4,16€ / mois</span>
+            </div>
+
+            <div class="subscribe-benefits">
+              <div class="subscribe-benefit">
+                <div class="subscribe-benefit-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Catalogue complet en darija et français</span>
+              </div>
+              <div class="subscribe-benefit">
+                <div class="subscribe-benefit-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Mode offline — écoutez sans connexion internet</span>
+              </div>
+              <div class="subscribe-benefit">
+                <div class="subscribe-benefit-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Nouveaux contenus ajoutés chaque semaine</span>
+              </div>
+              <div class="subscribe-benefit">
+                <div class="subscribe-benefit-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Contenus adaptés de 3 à 12 ans</span>
+              </div>
+              <div class="subscribe-benefit">
+                <div class="subscribe-benefit-check">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Application mobile iOS & Android incluse</span>
+              </div>
+            </div>
+
+            <!-- FAQ rapide -->
+            <div class="subscribe-faq">
+              <h3 class="subscribe-faq-title">Questions fréquentes</h3>
+
+              <div class="subscribe-faq-item">
+                <p class="subscribe-faq-q">Puis-je annuler mon abonnement ?</p>
+                <p class="subscribe-faq-a">
+                  Oui, à tout moment depuis votre <a href="04_account.html" style="color: var(--accent); font-weight: 500;">espace abonné</a>. Vous conservez
+                  l'accès jusqu'à la fin de la période payée.
+                </p>
+              </div>
+
+              <div class="subscribe-faq-item">
+                <p class="subscribe-faq-q">Sur quels appareils fonctionne NOOBA ?</p>
+                <p class="subscribe-faq-a">
+                  L'application est disponible sur iPhone (iOS 15+) et Android (8+).
+                  Un seul abonnement pour toute la famille.
+                </p>
+              </div>
+
+              <div class="subscribe-faq-item">
+                <p class="subscribe-faq-q">Le paiement est-il sécurisé ?</p>
+                <p class="subscribe-faq-a">
+                  Absolument. Le paiement est traité par Stripe, le leader mondial
+                  du paiement en ligne. Vos données bancaires ne transitent jamais par nos serveurs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── RIGHT: Formulaire Stripe ── -->
+          <div class="stripe-panel">
+            <h2 class="stripe-panel-title">Informations de paiement</h2>
+
+            <!-- Trust bar -->
+            <div class="stripe-trust-bar">
+              <span><i class="fa-brands fa-stripe"></i> Stripe</span>
+              <span><i class="fa-solid fa-lock"></i> SSL 256-bit</span>
+              <span><i class="fa-solid fa-shield-halved"></i> Sécurisé</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Adresse email</label>
+              <input type="email" id="email" class="form-input" placeholder="votre@email.com" value="samia.elmasri@gmail.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="name">Nom complet</label>
+              <input type="text" id="name" class="form-input" placeholder="Prénom Nom" value="Samia El Masri">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Numéro de carte</label>
+              <div class="stripe-card-mock">
+                <span>4242 4242 4242 4242</span>
+                <div class="stripe-card-icons">
+                  <span class="stripe-card-icon"><i class="fa-brands fa-cc-visa fa-card-brand"></i></span>
+                  <span class="stripe-card-icon"><i class="fa-brands fa-cc-mastercard fa-card-brand"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="expiry">Date d'expiration</label>
+                <input type="text" id="expiry" class="form-input" placeholder="MM / AA" value="09 / 28">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cvc">CVC</label>
+                <input type="text" id="cvc" class="form-input" placeholder="123" value="•••">
+              </div>
+            </div>
+
+            <a href="05_confirmation.html" class="stripe-pay-btn">
+              <i class="fa-solid fa-lock"></i> Payer 49,90€ — Accès immédiat
+            </a>
+
+            <div class="stripe-security">
+              <i class="fa-solid fa-shield-halved"></i>
+              Paiement sécurisé par Stripe — Vos données sont chiffrées
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-name">N<span>OO</span>BA</p>
+            <p class="footer-brand-desc">
+              Raconte-moi le Maroc. Contes, berceuses et découvertes
+              en darija pour vos enfants de 3 à 12 ans.
+            </p>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Découvrir</p>
+            <a href="01_home.html#manifeste">Notre mission</a>
+            <a href="01_home.html#catalogue">Le catalogue</a>
+            <a href="01_home.html#fondatrices">Qui sommes-nous</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Accès</p>
+            <a href="02_subscribe.html">S'abonner</a>
+            <a href="06_download.html">Télécharger l'app</a>
+            <a href="03_login.html">Se connecter</a>
+            <a href="04_account.html">Mon espace</a>
+          </div>
+          <div class="footer-col">
+            <p class="footer-col-title">Légal</p>
+            <a href="#">Conditions générales</a>
+            <a href="08_privacy.html">Politique de confidentialité</a>
+            <a href="09_contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 NOOBA — Tous droits réservés</span>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

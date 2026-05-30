@@ -59,13 +59,13 @@
       /* ── Cards Grid ── */
       .cards {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
-        max-width: 960px;
+        max-width: 1080px;
         width: 100%;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 900px) {
         .cards {
           grid-template-columns: 1fr;
           max-width: 400px;
@@ -346,13 +346,13 @@
           téléchargements, profils enfants et onboarding.
         </p>
         <div class="card-meta">
-          <span class="card-count"><strong>22</strong> écrans</span>
+          <span class="card-count"><strong>26</strong> écrans</span>
           <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </a>
 
       <!-- Website -->
-      <a href="website/01_home.html" class="card">
+      <a href="website-vitrine/01_home.html" class="card">
         <div class="card-icon card-icon--website">
           <i class="fa-solid fa-globe"></i>
         </div>
@@ -362,13 +362,13 @@
           Stripe, manifeste, FAQ et pages légales.
         </p>
         <div class="card-meta">
-          <span class="card-count"><strong>10</strong> pages</span>
+          <span class="card-count"><strong>13</strong> pages</span>
           <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </a>
 
       <!-- Admin -->
-      <a href="admin/01_login.html" class="card">
+      <a href="admin-dashboard/01_login.html" class="card">
         <div class="card-icon card-icon--admin">
           <i class="fa-solid fa-shield-halved"></i>
         </div>
@@ -378,102 +378,10 @@
           statistiques, paramètres et états système.
         </p>
         <div class="card-meta">
-          <span class="card-count"><strong>13</strong> écrans</span>
+          <span class="card-count"><strong>14</strong> écrans</span>
           <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
         </div>
       </a>
-
-      <!-- Styled Mockups -->
-      <div
-        class="card"
-        onclick="document.getElementById('mockupModal').classList.add('active')"
-        style="cursor: pointer"
-      >
-        <div class="card-icon card-icon--mockup">
-          <i class="fa-solid fa-palette"></i>
-        </div>
-        <h2 class="card-title">Maquettes Stylisées</h2>
-        <p class="card-desc">
-          Explorations graphiques du site vitrine. Direction « Doux &
-          Minimaliste » — tons chauds, typographie douce et mise en page épurée.
-        </p>
-        <div class="card-meta">
-          <span class="card-count"><strong>6</strong> variantes</span>
-          <div class="card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mockups Modal -->
-    <div
-      class="modal-overlay"
-      id="mockupModal"
-      onclick="if (event.target === this) this.classList.remove('active');"
-    >
-      <div class="modal">
-        <div class="modal-header">
-          <h3 class="modal-title">Maquettes Stylisées</h3>
-          <button
-            class="modal-close"
-            onclick="
-              document.getElementById('mockupModal').classList.remove('active')
-            "
-          >
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="modal-list">
-          <a
-            href="website-mockups/01_home-terre-oralite.html"
-            class="modal-item"
-          >
-            <span class="modal-item-number">01</span>
-            <span class="modal-item-label">Terre & Oralité</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-          <a
-            href="website-mockups/02_home-zellige-contemporain.html"
-            class="modal-item"
-          >
-            <span class="modal-item-number">02</span>
-            <span class="modal-item-label">Zellige Contemporain</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-          <a
-            href="website-mockups/03_home-doux-minimaliste.html"
-            class="modal-item"
-          >
-            <span class="modal-item-number">03</span>
-            <span class="modal-item-label">Doux & Minimaliste</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-          <a
-            href="website-mockups/04_home-terre-oralite-v1.html"
-            class="modal-item"
-          >
-            <span class="modal-item-number">04</span>
-            <span class="modal-item-label">Terre & Oralité — v1</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-          <a
-            href="website-mockups/05_home-zellige-contemporain-v1.html"
-            class="modal-item"
-          >
-            <span class="modal-item-number">05</span>
-            <span class="modal-item-label">Zellige Contemporain — v1</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-          <a
-            href="website-mockups/07_home-doux-minimaliste-v2.html"
-            class="modal-item modal-item--chosen"
-          >
-            <span class="modal-item-number">06</span>
-            <span class="modal-item-label">Doux & Minimaliste — v1</span>
-            <span class="modal-item-badge">Retenue</span>
-            <i class="fa-solid fa-arrow-right modal-item-arrow"></i>
-          </a>
-        </div>
-      </div>
     </div>
   </body>
 </html>

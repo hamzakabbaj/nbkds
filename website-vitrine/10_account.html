@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon espace — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --acct-accent: #007BA8;
+      --acct-accent-light: #E4ECF3;
+      --acct-accent-dark: #005E80;
+      --acct-success: #2A9D8F;
+      --acct-danger: #BF0018;
+    }
+
+    .acct-section { padding: 40px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .acct-container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    .acct-header { display: flex; align-items: center; gap: 20px; padding: 28px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--acct-accent); margin-bottom: 32px; }
+    .acct-avatar { flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: var(--acct-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 30px; }
+    .acct-header-info { flex: 1; }
+    .acct-header-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); margin: 0 0 4px 0; }
+    .acct-header-email { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); margin: 0 0 8px 0; }
+    .acct-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-full); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(42,157,143,0.12); color: var(--acct-success); }
+    .acct-badge i { font-size: 10px; }
+
+    /* Sections */
+    .acct-block { margin-bottom: 32px; }
+    .acct-block-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .acct-block-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0; display: flex; align-items: center; gap: 10px; }
+    .acct-block-title i { color: var(--acct-accent); font-size: 16px; }
+
+    .acct-card { background: #fff; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+
+    /* Subscription */
+    .acct-sub-plan { padding-bottom: 18px; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+    .acct-sub-plan-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+    .acct-sub-plan-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0; }
+    .acct-sub-plan-price { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--acct-accent); }
+    .acct-sub-plan-desc { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 6px 0 0; }
+    .acct-detail-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: 'Inter', sans-serif; font-size: 14px; }
+    .acct-detail-label { color: var(--text-secondary); }
+    .acct-detail-value { color: var(--text); font-weight: 500; }
+    .acct-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+    .acct-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: var(--radius-full); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s, border-color 0.2s; border: none; text-decoration: none; }
+    .acct-btn--primary { background: var(--acct-accent); color: #fff; }
+    .acct-btn--primary:hover { background: var(--acct-accent-dark); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,123,168,0.22); }
+    .acct-btn--outline { background: #fff; color: var(--acct-accent); border: 1.5px solid var(--acct-accent); }
+    .acct-btn--outline:hover { background: var(--acct-accent-light); }
+    .acct-btn--danger { background: #fff; color: var(--acct-danger); border: 1.5px solid var(--acct-danger); }
+    .acct-btn--danger:hover { background: rgba(191,0,24,0.06); }
+    .acct-btn--ghost { background: transparent; color: var(--text-secondary); border: 1.5px solid var(--border); }
+    .acct-btn--ghost:hover { color: var(--text); border-color: var(--text-secondary); }
+    .acct-btn--sm { padding: 7px 14px; font-size: 12px; }
+
+    /* Children */
+    .acct-children { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .acct-child { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--acct-accent-light); border-radius: var(--radius-sm); position: relative; }
+    .acct-child-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; color: #fff; flex-shrink: 0; }
+    .acct-child-avatar--boy { background: #4A7FA8; }
+    .acct-child-avatar--girl { background: #E3998C; }
+    .acct-child-info { flex: 1; }
+    .acct-child-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin: 0 0 2px 0; }
+    .acct-child-age { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-secondary); margin: 0; }
+    .acct-child-edit { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 6px; font-size: 13px; transition: color 0.2s; }
+    .acct-child-edit:hover { color: var(--acct-accent); }
+
+    /* Form */
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-label { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; color: var(--text); }
+    .form-input { font-family: 'Inter', sans-serif; font-size: 14px; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; box-sizing: border-box; }
+    .form-input:focus { border-color: var(--acct-accent); box-shadow: 0 0 0 3px rgba(0,123,168,0.12); }
+    .form-input:disabled { background: #F5F7FA; color: var(--text-secondary); cursor: not-allowed; }
+    .form-input-row { display: flex; gap: 10px; align-items: center; }
+    .form-input-row .form-input { flex: 1; }
+
+    /* Invoice */
+    .acct-invoice { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .acct-invoice:last-child { border-bottom: none; }
+    .acct-invoice-info { display: flex; flex-direction: column; }
+    .acct-invoice-date { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
+    .acct-invoice-desc { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+    .acct-invoice-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .acct-invoice-amount { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
+    .acct-invoice-status { display: inline-flex; align-items: center; gap: 4px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--acct-success); }
+    .acct-invoice-link { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--acct-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .acct-invoice-link:hover { color: var(--acct-accent-dark); text-decoration: underline; }
+
+    .acct-logout { text-align: center; margin-top: 24px; }
+
+    @media (max-width: 720px) {
+      .acct-header { flex-direction: column; text-align: center; }
+      .acct-children { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <div class="navbar-item"><a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a></div>
+        <div class="navbar-item"><a href="02_al_amana.html" class="navbar-link">Al Amana</a></div>
+        <div class="navbar-item"><a href="04_nooba.html" class="navbar-link">Nooba</a></div>
+        <div class="navbar-item"><a href="05_al_assel.html" class="navbar-link">Al Assal</a></div>
+        <div class="navbar-item"><a href="06_marhba.html" class="navbar-link">Marhba</a></div>
+        <a href="10_account.html" class="navbar-cta" style="background:var(--acct-accent);"><i class="fa-solid fa-user" style="margin-right:6px;"></i> Samia</a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
+      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
+      <div class="navbar-mobile-menu">
+        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
+        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
+        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
+        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
+        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
+        <a href="10_account.html" class="navbar-mobile-cta"><i class="fa-solid fa-user"></i> Mon espace</a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ ACCOUNT ═══ -->
+  <section class="section acct-section">
+    <div class="acct-container">
+
+      <!-- Header -->
+      <div class="acct-header">
+        <div class="acct-avatar">S</div>
+        <div class="acct-header-info">
+          <h1 class="acct-header-name">Samia El Masri</h1>
+          <p class="acct-header-email">samia.elmasri@gmail.com</p>
+          <span class="acct-badge"><i class="fa-solid fa-circle-check"></i> Abonnement actif</span>
+        </div>
+      </div>
+
+      <!-- Abonnement -->
+      <div class="acct-block">
+        <div class="acct-block-header">
+          <h2 class="acct-block-title"><i class="fa-solid fa-crown"></i> Mon abonnement</h2>
+        </div>
+        <div class="acct-card">
+          <div class="acct-sub-plan">
+            <div class="acct-sub-plan-row">
+              <h3 class="acct-sub-plan-name">Nooba — Abonnement annuel</h3>
+              <span class="acct-sub-plan-price">49,90€ / an</span>
+            </div>
+            <p class="acct-sub-plan-desc">Accès complet au catalogue — contes, berceuses et fictions sonores en darija et français.</p>
+          </div>
+          <div>
+            <div class="acct-detail-row"><span class="acct-detail-label">Date de souscription</span><span class="acct-detail-value">15 janvier 2026</span></div>
+            <div class="acct-detail-row"><span class="acct-detail-label">Prochain renouvellement</span><span class="acct-detail-value">15 janvier 2027</span></div>
+            <div class="acct-detail-row"><span class="acct-detail-label">Moyen de paiement</span><span class="acct-detail-value"><i class="fa-brands fa-cc-visa"></i> •••• 4242</span></div>
+          </div>
+          <div class="acct-actions">
+            <button class="acct-btn acct-btn--outline"><i class="fa-solid fa-credit-card"></i> Modifier le moyen de paiement</button>
+            <button class="acct-btn acct-btn--danger"><i class="fa-solid fa-xmark"></i> Annuler l'abonnement</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profils enfants -->
+      <div class="acct-block">
+        <div class="acct-block-header">
+          <h2 class="acct-block-title"><i class="fa-solid fa-children"></i> Profils enfants</h2>
+          <button class="acct-btn acct-btn--outline acct-btn--sm"><i class="fa-solid fa-plus"></i> Ajouter un enfant</button>
+        </div>
+        <div class="acct-card">
+          <div class="acct-children">
+            <div class="acct-child">
+              <div class="acct-child-avatar acct-child-avatar--boy">A</div>
+              <div class="acct-child-info">
+                <h3 class="acct-child-name">Adam</h3>
+                <p class="acct-child-age">4 ans · tranche 1-6 ans</p>
+              </div>
+              <button class="acct-child-edit" aria-label="Modifier"><i class="fa-solid fa-pen"></i></button>
+            </div>
+            <div class="acct-child">
+              <div class="acct-child-avatar acct-child-avatar--girl">L</div>
+              <div class="acct-child-info">
+                <h3 class="acct-child-name">Lina</h3>
+                <p class="acct-child-age">7 ans · tranche 6-9 ans</p>
+              </div>
+              <button class="acct-child-edit" aria-label="Modifier"><i class="fa-solid fa-pen"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infos perso -->
+      <div class="acct-block">
+        <div class="acct-block-header">
+          <h2 class="acct-block-title"><i class="fa-solid fa-user"></i> Informations personnelles</h2>
+        </div>
+        <div class="acct-card">
+          <form onsubmit="event.preventDefault();">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label" for="acct-prenom">Prénom</label><input type="text" id="acct-prenom" class="form-input" value="Samia"></div>
+              <div class="form-group"><label class="form-label" for="acct-nom">Nom</label><input type="text" id="acct-nom" class="form-input" value="El Masri"></div>
+            </div>
+            <div class="form-group"><label class="form-label" for="acct-email">Adresse email</label><input type="email" id="acct-email" class="form-input" value="samia.elmasri@gmail.com"></div>
+            <div class="form-group">
+              <label class="form-label" for="acct-pwd">Mot de passe</label>
+              <div class="form-input-row"><input type="password" id="acct-pwd" class="form-input" value="••••••••••" disabled><button class="acct-btn acct-btn--outline acct-btn--sm">Modifier</button></div>
+            </div>
+            <button type="submit" class="acct-btn acct-btn--primary" style="margin-top:6px;">Enregistrer les modifications</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Facturation -->
+      <div class="acct-block">
+        <div class="acct-block-header">
+          <h2 class="acct-block-title"><i class="fa-solid fa-receipt"></i> Historique de facturation</h2>
+        </div>
+        <div class="acct-card">
+          <div class="acct-invoice">
+            <div class="acct-invoice-info"><span class="acct-invoice-date">15 janv. 2026</span><span class="acct-invoice-desc">Abonnement annuel Nooba</span></div>
+            <div class="acct-invoice-right">
+              <span class="acct-invoice-amount">49,90€</span>
+              <span class="acct-invoice-status"><i class="fa-solid fa-circle-check"></i> Payé</span>
+              <a href="#" class="acct-invoice-link"><i class="fa-solid fa-download"></i> PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acct-logout">
+        <a href="09_login.html" class="acct-btn acct-btn--ghost"><i class="fa-solid fa-arrow-right-from-bracket"></i> Se déconnecter</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a><a href="06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const spacer = document.getElementById('nav-spacer');
+  const navTop = nav.offsetTop;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= navTop) { nav.classList.add('sticky'); spacer.style.display = 'block'; }
+    else { nav.classList.remove('sticky'); spacer.style.display = 'none'; }
+  });
+</script>
+</body>
+</html>
