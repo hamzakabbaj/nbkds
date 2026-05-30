@@ -22,9 +22,16 @@
 
     /* ═══ Asymmetric split hero: title left, quote right ═══ */
     .marhba-hero {
-      background: var(--marhba-hero-bg);
+      background: linear-gradient(135deg, #E1EFE2 0%, #CBE2CD 50%, #A6C8A8 100%);
       padding: 24px 0;
       position: relative; overflow: hidden;
+    }
+    /* Motif zellige en coin haut-droit (sombre ton sur ton — fond clair) */
+    .marhba-hero::after {
+      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
+      background: url(assets/decoration/motif.png) no-repeat top left / contain;
+      transform: scaleX(-1) rotate(-90deg);
+      opacity: 0.05;
     }
     .marhba-hero-grid {
       display: grid;

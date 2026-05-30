@@ -13,9 +13,16 @@
     /* ═══ Al Assal page-specific styles ═══ */
     /* ═══ Asymmetric split hero: title left, quote right ═══ */
     .assel-hero {
-      background: #F0D5CE;
+      background: linear-gradient(135deg, #FAE7E1 0%, #F0D5CE 50%, #E2B5A9 100%);
       padding: 24px 0;
       position: relative; overflow: hidden;
+    }
+    /* Motif zellige en coin haut-droit (sombre ton sur ton — fond clair) */
+    .assel-hero::after {
+      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
+      background: url(assets/decoration/motif.png) no-repeat top left / contain;
+      transform: scaleX(-1) rotate(-90deg);
+      opacity: 0.05;
     }
     .assel-hero-grid {
       display: grid;
@@ -155,133 +162,59 @@
       margin: 0;
     }
 
-    /* Content sections */
-    .assel-section-text {
-      max-width: 780px;
-      margin: 0 auto;
-      font-family: 'Nunito', sans-serif;
-      font-size: 17px;
-      color: var(--text-secondary);
-      line-height: 1.85;
-      text-align: center;
-    }
-    .assel-section-text p {
-      margin-bottom: 24px;
-    }
-    .assel-section-text p:last-child {
-      margin-bottom: 0;
+    /* ═══ Section "Des parcours différents…" header ═══ */
+    .assel-section-head { text-align: center; margin-bottom: 56px; }
+    .assel-section-head .assel-section-title {
+      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-size: 30px; font-weight: 700; color: var(--text); margin: 0;
     }
 
-    /* Blockquote */
-    .assel-quote {
-      font-family: 'Amiri', serif;
-      font-size: 24px;
-      font-style: italic;
-      color: var(--accent-peach);
-      line-height: 1.6;
-      max-width: 640px;
-      margin: 32px auto 0;
-      padding: 32px 40px;
-      border-left: 4px solid var(--accent-peach);
-      background: var(--bg-peach);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      text-align: left;
-    }
+    /* ═══ Mission — éditorial « Le fil » (accent pêche) ═══ */
+    :root { --acc: #E3998C; --acc-soft: rgba(227,153,140,0.16); --acc-deep: #C2705F; }
 
-    /* Heritage grid */
-    .assel-heritage-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-      max-width: 1040px;
-      margin: 0 auto;
+    .fil-section { padding: 72px 0 40px; }
+    .fil { max-width: 920px; margin: 0 auto; }
+    .fil-step { display: grid; grid-template-columns: 64px 1fr; column-gap: 34px; }
+    .fil-rail { display: flex; flex-direction: column; align-items: center; }
+    .fil-num {
+      flex: none; width: 56px; height: 56px; border-radius: 50%;
+      background: #fff; border: 2px solid var(--acc); color: var(--acc); font-size: 22px;
+      display: flex; align-items: center; justify-content: center; z-index: 1;
+      box-shadow: 0 4px 14px var(--acc-soft);
     }
-    .assel-heritage-img img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
+    .fil-line { width: 2px; flex: 1 1 auto; margin-top: 6px; background: linear-gradient(var(--acc), rgba(227,153,140,0.18)); }
+    .fil-step:last-child .fil-line { display: none; }
+
+    .fil-body { padding: 4px 0 56px; min-width: 0; }
+    .fil-title { font-family: 'Lobster Two', 'Nunito', cursive; font-size: 29px; font-weight: 700; color: var(--text); line-height: 1.22; margin: 6px 0 18px; }
+    .fil-lead { font-family: 'Nunito', sans-serif; font-size: 19px; font-weight: 700; line-height: 1.55; color: var(--text); margin: 0 0 18px; }
+    .fil-prose { font-family: 'Nunito', sans-serif; font-size: 17.5px; color: var(--text-secondary); line-height: 1.85; }
+    .fil-prose p { margin: 0 0 18px; }
+    .fil-prose p:last-child { margin-bottom: 0; }
+    .fil-prose em { font-style: italic; color: var(--acc-deep); }
+    .fil-prose strong { color: var(--text); }
+
+    .fil-pullquote {
+      font-family: 'Amiri', serif; font-style: italic; font-size: 23px; line-height: 1.55;
+      color: #6B4540; border-left: 3px solid var(--acc); padding: 2px 0 2px 24px; margin: 26px 0 0;
     }
-    /* ═══ Mission — 3-pillar manifesto ═══ */
-    .mission-lead {
-      max-width: 760px;
-      margin: 0 auto 80px;
-      text-align: center;
-      font-family: 'Nunito', sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.5;
-      color: var(--text);
+    .fil-pullquote strong { color: var(--acc); font-weight: 700; }
+
+    .fil-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: #fff; background: var(--acc); border: 2px solid var(--acc);
+      padding: 13px 34px; border-radius: var(--radius-full); transition: all 0.2s;
     }
-    .mission-lead em {
-      color: var(--accent-peach);
-      font-style: normal;
-    }
-    .mission-pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1140px;
-      margin: 0 auto;
-      align-items: stretch;
-    }
-    .mission-pillar {
-      position: relative;
-      background: #FBF0ED;
-      border-radius: var(--radius);
-      padding: 40px 32px;
-    }
-    .mission-pillar-title {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-peach);
-      margin: 0 0 14px 0;
-    }
-    .mission-pillar-standfirst {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 1.4;
-      color: var(--text);
-      margin: 0 0 20px 0;
-    }
-    .mission-pillar-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin: 0;
-      opacity: 0.85;
-    }
-    .mission-pillar-text strong {
-      color: var(--text);
-      font-weight: 600;
-      opacity: 1;
-    }
-    .mission-closing {
-      max-width: 720px;
-      margin: 88px auto 0;
-      padding-top: 48px;
-      border-top: 1px solid rgba(227, 153, 140, 0.4);
-      text-align: center;
-      font-family: 'Amiri', serif;
-      font-style: italic;
-      font-size: 22px;
-      line-height: 1.55;
-      color: #6B4540;
-    }
-    .mission-closing strong {
-      color: var(--accent-peach);
-      font-weight: normal;
-    }
+    .fil-next-link:hover { background: var(--acc-deep); border-color: var(--acc-deep); }
+
     @media (max-width: 880px) {
-      .mission-pillars { grid-template-columns: 1fr; gap: 20px; }
-      .mission-pillar { padding: 32px 28px; }
-      .mission-lead { font-size: 18px; margin-bottom: 56px; }
-      .mission-closing { font-size: 19px; margin-top: 64px; }
+      .fil-step { grid-template-columns: 44px 1fr; column-gap: 20px; }
+      .fil-num { width: 40px; height: 40px; font-size: 16px; }
+      .fil-title { font-size: 24px; }
+      .fil-lead { font-size: 17px; }
+      .fil-prose { font-size: 16.5px; }
+      .fil-pullquote { font-size: 20px; }
     }
 
     /* Next page link */
@@ -307,9 +240,8 @@
       .assel-hero-title { font-size: 32px; }
       .assel-hero-quote { font-size: 20px; }
       .founders-editorial { gap: 64px; }
-      .founder-photo-wrap { max-width: 280px; }
-      .assel-quote { font-size: 20px; padding: 24px 24px; }
-      .assel-heritage-grid { grid-template-columns: 1fr; }
+      .founder-photo-wrap { float: none; width: 100%; max-width: 320px; margin: 0 auto 20px; }
+      .founder-row--reverse .founder-photo-wrap { float: none; margin: 0 auto 20px; }
     }
   </style>
 </head>
@@ -395,29 +327,15 @@
     </div>
   </section>
 
-  <!-- ═══ FOUNDERS ═══ -->
-  <section class="section founders-section">
+  <!-- ═══ DES PARCOURS DIFFÉRENTS — les fondatrices ═══ -->
+  <section class="section founders-section" style="background:var(--bg-peach);">
     <div class="container">
+      <div class="assel-section-head">
+        <h2 class="assel-section-title">Des parcours diff&eacute;rents&hellip;</h2>
+      </div>
       <div class="founders-editorial">
 
         <div class="founder-row">
-          <div class="founder-photo-wrap">
-            <img src="assets/portraits/boutaina.jpeg" alt="Bouta&iuml;na" class="founder-photo">
-          </div>
-          <div class="founder-header">
-            <h3 class="founder-name">Bouta&iuml;na</h3>
-            <p class="founder-role">Co-fondatrice</p>
-          </div>
-          <div class="founder-bio">
-            <p>J'ai grandi en France, avec un Maroc qui tenait dans une valise de souvenirs&nbsp;: l'effervescence des vacances, les rires des cousins, l'odeur du couscous du vendredi et la m&eacute;lodie des douaas de mes grands-m&egrave;res. Mais au-del&agrave; de ces images, je me sentais parfois comme une invit&eacute;e dans ma propre culture. Sans la ma&icirc;trise de la langue, des codes profonds ou des r&eacute;f&eacute;rences culturelles, mon ancrage restait fragile.</p>
-            <p>Heureusement, adulte, j'ai pu pallier ces &laquo;&nbsp;manquements&nbsp;&raquo; en vivant au Maroc pendant une longue p&eacute;riode. Ce fut salvateur&nbsp;: pas toujours &eacute;vident, mais profond&eacute;ment b&eacute;n&eacute;fique.</p>
-            <p>Puis, en devenant maman, la question de la transmission s'est impos&eacute;e &agrave; moi&nbsp;: comment transmettre ce qu'on commence &agrave; peine &agrave; ma&icirc;triser&nbsp;? Mon inqui&eacute;tude &eacute;tait double&nbsp;: ne pas &ecirc;tre &agrave; la hauteur de ce patrimoine incroyable que je d&eacute;couvrais, et voir mes enfants rejeter leur marocanit&eacute;, la trouvant trop complexe ou moins attrayante face &agrave; une culture occidentale omnipr&eacute;sente.</p>
-            <p>Ayant exp&eacute;riment&eacute; les deux cultures, je savais ce qu'ils perdraient sans cet ancrage. Je ne pouvais pas rester les bras crois&eacute;s. Je me suis rappel&eacute; que c'est en m'appuyant sur les valeurs de mes parents et en apprivoisant la darija, &eacute;t&eacute; apr&egrave;s &eacute;t&eacute;, que j'ai commenc&eacute; &agrave; go&ucirc;ter &agrave; la richesse de notre culture (merci aux longues soir&eacute;es de cousinades, entre ronda et kent kopi&nbsp;!).</p>
-            <p>Mais au quotidien, ce lien restait un d&eacute;fi.</p>
-          </div>
-        </div>
-
-        <div class="founder-row founder-row--reverse">
           <div class="founder-photo-wrap">
             <img src="assets/portraits/maha.jpeg" alt="Maha" class="founder-photo">
           </div>
@@ -435,69 +353,68 @@
           </div>
         </div>
 
+        <div class="founder-row founder-row--reverse">
+          <div class="founder-photo-wrap">
+            <img src="assets/portraits/boutaina.jpeg" alt="Bouta&iuml;na" class="founder-photo">
+          </div>
+          <div class="founder-header">
+            <h3 class="founder-name">Bouta&iuml;na</h3>
+            <p class="founder-role">Co-fondatrice</p>
+          </div>
+          <div class="founder-bio">
+            <p>J'ai grandi en France, avec un Maroc qui tenait dans une valise de souvenirs&nbsp;: l'effervescence des vacances, les rires des cousins, l'odeur du couscous du vendredi et la m&eacute;lodie des douaas de mes grands-m&egrave;res. Mais au-del&agrave; de ces images, je me sentais parfois comme une invit&eacute;e dans ma propre culture. Sans la ma&icirc;trise de la langue, des codes profonds ou des r&eacute;f&eacute;rences culturelles, mon ancrage restait fragile.</p>
+            <p>Heureusement, adulte, j'ai pu pallier ces &laquo;&nbsp;manquements&nbsp;&raquo; en vivant au Maroc pendant une longue p&eacute;riode. Ce fut salvateur&nbsp;: pas toujours &eacute;vident, mais profond&eacute;ment b&eacute;n&eacute;fique.</p>
+            <p>Puis, en devenant maman, la question de la transmission s'est impos&eacute;e &agrave; moi&nbsp;: comment transmettre ce qu'on commence &agrave; peine &agrave; ma&icirc;triser&nbsp;? Mon inqui&eacute;tude &eacute;tait double&nbsp;: ne pas &ecirc;tre &agrave; la hauteur de ce patrimoine incroyable que je d&eacute;couvrais, et voir mes enfants rejeter leur marocanit&eacute;, la trouvant trop complexe ou moins attrayante face &agrave; une culture occidentale omnipr&eacute;sente.</p>
+            <p>Ayant exp&eacute;riment&eacute; les deux cultures, je savais ce qu'ils perdraient sans cet ancrage. Je ne pouvais pas rester les bras crois&eacute;s. Je me suis rappel&eacute; que c'est en m'appuyant sur les valeurs de mes parents et en apprivoisant la darija, &eacute;t&eacute; apr&egrave;s &eacute;t&eacute;, que j'ai commenc&eacute; &agrave; go&ucirc;ter &agrave; la richesse de notre culture (merci aux longues soir&eacute;es de cousinades, entre ronda et kent kopi&nbsp;!).</p>
+            <p>Mais au quotidien, ce lien restait un d&eacute;fi.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ LE CONSTAT D'UNE URGENCE ═══ -->
-  <section class="section" style="background:var(--bg-peach);">
+  <!-- ═══ NOTRE MISSION — éditorial « Le fil » ═══ -->
+  <section class="fil-section">
     <div class="container">
-      <div class="section-header">
-        <p class="section-label" style="color:var(--accent-peach)">Le déclic</p>
-        <h2 class="section-title">Le constat d'une urgence</h2>
-      </div>
-      <div class="assel-heritage-grid">
-        <div class="assel-section-text" style="text-align:left;">
-          <p>En tant que mamans, nous nous sommes mises en quête de contenus pertinents pour nos propres enfants. Mais la réalité nous a frappées : ce que nous trouvions était souvent médiocre. Qualité sonore décevante, graphismes datés, récits sans souffle... Rien qui ne puisse rivaliser avec les standards internationaux auxquels nos fils et filles sont habitués.</p>
-          <p>Pire encore, nous avons réalisé qu'au Maroc même, les générations se suivent mais ne s'héritent plus forcément. Notre culture s'érode, et ce phénomène est doublement violent pour nous, parents de la diaspora.</p>
-        </div>
-        <div class="assel-heritage-img">
-          <img src="assets/pages/urgence_C_sablier.png" alt="Le sablier culturel — l'urgence de la transmission">
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="fil">
 
-  <!-- ═══ NOTRE MISSION — 3 pillars manifesto ═══ -->
-  <section class="section" style="background:#F7E4DF;">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label" style="color:var(--accent-peach)">Notre mission</p>
-        <h2 class="section-title">Tisser un lien vivant avec nos racines</h2>
-      </div>
-
-      <p class="mission-lead">
-        Nooba est n&eacute; d'un r&ecirc;ve de mamans&nbsp;: celui d'offrir &agrave; nos enfants un Maroc qui leur ressemble, <em>&agrave; la fois mill&eacute;naire et r&eacute;solument moderne.</em>
-      </p>
-
-      <div class="mission-pillars">
-
-        <div class="mission-pillar">
-<p class="mission-pillar-title">Une qu&ecirc;te personnelle</p>
-          <p class="mission-pillar-standfirst">Des contenus &agrave; la hauteur de nos enfants, porteurs de notre langue et de notre culture.</p>
-          <p class="mission-pillar-text">Tout a commenc&eacute; par une qu&ecirc;te personnelle. Nous cherchions, pour nos propres enfants, des contenus capables de trouver naturellement leur place parmi leurs histoires pr&eacute;f&eacute;r&eacute;es, mais qui porteraient l'&eacute;cho de nos foyers et de notre culture. Nous r&ecirc;vions de r&eacute;cits qui ne se contentent pas de raconter le pass&eacute;, mais qui font vibrer la Darija avec la finesse et l'&eacute;clat qu'elle m&eacute;rite.</p>
+        <!-- moment 1 -->
+        <div class="fil-step">
+          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-heart"></i></div><div class="fil-line"></div></div>
+          <div class="fil-body">
+            <h2 class="fil-title">Notre Mission&nbsp;: Tisser un lien vivant avec nos racines</h2>
+            <p class="fil-lead">Nooba est n&eacute; d'un r&ecirc;ve de mamans&nbsp;: celui d'offrir &agrave; nos enfants un Maroc qui leur ressemble, &agrave; la fois mill&eacute;naire et r&eacute;solument moderne.</p>
+            <div class="fil-prose">
+              <p>Tout a commenc&eacute; par une qu&ecirc;te personnelle. Nous cherchions, pour nos propres enfants, des contenus capables de trouver naturellement leur place parmi leurs histoires pr&eacute;f&eacute;r&eacute;es, mais qui porteraient l'&eacute;cho de nos foyers et de notre culture. Nous r&ecirc;vions de r&eacute;cits qui ne se contentent pas de raconter le pass&eacute;, mais qui font vibrer la Darija avec la finesse et l'&eacute;clat qu'elle m&eacute;rite.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="mission-pillar">
-<p class="mission-pillar-title">L'exigence du beau et du vrai</p>
-          <p class="mission-pillar-standfirst">Ne pas choisir entre identit&eacute; et qualit&eacute;&nbsp;: la Darija dans son plus bel &eacute;crin.</p>
-          <p class="mission-pillar-text">Pour nous, transmettre cet h&eacute;ritage est un engagement si pr&eacute;cieux que nous avons refus&eacute; de choisir entre identit&eacute; et qualit&eacute;. Nooba est notre r&eacute;ponse &agrave; cette exigence d'excellence&nbsp;: des capsules sonores comme de petits &eacute;crins <strong>qui placent la Darija au c&oelig;ur de la transmission</strong>. Chaque mot est choisi avec soin pour captiver nos enfants et les ancrer, avec douceur, dans la beaut&eacute; de notre langue.</p>
+        <!-- moment 2 -->
+        <div class="fil-step">
+          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-gem"></i></div><div class="fil-line"></div></div>
+          <div class="fil-body">
+            <h2 class="fil-title">L'exigence du beau et du vrai</h2>
+            <div class="fil-prose">
+              <p>Pour nous, transmettre cet h&eacute;ritage est un engagement si pr&eacute;cieux que nous avons refus&eacute; de choisir entre identit&eacute; et qualit&eacute;&nbsp;: Nooba est notre r&eacute;ponse &agrave; cette exigence d'excellence. Nous avons imagin&eacute; des capsules sonores comme de petits &eacute;crins <strong>qui placent la Darija au c&oelig;ur de la transmission</strong>. Chaque mot est choisi avec soin pour captiver nos enfants et les ancrer, avec douceur, dans la beaut&eacute; de notre langue.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="mission-pillar">
-<p class="mission-pillar-title">Retrouver le fil de l'histoire</p>
-          <p class="mission-pillar-standfirst">Faire de nos enfants les h&eacute;ritiers fiers, pas de simples spectateurs.</p>
-          <p class="mission-pillar-text">Au Maroc comme au sein de la diaspora, nous sentons ce besoin vital de ne pas laisser notre culture s'effacer. &Agrave; travers une progression naturelle, la langue et le patrimoine redeviennent un jeu, un plaisir, et surtout, <strong>un socle pour l'avenir</strong>.</p>
+        <!-- moment 3 -->
+        <div class="fil-step">
+          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-book-open"></i></div><div class="fil-line"></div></div>
+          <div class="fil-body">
+            <h2 class="fil-title">Retrouver le fil de l'histoire</h2>
+            <div class="fil-prose">
+              <p>Au Maroc comme au sein de la diaspora, nous sentons ce besoin vital de ne pas laisser notre culture s'effacer. Notre mission est de faire en sorte que nos enfants ne soient pas de simples spectateurs, mais les h&eacute;ritiers fiers d'une source infinie d'inspiration. &Agrave; travers une progression naturelle, nous les accompagnons pour que la langue et le patrimoine redeviennent un jeu, un plaisir, et surtout, un socle pour l'avenir.</p>
+            </div>
+            <blockquote class="fil-pullquote">Parce que nos racines sont notre <strong>plus bel h&eacute;ritage</strong>, nous avons d&eacute;cid&eacute; de les raconter avec tout l'amour et l'exigence qu'elles m&eacute;ritent.</blockquote>
+            <a href="06_marhba.html" class="fil-next-link" style="margin-top:36px;">Découvrir Marhba <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
 
-      </div>
-
-      <p class="mission-closing">
-        Parce que nos racines sont notre <strong>plus bel h&eacute;ritage</strong>, nous avons d&eacute;cid&eacute; de les raconter avec tout l'amour et l'exigence qu'elles m&eacute;ritent.
-      </p>
-
-      <div style="text-align:center; margin-top:56px;">
-        <a href="06_marhba.html" class="assel-next-link">D&eacute;couvrir Marhba <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </section>

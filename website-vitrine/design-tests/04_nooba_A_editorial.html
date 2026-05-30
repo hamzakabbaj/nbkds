@@ -3,24 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nooba — NOOBA Wireframes</title>
+  <title>Nooba — Variante A (Éditorial « Le fil ») — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
-
+  <link rel="stylesheet" href="../styles.css">
   <style>
     /* ═══ HERO — split asymétrique (teal foncé) ═══ */
-    .nooba-hero { background: linear-gradient(135deg, #00859F 0%, #005F82 50%, #003A50 100%); color: #fff; padding: 24px 0; position: relative; overflow: hidden; }
-    /* Motif zellige en coin haut-droit (clair — fond foncé) */
-    .nooba-hero::after {
-      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
-      background: url(assets/decoration/motif.png) no-repeat top left / contain;
-      transform: scaleX(-1) rotate(-90deg);
-      filter: invert(1);
-      opacity: 0.05;
-    }
+    .nooba-hero { background: #005F82; color: #fff; padding: 24px 0; position: relative; overflow: hidden; }
     .nooba-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; position: relative; z-index: 1; }
     .nooba-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
     .nooba-hero-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 38px; letter-spacing: 1.5px; line-height: 1.1; color: #fff; margin: 0; }
@@ -89,65 +80,20 @@
   <!-- ═══ NAVBAR ═══ -->
   <nav class="navbar" id="main-nav">
     <div class="container">
-      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <a href="../01_home.html" class="navbar-logo"><img src="../assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
       <div class="navbar-links">
-        <div class="navbar-item">
-          <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
-          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الوصية</p>
-            <p class="navbar-hover-title">Notre engagement</p>
-            <p class="navbar-hover-desc">Honorer le passé, éclairer leur avenir. Notre responsabilité de passeurs : traduire l'invisible et tisser le fil fragile de la transmission.</p>
-          </div></div>
-        </div>
-        <div class="navbar-item">
-          <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
-          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الأمانة</p>
-            <p class="navbar-hover-title">Notre sélection</p>
-            <p class="navbar-hover-desc">Le trésor que nous portons en commun — nos valeurs ancestrales et notre savoir-être : Niyya, l'art du « Nous », la baraka des anciens et la noblesse du partage.</p>
-          </div></div>
-        </div>
-        <div class="navbar-item">
-          <a href="04_nooba.html" class="navbar-link navbar-link--active">Nooba</a>
-          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">نوبة</p>
-            <p class="navbar-hover-title">Notre offre</p>
-            <p class="navbar-hover-desc">Les fréquences sonores du Maroc. Comment nos histoires audio, berceuses et contes en français-darija participent à la transmission aux enfants de 1 à 12 ans.</p>
-          </div></div>
-        </div>
-        <div class="navbar-item">
-          <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
-          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الأصل</p>
-            <p class="navbar-hover-title">Les initiatrices</p>
-            <p class="navbar-hover-desc">Deux mamans, deux parcours, une même niyya. Maha et Boutaïna partagent leur histoire entre France, Londres et Maroc.</p>
-          </div></div>
-        </div>
-        <div class="navbar-item">
-          <a href="06_marhba.html" class="navbar-link">Marhba</a>
-          <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">مرحبا</p>
-            <p class="navbar-hover-title">Nous contacter</p>
-            <p class="navbar-hover-desc">Nous sommes tout ouïe. Écrivez-nous : retours, questions, suggestions ou partenariats. Nous vous répondrons avec le sourire et la douceur du miel.</p>
-          </div></div>
-        </div>
-        <a href="08_subscribe.html" class="navbar-cta">S'abonner</a>
-      </div>
-      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
-      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
-      <div class="navbar-mobile-menu">
-        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
-        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
-        <a href="04_nooba.html" class="navbar-mobile-link" style="font-weight:700;">Nooba</a>
-        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
-        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
-        <a href="08_subscribe.html" class="navbar-mobile-cta">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="../03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
+        <a href="../02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="../04_nooba.html" class="navbar-link navbar-link--active">Nooba</a>
+        <a href="../05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="../06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="../08_subscribe.html" class="navbar-cta">S'abonner</a>
       </div>
     </div>
   </nav>
-  <div id="nav-spacer" class="navbar-spacer"></div>
+  <div class="navbar-spacer" id="nav-spacer"></div>
 
-  <!-- ═══ HERO — asymmetric split: title left, quote right ═══ -->
+  <!-- ═══ HERO ═══ -->
   <section class="nooba-hero">
     <div class="container">
       <div class="nooba-hero-grid">
@@ -225,7 +171,7 @@
               <p>Chaque r&eacute;cit est un voyage o&ugrave; les enfants s'approprient leur h&eacute;ritage. Ils d&eacute;couvrent l'artisanat, vibrent avec l'humour unique de notre Darija et s'impr&egrave;gnent de la sagesse de nos proverbes pour se construire une identit&eacute; solide et fi&egrave;re.</p>
               <p class="fil-closing-line">D&eacute;sormais, c'est notre Nooba et c'est leur histoire&nbsp;!</p>
             </div>
-            <a href="05_al_assel.html" class="fil-next-link">Découvrir Al Assal <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="../05_al_assel.html" class="fil-next-link">Découvrir Al Assal <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
 
@@ -233,35 +179,18 @@
     </div>
   </section>
 
-
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer" style="position:relative; overflow:hidden;">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
-        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="03_al_wassiya.html">Al Wassiya</a><a href="02_al_amana.html">Al Amana</a><a href="04_nooba.html">Nooba</a><a href="05_al_assel.html">Al Assal</a><a href="06_marhba.html">Marhba</a></div>
-        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="08_subscribe.html">S'abonner</a><a href="14_download.html">Télécharger l'app</a><a href="09_login.html">Se connecter</a></div>
-        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="13_privacy.html">Confidentialité</a><a href="06_marhba.html">Marhba - Contact</a></div>
+        <div class="footer-brand"><img src="../assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="../03_al_wassiya.html">Al Wassiya</a><a href="../02_al_amana.html">Al Amana</a><a href="../04_nooba.html">Nooba</a><a href="../05_al_assel.html">Al Assal</a><a href="../06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="../08_subscribe.html">S'abonner</a><a href="../14_download.html">Télécharger l'app</a><a href="../09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="../13_privacy.html">Confidentialité</a><a href="../06_marhba.html">Marhba - Contact</a></div>
       </div>
       <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
     </div>
   </footer>
 
-<script>
-  // Sticky navbar: becomes fixed when scrolled past its natural position
-  const nav = document.getElementById('main-nav');
-  const spacer = document.getElementById('nav-spacer');
-  const navTop = nav.offsetTop;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY >= navTop) {
-      nav.classList.add('sticky');
-      spacer.style.display = 'block';
-    } else {
-      nav.classList.remove('sticky');
-      spacer.style.display = 'none';
-    }
-  });
-</script>
 </body>
 </html>

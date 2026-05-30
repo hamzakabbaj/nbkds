@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Wassiya — Variante C (Minimal raffiné) — NOOBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ═══ HERO — split asymétrique (commun aux 3 variantes) ═══ */
+    .wassiya-hero { background: #C4B8D6; padding: 24px 0; position: relative; overflow: hidden; }
+    .wassiya-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; position: relative; z-index: 1; }
+    .wassiya-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
+    .wassiya-hero-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.1; color: var(--text); margin: 0; }
+    .wassiya-hero-arabic { font-family: 'Amiri', serif; font-size: 42px; color: #8B7EB8; line-height: 1; opacity: 0.9; position: relative; top: 8px; }
+    .wassiya-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
+    .wassiya-hero-right { border-left: 1px solid rgba(139, 126, 184, 0.45); padding-left: 48px; position: relative; align-self: start; height: fit-content; }
+    .wassiya-hero-quote { font-family: 'Amiri', serif; font-style: italic; font-size: 22px; line-height: 1.5; color: #4A3F66; margin: 0 0 10px 0; }
+    .wassiya-hero-attribution { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #8B7EB8; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+
+    /* ═══ VARIANTE C — Minimal raffiné ═══
+       Colonne éditoriale alignée à gauche, rythme resserré,
+       filets fins entre sections, petit accent lavande. */
+    :root { --wassiya-accent: #8B7EB8; }
+
+    .section { min-height: auto; padding: 68px 0; }
+
+    .wassiya-col { max-width: 680px; margin: 0 auto; }
+    .section--rule .wassiya-col { border-top: 1px solid var(--border); padding-top: 68px; }
+
+    .wassiya-accent-rule { width: 44px; height: 3px; background: var(--wassiya-accent); border-radius: 2px; margin: 0 0 22px 0; }
+
+    .wassiya-section-title {
+      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-size: 31px; font-weight: 700; color: var(--text);
+      text-align: left; line-height: 1.2; margin: 0 0 20px 0;
+    }
+    .wassiya-prose { font-family: 'Nunito', sans-serif; font-size: 18px; color: var(--text-secondary); line-height: 1.85; text-align: left; }
+    .wassiya-prose p { margin: 0 0 22px 0; }
+    .wassiya-prose p:last-child { margin-bottom: 0; }
+    .wassiya-prose em { font-style: italic; color: #6E5FA0; }
+    .wassiya-prose strong { color: var(--text); }
+
+    .wassiya-pullquote {
+      font-family: 'Amiri', serif; font-style: italic; font-size: 23px; line-height: 1.55;
+      color: #6E5FA0; border-left: 3px solid var(--wassiya-accent); padding: 2px 0 2px 24px; margin: 26px 0 0 0;
+    }
+    .wassiya-next-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      color: var(--wassiya-accent); border: 2px solid var(--wassiya-accent);
+      padding: 12px 32px; border-radius: var(--radius-full); transition: all 0.2s; margin-top: 36px;
+    }
+    .wassiya-next-link:hover { background: var(--wassiya-accent); color: #fff; }
+
+    @media (max-width: 780px) {
+      .wassiya-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .wassiya-hero-right { border-left: none; border-top: 1px solid rgba(139,126,184,0.45); padding-left: 0; padding-top: 28px; }
+      .wassiya-hero-title { font-size: 32px; }
+      .wassiya-hero-quote { font-size: 20px; }
+      .section { padding: 52px 0; }
+      .section--rule .wassiya-col { padding-top: 52px; }
+      .wassiya-section-title { font-size: 25px; }
+      .wassiya-prose { font-size: 17px; }
+      .wassiya-pullquote { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-nav">
+    <div class="container">
+      <a href="../01_home.html" class="navbar-logo"><img src="../assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
+      <div class="navbar-links">
+        <a href="../03_al_wassiya.html" class="navbar-link navbar-link--active">Al Wassiya</a>
+        <a href="../02_al_amana.html" class="navbar-link">Al Amana</a>
+        <a href="../04_nooba.html" class="navbar-link">Nooba</a>
+        <a href="../05_al_assel.html" class="navbar-link">Al Assal</a>
+        <a href="../06_marhba.html" class="navbar-link">Marhba</a>
+        <a href="../08_subscribe.html" class="navbar-cta">S'abonner</a>
+      </div>
+    </div>
+  </nav>
+  <div class="navbar-spacer" id="nav-spacer"></div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="wassiya-hero">
+    <div class="container">
+      <div class="wassiya-hero-grid">
+        <div class="wassiya-hero-left">
+          <div class="wassiya-hero-title-row">
+            <h1 class="wassiya-hero-title">Al Wassiya</h1>
+            <span class="wassiya-hero-arabic">الوصية</span>
+          </div>
+          <p class="wassiya-hero-subtitle">Honorer le pass&eacute;, &eacute;clairer leur avenir.</p>
+        </div>
+        <div class="wassiya-hero-right">
+          <p class="wassiya-hero-quote">Nous n'h&eacute;ritons pas de la terre de nos anc&ecirc;tres, nous l'empruntons &agrave; nos enfants.</p>
+          <p class="wassiya-hero-attribution">Proverbe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §1 — L'Engagement ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="wassiya-col">
+        <div class="wassiya-accent-rule"></div>
+        <h2 class="wassiya-section-title">L'Engagement&nbsp;: Honorer le pass&eacute;, &eacute;clairer leur avenir</h2>
+        <div class="wassiya-prose">
+          <p>Cette sagesse guide chacun de nos pas. Pour nous, parents de la diaspora, notre culture n'est pas un mus&eacute;e que l'on visite par nostalgie&nbsp;; c'est un patrimoine vivant que nous portons en nous. Un h&eacute;ritage que nous avons &agrave; c&oelig;ur de transmettre, d'enrichir et de faire grandir, chaque jour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §2 — Donner les clés de l'appartenance ═══ -->
+  <section class="section section--rule">
+    <div class="container">
+      <div class="wassiya-col">
+        <div class="wassiya-accent-rule"></div>
+        <h2 class="wassiya-section-title">Donner les cl&eacute;s de l'appartenance</h2>
+        <div class="wassiya-prose">
+          <p>Au sein de Nooba, nous avons choisi de ne pas &ecirc;tre de simples h&eacute;ritiers, mais des acteurs engag&eacute;s. Il nous tient particuli&egrave;rement &agrave; c&oelig;ur d'honorer <em>Al Wassiya</em>, cet engagement tacite envers nos a&icirc;n&eacute;s, en faisant en sorte que nos enfants s'approprient &agrave; leur tour l'h&eacute;ritage marocain ici et maintenant. Nous voulons qu'ils en saisissent l'essence, bien au-del&agrave; du simple &laquo;&nbsp;folklore de vacances&nbsp;&raquo;. Notre r&ocirc;le est de leur transmettre ce qui forge r&eacute;ellement notre caract&egrave;re&nbsp;: cette &eacute;l&eacute;gance de vie, ce sens de l'autre et cette noblesse de geste qui nous d&eacute;finissent, peu importe o&ugrave; nous sommes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §3 — Faire de la transmission un enchantement ═══ -->
+  <section class="section section--rule">
+    <div class="container">
+      <div class="wassiya-col">
+        <div class="wassiya-accent-rule"></div>
+        <h2 class="wassiya-section-title">Faire de la transmission un enchantement</h2>
+        <div class="wassiya-prose">
+          <p>Cet engagement est le moteur de tout ce que vous d&eacute;couvrirez chez <strong>Nooba</strong>. Nous avons transform&eacute; notre responsabilit&eacute; de parents en une mission passionn&eacute;e&nbsp;:</p>
+        </div>
+        <blockquote class="wassiya-pullquote">&laquo;&nbsp;transmettre &agrave; la nouvelle g&eacute;n&eacute;ration une culture vibrante et joyeuse pour qu'ils marchent la t&ecirc;te haute, ancr&eacute;s et fiers.&nbsp;&raquo;</blockquote>
+        <a href="../04_nooba.html" class="wassiya-next-link">Découvrir Nooba <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" style="position:relative; overflow:hidden;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="../assets/logos/logo_Nooba_baseline.png" alt="NOOBA" style="height:54px;width:auto;margin-bottom:8px;"><p class="footer-brand-desc">Berceuses, contes, contenus riches en français et en darija pour les enfants de 12 mois à 12 ans.</p></div>
+        <div class="footer-col"><p class="footer-col-title">Découvrir</p><a href="../03_al_wassiya.html">Al Wassiya</a><a href="../02_al_amana.html">Al Amana</a><a href="../04_nooba.html">Nooba</a><a href="../05_al_assel.html">Al Assal</a><a href="../06_marhba.html">Marhba</a></div>
+        <div class="footer-col"><p class="footer-col-title">Accès</p><a href="../08_subscribe.html">S'abonner</a><a href="../14_download.html">Télécharger l'app</a><a href="../09_login.html">Se connecter</a></div>
+        <div class="footer-col"><p class="footer-col-title">Légal</p><a href="#">Conditions générales</a><a href="../13_privacy.html">Confidentialité</a><a href="../06_marhba.html">Marhba - Contact</a></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 NOOBA — Tous droits réservés</span><div class="footer-social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-tiktok"></i></a></div></div>
+    </div>
+  </footer>
+
+</body>
+</html>
