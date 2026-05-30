@@ -9,6 +9,164 @@
   <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ════════════ Hero bento — « Le Riad » (Variation B) ════════════ */
+    .bento {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+    .bento-cell {
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-img {
+      background-size: cover;
+      background-position: center;
+      background-image: url('assets/pages/hero_image.jpg');
+    }
+    .bento-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: 12px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent-teal);
+    }
+    .bento-eyebrow::before {
+      content: ''; width: 24px; height: 1.5px; background: currentColor;
+    }
+    .bento-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .bento-title em {
+      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-weight: 700; font-style: italic;
+      color: var(--accent-teal);
+      letter-spacing: 0;
+    }
+    .bento-script {
+      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-weight: 400; font-style: italic;
+      color: var(--accent-rose);
+      line-height: 1.25;
+    }
+    .bento-body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+    }
+    .bento-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 15px;
+      padding: 14px 28px;
+      background: var(--accent-rose); color: #fff;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(191,0,24,0.25);
+      transition: all 0.2s ease;
+    }
+    .bento-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(191,0,24,0.32);
+    }
+    .bento-cta i { font-size: 12px; }
+
+    .v-b {
+      display: grid;
+      grid-template-columns: 1.2fr 0.85fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 14px;
+    }
+    .v-b__title-card {
+      grid-column: 1 / span 2;
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+    }
+    .v-b__title-card .bento-eyebrow { margin-bottom: 16px; }
+    .v-b__title-card .bento-title { font-size: 56px; }
+    .v-b__img {
+      grid-column: 3;
+      grid-row: 1 / span 2;
+      min-height: 380px;
+    }
+    .v-b__quote {
+      grid-column: 1;
+      background: var(--bg-dark); color: #fff;
+      padding: 28px 30px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .v-b__quote-text {
+      font-family: 'Amiri', serif; font-style: italic; font-size: 19px;
+      line-height: 1.55; color: #fff;
+    }
+    .v-b__quote-author {
+      font-family: 'Nunito', sans-serif; font-size: 12px; color: rgba(255,255,255,0.55);
+      margin-top: 14px; letter-spacing: 0.08em;
+    }
+    .v-b__tagline {
+      grid-column: 2;
+      background: #BF0018; color: #fff;
+      padding: 28px 30px;
+      display: flex; align-items: center;
+    }
+    .v-b__tagline .bento-script {
+      color: #fff; font-size: 24px; font-weight: 700;
+    }
+    .v-b__body {
+      grid-column: 1 / span 2;
+      background: #FBF0ED;
+      padding: 30px 34px;
+      display: flex; align-items: center; gap: 28px;
+    }
+    .v-b__body .bento-body {
+      flex: 1; color: var(--text); font-size: 15px;
+    }
+    .v-b__stats {
+      grid-column: 3;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    }
+    .v-b__stat {
+      background: #FFFCF7;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .v-b__stat-icon {
+      width: 30px; height: 30px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg-teal); color: var(--accent-teal);
+      font-size: 13px; margin-bottom: 6px;
+    }
+    .v-b__stat:nth-child(2) .v-b__stat-icon { background: #FBF0ED; color: var(--accent-rose); }
+    .v-b__stat:nth-child(3) .v-b__stat-icon { background: #FFF3D6; color: var(--accent-yellow); }
+    .v-b__stat:nth-child(4) .v-b__stat-icon { background: #E8E1F0; color: #6B5E8F; }
+    .v-b__stat-num {
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 17px; color: var(--text);
+    }
+    .v-b__stat-label {
+      font-family: 'Nunito', sans-serif; font-size: 11.5px;
+      color: var(--text-secondary); letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 980px) {
+      .v-b { grid-template-columns: 1fr; }
+      .v-b__img { grid-row: auto; grid-column: auto; min-height: 320px; }
+      .v-b__stats { grid-template-columns: 1fr 1fr; }
+      .v-b__title-card, .v-b__body { grid-column: auto; }
+      .v-b__quote, .v-b__tagline { grid-column: auto; }
+      .v-b__title-card .bento-title { font-size: 38px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -72,30 +230,50 @@
     </div>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <img src="assets/decoration/zellige-arc-corner.png" alt="" class="hero-zellige-arc">
-    <div class="container">
-      <h1 class="hero-title" style="text-align:center;width:100%;margin-bottom:12px;">Raconte-moi<br><em>le Maroc</em></h1>
-      <p class="hero-tagline" style="text-align:center;width:100%;margin-bottom:48px;">Celui qui fait briller les yeux de nos enfants !</p>
-      <div class="hero-row">
-        <div class="hero-content">
-          <p style="font-size:24px;font-weight:400;font-family:'Lobster Two','Nunito',cursive;color:var(--accent-rose);margin-bottom:14px;">L'âme du Maroc, des trésors à portée de voix</p>
-          <p class="hero-subtitle">
-            De berceuses en contes, de fables en récits, offrez à vos enfants 1 200 ans d'histoires. Une immersion douce 100% audio et sans écran, pensée selon une progression naturelle pour s'imprégner de la Darija et s'enraciner avec fierté dans notre culture.<br><br>Des fils d'or pour tisser leur imaginaire, de 1 an à 12 ans.
-          </p>
-          <a href="#catalogue" class="hero-cta"><i class="fa-solid fa-play"></i> Découvrez un extrait</a>
+  <!-- ═══ HERO — Bento « Le Riad » ═══ -->
+  <section class="bento">
+    <div class="v-b">
+      <div class="bento-cell v-b__title-card">
+        <span class="bento-eyebrow">NOOBA · L'audio qui transmet</span>
+        <h1 class="bento-title" style="margin-top:20px;">Raconte-moi<br><em>le Maroc</em>.</h1>
+      </div>
+
+      <div class="bento-cell bento-img v-b__img"></div>
+
+      <div class="bento-cell v-b__quote">
+        <p class="v-b__quote-text">« Nous n'héritons pas de la terre de nos ancêtres, nous l'empruntons à nos enfants. »</p>
+        <p class="v-b__quote-author">— PROVERBE</p>
+      </div>
+
+      <div class="bento-cell v-b__tagline">
+        <p class="bento-script">1 200 ans d'histoires à portée de voix.</p>
+      </div>
+
+      <div class="bento-cell v-b__body">
+        <p class="bento-body">Contes, berceuses et fables en français/darija. Une immersion douce, sans écran, pensée selon une progression naturelle pour s'enraciner avec fierté dans notre culture.</p>
+        <a href="#catalogue" class="bento-cta" style="flex-shrink:0;"><i class="fa-solid fa-play"></i> Écouter</a>
+      </div>
+
+      <div class="v-b__stats">
+        <div class="bento-cell v-b__stat" style="padding:18px;">
+          <div class="v-b__stat-icon"><i class="fa-solid fa-headphones"></i></div>
+          <span class="v-b__stat-num">100% audio</span>
+          <span class="v-b__stat-label">Zéro écran</span>
         </div>
-        <div class="hero-characters">
-          <span class="sparkle sparkle--1"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:22px;height:22px;opacity:0.5;filter:invert(60%) sepia(50%) saturate(400%) hue-rotate(330deg) brightness(95%);"></span>
-          <span class="sparkle sparkle--2"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:16px;height:16px;opacity:0.4;filter:invert(70%) sepia(20%) saturate(300%) hue-rotate(210deg) brightness(95%);"></span>
-          <span class="sparkle sparkle--3"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:20px;height:20px;opacity:0.35;filter:invert(18%) sepia(90%) saturate(700%) hue-rotate(175deg) brightness(90%);"></span>
-          <span class="sparkle sparkle--4"><img src="https://static.thenounproject.com/png/4915039-200.png" alt="" style="width:14px;height:14px;opacity:0.5;filter:invert(55%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(105%);"></span>
-          <span class="sparkle sparkle--5"><img src="https://static.thenounproject.com/png/8082997-200.png" alt="" style="width:12px;height:12px;opacity:0.3;filter:invert(25%) sepia(80%) saturate(2000%) hue-rotate(340deg) brightness(80%);"></span>
-          <img src="assets/mascots/poufi.png" alt="Poufi le pouf" class="mascot mascot--poufi">
-          <img src="assets/mascots/njima.png" alt="Njima l'étoile" class="mascot mascot--njima">
-          <img src="assets/mascots/berrad.png" alt="Berrad la théière" class="mascot mascot--berrad">
-          <img src="assets/mascots/tajina.png" alt="Tajina le tajine" class="mascot mascot--tajina">
+        <div class="bento-cell v-b__stat" style="padding:18px;">
+          <div class="v-b__stat-icon"><i class="fa-solid fa-language"></i></div>
+          <span class="v-b__stat-num">FR · Darija</span>
+          <span class="v-b__stat-label">Bilingue naturel</span>
+        </div>
+        <div class="bento-cell v-b__stat" style="padding:18px;">
+          <div class="v-b__stat-icon"><i class="fa-solid fa-child-reaching"></i></div>
+          <span class="v-b__stat-num">12 mo → 12 ans</span>
+          <span class="v-b__stat-label">3 univers</span>
+        </div>
+        <div class="bento-cell v-b__stat" style="padding:18px;">
+          <div class="v-b__stat-icon"><i class="fa-solid fa-book-open"></i></div>
+          <span class="v-b__stat-num">+70 histoires</span>
+          <span class="v-b__stat-label">Renouvelées</span>
         </div>
       </div>
     </div>
