@@ -42,18 +42,27 @@ input { font: inherit; }
   --accent-subtle: rgba(0, 123, 168, 0.12);
   --accent-muted: rgba(0, 123, 168, 0.22);
 
-  /* ── Category colors ── */
-  --cat-recits: #C2705F;      /* terracotta/pêche profond */
+  /* ── Couleurs des 4 piliers ──
+     Correspondance suffixe de classe → pilier affiché :
+       recits     → Histoires et légendes
+       rythmes    → L'âme musicale
+       decouverte → Mon quotidien au Maroc
+       sagesse    → Sagesse et sérénité (nouveau)  */
+  --cat-recits: #C2705F;      /* Histoires et légendes — terracotta */
   --cat-recits-bg: linear-gradient(145deg, #FBEDE7 0%, #F6DED3 100%);
   --cat-recits-subtle: rgba(194, 112, 95, 0.12);
 
-  --cat-rythmes: #9A6BA8;     /* lavande-violet assombri (lisibilité) */
+  --cat-rythmes: #9A6BA8;     /* L'âme musicale — lavande-violet */
   --cat-rythmes-bg: linear-gradient(145deg, #F1ECF5 0%, #E6DBEF 100%);
   --cat-rythmes-subtle: rgba(154, 107, 168, 0.12);
 
-  --cat-decouverte: #007BA8;  /* teal/mint */
-  --cat-decouverte-bg: linear-gradient(145deg, #E4ECF3 0%, #D6E6EE 100%);
-  --cat-decouverte-subtle: rgba(0, 123, 168, 0.12);
+  --cat-decouverte: #D98A1F;  /* Mon quotidien au Maroc — or/ambre (teal réservé à l'accent global) */
+  --cat-decouverte-bg: linear-gradient(145deg, #FBF1DD 0%, #F6E6C4 100%);
+  --cat-decouverte-subtle: rgba(217, 138, 31, 0.12);
+
+  --cat-sagesse: #2A9D8F;     /* Sagesse et sérénité — sauge (Marhba) */
+  --cat-sagesse-bg: linear-gradient(145deg, #E2F0ED 0%, #CFE7E1 100%);
+  --cat-sagesse-subtle: rgba(42, 157, 143, 0.12);
 
   /* ── Semantic ── */
   --success: #2A9D8F;         /* sauge (Marhba) */
@@ -466,6 +475,7 @@ body {
 .carousel-card--recits .carousel-card-cover { background: var(--cat-recits-bg); }
 .carousel-card--rythmes .carousel-card-cover { background: var(--cat-rythmes-bg); }
 .carousel-card--decouverte .carousel-card-cover { background: var(--cat-decouverte-bg); }
+.carousel-card--sagesse .carousel-card-cover { background: var(--cat-sagesse-bg); }
 
 .carousel-card-cover i {
   font-size: 32px;
@@ -475,6 +485,7 @@ body {
 .carousel-card--recits .carousel-card-cover i { color: var(--cat-recits); }
 .carousel-card--rythmes .carousel-card-cover i { color: var(--cat-rythmes); }
 .carousel-card--decouverte .carousel-card-cover i { color: var(--cat-decouverte); }
+.carousel-card--sagesse .carousel-card-cover i { color: var(--cat-sagesse); }
 
 .carousel-card-badge {
   position: absolute;
@@ -546,6 +557,7 @@ body {
 .category-tab--active-recits { background: var(--cat-recits); border-color: var(--cat-recits); color: var(--text-inverse); }
 .category-tab--active-rythmes { background: var(--cat-rythmes); border-color: var(--cat-rythmes); color: var(--text-inverse); }
 .category-tab--active-decouverte { background: var(--cat-decouverte); border-color: var(--cat-decouverte); color: var(--text-inverse); }
+.category-tab--active-sagesse { background: var(--cat-sagesse); border-color: var(--cat-sagesse); color: var(--text-inverse); }
 
 /* ================================================================
    COMPONENT: Age Filter Chips
@@ -554,7 +566,10 @@ body {
   display: flex;
   gap: var(--space-2);
   padding: 0 var(--space-5) var(--space-4);
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.age-filter::-webkit-scrollbar { display: none; }
 
 .age-chip {
   padding: 6px var(--space-3);
@@ -565,12 +580,36 @@ body {
   background: transparent;
   border: 1px solid var(--border);
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .age-chip--active {
   background: var(--accent-subtle);
   color: var(--accent);
   border-color: var(--accent);
+}
+
+/* Univers à venir — chip désactivé « Bientôt » */
+.age-chip--soon {
+  color: var(--text-disabled);
+  border-color: var(--border);
+  background: var(--bg-hover);
+  cursor: not-allowed;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.age-chip--soon i { font-size: 10px; }
+.age-chip-soon-tag {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-inverse);
+  background: var(--text-disabled);
+  border-radius: var(--radius-full);
+  padding: 1px 6px;
 }
 
 /* ================================================================
@@ -602,6 +641,7 @@ body {
 .content-card--recits .content-card-cover { background: var(--cat-recits-bg); }
 .content-card--rythmes .content-card-cover { background: var(--cat-rythmes-bg); }
 .content-card--decouverte .content-card-cover { background: var(--cat-decouverte-bg); }
+.content-card--sagesse .content-card-cover { background: var(--cat-sagesse-bg); }
 
 .content-card-cover-icon {
   font-size: 36px;
@@ -611,6 +651,7 @@ body {
 .content-card--recits .content-card-cover-icon { color: var(--cat-recits); }
 .content-card--rythmes .content-card-cover-icon { color: var(--cat-rythmes); }
 .content-card--decouverte .content-card-cover-icon { color: var(--cat-decouverte); }
+.content-card--sagesse .content-card-cover-icon { color: var(--cat-sagesse); }
 
 .content-card-play {
   position: absolute;
@@ -718,6 +759,7 @@ body {
 .content-list-item--recits .content-list-cover { background: var(--cat-recits-bg); }
 .content-list-item--rythmes .content-list-cover { background: var(--cat-rythmes-bg); }
 .content-list-item--decouverte .content-list-cover { background: var(--cat-decouverte-bg); }
+.content-list-item--sagesse .content-list-cover { background: var(--cat-sagesse-bg); }
 
 .content-list-cover i {
   font-size: 18px;
@@ -727,6 +769,7 @@ body {
 .content-list-item--recits .content-list-cover i { color: var(--cat-recits); }
 .content-list-item--rythmes .content-list-cover i { color: var(--cat-rythmes); }
 .content-list-item--decouverte .content-list-cover i { color: var(--cat-decouverte); }
+.content-list-item--sagesse .content-list-cover i { color: var(--cat-sagesse); }
 
 .content-list-info {
   flex: 1;
@@ -829,6 +872,7 @@ body {
 .player-cover-art--recits { background: var(--cat-recits-bg); }
 .player-cover-art--rythmes { background: var(--cat-rythmes-bg); }
 .player-cover-art--decouverte { background: var(--cat-decouverte-bg); }
+.player-cover-art--sagesse { background: var(--cat-sagesse-bg); }
 
 .player-cover-art i {
   font-size: 72px;
@@ -837,6 +881,8 @@ body {
 
 .player-cover-art--recits i { color: var(--cat-recits); }
 .player-cover-art--rythmes i { color: var(--cat-rythmes); }
+.player-cover-art--decouverte i { color: var(--cat-decouverte); }
+.player-cover-art--sagesse i { color: var(--cat-sagesse); }
 
 .player-info {
   text-align: center;
@@ -970,6 +1016,7 @@ body {
 .detail-cover--recits { background: var(--cat-recits-bg); }
 .detail-cover--rythmes { background: var(--cat-rythmes-bg); }
 .detail-cover--decouverte { background: var(--cat-decouverte-bg); }
+.detail-cover--sagesse { background: var(--cat-sagesse-bg); }
 
 .detail-cover > i {
   font-size: 64px;
@@ -977,6 +1024,9 @@ body {
 }
 
 .detail-cover--recits > i { color: var(--cat-recits); }
+.detail-cover--rythmes > i { color: var(--cat-rythmes); }
+.detail-cover--decouverte > i { color: var(--cat-decouverte); }
+.detail-cover--sagesse > i { color: var(--cat-sagesse); }
 
 .detail-cover-back {
   position: absolute;
@@ -1012,6 +1062,7 @@ body {
 .detail-badge--recits { background: var(--cat-recits-subtle); color: var(--cat-recits); }
 .detail-badge--rythmes { background: var(--cat-rythmes-subtle); color: var(--cat-rythmes); }
 .detail-badge--decouverte { background: var(--cat-decouverte-subtle); color: var(--cat-decouverte); }
+.detail-badge--sagesse { background: var(--cat-sagesse-subtle); color: var(--cat-sagesse); }
 
 .detail-title {
   font-family: var(--font-serif);
@@ -1461,11 +1512,13 @@ body {
 .onboarding-reco-item--recits .onboarding-reco-cover { background: var(--cat-recits-bg); }
 .onboarding-reco-item--rythmes .onboarding-reco-cover { background: var(--cat-rythmes-bg); }
 .onboarding-reco-item--decouverte .onboarding-reco-cover { background: var(--cat-decouverte-bg); }
+.onboarding-reco-item--sagesse .onboarding-reco-cover { background: var(--cat-sagesse-bg); }
 
 .onboarding-reco-cover i { font-size: 16px; opacity: 0.3; }
 .onboarding-reco-item--recits .onboarding-reco-cover i { color: var(--cat-recits); }
 .onboarding-reco-item--rythmes .onboarding-reco-cover i { color: var(--cat-rythmes); }
 .onboarding-reco-item--decouverte .onboarding-reco-cover i { color: var(--cat-decouverte); }
+.onboarding-reco-item--sagesse .onboarding-reco-cover i { color: var(--cat-sagesse); }
 
 .onboarding-reco-info { flex: 1; }
 
@@ -1750,6 +1803,7 @@ body {
 .player-next-cover--recits { background: var(--cat-recits-bg); }
 .player-next-cover--rythmes { background: var(--cat-rythmes-bg); }
 .player-next-cover--decouverte { background: var(--cat-decouverte-bg); }
+.player-next-cover--sagesse { background: var(--cat-sagesse-bg); }
 
 .player-next-cover i {
   font-size: 16px;
@@ -1759,6 +1813,7 @@ body {
 .player-next-cover--recits i { color: var(--cat-recits); }
 .player-next-cover--rythmes i { color: var(--cat-rythmes); }
 .player-next-cover--decouverte i { color: var(--cat-decouverte); }
+.player-next-cover--sagesse i { color: var(--cat-sagesse); }
 
 .player-next-info {
   flex: 1;

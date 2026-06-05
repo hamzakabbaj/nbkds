@@ -53,30 +53,33 @@
         </div>
       </a>
 
-      <!-- Category Tabs -->
+      <!-- Category Tabs — 4 piliers -->
       <div class="category-tabs">
+        <button class="category-tab">
+          <i class="fa-solid fa-mug-hot"></i> Mon quotidien au Maroc
+        </button>
         <button class="category-tab category-tab--active-recits">
-          <i class="fa-solid fa-book-open"></i> Récits & Contes
+          <i class="fa-solid fa-book-open"></i> Histoires et légendes
         </button>
         <button class="category-tab">
-          <i class="fa-solid fa-music"></i> Rythmes
+          <i class="fa-solid fa-music"></i> L'âme musicale
         </button>
         <button class="category-tab">
-          <i class="fa-solid fa-earth-africa"></i> Découverte
+          <i class="fa-solid fa-moon"></i> Sagesse et sérénité
         </button>
       </div>
 
-      <!-- Age Filter -->
+      <!-- Univers selector (1:1 avec les tranches d'âge) -->
       <div class="age-filter">
         <button class="age-chip age-chip--active">Tous</button>
-        <button class="age-chip">3-5 ans</button>
-        <button class="age-chip">6-8 ans</button>
-        <button class="age-chip">9-12 ans</button>
+        <button class="age-chip">Jardin des sens · 1-6</button>
+        <button class="age-chip">Caravane des contes · 6-9</button>
+        <button class="age-chip age-chip--soon"><i class="fa-solid fa-lock"></i> Cercle des sages · 9-12 <span class="age-chip-soon-tag">Bientôt</span></button>
       </div>
 
       <!-- Content Grid — chaque carte pointe vers la fiche détail -->
       <div class="content-grid">
-        <!-- Card 1 -->
+        <!-- Hmadou et Hmaydou — Histoires et légendes · Jardin des sens (1-6) -->
         <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
           <div class="content-card-cover">
             <i class="fa-solid fa-book-open content-card-cover-icon"></i>
@@ -90,47 +93,63 @@
             <div class="content-card-meta">
               <span>8 min</span>
               <span class="content-card-meta-dot"></span>
-              <span>3-5 ans</span>
+              <span>1-6 ans</span>
             </div>
           </div>
         </a>
 
-        <!-- Card 2 -->
-        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+        <!-- A Mama, ya Mama — L'âme musicale · Jardin des sens (1-6) -->
+        <a href="03_content_detail.html" class="content-card content-card--rythmes" style="text-decoration: none; color: inherit;">
           <div class="content-card-cover">
-            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <i class="fa-solid fa-music content-card-cover-icon"></i>
             <div class="content-card-badges">
               <span class="content-card-badge-fav"><i class="fa-solid fa-heart"></i></span>
             </div>
             <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
           </div>
           <div class="content-card-body">
-            <p class="content-card-title">Hdidane et l'ogresse</p>
+            <p class="content-card-title">A Mama, ya Mama</p>
             <div class="content-card-meta">
-              <span>12 min</span>
+              <span>4 min</span>
               <span class="content-card-meta-dot"></span>
-              <span>6-8 ans</span>
+              <span>1-6 ans</span>
             </div>
           </div>
         </a>
 
-        <!-- Card 3 -->
-        <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
+        <!-- Les couleurs de ma maison — Mon quotidien au Maroc · Jardin des sens (1-6) -->
+        <a href="03_content_detail.html" class="content-card content-card--decouverte" style="text-decoration: none; color: inherit;">
           <div class="content-card-cover">
-            <i class="fa-solid fa-book-open content-card-cover-icon"></i>
+            <i class="fa-solid fa-mug-hot content-card-cover-icon"></i>
             <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
           </div>
           <div class="content-card-body">
-            <p class="content-card-title">La légende de Lalla Mira</p>
+            <p class="content-card-title">Les couleurs de ma maison</p>
             <div class="content-card-meta">
-              <span>9 min</span>
+              <span>5 min</span>
               <span class="content-card-meta-dot"></span>
-              <span>6-8 ans</span>
+              <span>1-6 ans</span>
             </div>
           </div>
         </a>
 
-        <!-- Card 4 -->
+        <!-- Berceuse du soir — Sagesse et sérénité · Jardin des sens (1-6) -->
+        <a href="03_content_detail.html" class="content-card content-card--sagesse" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-moon content-card-cover-icon"></i>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">Berceuse du soir</p>
+            <div class="content-card-meta">
+              <span>6 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>1-6 ans</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Hdidane et l'ogresse — Histoires et légendes · Caravane des contes (6-9) -->
         <a href="03_content_detail.html" class="content-card content-card--recits" style="text-decoration: none; color: inherit;">
           <div class="content-card-cover">
             <i class="fa-solid fa-book-open content-card-cover-icon"></i>
@@ -141,11 +160,27 @@
             <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
           </div>
           <div class="content-card-body">
-            <p class="content-card-title">Le berger et le sultan</p>
+            <p class="content-card-title">Hdidane et l'ogresse</p>
             <div class="content-card-meta">
-              <span>10 min</span>
+              <span>12 min</span>
               <span class="content-card-meta-dot"></span>
-              <span>9-12 ans</span>
+              <span>6-9 ans</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Les rythmes gnawa — L'âme musicale · Caravane des contes (6-9) -->
+        <a href="03_content_detail.html" class="content-card content-card--rythmes" style="text-decoration: none; color: inherit;">
+          <div class="content-card-cover">
+            <i class="fa-solid fa-music content-card-cover-icon"></i>
+            <button class="content-card-play"><i class="fa-solid fa-play"></i></button>
+          </div>
+          <div class="content-card-body">
+            <p class="content-card-title">Les rythmes gnawa</p>
+            <div class="content-card-meta">
+              <span>8 min</span>
+              <span class="content-card-meta-dot"></span>
+              <span>6-9 ans</span>
             </div>
           </div>
         </a>
@@ -160,7 +195,7 @@
       </div>
       <div class="mini-player-info">
         <p class="mini-player-title">Hdidane et l'ogresse</p>
-        <p class="mini-player-meta">4:12 / 12:00 · Récits & Contes</p>
+        <p class="mini-player-meta">4:12 / 12:00 · Histoires et légendes</p>
       </div>
       <button class="mini-player-btn"><i class="fa-solid fa-pause"></i></button>
       <div class="mini-player-progress"></div>
