@@ -6,7 +6,7 @@
   <title>Bienvenue dans la famille NOOBA !</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -18,14 +18,14 @@
       --conf-warm-light: #FBF3DD;
     }
 
-    .conf-section { padding: 56px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .conf-section { padding: 56px 0 80px !important; min-height: auto !important; background: var(--bg-app); }
     .conf-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 48px; text-align: center; border-top: 4px solid var(--conf-accent); position: relative; overflow: hidden; }
 
     /* Confetti decoration */
     .conf-confetti { position: absolute; font-size: 24px; opacity: 0.55; animation: confetti-fall 3s ease-in-out infinite; }
     .conf-confetti--1 { top: 16px; left: 12%; color: var(--conf-warm); animation-delay: 0s; }
     .conf-confetti--2 { top: 30px; left: 32%; color: var(--conf-accent); animation-delay: 0.5s; }
-    .conf-confetti--3 { top: 12px; left: 55%; color: var(--accent-rose); animation-delay: 1s; }
+    .conf-confetti--3 { top: 12px; left: 55%; color: var(--brand-red); animation-delay: 1s; }
     .conf-confetti--4 { top: 30px; left: 75%; color: var(--conf-warm); animation-delay: 1.5s; }
     .conf-confetti--5 { top: 14px; left: 88%; color: var(--conf-accent); animation-delay: 2s; }
     @keyframes confetti-fall {
@@ -41,43 +41,43 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .conf-arabic { font-family: 'Amiri', serif; font-size: 28px; color: var(--conf-accent); margin: 0 0 8px 0; opacity: 0.9; }
-    .conf-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 30px; color: var(--text); margin: 0 0 12px 0; line-height: 1.2; }
-    .conf-subtitle { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-secondary); line-height: 1.6; max-width: 480px; margin: 0 auto 18px; }
-    .conf-mail-info { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 28px; font-style: italic; }
-    .conf-mail-info strong { color: var(--text); font-style: normal; }
+    .conf-arabic { font-family: var(--font-arabic); font-size: 28px; color: var(--conf-accent); margin: 0 0 8px 0; opacity: 0.9; }
+    .conf-title { font-family: var(--font-heading); font-weight: 700; font-size: 30px; color: var(--text-primary); margin: 0 0 12px 0; line-height: 1.2; }
+    .conf-subtitle { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); line-height: 1.6; max-width: 480px; margin: 0 auto 18px; }
+    .conf-mail-info { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 28px; font-style: italic; }
+    .conf-mail-info strong { color: var(--text-primary); font-style: normal; }
 
     /* Summary */
     .conf-summary { background: var(--conf-warm-light); border-radius: var(--radius-sm); padding: 22px 28px; margin: 0 auto 32px; max-width: 480px; text-align: left; }
-    .conf-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: 'Inter', sans-serif; font-size: 14px; }
+    .conf-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: var(--font-body); font-size: 14px; }
     .conf-summary-row + .conf-summary-row { border-top: 1px solid rgba(201,163,74,0.25); }
     .conf-summary-label { color: var(--text-secondary); }
-    .conf-summary-value { color: var(--text); font-weight: 600; }
+    .conf-summary-value { color: var(--text-primary); font-weight: 600; }
 
     /* Next steps */
     .conf-next { background: var(--bg-peach); border-radius: var(--radius); padding: 32px; margin-bottom: 28px; }
-    .conf-step-badge { display: inline-block; background: var(--accent-rose); color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10px; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .conf-next-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); margin: 0 0 8px 0; }
-    .conf-next-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.55; margin: 0 0 24px 0; }
+    .conf-step-badge { display: inline-block; background: var(--brand-red); color: #fff; font-family: var(--font-body); font-weight: 700; font-size: 10px; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .conf-next-title { font-family: var(--font-heading); font-weight: 700; font-size: 20px; color: var(--text-primary); margin: 0 0 8px 0; }
+    .conf-next-desc { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.55; margin: 0 0 24px 0; }
 
     .conf-download-grid { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; text-align: left; }
     .conf-qr { width: 140px; height: 140px; background: #fff; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); border: 1.5px dashed var(--border); }
-    .conf-qr i { font-size: 72px; color: var(--text); opacity: 0.85; }
-    .conf-qr-label { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 8px; }
+    .conf-qr i { font-size: 72px; color: var(--text-primary); opacity: 0.85; }
+    .conf-qr-label { font-family: var(--font-body); font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 8px; }
     .conf-stores { display: flex; flex-direction: column; gap: 10px; }
-    .conf-store { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--text); color: #fff; border-radius: var(--radius-sm); text-decoration: none; transition: transform 0.15s; }
+    .conf-store { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--text-primary); color: #fff; border-radius: var(--radius-sm); text-decoration: none; transition: transform 0.15s; }
     .conf-store:hover { transform: translateY(-2px); }
     .conf-store i { font-size: 28px; }
     .conf-store-text { display: flex; flex-direction: column; line-height: 1.2; }
-    .conf-store-small { font-family: 'Inter', sans-serif; font-size: 10px; opacity: 0.8; }
-    .conf-store-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; }
+    .conf-store-small { font-family: var(--font-body); font-size: 10px; opacity: 0.8; }
+    .conf-store-name { font-family: var(--font-heading); font-weight: 700; font-size: 15px; }
 
     /* CTAs */
     .conf-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
-    .conf-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-full); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; border: 1.5px solid var(--conf-accent); color: var(--conf-accent); background: #fff; }
+    .conf-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-full); font-family: var(--font-heading); font-weight: 700; font-size: 14px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, background 0.2s; border: 1.5px solid var(--conf-accent); color: var(--conf-accent); background: #fff; }
     .conf-btn:hover { background: var(--conf-accent-light); transform: translateY(-1px); }
     .conf-btn--ghost { border-color: var(--border); color: var(--text-secondary); }
-    .conf-btn--ghost:hover { color: var(--text); border-color: var(--text-secondary); background: #fff; }
+    .conf-btn--ghost:hover { color: var(--text-primary); border-color: var(--text-secondary); background: #fff; }
     .conf-btn--primary { background: var(--conf-accent); color: #fff; border-color: var(--conf-accent); }
     .conf-btn--primary:hover { background: var(--conf-accent-dark); border-color: var(--conf-accent-dark); color: #fff; }
 

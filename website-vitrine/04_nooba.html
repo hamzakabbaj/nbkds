@@ -6,13 +6,13 @@
   <title>Nooba — NOOBA Wireframes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 
   <style>
     /* ═══ HERO — split asymétrique (teal foncé) ═══ */
-    .nooba-hero { background: linear-gradient(135deg, #00859F 0%, #005F82 50%, #003A50 100%); color: #fff; padding: 24px 0; position: relative; overflow: hidden; }
+    .nooba-hero { background: linear-gradient(135deg, #00859F 0%, #00395f 50%, #003A50 100%); color: #fff; padding: 24px 0; position: relative; overflow: hidden; }
     /* Motif zellige en coin haut-droit (clair — fond foncé) */
     .nooba-hero::after {
       content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
@@ -23,15 +23,15 @@
     }
     .nooba-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; position: relative; z-index: 1; }
     .nooba-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
-    .nooba-hero-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 38px; letter-spacing: 1.5px; line-height: 1.1; color: #fff; margin: 0; }
-    .nooba-hero-arabic { font-family: 'Amiri', serif; font-size: 42px; color: rgba(255,255,255,0.65); line-height: 1; position: relative; top: 8px; }
-    .nooba-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 360px; margin: 0; }
+    .nooba-hero-title { font-family: var(--font-heading); font-weight: 700; font-size: 38px; letter-spacing: 1.5px; line-height: 1.1; color: #fff; margin: 0; }
+    .nooba-hero-arabic { font-family: var(--font-arabic); font-size: 42px; color: rgba(255,255,255,0.65); line-height: 1; position: relative; top: 8px; }
+    .nooba-hero-subtitle { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 360px; margin: 0; }
     .nooba-hero-right { border-left: 1px solid rgba(255,255,255,0.25); padding-left: 48px; align-self: start; height: fit-content; }
-    .nooba-hero-quote { font-family: 'Amiri', serif; font-style: italic; font-size: 22px; line-height: 1.5; color: rgba(255,255,255,0.92); margin: 0 0 10px 0; }
-    .nooba-hero-attribution { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
+    .nooba-hero-quote { font-family: var(--font-arabic); font-style: italic; font-size: 22px; line-height: 1.5; color: rgba(255,255,255,0.92); margin: 0 0 10px 0; }
+    .nooba-hero-attribution { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
 
     /* ═══ VARIANTE A — Éditorial « Le fil » ═══ */
-    :root { --acc: #007BA8; --acc-soft: rgba(0,123,168,0.12); --acc-deep: #005F82; }
+    :root { --acc: #0179a4; --acc-soft: rgba(1, 121, 164,0.12); --acc-deep: #00395f; }
 
     .fil-section { padding: 72px 0 36px; }
     .fil { max-width: 940px; margin: 0 auto; }
@@ -43,30 +43,30 @@
       display: flex; align-items: center; justify-content: center; z-index: 1;
       box-shadow: 0 4px 14px var(--acc-soft);
     }
-    .fil-line { width: 2px; flex: 1 1 auto; margin-top: 6px; background: linear-gradient(var(--acc), rgba(0,123,168,0.18)); }
+    .fil-line { width: 2px; flex: 1 1 auto; margin-top: 6px; background: linear-gradient(var(--acc), rgba(1, 121, 164,0.18)); }
     .fil-step:last-child .fil-line { display: none; }
 
     .fil-body { padding: 4px 0 54px; min-width: 0; }
-    .fil-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 28px; color: var(--text); line-height: 1.25; margin: 6px 0 18px; }
-    .fil-prose { font-family: 'Inter', sans-serif; font-size: 16.5px; color: var(--text-secondary); line-height: 1.85; }
+    .fil-title { font-family: var(--font-heading); font-weight: 800; font-size: 28px; color: var(--text-primary); line-height: 1.25; margin: 6px 0 18px; }
+    .fil-prose { font-family: var(--font-body); font-size: 16.5px; color: var(--text-secondary); line-height: 1.85; }
     .fil-prose p { margin: 0 0 16px; }
     .fil-prose p:last-child { margin-bottom: 0; }
     .fil-prose em { font-style: italic; color: var(--acc-deep); }
-    .fil-prose strong { color: var(--text); }
-    .fil-closing-line { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 18px; color: var(--acc) !important; margin: 4px 0 0; }
+    .fil-prose strong { color: var(--text-primary); }
+    .fil-closing-line { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--acc) !important; margin: 4px 0 0; }
 
     /* Cartes "feature" horizontales */
     .fil-fcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 22px; }
     .f-card { background: #fff; border-radius: var(--radius); padding: 24px 22px; box-shadow: var(--shadow); border-left: 4px solid var(--acc); display: flex; gap: 15px; align-items: flex-start; transition: transform .2s, box-shadow .2s; }
     .f-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .f-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--acc-soft); color: var(--acc); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-    .f-card strong { font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--acc); font-size: 15px; letter-spacing: 0.4px; display: block; margin-bottom: 6px; }
-    .f-card span { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .f-card strong { font-family: var(--font-heading); font-weight: 800; color: var(--acc); font-size: 15px; letter-spacing: 0.4px; display: block; margin-bottom: 6px; }
+    .f-card span { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
     .f-card em { font-style: italic; }
 
     .fil-next-link {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
       color: #fff; background: var(--acc); border: 2px solid var(--acc);
       padding: 13px 34px; border-radius: var(--radius-full); transition: all 0.2s; margin-top: 28px;
     }

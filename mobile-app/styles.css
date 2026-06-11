@@ -17,30 +17,50 @@ input { font: inherit; }
    typographies que le site vitrine (Nunito + Lobster Two + Inter).
 ================================================================ */
 :root {
+  /* ════════════════════════════════════════════════════════════
+     PALETTE & POLICE CANONIQUES (réf. Notion « Palette chromatique
+     et Police ») — garder synchronisé entre les 3 prototypes + index.html
+  ════════════════════════════════════════════════════════════ */
+
+  /* ── Primaires de marque (logo) ── */
+  --brand-blue: #0179a4;      /* bleu NOOBA */
+  --brand-red:  #af1f23;      /* rouge tarbouche */
+  --brand-gold: #e5a22a;      /* or / safran */
+  --brand-mint: #5fd1b5;      /* vert menthe (accent frais) */
+
+  /* ── Rampes (foncé → moyen → clair) ── */
+  --blue-900: #00395f;  --blue-500: #0179a4;  --blue-200: #6ec0ef;
+  --amber-700: #a85300; --amber-500: #fd980b; --amber-200: #ffe264;
+  --red-900: #5f0000;   --red-500: #af1f23;   --red-200: #ff6e61;
+
+  /* ── Neutres clairs ── */
+  --neutral-50: #fffef8;  --neutral-100: #faf9f8;
+  --neutral-150: #f7f8fa; --neutral-blue: #eaf7ff;
+
   /* ── Surfaces (Light) ── */
-  --bg-app: #FEFBF6;          /* crème (vitrine --bg) */
+  --bg-app: #fffef8;          /* crème (vitrine --bg) */
   --bg-panel: #FFFFFF;        /* cartes */
-  --bg-elevated: #FFFCF7;     /* surface surélevée */
+  --bg-elevated: #fffef8;     /* surface surélevée */
   --bg-hover: #FBF0ED;        /* pêche doux (vitrine --bg-peach) */
   --bg-active: #F3E4DE;       /* pêche appuyé */
 
   /* ── Borders ── */
   --border: #E8E0D8;          /* vitrine --border */
   --border-strong: #DACFC4;
-  --border-focus: #007BA8;    /* teal */
+  --border-focus: #0179a4;    /* teal */
 
   /* ── Text ── */
-  --text-primary: #1E2D3D;    /* vitrine --text */
+  --text-primary: #00395f;    /* vitrine --text */
   --text-secondary: #5A6B7B;  /* vitrine --text-secondary */
   --text-tertiary: #8A98A5;
   --text-disabled: #B5BEC6;
   --text-inverse: #FFFFFF;    /* texte sur accent */
 
   /* ── Accent ── */
-  --accent: #007BA8;          /* teal vitrine (couleur interactive principale) */
-  --accent-hover: #00658C;
-  --accent-subtle: rgba(0, 123, 168, 0.12);
-  --accent-muted: rgba(0, 123, 168, 0.22);
+  --accent: #0179a4;          /* teal vitrine (couleur interactive principale) */
+  --accent-hover: #00395f;
+  --accent-subtle: rgba(1, 121, 164, 0.12);
+  --accent-muted: rgba(1, 121, 164, 0.22);
 
   /* ── Couleurs des 4 piliers ──
      Correspondance suffixe de classe → pilier affiché :
@@ -65,9 +85,9 @@ input { font: inherit; }
   --cat-sagesse-subtle: rgba(42, 157, 143, 0.12);
 
   /* ── Semantic ── */
-  --success: #2A9D8F;         /* sauge (Marhba) */
-  --warning: #F09E00;         /* jaune vitrine */
-  --error: #BF0018;           /* rose vitrine */
+  --success: #5fd1b5;         /* vert menthe */
+  --warning: #e5a22a;         /* or / safran */
+  --error: #af1f23;           /* rouge tarbouche */
 
   /* ── Radii ── */
   --radius-xs: 4px;
@@ -82,7 +102,7 @@ input { font: inherit; }
   --shadow-sm: 0 2px 16px rgba(30, 45, 61, 0.06);
   --shadow-md: 0 4px 16px rgba(30, 45, 61, 0.08);
   --shadow-lg: 0 12px 32px rgba(30, 45, 61, 0.12);
-  --shadow-glow: 0 0 24px rgba(0, 123, 168, 0.18);
+  --shadow-glow: 0 0 24px rgba(1, 121, 164, 0.18);
 
   /* ── Spacing scale (4px base) ── */
   --space-1: 4px;
@@ -99,11 +119,12 @@ input { font: inherit; }
   --space-14: 56px;
   --space-16: 64px;
 
-  /* ── Typography (alignée au vitrine) ── */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Nunito', sans-serif;   /* titres — repointé depuis Playfair */
-  --font-script: 'Lobster Two', cursive; /* accents de marque / flourishes */
-  --font-arabic: 'Amiri', serif;
+  /* ── Typography (réf. Notion « Palette chromatique et Police ») ── */
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* texte courant */
+  --font-heading: 'Nunito', sans-serif;          /* titres (poids 700/800) */
+  --font-ui: 'Fredoka', 'Nunito', sans-serif;    /* barre de menu, sous-titres, boutons d'action */
+  --font-display: 'Lobster Two', cursive;        /* noms d'univers, rubriques, citations */
+  --font-arabic: 'Amiri', serif;                 /* texte arabe */
 
   /* ── Transitions ── */
   --transition-fast: 0.15s ease;
@@ -114,7 +135,7 @@ input { font: inherit; }
    BASE
 ================================================================ */
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background: #F2EAE0;
   color: var(--text-primary);
   font-size: 15px;
@@ -134,7 +155,7 @@ body {
   min-height: 812px;
   background: var(--bg-app);
   border-radius: 44px;
-  border: 5px solid #1E2D3D;
+  border: 5px solid #00395f;
   box-shadow:
     0 0 0 1px rgba(30, 45, 61, 0.08),
     0 20px 60px rgba(30, 45, 61, 0.25);
@@ -197,7 +218,7 @@ body {
 }
 
 .nav-header-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 700;
 }
@@ -429,7 +450,7 @@ body {
 }
 
 .section-title-inline h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
 }
@@ -890,7 +911,7 @@ body {
 }
 
 .player-info-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 700;
   margin-bottom: var(--space-1);
@@ -1065,7 +1086,7 @@ body {
 .detail-badge--sagesse { background: var(--cat-sagesse-subtle); color: var(--cat-sagesse); }
 
 .detail-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 26px;
   font-weight: 700;
   margin-bottom: var(--space-3);
@@ -1203,7 +1224,7 @@ body {
 }
 
 .profile-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 2px;
@@ -1413,7 +1434,7 @@ body {
 }
 
 .onboarding-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 26px;
   font-weight: 700;
   margin-bottom: var(--space-3);
@@ -1608,7 +1629,7 @@ body {
 }
 
 .empty-state-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 700;
   margin-bottom: var(--space-2);
@@ -1625,7 +1646,7 @@ body {
    UTILITY: Logo in onboarding
 ================================================================ */
 .logo {
-  font-family: var(--font-script);
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 700;
   text-align: center;
@@ -1862,7 +1883,7 @@ body {
 }
 
 .sheet-header-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 17px;
   font-weight: 700;
 }
@@ -2004,7 +2025,7 @@ body {
 }
 
 .child-edit-avatar-initial {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 32px;
   font-weight: 700;
   color: var(--accent);
@@ -2141,7 +2162,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 11px;
   font-weight: 700;
   color: var(--text-inverse);
@@ -2178,7 +2199,7 @@ body {
    COMPONENT: Auth Screens (Login, Forgot Password)
 ================================================================ */
 .auth-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
   margin-bottom: var(--space-2);
@@ -2348,7 +2369,7 @@ body {
 }
 
 .modal-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 700;
   margin-bottom: var(--space-3);
@@ -2407,7 +2428,7 @@ body {
 }
 
 .blocking-icon--warning {
-  background: rgba(240, 158, 0, 0.14);
+  background: rgba(229, 162, 42, 0.14);
 }
 
 .blocking-icon--warning i {
@@ -2415,7 +2436,7 @@ body {
 }
 
 .blocking-icon--error {
-  background: rgba(191, 0, 24, 0.10);
+  background: rgba(175, 31, 35, 0.10);
 }
 
 .blocking-icon--error i {
@@ -2480,7 +2501,7 @@ body {
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3);
-  background: rgba(191, 0, 24, 0.10);
+  background: rgba(175, 31, 35, 0.10);
   color: var(--error);
   font-size: 13px;
   font-weight: 600;
@@ -2525,4 +2546,16 @@ body {
   font-weight: 600;
   font-family: monospace;
   color: var(--text-primary);
+}
+
+/* ================================================================
+   POLICE UI — Fredoka (barre d'onglets · sous-titres · boutons d'action)
+   réf. Notion « Palette chromatique et Police »
+================================================================ */
+.tab-bar-item,
+[class*="-btn"],
+[class*="-cta"],
+[class*="subtitle"],
+[class*="-label"] {
+  font-family: var(--font-ui);
 }

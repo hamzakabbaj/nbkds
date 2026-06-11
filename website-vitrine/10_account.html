@@ -6,34 +6,34 @@
   <title>Mon espace — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
     :root {
-      --acct-accent: #007BA8;
+      --acct-accent: #0179a4;
       --acct-accent-light: #E4ECF3;
       --acct-accent-dark: #005E80;
       --acct-success: #2A9D8F;
-      --acct-danger: #BF0018;
+      --acct-danger: #af1f23;
     }
 
-    .acct-section { padding: 40px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .acct-section { padding: 40px 0 80px !important; min-height: auto !important; background: var(--bg-app); }
     .acct-container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
 
     /* Header */
     .acct-header { display: flex; align-items: center; gap: 20px; padding: 28px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--acct-accent); margin-bottom: 32px; }
-    .acct-avatar { flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: var(--acct-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 30px; }
+    .acct-avatar { flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: var(--acct-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 30px; }
     .acct-header-info { flex: 1; }
-    .acct-header-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); margin: 0 0 4px 0; }
-    .acct-header-email { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); margin: 0 0 8px 0; }
-    .acct-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-full); font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(42,157,143,0.12); color: var(--acct-success); }
+    .acct-header-name { font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--text-primary); margin: 0 0 4px 0; }
+    .acct-header-email { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); margin: 0 0 8px 0; }
+    .acct-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(42,157,143,0.12); color: var(--acct-success); }
     .acct-badge i { font-size: 10px; }
 
     /* Sections */
     .acct-block { margin-bottom: 32px; }
     .acct-block-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-    .acct-block-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0; display: flex; align-items: center; gap: 10px; }
+    .acct-block-title { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 10px; }
     .acct-block-title i { color: var(--acct-accent); font-size: 16px; }
 
     .acct-card { background: #fff; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
@@ -41,43 +41,43 @@
     /* Subscription */
     .acct-sub-plan { padding-bottom: 18px; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
     .acct-sub-plan-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-    .acct-sub-plan-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0; }
-    .acct-sub-plan-price { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--acct-accent); }
-    .acct-sub-plan-desc { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 6px 0 0; }
-    .acct-detail-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: 'Inter', sans-serif; font-size: 14px; }
+    .acct-sub-plan-name { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--text-primary); margin: 0; }
+    .acct-sub-plan-price { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--acct-accent); }
+    .acct-sub-plan-desc { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 6px 0 0; }
+    .acct-detail-row { display: flex; justify-content: space-between; padding: 8px 0; font-family: var(--font-body); font-size: 14px; }
     .acct-detail-label { color: var(--text-secondary); }
-    .acct-detail-value { color: var(--text); font-weight: 500; }
+    .acct-detail-value { color: var(--text-primary); font-weight: 500; }
     .acct-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
 
-    .acct-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: var(--radius-full); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s, border-color 0.2s; border: none; text-decoration: none; }
+    .acct-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: var(--radius-full); font-family: var(--font-heading); font-weight: 700; font-size: 13px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s, background 0.2s, border-color 0.2s; border: none; text-decoration: none; }
     .acct-btn--primary { background: var(--acct-accent); color: #fff; }
-    .acct-btn--primary:hover { background: var(--acct-accent-dark); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(0,123,168,0.22); }
+    .acct-btn--primary:hover { background: var(--acct-accent-dark); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(1, 121, 164,0.22); }
     .acct-btn--outline { background: #fff; color: var(--acct-accent); border: 1.5px solid var(--acct-accent); }
     .acct-btn--outline:hover { background: var(--acct-accent-light); }
     .acct-btn--danger { background: #fff; color: var(--acct-danger); border: 1.5px solid var(--acct-danger); }
-    .acct-btn--danger:hover { background: rgba(191,0,24,0.06); }
+    .acct-btn--danger:hover { background: rgba(175, 31, 35,0.06); }
     .acct-btn--ghost { background: transparent; color: var(--text-secondary); border: 1.5px solid var(--border); }
-    .acct-btn--ghost:hover { color: var(--text); border-color: var(--text-secondary); }
+    .acct-btn--ghost:hover { color: var(--text-primary); border-color: var(--text-secondary); }
     .acct-btn--sm { padding: 7px 14px; font-size: 12px; }
 
     /* Children */
     .acct-children { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .acct-child { display: flex; align-items: center; gap: 14px; padding: 16px; background: var(--acct-accent-light); border-radius: var(--radius-sm); position: relative; }
-    .acct-child-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 18px; color: #fff; flex-shrink: 0; }
+    .acct-child-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 18px; color: #fff; flex-shrink: 0; }
     .acct-child-avatar--boy { background: #4A7FA8; }
     .acct-child-avatar--girl { background: #E3998C; }
     .acct-child-info { flex: 1; }
-    .acct-child-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin: 0 0 2px 0; }
-    .acct-child-age { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-secondary); margin: 0; }
+    .acct-child-name { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-primary); margin: 0 0 2px 0; }
+    .acct-child-age { font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); margin: 0; }
     .acct-child-edit { background: transparent; border: none; color: var(--text-secondary); cursor: pointer; padding: 6px; font-size: 13px; transition: color 0.2s; }
     .acct-child-edit:hover { color: var(--acct-accent); }
 
     /* Form */
     .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-label { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; color: var(--text); }
-    .form-input { font-family: 'Inter', sans-serif; font-size: 14px; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--text); outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; box-sizing: border-box; }
-    .form-input:focus { border-color: var(--acct-accent); box-shadow: 0 0 0 3px rgba(0,123,168,0.12); }
+    .form-label { font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--text-primary); }
+    .form-input { font-family: var(--font-body); font-size: 14px; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--text-primary); outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%; box-sizing: border-box; }
+    .form-input:focus { border-color: var(--acct-accent); box-shadow: 0 0 0 3px rgba(1, 121, 164,0.12); }
     .form-input:disabled { background: #F5F7FA; color: var(--text-secondary); cursor: not-allowed; }
     .form-input-row { display: flex; gap: 10px; align-items: center; }
     .form-input-row .form-input { flex: 1; }
@@ -86,12 +86,12 @@
     .acct-invoice { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
     .acct-invoice:last-child { border-bottom: none; }
     .acct-invoice-info { display: flex; flex-direction: column; }
-    .acct-invoice-date { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
-    .acct-invoice-desc { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+    .acct-invoice-date { font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--text-primary); }
+    .acct-invoice-desc { font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
     .acct-invoice-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .acct-invoice-amount { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
-    .acct-invoice-status { display: inline-flex; align-items: center; gap: 4px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--acct-success); }
-    .acct-invoice-link { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--acct-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .acct-invoice-amount { font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--text-primary); }
+    .acct-invoice-status { display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--acct-success); }
+    .acct-invoice-link { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: var(--acct-accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
     .acct-invoice-link:hover { color: var(--acct-accent-dark); text-decoration: underline; }
 
     .acct-logout { text-align: center; margin-top: 24px; }

@@ -6,7 +6,7 @@
   <title>Accueil — NOOBA Wireframes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 
@@ -30,52 +30,52 @@
     }
     .bento-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-size: 12px;
       letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--accent-teal);
+      color: var(--accent);
     }
     .bento-eyebrow::before {
       content: ''; width: 24px; height: 1.5px; background: currentColor;
     }
     .bento-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800;
-      color: var(--text);
+      color: var(--text-primary);
       line-height: 1.05;
       letter-spacing: -0.01em;
     }
     .bento-title em {
-      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-family: var(--font-display);
       font-weight: 700; font-style: italic;
-      color: var(--accent-teal);
+      color: var(--accent);
       letter-spacing: 0;
     }
     .bento-script {
-      font-family: 'Lobster Two', 'Nunito', cursive;
+      font-family: var(--font-display);
       font-weight: 400; font-style: italic;
-      color: var(--accent-rose);
+      color: var(--brand-red);
       line-height: 1.25;
     }
     .bento-body {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-size: 15.5px;
       line-height: 1.75;
       color: var(--text-secondary);
     }
     .bento-cta {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 800; font-size: 15px;
       padding: 14px 28px;
-      background: var(--accent-rose); color: #fff;
+      background: var(--brand-red); color: #fff;
       border-radius: 999px;
-      box-shadow: 0 8px 24px rgba(191,0,24,0.25);
+      box-shadow: 0 8px 24px rgba(175, 31, 35,0.25);
       transition: all 0.2s ease;
     }
     .bento-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(191,0,24,0.32);
+      box-shadow: 0 12px 28px rgba(175, 31, 35,0.32);
     }
     .bento-cta i { font-size: 12px; }
 
@@ -87,7 +87,7 @@
     }
     .v-b__title-card {
       grid-column: 1 / span 2;
-      background: #FFFCF7;
+      background: #fffef8;
       border: 1px solid var(--border);
       padding: 40px 36px;
     }
@@ -105,16 +105,16 @@
       display: flex; flex-direction: column; justify-content: center;
     }
     .v-b__quote-text {
-      font-family: 'Amiri', serif; font-style: italic; font-size: 19px;
+      font-family: var(--font-arabic); font-style: italic; font-size: 19px;
       line-height: 1.55; color: #fff;
     }
     .v-b__quote-author {
-      font-family: 'Nunito', sans-serif; font-size: 12px; color: rgba(255,255,255,0.55);
+      font-family: var(--font-heading); font-size: 12px; color: rgba(255,255,255,0.55);
       margin-top: 14px; letter-spacing: 0.08em;
     }
     .v-b__tagline {
       grid-column: 2;
-      background: #BF0018; color: #fff;
+      background: #af1f23; color: #fff;
       padding: 28px 30px;
       display: flex; align-items: center;
     }
@@ -128,14 +128,14 @@
       display: flex; align-items: center; gap: 28px;
     }
     .v-b__body .bento-body {
-      flex: 1; color: var(--text); font-size: 15px;
+      flex: 1; color: var(--text-primary); font-size: 15px;
     }
     .v-b__stats {
       grid-column: 3;
       display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
     }
     .v-b__stat {
-      background: #FFFCF7;
+      background: #fffef8;
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 18px 18px 16px;
@@ -144,17 +144,17 @@
     .v-b__stat-icon {
       width: 30px; height: 30px; border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      background: var(--bg-teal); color: var(--accent-teal);
+      background: var(--bg-teal); color: var(--accent);
       font-size: 13px; margin-bottom: 6px;
     }
-    .v-b__stat:nth-child(2) .v-b__stat-icon { background: #FBF0ED; color: var(--accent-rose); }
-    .v-b__stat:nth-child(3) .v-b__stat-icon { background: #FFF3D6; color: var(--accent-yellow); }
+    .v-b__stat:nth-child(2) .v-b__stat-icon { background: #FBF0ED; color: var(--brand-red); }
+    .v-b__stat:nth-child(3) .v-b__stat-icon { background: #FFF3D6; color: var(--brand-gold); }
     .v-b__stat:nth-child(4) .v-b__stat-icon { background: #E8E1F0; color: #6B5E8F; }
     .v-b__stat-num {
-      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 17px; color: var(--text);
+      font-family: var(--font-heading); font-weight: 800; font-size: 17px; color: var(--text-primary);
     }
     .v-b__stat-label {
-      font-family: 'Nunito', sans-serif; font-size: 11.5px;
+      font-family: var(--font-heading); font-size: 11.5px;
       color: var(--text-secondary); letter-spacing: 0.04em;
     }
 

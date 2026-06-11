@@ -6,12 +6,12 @@
   <title>Télécharger l'app — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
     :root {
-      --dl-accent: #007BA8;
+      --dl-accent: #0179a4;
       --dl-accent-light: #E4ECF3;
       --dl-accent-dark: #005E80;
     }
@@ -19,11 +19,11 @@
     /* ── Hero ── */
     .dl-hero { padding: 56px 0 64px; }
     .dl-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
-    .dl-hero-arabic { font-family: 'Amiri', serif; font-size: 26px; color: var(--dl-accent); opacity: 0.85; margin: 0 0 6px 0; }
-    .dl-hero-title { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 44px; line-height: 1.12; color: var(--text); margin: 0 0 18px 0; }
+    .dl-hero-arabic { font-family: var(--font-arabic); font-size: 26px; color: var(--dl-accent); opacity: 0.85; margin: 0 0 6px 0; }
+    .dl-hero-title { font-family: var(--font-heading); font-weight: 800; font-size: 44px; line-height: 1.12; color: var(--text-primary); margin: 0 0 18px 0; }
     .dl-hero-title em { font-style: normal; color: var(--dl-accent); }
-    .dl-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; color: var(--text-secondary); margin: 0 0 28px 0; max-width: 46ch; }
-    .dl-requirements { display: flex; align-items: flex-start; gap: 8px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); margin: 22px 0 0 0; line-height: 1.5; }
+    .dl-hero-subtitle { font-family: var(--font-body); font-size: 16px; line-height: 1.65; color: var(--text-secondary); margin: 0 0 28px 0; max-width: 46ch; }
+    .dl-requirements { display: flex; align-items: flex-start; gap: 8px; font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); margin: 22px 0 0 0; line-height: 1.5; }
     .dl-requirements i { color: var(--dl-accent); margin-top: 2px; }
 
     /* ── Store buttons ── */
@@ -32,26 +32,26 @@
     .store-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(30,45,61,0.22); }
     .store-btn i { font-size: 28px; }
     .store-btn-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .store-btn-small { font-family: 'Inter', sans-serif; font-size: 11px; opacity: 0.8; }
-    .store-btn-name { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; }
+    .store-btn-small { font-family: var(--font-body); font-size: 11px; opacity: 0.8; }
+    .store-btn-name { font-family: var(--font-heading); font-weight: 700; font-size: 16px; }
 
     /* ── QR card ── */
     .dl-qr-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 32px; text-align: center; max-width: 320px; margin: 0 auto; }
     .dl-qr { width: 200px; height: 200px; margin: 0 auto 18px; border-radius: var(--radius-sm); background: var(--dl-accent-light); display: flex; align-items: center; justify-content: center; color: var(--dl-accent); font-size: 120px; }
-    .dl-qr-label { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+    .dl-qr-label { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
 
     /* ── Features ── */
     .dl-features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .dl-feature { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); }
     .dl-feature-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--dl-accent-light); color: var(--dl-accent); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
-    .dl-feature-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 17px; color: var(--text); margin: 0 0 8px 0; }
-    .dl-feature-desc { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+    .dl-feature-title { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--text-primary); margin: 0 0 8px 0; }
+    .dl-feature-desc { font-family: var(--font-body); font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 0; }
 
     /* ── Bottom CTA ── */
     .dl-cta { text-align: center; }
-    .dl-cta p { font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-secondary); margin: 0 0 16px 0; }
-    .dl-cta-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--accent-rose); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; border-radius: var(--radius-full); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
-    .dl-cta-link:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(191,0,24,0.25); }
+    .dl-cta p { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); margin: 0 0 16px 0; }
+    .dl-cta-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--brand-red); color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 15px; border-radius: var(--radius-full); text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .dl-cta-link:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(175, 31, 35,0.25); }
 
     @media (max-width: 880px) {
       .dl-hero-grid { grid-template-columns: 1fr; gap: 36px; }

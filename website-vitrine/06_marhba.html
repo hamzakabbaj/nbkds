@@ -6,7 +6,7 @@
   <title>Marhba — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -49,14 +49,14 @@
       margin: 0 0 10px 0;
     }
     .marhba-hero-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-size: 38px;
       line-height: 1.1;
-      color: var(--text);
+      color: var(--text-primary);
       margin: 0;
     }
     .marhba-hero-arabic {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-size: 42px;
       color: var(--marhba-accent);
       line-height: 1;
@@ -65,7 +65,7 @@
       top: 8px;
     }
     .marhba-hero-subtitle {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 400;
       color: var(--text-secondary);
@@ -81,14 +81,14 @@
       height: fit-content;
     }
     .marhba-hero-eyebrow {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600; font-size: 11px;
       letter-spacing: 2.5px; text-transform: uppercase;
       color: var(--marhba-accent);
       margin: 0 0 14px 0;
     }
     .marhba-hero-quote {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-style: italic;
       font-size: 22px;
       line-height: 1.5;
@@ -96,7 +96,7 @@
       margin: 0 0 10px 0;
     }
     .marhba-hero-attribution {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 12px;
       font-weight: 600;
       color: var(--marhba-accent);
@@ -113,7 +113,7 @@
 
     /* Accroche quote — same pattern as all other pages */
     .marhba-accroche {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-size: 28px;
       font-style: italic;
       color: var(--marhba-accent);
@@ -129,7 +129,7 @@
     }
     .marhba-accroche::before {
       content: '\201C';
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-size: 100px;
       color: var(--marhba-accent);
       opacity: 0.2;
@@ -142,7 +142,7 @@
     .marhba-prose {
       max-width: 780px;
       margin: 0 auto;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-size: 17px;
       color: var(--text-secondary);
       line-height: 1.85;
@@ -173,22 +173,22 @@
       width: 100%;
     }
     .form-group label {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 14px;
-      color: var(--text);
+      color: var(--text-primary);
       letter-spacing: 0.02em;
     }
     .form-group input,
     .form-group select,
     .form-group textarea {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 15px;
       padding: 13px 16px;
       border: 1.5px solid var(--border);
       border-radius: var(--radius-sm);
       background: #fff;
-      color: var(--text);
+      color: var(--text-primary);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       width: 100%;
@@ -213,7 +213,7 @@
       padding-right: 40px;
     }
     .form-submit {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 15px;
       padding: 14px 36px;
@@ -301,10 +301,10 @@
       color: #fff;
     }
     .social-card-name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 17px;
-      color: var(--text);
+      color: var(--text-primary);
       margin-bottom: 6px;
     }
     .social-card-handle {
@@ -313,7 +313,7 @@
     }
     .contact-email {
       text-align: center;
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-size: 17px;
       color: var(--text-secondary);
     }
@@ -332,7 +332,7 @@
       margin: 0 auto;
     }
     .faq-section .faq-question {
-      color: var(--text);
+      color: var(--text-primary);
     }
     .faq-section .faq-question i {
       color: var(--marhba-accent);
@@ -340,7 +340,7 @@
 
     /* Blockquote */
     .marhba-quote {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-size: 24px;
       font-style: italic;
       color: var(--marhba-accent);
@@ -357,7 +357,7 @@
     /* Next page link — retour accueil */
     .marhba-next-link {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
       color: var(--marhba-accent); border: 2px solid var(--marhba-accent);
       padding: 12px 32px; border-radius: var(--radius-full);
       transition: all 0.2s;
@@ -486,7 +486,7 @@
   </section>
 
   <!-- ═══ NOUS ECRIRE — form + image grid ═══ -->
-  <section class="section marhba-form-section" style="background: var(--bg);">
+  <section class="section marhba-form-section" style="background: var(--bg-app);">
     <div class="container">
       <div class="marhba-heritage-grid">
         <div class="contact-form-wrapper" style="max-width:100%;width:100%;">

@@ -6,7 +6,7 @@
   <title>Al Assal — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
@@ -40,14 +40,14 @@
       margin: 0 0 10px 0;
     }
     .assel-hero-title {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700; font-size: 38px;
       line-height: 1.1;
-      color: var(--text);
+      color: var(--text-primary);
       margin: 0;
     }
     .assel-hero-arabic {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-size: 42px;
       color: var(--accent-peach);
       line-height: 1;
@@ -56,7 +56,7 @@
       top: 8px;
     }
     .assel-hero-subtitle {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 14px;
       font-weight: 400;
       color: var(--text-secondary);
@@ -72,7 +72,7 @@
       height: fit-content;
     }
     .assel-hero-quote {
-      font-family: 'Amiri', serif;
+      font-family: var(--font-arabic);
       font-style: italic;
       font-size: 22px;
       line-height: 1.5;
@@ -80,7 +80,7 @@
       margin: 0 0 10px 0;
     }
     .assel-hero-attribution {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 12px;
       font-weight: 600;
       color: var(--accent-peach);
@@ -134,14 +134,14 @@
       margin: 0 0 20px 0;
     }
     .founder-name {
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-heading);
       font-weight: 700;
       font-size: 26px;
-      color: var(--text);
+      color: var(--text-primary);
       margin: 0;
     }
     .founder-role {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 2px;
@@ -150,7 +150,7 @@
       margin: 0;
     }
     .founder-bio {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.8;
@@ -165,8 +165,8 @@
     /* ═══ Section "Des parcours différents…" header ═══ */
     .assel-section-head { text-align: center; margin-bottom: 56px; }
     .assel-section-head .assel-section-title {
-      font-family: 'Lobster Two', 'Nunito', cursive;
-      font-size: 30px; font-weight: 700; color: var(--text); margin: 0;
+      font-family: var(--font-display);
+      font-size: 30px; font-weight: 700; color: var(--text-primary); margin: 0;
     }
 
     /* ═══ Mission — éditorial « Le fil » (accent pêche) ═══ */
@@ -186,23 +186,23 @@
     .fil-step:last-child .fil-line { display: none; }
 
     .fil-body { padding: 4px 0 56px; min-width: 0; }
-    .fil-title { font-family: 'Lobster Two', 'Nunito', cursive; font-size: 29px; font-weight: 700; color: var(--text); line-height: 1.22; margin: 6px 0 18px; }
-    .fil-lead { font-family: 'Nunito', sans-serif; font-size: 19px; font-weight: 700; line-height: 1.55; color: var(--text); margin: 0 0 18px; }
-    .fil-prose { font-family: 'Nunito', sans-serif; font-size: 17.5px; color: var(--text-secondary); line-height: 1.85; }
+    .fil-title { font-family: var(--font-display); font-size: 29px; font-weight: 700; color: var(--text-primary); line-height: 1.22; margin: 6px 0 18px; }
+    .fil-lead { font-family: var(--font-heading); font-size: 19px; font-weight: 700; line-height: 1.55; color: var(--text-primary); margin: 0 0 18px; }
+    .fil-prose { font-family: var(--font-heading); font-size: 17.5px; color: var(--text-secondary); line-height: 1.85; }
     .fil-prose p { margin: 0 0 18px; }
     .fil-prose p:last-child { margin-bottom: 0; }
     .fil-prose em { font-style: italic; color: var(--acc-deep); }
-    .fil-prose strong { color: var(--text); }
+    .fil-prose strong { color: var(--text-primary); }
 
     .fil-pullquote {
-      font-family: 'Amiri', serif; font-style: italic; font-size: 23px; line-height: 1.55;
+      font-family: var(--font-arabic); font-style: italic; font-size: 23px; line-height: 1.55;
       color: #6B4540; border-left: 3px solid var(--acc); padding: 2px 0 2px 24px; margin: 26px 0 0;
     }
     .fil-pullquote strong { color: var(--acc); font-weight: 700; }
 
     .fil-next-link {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
       color: #fff; background: var(--acc); border: 2px solid var(--acc);
       padding: 13px 34px; border-radius: var(--radius-full); transition: all 0.2s;
     }
@@ -220,7 +220,7 @@
     /* Next page link */
     .assel-next-link {
       display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 700;
+      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
       color: var(--accent-peach); border: 2px solid var(--accent-peach);
       padding: 12px 32px; border-radius: var(--radius-full);
       transition: all 0.2s;

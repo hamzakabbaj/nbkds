@@ -16,30 +16,50 @@ input, select, textarea { font: inherit; }
    Fond blanc/gris + accents de statut.
 ================================================================ */
 :root {
+  /* ════════════════════════════════════════════════════════════
+     PALETTE & POLICE CANONIQUES (réf. Notion « Palette chromatique
+     et Police ») — garder synchronisé entre les 3 prototypes + index.html
+  ════════════════════════════════════════════════════════════ */
+
+  /* ── Primaires de marque (logo) ── */
+  --brand-blue: #0179a4;      /* bleu NOOBA */
+  --brand-red:  #af1f23;      /* rouge tarbouche */
+  --brand-gold: #e5a22a;      /* or / safran */
+  --brand-mint: #5fd1b5;      /* vert menthe (accent frais) */
+
+  /* ── Rampes (foncé → moyen → clair) ── */
+  --blue-900: #00395f;  --blue-500: #0179a4;  --blue-200: #6ec0ef;
+  --amber-700: #a85300; --amber-500: #fd980b; --amber-200: #ffe264;
+  --red-900: #5f0000;   --red-500: #af1f23;   --red-200: #ff6e61;
+
+  /* ── Neutres clairs ── */
+  --neutral-50: #fffef8;  --neutral-100: #faf9f8;
+  --neutral-150: #f7f8fa; --neutral-blue: #eaf7ff;
+
   /* ── Surfaces ── */
-  --bg-app: #FEFBF6;
+  --bg-app: #fffef8;
   --bg-panel: #FFFFFF;
   --bg-elevated: #F7F1EA;
   --bg-hover: #F1E9E0;
   --bg-active: #E8E0D8;
-  --bg-sidebar: #1E2D3D;
+  --bg-sidebar: #00395f;
 
   /* ── Borders ── */
   --border: #E8E0D8;
   --border-strong: #DACFC2;
-  --border-focus: #007BA8;
+  --border-focus: #0179a4;
 
   /* ── Text ── */
-  --text-primary: #1E2D3D;
+  --text-primary: #00395f;
   --text-secondary: #5A6B7B;
   --text-tertiary: #8A98A6;
   --text-disabled: #B4BDC6;
   --text-inverse: #FFFFFF;
 
   /* ── Accent (NOOBA teal — vitrine primary) ── */
-  --accent: #007BA8;
-  --accent-hover: #005F82;
-  --accent-subtle: #EBF4F8;
+  --accent: #0179a4;
+  --accent-hover: #00395f;
+  --accent-subtle: #eaf7ff;
   --accent-muted: #D5E6EF;
 
   /* ── Status colors ── */
@@ -90,9 +110,12 @@ input, select, textarea { font: inherit; }
   --space-10: 40px;
   --space-12: 48px;
 
-  /* ── Typography ── */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Nunito', sans-serif;
+  /* ── Typography (réf. Notion « Palette chromatique et Police ») ── */
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /* texte courant */
+  --font-heading: 'Nunito', sans-serif;          /* titres (poids 700/800) */
+  --font-ui: 'Fredoka', 'Nunito', sans-serif;    /* barre de menu, sous-titres, boutons d'action */
+  --font-display: 'Lobster Two', cursive;        /* noms d'univers, rubriques, citations */
+  --font-arabic: 'Amiri', serif;                 /* texte arabe */
 
   /* ── Transitions ── */
   --transition-fast: 0.15s ease;
@@ -106,7 +129,7 @@ input, select, textarea { font: inherit; }
    BASE
 ================================================================ */
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   background: var(--bg-app);
   color: var(--text-primary);
   font-size: 14px;
@@ -115,7 +138,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-weight: 700;
   line-height: 1.3;
 }
@@ -195,7 +218,7 @@ h1, h2, h3, h4 {
 }
 
 .sidebar-link--active {
-  background: rgba(0, 123, 168, 0.15);
+  background: rgba(1, 121, 164, 0.15);
   color: var(--accent);
 }
 
@@ -217,7 +240,7 @@ h1, h2, h3, h4 {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-full);
-  background: rgba(0, 123, 168, 0.2);
+  background: rgba(1, 121, 164, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,12 +326,12 @@ h1, h2, h3, h4 {
 .btn--primary {
   background: var(--accent);
   color: var(--text-inverse);
-  box-shadow: 0 1px 3px rgba(0, 123, 168, 0.2);
+  box-shadow: 0 1px 3px rgba(1, 121, 164, 0.2);
 }
 
 .btn--primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 2px 6px rgba(0, 123, 168, 0.3);
+  box-shadow: 0 2px 6px rgba(1, 121, 164, 0.3);
 }
 
 .btn--secondary {
@@ -920,7 +943,7 @@ h1, h2, h3, h4 {
 
 .preview-phone {
   width: 100%;
-  background: #1E2D3D;
+  background: #00395f;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
@@ -938,7 +961,7 @@ h1, h2, h3, h4 {
 
 .preview-cover {
   aspect-ratio: 4/3;
-  background: linear-gradient(145deg, #1E2D3D 0%, #24364A 50%, #2A3A4D 100%);
+  background: linear-gradient(145deg, #00395f 0%, #24364A 50%, #2A3A4D 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -962,13 +985,13 @@ h1, h2, h3, h4 {
   letter-spacing: 0.06em;
   padding: 2px 8px;
   border-radius: var(--radius-full);
-  background: rgba(0, 123, 168, 0.15);
+  background: rgba(1, 121, 164, 0.15);
   color: var(--accent);
   margin-bottom: 8px;
 }
 
 .preview-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 700;
   color: #F4F7FA;
@@ -1355,7 +1378,7 @@ h1, h2, h3, h4 {
 }
 
 .btn--danger-fill:hover {
-  background: #C12B20 !important;
+  background: #af1f23 !important;
 }
 
 /* ================================================================
@@ -1888,4 +1911,17 @@ h1, h2, h3, h4 {
 /* ════ Highlighted new row ════ */
 .table-row--new td {
   background: var(--accent-subtle);
+}
+
+/* ════════════════════════════════════════════════════════════
+   POLICE UI — Fredoka (navigation latérale · sous-titres · boutons)
+   réf. Notion « Palette chromatique et Police »
+════════════════════════════════════════════════════════════ */
+.sidebar-nav,
+.sidebar-nav a,
+.sidebar-label,
+[class*="-btn"],
+[class*="subtitle"],
+[class*="-label"] {
+  font-family: var(--font-ui);
 }

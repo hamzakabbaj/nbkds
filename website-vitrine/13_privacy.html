@@ -6,12 +6,12 @@
   <title>Politique de confidentialité — NOOBA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Inter:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Fredoka:wght@400;500;600;700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
     :root {
-      --legal-accent: #007BA8;
+      --legal-accent: #0179a4;
       --legal-accent-light: #E4ECF3;
       --legal-accent-dark: #005E80;
     }
@@ -20,42 +20,42 @@
     .legal-hero { background: var(--legal-accent-light); padding: 28px 0 24px; }
     .legal-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
     .legal-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
-    .legal-hero-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.15; color: var(--text); margin: 0; }
-    .legal-hero-arabic { font-family: 'Amiri', serif; font-size: 36px; color: var(--legal-accent); line-height: 1; opacity: 0.9; position: relative; top: 6px; }
-    .legal-hero-subtitle { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
-    .legal-hero-right { border-left: 1px solid rgba(0,123,168,0.3); padding-left: 48px; }
-    .legal-hero-eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--legal-accent); margin: 0 0 14px 0; }
-    .legal-hero-updated { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-secondary); margin: 0; }
-    .legal-hero-updated strong { color: var(--text); }
+    .legal-hero-title { font-family: var(--font-heading); font-weight: 700; font-size: 32px; line-height: 1.15; color: var(--text-primary); margin: 0; }
+    .legal-hero-arabic { font-family: var(--font-arabic); font-size: 36px; color: var(--legal-accent); line-height: 1; opacity: 0.9; position: relative; top: 6px; }
+    .legal-hero-subtitle { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
+    .legal-hero-right { border-left: 1px solid rgba(1, 121, 164,0.3); padding-left: 48px; }
+    .legal-hero-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--legal-accent); margin: 0 0 14px 0; }
+    .legal-hero-updated { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); margin: 0; }
+    .legal-hero-updated strong { color: var(--text-primary); }
 
     /* Content */
-    .legal-section { padding: 48px 0 80px !important; min-height: auto !important; background: var(--bg); }
+    .legal-section { padding: 48px 0 80px !important; min-height: auto !important; background: var(--bg-app); }
     .legal-container { max-width: 780px; margin: 0 auto; padding: 0 20px; }
 
     /* TOC */
     .legal-toc { background: var(--legal-accent-light); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px; }
-    .legal-toc-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--legal-accent); margin: 0 0 12px 0; }
+    .legal-toc-title { font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--legal-accent); margin: 0 0 12px 0; }
     .legal-toc-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 24px; }
     .legal-toc-list li { padding: 4px 0; }
-    .legal-toc-list a { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .legal-toc-list a { font-family: var(--font-body); font-size: 13px; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
     .legal-toc-list a:hover { color: var(--legal-accent); text-decoration: underline; }
 
     /* Body */
-    .legal-body { font-family: 'Inter', sans-serif; color: var(--text-secondary); }
+    .legal-body { font-family: var(--font-body); color: var(--text-secondary); }
     .legal-body section { margin-bottom: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
     .legal-body section:first-child { border-top: none; padding-top: 0; }
-    .legal-body h2 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 22px; color: var(--text); margin: 0 0 16px 0; }
-    .legal-body h3 { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); margin: 24px 0 10px 0; }
+    .legal-body h2 { font-family: var(--font-heading); font-weight: 700; font-size: 22px; color: var(--text-primary); margin: 0 0 16px 0; }
+    .legal-body h3 { font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--text-primary); margin: 24px 0 10px 0; }
     .legal-body p { font-size: 15px; line-height: 1.75; margin: 0 0 16px 0; }
     .legal-body ul { padding-left: 22px; margin: 0 0 16px 0; }
     .legal-body li { font-size: 15px; line-height: 1.75; margin-bottom: 6px; }
-    .legal-body strong { color: var(--text); font-weight: 600; }
+    .legal-body strong { color: var(--text-primary); font-weight: 600; }
     .legal-body a { color: var(--legal-accent); font-weight: 500; text-decoration: none; }
     .legal-body a:hover { color: var(--legal-accent-dark); text-decoration: underline; }
 
     @media (max-width: 720px) {
       .legal-hero-grid { grid-template-columns: 1fr; gap: 24px; }
-      .legal-hero-right { border-left: none; border-top: 1px solid rgba(0,123,168,0.3); padding-left: 0; padding-top: 24px; }
+      .legal-hero-right { border-left: none; border-top: 1px solid rgba(1, 121, 164,0.3); padding-left: 0; padding-top: 24px; }
       .legal-toc-list { columns: 1; }
     }
   </style>
