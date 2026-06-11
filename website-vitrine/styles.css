@@ -463,18 +463,22 @@ body {
   display: flex; flex-direction: column; align-items: center; overflow: hidden;
 }
 .univers-img {
-  width: 100%; height: 200px; overflow: hidden; margin-bottom: 24px;
+  width: 100%; height: 230px; overflow: hidden; margin-bottom: 22px;
   position: relative;
+}
+.univers-img-label {
+  position: absolute; top: 22%; left: 50%; transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px; padding: 8px 22px; text-align: center; max-width: 94%;
+  z-index: 2;
 }
 /* "Coming soon" treatment */
 .univers-card--soon { cursor: default; }
-.univers-card--soon .univers-img img {
-  filter: grayscale(35%) brightness(0.95);
-}
 .univers-card--soon:hover { transform: none; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
 .univers-card--soon:hover .univers-img img { transform: none; }
 .univers-soon-ribbon {
-  position: absolute; top: 14px; right: 14px;
+  position: absolute; bottom: 14px; right: 14px;
   display: inline-flex; align-items: center; gap: 6px;
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
@@ -498,20 +502,6 @@ body {
   0%, 100% { box-shadow: 0 0 0 0 rgba(175, 31, 35,0.4); }
   50% { box-shadow: 0 0 0 5px rgba(175, 31, 35,0.0); }
 }
-.univers-cta--soon {
-  color: var(--text-secondary);
-  font-weight: 600;
-  cursor: default;
-}
-.univers-cta--soon i {
-  color: var(--brand-red);
-  font-size: 13px;
-}
-.univers-card--soon:hover .univers-cta--soon {
-  gap: 8px;
-  color: var(--text-secondary);
-}
-.univers-card--soon:hover .univers-cta--soon i { transform: none; }
 .univers-img img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform 0.3s;
@@ -527,18 +517,20 @@ body {
 .univers-card--highlight .univers-desc { color: rgba(255,255,255,0.8); }
 .univers-card--highlight .univers-age { background: rgba(255,255,255,0.2); color: #fff; }
 .univers-age {
-  display: inline-block; font-size: 12px; font-weight: 700;
-  background: var(--bg-peach); color: var(--brand-red);
-  padding: 6px 16px; border-radius: 20px; margin-bottom: 18px;
+  font-size: 12px; font-weight: 800;
+  color: var(--brand-red);
+  margin-top: 2px;
   text-transform: uppercase; letter-spacing: 1px;
 }
 .univers-title {
-  font-family: var(--font-display); font-size: 22px;
-  font-weight: 700; margin-bottom: 10px; padding: 0 20px;
+  font-family: var(--font-display); font-size: 21px;
+  font-weight: 700; color: var(--blue-900);
+  margin: 0; padding: 0; line-height: 1.1;
+  white-space: nowrap;
 }
 .univers-subtitle {
-  font-size: 15px; font-style: italic; color: var(--accent);
-  margin-bottom: 16px; padding: 0 20px;
+  font-size: 16px; font-weight: 800; color: var(--accent);
+  margin-bottom: 14px; padding: 0 22px;
 }
 .univers-desc {
   font-size: 14px; color: var(--text-secondary); line-height: 1.7;
@@ -546,17 +538,20 @@ body {
   margin-bottom: 16px;
 }
 .univers-cta {
-  display: inline-flex; align-items: center; gap: 8px;
-  margin: 0 20px 24px;
-  font-family: var(--font-heading);
-  font-weight: 700; font-size: 13.5px;
-  color: var(--accent);
-  letter-spacing: 0.02em;
-  transition: gap 0.2s, color 0.2s;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin: auto 22px 0;
+  font-family: var(--font-ui);
+  font-weight: 600; font-size: 14px;
+  color: #fff; background: var(--brand-red);
+  padding: 12px 26px; border-radius: var(--radius-full);
+  box-shadow: 0 6px 16px rgba(175, 31, 35, 0.22);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.univers-cta i { font-size: 11px; transition: transform 0.2s; }
-.univers-card:hover .univers-cta { gap: 12px; color: var(--brand-red); }
-.univers-card:hover .univers-cta i { transform: translateX(2px); }
+.univers-card:hover .univers-cta {
+  background: var(--red-900);
+  transform: translateY(-1px);
+  box-shadow: 0 9px 20px rgba(175, 31, 35, 0.28);
+}
 .univers-card { cursor: pointer; }
 @media (max-width: 768px) { .univers-grid { grid-template-columns: 1fr; } }
 
