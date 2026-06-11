@@ -30,7 +30,7 @@ ul, ol { list-style: none; }
   --neutral-150: #f7f8fa; --neutral-blue: #eaf7ff;
 
   /* ── Surfaces ── */
-  --bg-app: #fffef8;          /* crème principal */
+  --bg-app: #ffffff;          /* fond blanc (vitrine — override du crème canonique) */
   --bg-panel: #FFFFFF;        /* cartes / panneaux */
   --bg-elevated: #faf9f8;     /* surface surélevée */
   --bg-peach: #FBF0ED;        /* (vitrine — tint décoratif) */
@@ -96,8 +96,8 @@ body {
   justify-content: center;
 }
 .section > .container { width: 100%; }
-.section--peach { background: var(--bg-peach); }
-.section--teal { background: var(--bg-teal); }
+.section--peach { background: #fff; }
+.section--teal { background: #fff; }
 .section--dark { background: var(--bg-dark); color: #fff; }
 .section--nya { background: #fff; }
 @media (max-width: 720px) {
@@ -108,7 +108,7 @@ body {
    NYA — VALEURS
 ══════════════════════════════════════════ */
 .nya-intro {
-  max-width: 720px; margin: 0 auto 56px; text-align: center;
+  max-width: 960px; margin: 0 auto 56px; text-align: left;
   font-family: var(--font-heading); font-size: 16px;
   color: var(--text-secondary); line-height: 1.8;
 }
@@ -116,22 +116,30 @@ body {
 .nya-intro p:last-child { margin-bottom: 0; }
 .nya-intro strong { color: var(--text-primary); }
 .nya-intro em { font-style: italic; color: var(--accent); }
-.nya-intro .nya-niyya-dialna {
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
-  font-size: 17px;
-  color: var(--text-primary);
-  max-width: 640px;
-  margin-left: auto; margin-right: auto;
-}
-.nya-intro .nya-niyya-dialna strong {
-  font-family: var(--font-display);
-  font-style: italic; font-weight: 400;
-  font-size: 22px;
+.nya-niyya-label {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 18px;
   color: var(--brand-red);
-  display: block;
-  margin-bottom: 6px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.nya-niyya-box {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--accent);
+  border-radius: var(--radius);
+  padding: 28px 34px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.nya-niyya-box p {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0;
 }
 .nya-grid {
   display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
@@ -1256,7 +1264,6 @@ body {
 .navbar-mobile-link,
 .navbar-mobile-cta,
 .hero-cta,
-.section-label,
 .section-subtitle {
   font-family: var(--font-ui);
 }
