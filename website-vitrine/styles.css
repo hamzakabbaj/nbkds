@@ -741,11 +741,15 @@ body {
 .science-acc-item:nth-child(2) .science-acc-icon { background: rgba(184,169,212,0.2); color: var(--accent-lavender); }
 .science-acc-item:nth-child(3) .science-acc-icon { background: rgba(124,197,184,0.2); color: var(--accent-mint); }
 .science-acc-intro { flex: 1; }
+/* Titre de section en Fredoka (réf. screenshot « La science derrière Nooba ») */
+.science-header .section-title { font-family: var(--font-ui); }
+
 .science-acc-title {
   font-family: var(--font-heading); font-weight: 800;
   font-size: 17px; margin-bottom: 2px; color: var(--text-primary);
 }
 .science-acc-tagline {
+  font-family: var(--font-heading); font-weight: 700;
   font-size: 13px; color: var(--accent); font-style: italic; margin: 0;
 }
 .science-acc-chevron {
