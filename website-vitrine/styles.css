@@ -871,21 +871,38 @@ body {
 /* ══════════════════════════════════════════
    TESTIMONIALS
 ══════════════════════════════════════════ */
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.testimonial-card { background: #fff; border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); }
-.testimonial-stars { color: var(--accent); font-size: 14px; margin-bottom: 16px; display: flex; gap: 2px; }
-.testimonial-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+.testimonials-header .section-title { font-family: var(--font-ui); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.testimonial-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 2.5px solid #bfe0ee; border-radius: 18px;
+  padding: 32px 28px; box-shadow: 0 10px 28px rgba(0,57,95,0.05);
+}
+/* Étoiles corail (réf. screenshot « La voix des parents ») */
+.testimonial-stars { font-size: 18px; margin-bottom: 22px; display: flex; gap: 4px; color: #f1583d; }
+.testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 28px; flex: 1; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 16px;
+  width: 44px; height: 44px; border-radius: 50%;
+  color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 17px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.testimonial-card:nth-child(1) .testimonial-avatar { background: var(--accent-peach); }
+.testimonial-card:nth-child(1) .testimonial-avatar { background: var(--brand-gold); }
 .testimonial-card:nth-child(2) .testimonial-avatar { background: var(--accent-mint); }
-.testimonial-card:nth-child(3) .testimonial-avatar { background: var(--accent-lavender); }
-.testimonial-author-name { font-weight: 700; font-size: 14px; }
-.testimonial-author-detail { font-size: 12px; color: var(--text-secondary); }
+.testimonial-card:nth-child(3) .testimonial-avatar { background: #a3564f; }
+.testimonial-author-name { font-weight: 800; font-size: 15px; color: var(--text-primary); }
+.testimonial-author-detail { font-size: 12.5px; color: var(--text-secondary); }
+
+.testimonials-cta-wrap { text-align: center; margin-top: 72px; }
+.testimonials-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--brand-red); color: #fff;
+  font-family: var(--font-ui); font-weight: 600; font-size: 19px;
+  padding: 13px 44px; border-radius: var(--radius-full);
+  box-shadow: 0 8px 20px rgba(175, 31, 35, 0.24);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.testimonials-cta:hover { background: var(--red-900); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(175,31,35,0.3); }
 @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
 /* ══════════════════════════════════════════
