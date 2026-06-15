@@ -373,7 +373,7 @@ body {
   padding: 18px 44px; border-radius: var(--radius-full); transition: all 0.2s;
   box-shadow: 0 6px 24px rgba(175, 31, 35,0.3);
 }
-.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(175, 31, 35,0.4); }
+.hero-cta:hover { background: var(--red-200); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255, 110, 97,0.4); }
 
 /* Mascot characters — Moroccan Tales Friends */
 .hero-characters {
@@ -447,14 +447,20 @@ body {
 /* ══════════════════════════════════════════
    NOS UNIVERS
 ══════════════════════════════════════════ */
-.univers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.univers-header .section-title { color: var(--accent); text-transform: uppercase; }
+.univers-header .section-subtitle {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; color: var(--text-primary);
+  max-width: none;
+}
+.univers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .univers-card {
-  background: #fff; border-radius: 20px; padding: 0 0 36px; text-align: center;
+  background: #fff; border-radius: 20px; padding: 0 0 24px; text-align: center;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s;
   display: flex; flex-direction: column; align-items: center; overflow: hidden;
 }
 .univers-img {
-  width: 100%; height: 230px; overflow: hidden; margin-bottom: 22px;
+  width: 100%; height: 200px; overflow: hidden; margin-bottom: 14px;
   position: relative;
 }
 .univers-img-label {
@@ -520,13 +526,15 @@ body {
   white-space: nowrap;
 }
 .univers-subtitle {
-  font-size: 16px; font-weight: 800; color: var(--accent);
-  margin-bottom: 14px; padding: 0 22px;
+  font-family: var(--font-ui);
+  font-size: 16px; font-weight: 600; color: var(--accent);
+  margin-bottom: 8px; padding: 0 22px;
 }
 .univers-desc {
-  font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+  font-family: var(--font-body); font-weight: 700;
+  font-size: 14px; color: var(--text-secondary); line-height: 1.55;
   padding: 0 20px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .univers-cta {
   display: inline-flex; align-items: center; justify-content: center;
@@ -539,9 +547,9 @@ body {
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .univers-card:hover .univers-cta {
-  background: var(--red-900);
+  background: var(--red-200);
   transform: translateY(-1px);
-  box-shadow: 0 9px 20px rgba(175, 31, 35, 0.28);
+  box-shadow: 0 9px 20px rgba(255, 110, 97, 0.32);
 }
 .univers-card { cursor: pointer; }
 @media (max-width: 768px) { .univers-grid { grid-template-columns: 1fr; } }
@@ -823,7 +831,7 @@ body {
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .steps-cta:hover {
-  background: var(--red-900); transform: translateY(-2px);
+  background: var(--red-200); transform: translateY(-2px);
   box-shadow: 0 9px 22px rgba(175, 31, 35, 0.28);
 }
 @media (max-width: 768px) {
@@ -893,7 +901,7 @@ body {
   box-shadow: 0 8px 20px rgba(175, 31, 35, 0.24);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.testimonials-cta:hover { background: var(--red-900); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(175,31,35,0.3); }
+.testimonials-cta:hover { background: var(--red-200); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(255,110,97,0.32); }
 @media (max-width: 768px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
 /* ══════════════════════════════════════════
@@ -1243,8 +1251,9 @@ body {
   transition: all 0.25s;
 }
 .atlas-cta:hover {
+  background: var(--red-200);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(175, 31, 35,0.3);
+  box-shadow: 0 10px 24px rgba(255, 110, 97,0.3);
 }
 
 @media (max-width: 860px) {
