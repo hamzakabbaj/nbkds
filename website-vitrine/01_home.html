@@ -31,28 +31,26 @@
       position: relative;
       width: 100%; max-width: var(--max-w);
       margin: 0 auto;
-      padding: 56px 32px;
+      padding: 40px 32px 48px;
       display: flex; align-items: center;
     }
     .hero-v2__card {
-      width: min(540px, 100%);
-      background: linear-gradient(160deg, rgba(1,121,164,0.64) 0%, rgba(0,57,95,0.58) 100%);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      width: min(620px, 100%);
+      background: linear-gradient(160deg, rgba(1,121,164,0.79) 0%, rgba(0,57,95,0.79) 100%);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: var(--radius);
-      padding: 42px 40px;
+      padding: 30px 36px;
       color: #fff;
       box-shadow: 0 18px 48px rgba(0,57,95,0.32);
     }
     .hero-v2__title {
       font-family: var(--font-ui);
       font-weight: 600;
-      font-size: 44px;
-      line-height: 1.12;
+      font-size: 42px;
+      line-height: 1.1;
       letter-spacing: -0.01em;
       color: #fff;
-      margin: 0 0 20px;
+      margin: 0 0 16px;
     }
     .hero-v2__title span { color: var(--brand-gold); }
     .hero-v2__body {
@@ -60,6 +58,7 @@
       font-weight: 700;
       font-size: 15.5px;
       line-height: 1.7;
+      text-align: justify;
       color: rgba(255,255,255,0.92);
       margin: 0 0 18px;
     }
@@ -68,9 +67,9 @@
       font-style: italic;
       font-weight: 700;
       font-size: 16px;
-      line-height: 1.45;
+      line-height: 1.4;
       color: var(--brand-gold);
-      margin: 0 0 28px;
+      margin: 0 0 22px;
     }
     .hero-v2__actions {
       display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
@@ -82,6 +81,7 @@
       padding: 13px 28px;
       border-radius: var(--radius-full);
       box-shadow: 0 8px 22px rgba(0,57,95,0.22);
+      cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .hero-v2__btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,57,95,0.28); }
@@ -93,22 +93,49 @@
     }
     .hero-v2__link i { font-size: 12px; transition: transform 0.2s ease; }
     .hero-v2__link:hover i { transform: translateX(4px); }
+    .hero-v2__toggle { display: none; }
+    .hero-v2__player {
+      display: none; align-items: center; gap: 14px;
+      margin-top: 22px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius-full);
+      padding: 8px 18px 8px 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .hero-v2__toggle:checked ~ .hero-v2__player { display: inline-flex; }
+    .hero-v2__player:hover { background: rgba(255,255,255,0.24); }
+    .hero-v2__player-play {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #fff; color: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .hero-v2__player-title {
+      font-family: var(--font-ui); font-weight: 600; font-size: 15px; color: #fff;
+    }
+    .hero-v2__player-badge {
+      font-family: var(--font-ui); font-weight: 600; font-size: 13px; color: #fff;
+      padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.32);
+    }
 
-    /* ── Barre de stats ── */
+    /* ── Barre de stats — mini-bento gris ── */
     .hero-stats {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 26px 32px 8px;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
     }
     .hero-stats__item {
       display: flex; flex-direction: column; gap: 3px;
       text-align: center;
-      padding: 4px 16px;
-      border-left: 1px solid var(--border);
+      padding: 16px 16px;
+      background: #faf9f8;
+      border-radius: 16px;
     }
-    .hero-stats__item:first-child { border-left: none; }
     .hero-stats__num {
       font-family: var(--font-ui);
       font-weight: 600; font-size: 18px;
@@ -202,12 +229,18 @@
     <div class="hero-v2__media" role="img" aria-label="Enfants écoutant une histoire NOOBA"></div>
     <div class="hero-v2__overlay">
       <div class="hero-v2__card">
+        <input type="checkbox" id="hero-extrait-toggle" class="hero-v2__toggle">
         <h1 class="hero-v2__title">L'âme du Maroc, des trésors à portée de <span>VOIX</span>.</h1>
         <p class="hero-v2__body">De berceuses en contes, de fables en récits, offrez à vos enfants 1 200 ans d'histoires. Une immersion douce 100% audio et sans écran, pensée selon une progression naturelle pour s'imprégner de la Darija et s'enraciner avec fierté dans notre culture.</p>
         <p class="hero-v2__tagline">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
         <div class="hero-v2__actions">
-          <a href="07_catalogue.html" class="hero-v2__btn">Découvrir un extrait</a>
+          <label for="hero-extrait-toggle" class="hero-v2__btn">Découvrir un extrait</label>
           <a href="08_subscribe.html" class="hero-v2__link">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-v2__player">
+          <span class="hero-v2__player-play"><i class="fa-solid fa-play"></i></span>
+          <span class="hero-v2__player-title">3andi baba, andi mama</span>
+          <span class="hero-v2__player-badge">1+</span>
         </div>
       </div>
     </div>
