@@ -34,8 +34,13 @@
       padding: 40px 32px 48px;
       display: flex; align-items: center;
     }
-    .hero-v2__card {
+    .hero-v2__col {
+      position: relative;
+      display: flex; flex-direction: column; align-items: flex-start;
       width: min(620px, 100%);
+    }
+    .hero-v2__card {
+      width: 100%;
       background: linear-gradient(160deg, rgba(1,121,164,0.79) 0%, rgba(0,57,95,0.79) 100%);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: var(--radius);
@@ -94,30 +99,32 @@
     .hero-v2__link i { font-size: 12px; transition: transform 0.2s ease; }
     .hero-v2__link:hover i { transform: translateX(4px); }
     .hero-v2__toggle { display: none; }
+    .hero-v2__toggle:checked ~ .hero-v2__player { display: inline-flex; }
     .hero-v2__player {
+      position: absolute; top: 100%; left: 0;
       display: none; align-items: center; gap: 14px;
-      margin-top: 22px;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.22);
+      margin-top: 16px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.55);
       border-radius: var(--radius-full);
       padding: 8px 18px 8px 8px;
+      box-shadow: 0 10px 28px rgba(0,57,95,0.22);
       cursor: pointer;
       transition: background 0.2s ease;
     }
-    .hero-v2__toggle:checked ~ .hero-v2__player { display: inline-flex; }
-    .hero-v2__player:hover { background: rgba(255,255,255,0.24); }
+    .hero-v2__player:hover { background: rgba(255,255,255,0.92); }
     .hero-v2__player-play {
       width: 38px; height: 38px; border-radius: 50%;
-      background: #fff; color: var(--accent);
+      background: var(--accent); color: #fff;
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 14px; flex-shrink: 0;
     }
     .hero-v2__player-title {
-      font-family: var(--font-ui); font-weight: 600; font-size: 15px; color: #fff;
+      font-family: var(--font-ui); font-weight: 600; font-size: 15px; color: var(--blue-900);
     }
     .hero-v2__player-badge {
-      font-family: var(--font-ui); font-weight: 600; font-size: 13px; color: #fff;
-      padding-left: 14px; border-left: 1px solid rgba(255,255,255,0.32);
+      font-family: var(--font-ui); font-weight: 600; font-size: 13px; color: var(--accent);
+      padding-left: 14px; border-left: 1px solid rgba(0,57,95,0.2);
     }
 
     /* ── Barre de stats — mini-bento gris ── */
@@ -172,41 +179,31 @@
         <div class="navbar-item">
           <a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a>
           <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الوصية</p>
-            <p class="navbar-hover-title">Notre engagement</p>
-            <p class="navbar-hover-desc">Honorer le passé, éclairer leur avenir. Notre responsabilité de passeurs : traduire l'invisible et tisser le fil fragile de la transmission.</p>
+            <p class="navbar-hover-title">L'engagement <span class="navbar-hover-arabic">الوصية</span></p>
           </div></div>
         </div>
         <div class="navbar-item">
           <a href="02_al_amana.html" class="navbar-link">Al Amana</a>
           <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الأمانة</p>
-            <p class="navbar-hover-title">Notre sélection</p>
-            <p class="navbar-hover-desc">Le trésor que nous portons en commun — nos valeurs ancestrales et notre savoir-être : Niyya, l'art du « Nous », la baraka des anciens et la noblesse du partage.</p>
+            <p class="navbar-hover-title">Notre sélection <span class="navbar-hover-arabic">الأمانة</span></p>
           </div></div>
         </div>
         <div class="navbar-item">
           <a href="04_nooba.html" class="navbar-link">Nooba</a>
           <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">نوبة</p>
-            <p class="navbar-hover-title">Notre offre</p>
-            <p class="navbar-hover-desc">Les fréquences sonores du Maroc. Comment nos histoires audio, berceuses et contes en français-darija participent à la transmission aux enfants de 1 à 12 ans.</p>
+            <p class="navbar-hover-title">L'offre <span class="navbar-hover-arabic">نوبة</span></p>
           </div></div>
         </div>
         <div class="navbar-item">
           <a href="05_al_assel.html" class="navbar-link">Al Assal</a>
           <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">الأصل</p>
-            <p class="navbar-hover-title">Les initiatrices</p>
-            <p class="navbar-hover-desc">Deux mamans, deux parcours, une même niyya. Maha et Boutaïna partagent leur histoire entre France, Londres et Maroc.</p>
+            <p class="navbar-hover-title">Les initiatrices <span class="navbar-hover-arabic">الأصل</span></p>
           </div></div>
         </div>
         <div class="navbar-item">
           <a href="06_marhba.html" class="navbar-link">Marhba</a>
           <div class="navbar-hover-card"><div class="navbar-hover-card-inner">
-            <p class="navbar-hover-arabic">مرحبا</p>
-            <p class="navbar-hover-title">Nous contacter</p>
-            <p class="navbar-hover-desc">Nous sommes tout ouïe. Écrivez-nous : retours, questions, suggestions ou partenariats. Nous vous répondrons avec le sourire et la douceur du miel.</p>
+            <p class="navbar-hover-title">Nous contacter <span class="navbar-hover-arabic">مرحبا</span></p>
           </div></div>
         </div>
         <a href="08_subscribe.html" class="navbar-cta">S'abonner</a>
@@ -228,14 +225,16 @@
   <section class="hero-v2">
     <div class="hero-v2__media" role="img" aria-label="Enfants écoutant une histoire NOOBA"></div>
     <div class="hero-v2__overlay">
-      <div class="hero-v2__card">
+      <div class="hero-v2__col">
         <input type="checkbox" id="hero-extrait-toggle" class="hero-v2__toggle">
-        <h1 class="hero-v2__title">L'âme du Maroc, des trésors à portée de <span>VOIX</span>.</h1>
-        <p class="hero-v2__body">De berceuses en contes, de fables en récits, offrez à vos enfants 1 200 ans d'histoires. Une immersion douce 100% audio et sans écran, pensée selon une progression naturelle pour s'imprégner de la Darija et s'enraciner avec fierté dans notre culture.</p>
-        <p class="hero-v2__tagline">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
-        <div class="hero-v2__actions">
-          <label for="hero-extrait-toggle" class="hero-v2__btn">Découvrir un extrait</label>
-          <a href="08_subscribe.html" class="hero-v2__link">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="hero-v2__card">
+          <h1 class="hero-v2__title">L'âme du Maroc, des trésors à portée de <span>VOIX</span>.</h1>
+          <p class="hero-v2__body">De berceuses en contes, de fables en récits, offrez à vos enfants 1 200 ans d'histoires. Une immersion douce 100% audio et sans écran, pensée selon une progression naturelle pour s'imprégner de la Darija et s'enraciner avec fierté dans notre culture.</p>
+          <p class="hero-v2__tagline">Des fils d'or pour tisser leur imaginaire, de 12 mois à 12 ans.</p>
+          <div class="hero-v2__actions">
+            <label for="hero-extrait-toggle" class="hero-v2__btn">Découvrir un extrait</label>
+            <a href="08_subscribe.html" class="hero-v2__link">S'abonner <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
         <div class="hero-v2__player">
           <span class="hero-v2__player-play"><i class="fa-solid fa-play"></i></span>

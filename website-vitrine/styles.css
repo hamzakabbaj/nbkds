@@ -268,7 +268,7 @@ body {
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
-  width: 320px;
+  width: max-content;
   padding-top: 18px;
   opacity: 0;
   visibility: hidden;
@@ -301,26 +301,19 @@ body {
 }
 .navbar-hover-arabic {
   font-family: var(--font-arabic);
-  font-size: 18px;
-  color: var(--accent);
-  opacity: 0.55;
+  font-size: 17px;
+  color: var(--text-secondary);
+  opacity: 0.85;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-left: 8px;
 }
 .navbar-hover-title {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-ui);
+  font-weight: 600;
   font-size: 16px;
-  color: var(--brand-red);
-  font-style: italic;
-  margin-bottom: 10px;
-}
-.navbar-hover-desc {
-  font-family: var(--font-body);
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--accent);
   margin: 0;
+  white-space: nowrap;
 }
 @media (max-width: 900px) {
   .navbar-hover-card { display: none; }
