@@ -98,7 +98,7 @@ body {
 .section--peach { background: #fff; }
 .section--teal { background: #fff; }
 .section--dark { background: var(--bg-dark); color: #fff; }
-.section--nya { background: #fff; }
+.section--nya { background: #fff; padding-top: 40px; }
 @media (max-width: 720px) {
   .section { padding: 72px 0; min-height: auto; }
 }
@@ -107,7 +107,7 @@ body {
    NYA — VALEURS
 ══════════════════════════════════════════ */
 .nya-intro {
-  max-width: 960px; margin: 0 auto 56px; text-align: left;
+  max-width: 960px; margin: 0 auto 56px; text-align: justify;
   font-family: var(--font-heading); font-size: 16px;
   color: var(--text-secondary); line-height: 1.8;
 }
