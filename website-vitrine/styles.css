@@ -106,39 +106,45 @@ body {
 /* ══════════════════════════════════════════
    NYA — VALEURS
 ══════════════════════════════════════════ */
+/* En-tête : titre bleu majuscule + sous-titre foncé gras (réf. screenshot NIYYA) */
+.nya-header .section-title { color: var(--accent); text-transform: uppercase; }
+.nya-header .section-subtitle {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 20px; color: var(--text-primary); max-width: none;
+}
 .nya-intro {
-  max-width: 960px; margin: 0 auto 56px; text-align: justify;
+  max-width: 960px; margin: 0 auto; text-align: justify;
   font-family: var(--font-heading); font-size: 16px;
   color: var(--text-secondary); line-height: 1.8;
 }
 .nya-intro p { margin-bottom: 16px; }
-.nya-intro p:last-child { margin-bottom: 0; }
-.nya-intro strong { color: var(--text-primary); }
 .nya-intro em { font-style: italic; color: var(--accent); }
-.nya-niyya-label {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 18px;
-  color: var(--brand-red);
-  margin-top: 40px;
-  margin-bottom: 16px;
-  text-align: center;
-}
 .nya-niyya-box {
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 960px;
+  margin: 48px auto 0;
   background: var(--accent);
   border-radius: var(--radius);
-  padding: 28px 34px;
+  padding: 30px 40px;
   box-shadow: var(--shadow);
-  text-align: center;
+  display: flex; align-items: center; gap: 36px;
 }
-.nya-niyya-box p {
+.nya-niyya-label {
+  flex-shrink: 0;
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 22px; color: #fff;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  text-decoration: underline; text-underline-offset: 5px;
+}
+.nya-niyya-quote {
   font-family: var(--font-display);
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 23px;
+  line-height: 1.4;
   color: #fff;
   margin: 0;
+  text-align: left;
+}
+@media (max-width: 680px) {
+  .nya-niyya-box { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 .nya-grid {
   display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
