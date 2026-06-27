@@ -747,7 +747,12 @@ body {
 .science-acc-item:nth-child(3) .science-acc-icon { background: rgba(124,197,184,0.2); color: var(--accent-mint); }
 .science-acc-intro { flex: 1; }
 /* Titre de section en Fredoka (réf. screenshot « La science derrière Nooba ») */
-.science-header .section-title { font-family: var(--font-ui); }
+/* Header harmonisé (titre court accent/majuscule + sous-titre descriptif) */
+.science-header .section-title { color: var(--accent); text-transform: uppercase; }
+.science-header .section-subtitle {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; color: var(--text-primary); max-width: none;
+}
 
 .science-acc-title {
   font-family: var(--font-heading); font-weight: 800;
@@ -791,14 +796,11 @@ body {
    COMMENT ÇA MARCHE
 ══════════════════════════════════════════ */
 /* En-tête spécifique : titre bleu majuscule + accroche Fredoka + sous-titre Nunito */
-/* Titre plus petit que le sous-titre (réf. screenshot « Comment ça marche ») */
-.ccm-header .section-title {
-  color: var(--accent); text-transform: uppercase;
-  font-size: 20px; letter-spacing: 1px; margin-bottom: 10px;
-}
+/* Hiérarchie harmonisée avec « Nos Univers » : grand titre + sous-titre plus petit */
+.ccm-header .section-title { color: var(--accent); text-transform: uppercase; }
 .ccm-header .section-subtitle {
   font-family: var(--font-heading); font-weight: 800;
-  font-size: 26px; color: var(--text-primary); max-width: none; line-height: 1.3;
+  font-size: 18px; color: var(--text-primary); max-width: none;
 }
 
 .steps-grid {
@@ -850,6 +852,11 @@ body {
 /* ══════════════════════════════════════════
    FOUNDERS
 ══════════════════════════════════════════ */
+.founders-header .section-title { color: var(--accent); text-transform: uppercase; }
+.founders-header .section-subtitle {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; color: var(--text-primary); max-width: none;
+}
 .founders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 800px; margin: 0 auto; }
 .founder-card {
   background: #fff; border-radius: var(--radius); padding: 36px 28px; text-align: center;
@@ -879,7 +886,11 @@ body {
 /* ══════════════════════════════════════════
    TESTIMONIALS
 ══════════════════════════════════════════ */
-.testimonials-header .section-title { font-family: var(--font-ui); }
+.testimonials-header .section-title { color: var(--accent); text-transform: uppercase; }
+.testimonials-header .section-subtitle {
+  font-family: var(--font-heading); font-weight: 800;
+  font-size: 18px; color: var(--text-primary); max-width: none;
+}
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .testimonial-card {
   display: flex; flex-direction: column;
