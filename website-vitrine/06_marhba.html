@@ -20,88 +20,25 @@
       --marhba-hero-bg: #D4EDE8;
     }
 
-    /* ═══ Asymmetric split hero: title left, quote right ═══ */
-    .marhba-hero {
-      background: linear-gradient(135deg, #E1EFE2 0%, #CBE2CD 50%, #A6C8A8 100%);
-      padding: 24px 0;
-      position: relative; overflow: hidden;
+    /* ═══ Intro — citation centrée (Lobster Two corail + attribution bleue) ═══ */
+    .marhba-intro-section {
+      padding: 52px 0 12px;
+      background: var(--bg-app);
     }
-    /* Motif zellige en coin haut-droit (sombre ton sur ton — fond clair) */
-    .marhba-hero::after {
-      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
-      background: url(assets/decoration/motif.png) no-repeat top left / contain;
-      transform: scaleX(-1) rotate(-90deg);
-      opacity: 0.05;
+    .marhba-intro-quote {
+      font-family: var(--font-display);
+      font-size: 30px;
+      line-height: 1.4;
+      color: #ff6e61;
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto 16px;
     }
-    .marhba-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 56px;
-      align-items: start;
-      position: relative; z-index: 1;
-    }
-    .marhba-hero-left { position: relative; }
-    .marhba-hero-title-row {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin: 0 0 10px 0;
-    }
-    .marhba-hero-title {
-      font-family: var(--font-heading);
-      font-weight: 700; font-size: 38px;
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin: 0;
-    }
-    .marhba-hero-arabic {
-      font-family: var(--font-arabic);
-      font-size: 42px;
-      color: var(--marhba-accent);
-      line-height: 1;
-      opacity: 0.9;
-      position: relative;
-      top: 8px;
-    }
-    .marhba-hero-subtitle {
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      max-width: 360px;
-      margin: 0;
-    }
-    .marhba-hero-right {
-      border-left: 1px solid rgba(42, 157, 143, 0.4);
-      padding-left: 48px;
-      position: relative;
-      align-self: start;
-      height: fit-content;
-    }
-    .marhba-hero-eyebrow {
-      font-family: var(--font-body);
-      font-weight: 600; font-size: 11px;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--marhba-accent);
-      margin: 0 0 14px 0;
-    }
-    .marhba-hero-quote {
-      font-family: var(--font-arabic);
-      font-style: italic;
-      font-size: 22px;
-      line-height: 1.5;
-      color: var(--marhba-accent-dark);
-      margin: 0 0 10px 0;
-    }
-    .marhba-hero-attribution {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--marhba-accent);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+    .marhba-intro-attribution {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--accent);
+      text-align: center;
       margin: 0;
     }
 
@@ -176,7 +113,7 @@
       font-family: var(--font-heading);
       font-weight: 700;
       font-size: 14px;
-      color: var(--text-primary);
+      color: var(--accent);
       letter-spacing: 0.02em;
     }
     .form-group input,
@@ -184,9 +121,9 @@
     .form-group textarea {
       font-family: var(--font-body);
       font-size: 15px;
-      padding: 13px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-full);
       background: #fff;
       color: var(--text-primary);
       outline: none;
@@ -194,11 +131,14 @@
       width: 100%;
       box-sizing: border-box;
     }
+    .form-group textarea {
+      border-radius: var(--radius);
+    }
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: var(--marhba-accent);
-      box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(1, 121, 164, 0.12);
     }
     .form-group textarea {
       resize: vertical;
@@ -219,7 +159,7 @@
       padding: 14px 36px;
       border: none;
       border-radius: var(--radius-full);
-      background: var(--marhba-accent);
+      background: var(--accent);
       color: #fff;
       cursor: pointer;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -227,9 +167,9 @@
       margin-top: 6px;
     }
     .form-submit:hover {
-      background: var(--marhba-accent-dark);
+      background: var(--blue-900);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(42, 157, 143, 0.25);
+      box-shadow: 0 6px 20px rgba(1, 121, 164, 0.25);
     }
 
     /* Heritage grid: form + illustration side by side */
@@ -368,15 +308,8 @@
 
     /* Responsive */
     @media (max-width: 780px) {
-      .marhba-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .marhba-hero-right {
-        border-left: none;
-        border-top: 1px solid rgba(42, 157, 143, 0.4);
-        padding-left: 0;
-        padding-top: 28px;
-      }
-      .marhba-hero-title { font-size: 32px; }
-      .marhba-hero-quote { font-size: 20px; }
+      .marhba-intro-quote { font-size: 24px; }
+      .marhba-intro-attribution { font-size: 20px; }
       .marhba-accroche {
         font-size: 22px;
         padding: 28px 24px;
@@ -466,22 +399,11 @@
   </nav>
   <div class="navbar-spacer" id="nav-spacer"></div>
 
-  <!-- ═══ HERO — asymmetric split: title left, quote right ═══ -->
-  <section class="marhba-hero">
+  <!-- ═══ INTRO — citation centrée ═══ -->
+  <section class="marhba-intro-section">
     <div class="container">
-      <div class="marhba-hero-grid">
-        <div class="marhba-hero-left">
-          <div class="marhba-hero-title-row">
-            <h1 class="marhba-hero-title">Marhba</h1>
-            <span class="marhba-hero-arabic">مرحبا</span>
-          </div>
-          <p class="marhba-hero-subtitle">Nous sommes tout ou&iuml;e &mdash; vos retours font grandir Nooba.</p>
-        </div>
-        <div class="marhba-hero-right">
-          <p class="marhba-hero-quote">&Eacute;crivez-nous, nous vous r&eacute;pondrons avec le sourire et la douceur du miel.</p>
-          <p class="marhba-hero-attribution">Maha &amp; Bouta&iuml;na</p>
-        </div>
-      </div>
+      <p class="marhba-intro-quote">&ldquo;Vos retours nous font grandir&nbsp;!<br>&Eacute;crivez-nous et nous vous r&eacute;pondrons avec le sourire et la douceur du miel.&rdquo;</p>
+      <p class="marhba-intro-attribution">Maha et Bouta&iuml;na</p>
     </div>
   </section>
 
@@ -518,7 +440,7 @@
           </form>
         </div>
         <div class="marhba-heritage-img">
-          <img src="assets/pages/marhba_porte.jpg" alt="Porte ouverte d'un riad marocain — bienvenue" onerror="this.parentElement.innerHTML='<div style=&quot;background:var(--marhba-accent-light);border:2px dashed var(--marhba-accent);border-radius:var(--radius);padding:80px 40px;text-align:center;&quot;><i class=&quot;fa-solid fa-door-open&quot; style=&quot;font-size:48px;color:var(--marhba-accent);margin-bottom:16px;display:block;&quot;></i><p style=&quot;font-family:Nunito,sans-serif;font-size:15px;color:var(--marhba-accent);&quot;>Illustration &agrave; venir</p></div>';">
+          <img src="assets/pages/marhba_porte.png" alt="Porte ouverte d'un riad marocain — bienvenue" onerror="this.parentElement.innerHTML='<div style=&quot;background:var(--marhba-accent-light);border:2px dashed var(--marhba-accent);border-radius:var(--radius);padding:80px 40px;text-align:center;&quot;><i class=&quot;fa-solid fa-door-open&quot; style=&quot;font-size:48px;color:var(--marhba-accent);margin-bottom:16px;display:block;&quot;></i><p style=&quot;font-family:Nunito,sans-serif;font-size:15px;color:var(--marhba-accent);&quot;>Illustration &agrave; venir</p></div>';">
         </div>
       </div>
     </div>
