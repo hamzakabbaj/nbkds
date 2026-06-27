@@ -728,11 +728,12 @@ body {
   display: flex; flex-direction: column; gap: 12px;
 }
 .science-acc-item {
-  background: #fff; border-radius: var(--radius);
-  box-shadow: var(--shadow); overflow: hidden; cursor: pointer;
+  background: #f3f9fc; border: 2.5px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden; cursor: pointer;
   transition: box-shadow 0.2s;
 }
-.science-acc-item:hover { box-shadow: var(--shadow-lg); }
+.science-acc-item:hover { box-shadow: var(--shadow); }
 .science-acc-header {
   display: flex; align-items: center; gap: 16px;
   padding: 20px 24px;
@@ -756,11 +757,11 @@ body {
 
 .science-acc-title {
   font-family: var(--font-heading); font-weight: 800;
-  font-size: 17px; margin-bottom: 2px; color: var(--text-primary);
+  font-size: 17px; margin-bottom: 2px; color: var(--accent);
 }
 .science-acc-tagline {
   font-family: var(--font-heading); font-weight: 700;
-  font-size: 13px; color: var(--accent); font-style: italic; margin: 0;
+  font-size: 15px; color: var(--text-secondary); font-style: italic; margin: 0;
 }
 .science-acc-chevron {
   font-size: 14px; color: var(--text-secondary);
@@ -974,11 +975,16 @@ body {
   max-width: 560px;
 }
 .pricing-age-card {
+  position: relative;
   text-align: center;
   padding: 4px 18px;
-  border-left: 1px solid var(--border);
 }
-.pricing-age-card:first-child { border-left: none; }
+.pricing-age-card::before {
+  content: '';
+  position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  height: 38px; width: 1.5px; background: #b9c4cc;
+}
+.pricing-age-card:first-child::before { display: none; }
 .pricing-age-card-label {
   display: inline-block;
   font-family: var(--font-heading);
@@ -995,7 +1001,8 @@ body {
 }
 @media (max-width: 640px) {
   .pricing-age-cards { grid-template-columns: 1fr; max-width: none; }
-  .pricing-age-card { border-left: none; text-align: left; padding: 8px 0; }
+  .pricing-age-card { text-align: left; padding: 8px 0; }
+  .pricing-age-card::before { display: none; }
 }
 .pricing-subscribe-btn {
   display: inline-flex; align-items: center; gap: 10px;
