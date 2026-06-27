@@ -10,85 +10,61 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ═══ HERO — split asymétrique (commun aux 3 variantes) ═══ */
-    .wassiya-hero { background: linear-gradient(135deg, #F0D8CC 0%, #E3B7A4 50%, #CE8E73 100%); padding: 24px 0; position: relative; overflow: hidden; }
-    /* Motif zellige en coin (recoloré ton sur ton via mask) */
-    .wassiya-hero::after {
-      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
-      background: url(assets/decoration/motif.png) no-repeat top left / contain;
-      transform: scaleX(-1) rotate(-90deg);   /* +90° sens horaire (composé avec le miroir) */
-      filter: invert(1);                /* trait noir -> blanc */
-      opacity: 0.1;
+    /* ═══ HERO — bannière arbre + cadre citation bleu translucide ═══ */
+    .wassiya-hero { padding: 28px 0 4px; }
+    .wassiya-hero-banner {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
-    .wassiya-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; position: relative; z-index: 1; }
-    .wassiya-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
-    .wassiya-hero-title { font-family: var(--font-heading); font-weight: 700; font-size: 38px; line-height: 1.1; color: var(--text-primary); margin: 0; }
-    .wassiya-hero-arabic { font-family: var(--font-arabic); font-size: 42px; color: #C26B43; line-height: 1; opacity: 0.9; position: relative; top: 8px; }
-    .wassiya-hero-subtitle { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
-    .wassiya-hero-right { border-left: 1px solid rgba(194, 107, 67, 0.45); padding-left: 48px; position: relative; align-self: start; height: fit-content; }
-    .wassiya-hero-quote { font-family: var(--font-arabic); font-style: italic; font-size: 22px; line-height: 1.5; color: #5E3B28; margin: 0 0 10px 0; }
-    .wassiya-hero-attribution { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: #C26B43; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
-
-    /* ═══ VARIANTE A — Éditorial « Le fil » ═══
-       3 moments numérotés (01/02/03) reliés par un fil vertical de
-       transmission. Layout asymétrique, prose à gauche, une image éditoriale. */
-    :root { --wassiya-accent: #C26B43; --wassiya-gold: #C9A24B; }
-
-    .fil-section { padding: 76px 0 40px; }
-    .fil { max-width: 920px; margin: 0 auto; }
-
-    .fil-step { position: relative; display: grid; grid-template-columns: 64px 1fr; column-gap: 34px; }
-    .fil-rail { position: relative; display: flex; flex-direction: column; align-items: center; }
-    .fil-num {
-      flex: none; width: 56px; height: 56px; border-radius: 50%;
-      background: #fff; border: 2px solid var(--wassiya-accent); color: var(--wassiya-accent);
-      font-size: 22px;
-      display: flex; align-items: center; justify-content: center; z-index: 1;
-      box-shadow: 0 4px 14px rgba(194,107,67,0.22);
+    .wassiya-hero-img { width: 100%; height: 240px; object-fit: cover; display: block; }
+    .wassiya-hero-quotebox {
+      position: absolute; left: 50%; top: 64%; transform: translate(-50%, -50%);
+      background: rgba(65, 130, 157, 0.82);
+      padding: 20px 60px; border-radius: 6px;
+      max-width: 94%; white-space: nowrap;
     }
-    .fil-line { width: 2px; flex: 1 1 auto; margin-top: 6px; background: linear-gradient(var(--wassiya-accent), rgba(194,107,67,0.22)); }
-    .fil-step:last-child .fil-line { display: none; }
-
-    .fil-body { padding: 4px 0 60px; min-width: 0; }
-    .fil-title {
-      font-family: var(--font-display);
-      font-size: 30px; font-weight: 700; color: var(--text-primary);
-      line-height: 1.2; margin: 6px 0 18px;
+    .wassiya-hero-quote {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 30px; line-height: 1.4; color: #fff;
+      text-align: center; margin: 0;
     }
-    .fil-prose { font-family: var(--font-heading); font-size: 18px; color: var(--text-secondary); line-height: 1.85; }
-    .fil-prose p { margin: 0 0 18px; }
-    .fil-prose p:last-child { margin-bottom: 0; }
-    .fil-prose em { font-style: italic; color: #9A4F2E; }
-    .fil-prose strong { color: var(--text-primary); }
 
-    /* Image éditoriale du moment 02 */
-    .fil-figure { margin: 26px 0 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
-    .fil-figure img { width: 100%; height: 280px; object-fit: cover; display: block; }
-
-    /* Moment de clôture : pull-quote + CTA */
-    .fil-pullquote {
-      font-family: var(--font-arabic); font-style: italic; font-size: 24px; line-height: 1.55;
-      color: #9A4F2E; border-left: 3px solid var(--wassiya-gold); padding: 2px 0 2px 24px; margin: 24px 0 0;
+    /* ═══ CONTENU — titres bleus + prose Nunito gras ═══ */
+    .wassiya-content { padding: 36px 0 72px; }
+    .wassiya-prose-wrap { max-width: 1000px; margin: 0 auto; }
+    .wassiya-h2 {
+      font-family: var(--font-heading); font-weight: 800;
+      font-size: 28px; color: var(--accent); line-height: 1.25;
+      margin: 40px 0 16px;
     }
-    .fil-next-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
-      color: #fff; background: var(--wassiya-accent); border: 2px solid var(--wassiya-accent);
-      padding: 13px 34px; border-radius: var(--radius-full); transition: all 0.2s; margin-top: 32px;
+    .wassiya-prose-wrap > .wassiya-h2:first-child { margin-top: 6px; }
+    .wassiya-p {
+      font-family: var(--font-body); font-weight: 700;
+      font-size: 18px; line-height: 1.75; color: #2e3a44;
+      margin: 0 0 8px;
     }
-    .fil-next-link:hover { background: #9A4F2E; border-color: #9A4F2E; }
+    .wassiya-pullquote {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 28px; line-height: 1.4; color: var(--accent);
+      text-align: center; max-width: 880px; margin: 36px auto 0;
+    }
+    .wassiya-cta-wrap { text-align: center; margin-top: 40px; }
+    .wassiya-cta {
+      display: inline-block;
+      font-family: var(--font-ui); font-weight: 600; font-size: 16px;
+      background: var(--brand-red); color: #fff;
+      padding: 15px 40px; border-radius: var(--radius-full);
+      transition: background 0.2s;
+    }
+    .wassiya-cta:hover { background: var(--red-200); }
 
     @media (max-width: 780px) {
-      .wassiya-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .wassiya-hero-right { border-left: none; border-top: 1px solid rgba(194,107,67,0.45); padding-left: 0; padding-top: 28px; }
-      .wassiya-hero-title { font-size: 32px; }
+      .wassiya-hero-img { height: 240px; }
+      .wassiya-hero-quotebox { padding: 18px 26px; max-width: 88%; white-space: normal; }
       .wassiya-hero-quote { font-size: 20px; }
-      .fil-step { grid-template-columns: 44px 1fr; column-gap: 20px; }
-      .fil-num { width: 40px; height: 40px; font-size: 16px; }
-      .fil-title { font-size: 24px; }
-      .fil-prose { font-size: 17px; }
-      .fil-figure img { height: 200px; }
-      .fil-pullquote { font-size: 20px; }
+      .wassiya-h2 { font-size: 24px; }
+      .wassiya-p { font-size: 17px; }
+      .wassiya-pullquote { font-size: 23px; }
     }
   </style>
 </head>
@@ -145,73 +121,36 @@
   </nav>
   <div class="navbar-spacer" id="nav-spacer"></div>
 
-  <!-- ═══ HERO — asymmetric split: title left, quote right ═══ -->
+  <!-- ═══ HERO — bannière arbre + citation ═══ -->
   <section class="wassiya-hero">
     <div class="container">
-      <div class="wassiya-hero-grid">
-        <div class="wassiya-hero-left">
-          <div class="wassiya-hero-title-row">
-            <h1 class="wassiya-hero-title">Al Wassiya</h1>
-            <span class="wassiya-hero-arabic">الوصية</span>
-          </div>
-          <p class="wassiya-hero-subtitle">Honorer le pass&eacute;, &eacute;clairer leur avenir.</p>
-        </div>
-        <div class="wassiya-hero-right">
-          <p class="wassiya-hero-quote">Nous n'h&eacute;ritons pas de la terre de nos anc&ecirc;tres, nous l'empruntons &agrave; nos enfants.</p>
-          <p class="wassiya-hero-attribution">Proverbe</p>
+      <div class="wassiya-hero-banner">
+        <img src="assets/piliers/pilier_sagesse.jpg" alt="Arbre aux lanternes — la transmission" class="wassiya-hero-img">
+        <div class="wassiya-hero-quotebox">
+          <p class="wassiya-hero-quote">&ldquo;Nous n'h&eacute;ritons pas de la terre de nos anc&ecirc;tres,<br>nous l'empruntons &agrave; nos enfants.&rdquo;</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ LE FIL — 3 moments ═══ -->
-  <section class="fil-section">
+  <!-- ═══ CONTENU ═══ -->
+  <section class="wassiya-content">
     <div class="container">
-      <div class="fil">
+      <div class="wassiya-prose-wrap">
 
-        <!-- 01 -->
-        <div class="fil-step">
-          <div class="fil-rail">
-            <div class="fil-num"><i class="fa-solid fa-seedling"></i></div>
-            <div class="fil-line"></div>
-          </div>
-          <div class="fil-body">
-            <h2 class="fil-title">L'Engagement&nbsp;: Honorer le pass&eacute;, &eacute;clairer leur avenir</h2>
-            <div class="fil-prose">
-              <p>Cette sagesse guide chacun de nos pas. Pour nous, parents de la diaspora, notre culture n'est pas un mus&eacute;e que l'on visite par nostalgie&nbsp;; c'est un patrimoine vivant que nous portons en nous. Un h&eacute;ritage que nous avons &agrave; c&oelig;ur de transmettre, d'enrichir et de faire grandir, chaque jour.</p>
-            </div>
-          </div>
-        </div>
+        <h2 class="wassiya-h2">Al Wassiya, notre engagement&nbsp;: Honorer le pass&eacute;, &eacute;clairer leur avenir</h2>
+        <p class="wassiya-p">Cette sagesse guide chacun de nos pas. Pour nous, parents de la diaspora, notre culture n'est pas un mus&eacute;e que l'on visite par nostalgie&nbsp;; c'est un patrimoine vivant que nous portons en nous. Un h&eacute;ritage que nous avons &agrave; c&oelig;ur de transmettre, d'enrichir et de faire grandir, chaque jour.</p>
 
-        <!-- 02 -->
-        <div class="fil-step">
-          <div class="fil-rail">
-            <div class="fil-num"><i class="fa-solid fa-key"></i></div>
-            <div class="fil-line"></div>
-          </div>
-          <div class="fil-body">
-            <h2 class="fil-title">Donner les cl&eacute;s de l'appartenance</h2>
-            <div class="fil-prose">
-              <p>Au sein de Nooba, nous avons choisi de ne pas &ecirc;tre de simples h&eacute;ritiers, mais des acteurs engag&eacute;s. Il nous tient particuli&egrave;rement &agrave; c&oelig;ur d'honorer <em>Al Wassiya</em>, cet engagement tacite envers nos a&icirc;n&eacute;s, en faisant en sorte que nos enfants s'approprient &agrave; leur tour l'h&eacute;ritage marocain ici et maintenant. Nous voulons qu'ils en saisissent l'essence, bien au-del&agrave; du simple &laquo;&nbsp;folklore de vacances&nbsp;&raquo;. Notre r&ocirc;le est de leur transmettre ce qui forge r&eacute;ellement notre caract&egrave;re&nbsp;: cette &eacute;l&eacute;gance de vie, ce sens de l'autre et cette noblesse de geste qui nous d&eacute;finissent, peu importe o&ugrave; nous sommes.</p>
-            </div>
-            <figure class="fil-figure"><img src="assets/piliers/pilier_sagesse.jpg" alt=""></figure>
-          </div>
-        </div>
+        <h2 class="wassiya-h2">Donner les cl&eacute;s de l'appartenance</h2>
+        <p class="wassiya-p">Au sein de Nooba, nous avons choisi de ne pas &ecirc;tre de simples h&eacute;ritiers, mais des acteurs engag&eacute;s. Il nous tient particuli&egrave;rement &agrave; c&oelig;ur d'honorer Al Wassiya, cet engagement tacite envers nos a&icirc;n&eacute;s, en faisant en sorte que nos enfants s'approprient &agrave; leur tour l'h&eacute;ritage marocain ici et maintenant. Nous voulons qu'ils en saisissent l'essence, bien au-del&agrave; du simple &laquo;&nbsp;folklore de vacances&nbsp;&raquo;. Notre r&ocirc;le est de leur transmettre ce qui forge r&eacute;ellement notre caract&egrave;re&nbsp;: cette &eacute;l&eacute;gance de vie, ce sens de l'autre et cette noblesse de geste qui nous d&eacute;finissent, peu importe o&ugrave; nous sommes.</p>
 
-        <!-- 03 -->
-        <div class="fil-step">
-          <div class="fil-rail">
-            <div class="fil-num"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <div class="fil-line"></div>
-          </div>
-          <div class="fil-body">
-            <h2 class="fil-title">Faire de la transmission un enchantement</h2>
-            <div class="fil-prose">
-              <p>Cet engagement est le moteur de tout ce que vous d&eacute;couvrirez chez <strong>Nooba</strong>. Nous avons transform&eacute; notre responsabilit&eacute; de parents en une mission passionn&eacute;e&nbsp;:</p>
-            </div>
-            <blockquote class="fil-pullquote">&laquo;&nbsp;transmettre &agrave; la nouvelle g&eacute;n&eacute;ration une culture vibrante et joyeuse pour qu'ils marchent la t&ecirc;te haute, ancr&eacute;s et fiers.&nbsp;&raquo;</blockquote>
-            <a href="04_nooba.html" class="fil-next-link">Découvrir Nooba <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
+        <h2 class="wassiya-h2">Faire de la transmission un enchantement</h2>
+        <p class="wassiya-p">Cet engagement est le moteur de tout ce que vous d&eacute;couvrirez chez Nooba. Nous avons transform&eacute; notre responsabilit&eacute; de parents en une mission passionn&eacute;e&nbsp;:</p>
+
+        <blockquote class="wassiya-pullquote">&laquo;&nbsp;Transmettre &agrave; la nouvelle g&eacute;n&eacute;ration une culture vibrante et joyeuse pour qu'ils marchent la t&ecirc;te haute, ancr&eacute;s et fiers.&nbsp;&raquo;</blockquote>
+
+        <div class="wassiya-cta-wrap">
+          <a href="02_al_amana.html" class="wassiya-cta">D&eacute;couvrir Al Amana</a>
         </div>
 
       </div>
