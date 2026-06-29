@@ -250,8 +250,8 @@ body {
 ══════════════════════════════════════════ */
 .navbar {
   position: sticky; top: 0; z-index: 100;
-  background: #faf9f8;
-  box-shadow: 0 2px 24px rgba(30,45,61,0.04);
+  background: #f2ece1;
+  box-shadow: 0 2px 24px rgba(30,45,61,0.06);
   transition: box-shadow 0.3s;
 }
 .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 76px; }
@@ -259,7 +259,7 @@ body {
 .navbar-logo span { color: var(--accent); }
 .navbar-links { display: flex; align-items: center; gap: 28px; }
 .navbar-link { font-size: 14px; font-weight: 700; color: var(--accent); transition: color 0.2s; letter-spacing: 0.01em; }
-.navbar-link:hover { color: var(--blue-900); }
+.navbar-link:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
 .navbar-link--active { color: var(--blue-900); position: relative; }
 .navbar-link--active::after {
   content: ''; position: absolute; bottom: -8px; left: 0; right: 0;
