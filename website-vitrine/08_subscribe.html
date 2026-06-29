@@ -10,244 +10,179 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    :root {
-      --sub-accent: #C9A34A;
-      --sub-accent-light: #FBF3DD;
-      --sub-accent-dark: #8B6B1F;
-      --sub-hero-bg: #FBF3DD;
+    /* ═══ Header checkout — logo centré ═══ */
+    .checkout-head { text-align: center; padding: 26px 0 6px; }
+    .checkout-logo img { height: 72px; width: auto; display: inline-block; }
+    .checkout-eyebrow { font-family: var(--font-heading); font-weight: 800; font-size: 18px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 18px 0 8px; }
+    .checkout-title { font-family: var(--font-ui); font-weight: 500; font-size: 34px; color: #4a5560; margin: 0; }
+
+    /* ═══ Ticket à deux colonnes ═══ */
+    .sub-section { padding: 26px 0 72px; background: var(--bg-app); }
+    .sub-ticket {
+      position: relative; max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      padding-top: 28px;
     }
+    .sub-ticket::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; border-radius: 2px; background: var(--accent);
+    }
+    .sub-col-title { font-family: var(--font-heading); font-weight: 800; font-size: 19px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent); margin: 0 0 22px; }
 
-    /* Hero */
-    .sub-hero { background: var(--sub-hero-bg); padding: 28px 0 24px; position: relative; overflow: hidden; }
-    .sub-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
-    .sub-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
-    .sub-hero-title { font-family: var(--font-heading); font-weight: 700; font-size: 38px; line-height: 1.1; color: var(--text-primary); margin: 0; }
-    .sub-hero-arabic { font-family: var(--font-arabic); font-size: 42px; color: var(--sub-accent); line-height: 1; opacity: 0.9; position: relative; top: 8px; }
-    .sub-hero-subtitle { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.55; max-width: 360px; margin: 0; }
-    .sub-hero-right { border-left: 1px solid rgba(201,163,74,0.45); padding-left: 48px; }
-    .sub-hero-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sub-accent); margin: 0 0 14px 0; }
-    .sub-hero-quote { font-family: var(--font-arabic); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--sub-accent-dark); margin: 0 0 10px 0; }
+    .sub-left { padding: 12px 8px 0 0; }
+    .sub-right { background: #fdf2f0; border: 1.5px solid rgba(1,121,164,0.28); border-radius: 16px; padding: 28px 30px 30px; }
 
-    /* Subscribe grid */
-    .sub-section { padding: 48px 0 80px !important; min-height: auto !important; background: var(--bg-app); }
-    .sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; align-items: start; }
+    /* Champs */
+    .sub-fields { display: flex; flex-direction: column; gap: 16px; }
+    .sub-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .sub-input {
+      font-family: var(--font-body); font-size: 15px; font-weight: 600;
+      padding: 15px 24px; border: 2px solid var(--accent); border-radius: var(--radius-full);
+      width: 100%; box-sizing: border-box; color: var(--text-primary); background: #fff; outline: none;
+      transition: box-shadow .2s;
+    }
+    .sub-input::placeholder { color: var(--accent); opacity: 1; font-weight: 600; }
+    .sub-input:focus { box-shadow: 0 0 0 3px rgba(1,121,164,0.12); }
 
-    /* Left: offer summary */
-    .sub-summary { background: #fff; border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow); border-top: 4px solid var(--sub-accent); }
-    .sub-summary-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sub-accent); margin: 0 0 12px 0; }
-    .sub-summary-title { font-family: var(--font-heading); font-weight: 700; font-size: 24px; color: var(--text-primary); margin: 0 0 12px 0; line-height: 1.25; }
-    .sub-summary-desc { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0 0 24px 0; }
-    .sub-price-block { background: var(--sub-accent-light); border-radius: var(--radius-sm); padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-    .sub-price { font-family: var(--font-heading); font-weight: 800; font-size: 36px; color: var(--sub-accent-dark); }
-    .sub-price-period { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); }
-    .sub-benefits { list-style: none; padding: 0; margin: 0 0 24px 0; }
-    .sub-benefit { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; font-family: var(--font-body); font-size: 14px; color: var(--text-primary); line-height: 1.5; }
-    .sub-benefit-check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--sub-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; }
+    /* Paiement */
+    .sub-pay-title { font-family: var(--font-heading); font-weight: 800; font-size: 22px; color: var(--text-primary); margin: 28px 0 4px; }
+    .sub-pay-note { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); margin: 0 0 16px; }
+    .sub-card { border: 1.5px solid #d8dee3; border-radius: 12px; overflow: hidden; }
+    .sub-card-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: #eaf4f9; border-bottom: 1.5px solid #d8dee3; }
+    .sub-card-radio { width: 18px; height: 18px; border-radius: 50%; border: 5px solid var(--accent); background: #fff; flex-shrink: 0; }
+    .sub-card-label { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-primary); }
+    .sub-card-brands { margin-left: auto; display: flex; gap: 7px; align-items: center; }
+    .sub-card-brands i { font-size: 26px; }
+    .brand-visa { color: #1a1f71; }
+    .brand-mc { color: #eb001b; }
+    .brand-amex { color: #2e77bc; }
+    .sub-card-plus { font-family: var(--font-body); font-size: 11px; font-weight: 700; color: #5b6b9a; background: #e6e9f5; border-radius: 5px; padding: 3px 6px; }
+    .sub-card-body { padding: 16px 18px; }
+    .sub-card-number { display: flex; align-items: center; justify-content: space-between; border: 1px solid #d8dee3; border-radius: 8px; padding: 13px 14px; color: var(--text-secondary); font-family: var(--font-body); font-size: 15px; }
+    .sub-card-number i { color: #9aa6b0; }
+    .sub-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .sub-card-cell { display: flex; align-items: center; justify-content: space-between; border: 1px solid #d8dee3; border-radius: 8px; padding: 13px 14px; color: var(--text-secondary); font-family: var(--font-body); font-size: 15px; }
+    .sub-card-cell i { color: #9aa6b0; }
+    .sub-card-name { margin-top: 12px; }
+    .sub-card-save { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-family: var(--font-body); font-size: 13.5px; color: var(--text-secondary); cursor: pointer; }
+    .sub-card-check { width: 18px; height: 18px; border: 1.5px solid #c2ccd4; border-radius: 5px; background: #fff; flex-shrink: 0; }
 
-    .sub-faq { border-top: 1px solid var(--border); padding-top: 20px; }
-    .sub-faq-title { font-family: var(--font-heading); font-weight: 700; font-size: 14px; color: var(--text-primary); margin: 0 0 14px 0; text-transform: uppercase; letter-spacing: 1px; }
-    .sub-faq-item { margin-bottom: 14px; }
-    .sub-faq-item:last-child { margin-bottom: 0; }
-    .sub-faq-q { font-family: var(--font-body); font-weight: 600; font-size: 13px; color: var(--text-primary); margin: 0 0 4px 0; }
-    .sub-faq-a { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); line-height: 1.55; margin: 0; }
+    /* Rappel de la commande */
+    .sub-prod { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 26px; }
+    .sub-prod-logo { width: 116px; height: 116px; border: 2px solid var(--accent); border-radius: 16px; display: flex; align-items: center; justify-content: center; background: #fff; flex-shrink: 0; }
+    .sub-prod-logo img { width: 88px; height: auto; }
+    .sub-prod-info { flex: 1; min-width: 0; }
+    .sub-prod-name { font-family: var(--font-heading); font-weight: 800; font-size: 21px; color: var(--accent); margin: 0 0 6px; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .sub-prod-price { color: var(--accent); white-space: nowrap; }
+    .sub-prod-desc { font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.4px; text-transform: uppercase; color: var(--text-secondary); line-height: 1.45; margin: 0; }
 
-    /* Right: Stripe panel */
-    .stripe-panel { background: #fff; border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow-lg); }
-    .stripe-panel-title { font-family: var(--font-heading); font-weight: 700; font-size: 20px; color: var(--text-primary); margin: 0 0 18px 0; }
-    .stripe-trust-bar { display: flex; gap: 16px; align-items: center; padding: 10px 14px; background: #F5F7FA; border-radius: var(--radius-sm); margin-bottom: 24px; font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); flex-wrap: wrap; }
-    .stripe-trust-bar span { display: inline-flex; align-items: center; gap: 6px; }
-    .stripe-trust-bar i { color: var(--sub-accent); }
+    .sub-coupon-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 26px; }
+    .sub-coupon { border: 1.5px solid var(--accent); border-radius: var(--radius-full); padding: 15px 24px; background: #fff; font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--text-secondary); text-align: center; }
+    .sub-validate { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--text-primary); background: #eef1fa; border: 1.5px solid #dde2f1; border-radius: var(--radius-full); padding: 15px 36px; cursor: pointer; transition: background .2s; }
+    .sub-validate:hover { background: #e2e7f6; }
 
-    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-label { font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--text-primary); }
-    .form-input { font-family: var(--font-body); font-size: 14px; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: #fff; color: var(--text-primary); outline: none; transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box; width: 100%; }
-    .form-input:focus { border-color: var(--sub-accent); box-shadow: 0 0 0 3px rgba(201,163,74,0.12); }
+    .sub-total-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 22px; }
+    .sub-total-label { font-family: var(--font-heading); font-weight: 800; font-size: 19px; color: var(--text-primary); }
+    .sub-total-val { font-family: var(--font-heading); font-weight: 800; font-size: 25px; color: var(--text-primary); }
+    .sub-total-val small { font-weight: 700; font-size: 15px; color: var(--text-secondary); margin-right: 8px; }
 
-    .stripe-card-mock { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: #fff; font-family: var(--font-body); font-size: 14px; color: var(--text-primary); letter-spacing: 1px; }
-    .stripe-card-icons { display: flex; gap: 8px; }
-    .stripe-card-icon { font-size: 22px; color: var(--text-secondary); }
+    .sub-info { background: #eef1f4; border-radius: 12px; padding: 18px 20px; font-family: var(--font-body); font-size: 14.5px; font-weight: 600; color: #3a3a4a; line-height: 1.65; }
+    .sub-info p { margin: 0; }
 
-    .stripe-pay-btn { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 8px; padding: 16px 24px; background: var(--brand-red); color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 15px; border-radius: var(--radius-full); border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
-    .stripe-pay-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(175, 31, 35,0.3); }
-    .stripe-security { margin-top: 14px; display: flex; align-items: center; gap: 8px; justify-content: center; font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); }
-    .stripe-security i { color: var(--sub-accent); }
-
-    /* Page header */
-    .sub-pagehead { text-align: center; max-width: 640px; margin: 0 auto 36px; }
-    .sub-pagehead-title { font-family: var(--font-heading); font-weight: 800; font-size: 36px; color: var(--text-primary); margin: 0 0 10px 0; }
-    .sub-pagehead-welcome { font-family: var(--font-body); font-size: 15px; color: var(--text-secondary); margin: 0; }
-
-    .stripe-panel-instruction { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); margin: -10px 0 20px 0; }
-
-    /* Order recap (Lunii-cart style) */
-    .sub-order { margin-top: 20px; border-top: 1px solid var(--border); padding-top: 18px; }
-    .sub-order-title { font-family: var(--font-heading); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-primary); margin: 0 0 12px 0; }
-    .sub-order-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-family: var(--font-body); font-size: 14px; padding: 6px 0; }
-    .sub-order-row span:first-child { color: var(--text-secondary); }
-    .sub-order-row span:last-child { color: var(--text-primary); font-weight: 500; }
-    .sub-order-total { border-top: 1px solid var(--border); margin-top: 6px; padding-top: 12px; }
-    .sub-order-total span { font-family: var(--font-heading); font-weight: 800; font-size: 18px; color: var(--text-primary); }
-    .sub-order-note { margin-top: 14px; background: var(--sub-accent-light); border-radius: var(--radius-sm); padding: 14px 16px; }
-    .sub-order-note p { display: flex; align-items: flex-start; gap: 8px; font-family: var(--font-body); font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
-    .sub-order-note p + p { margin-top: 8px; }
-    .sub-order-note i { color: var(--sub-accent); margin-top: 2px; flex-shrink: 0; }
+    .sub-pay-btn { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 26px; padding: 16px 24px; background: var(--brand-red); color: #fff; font-family: var(--font-ui); font-weight: 600; font-size: 16px; border-radius: var(--radius-full); border: none; cursor: pointer; text-decoration: none; transition: background .2s; }
+    .sub-pay-btn:hover { background: var(--red-200); }
 
     @media (max-width: 880px) {
-      .sub-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .sub-hero-right { border-left: none; border-top: 1px solid rgba(201,163,74,0.45); padding-left: 0; padding-top: 28px; }
-      .sub-hero-title { font-size: 32px; }
-      .sub-grid { grid-template-columns: 1fr; gap: 28px; }
-      .sub-summary, .stripe-panel { padding: 28px; }
+      .checkout-title { font-size: 27px; }
+      .sub-ticket { grid-template-columns: 1fr; gap: 28px; }
+      .sub-left { padding: 12px 0 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ NAVBAR ═══ -->
-  <nav class="navbar" id="main-nav">
+  <!-- ═══ HEADER checkout — logo centré ═══ -->
+  <header class="checkout-head">
+    <a href="01_home.html" class="checkout-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc"></a>
+    <p class="checkout-eyebrow">M'abonner</p>
+    <h1 class="checkout-title">Bienvenue dans la famille Nooba</h1>
+  </header>
+
+  <!-- ═══ TICKET — Contact + Rappel de la commande ═══ -->
+  <section class="sub-section">
     <div class="container">
-      <a href="01_home.html" class="navbar-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA — Raconte-moi le Maroc" style="height:54px;width:auto;display:block;"></a>
-      <div class="navbar-links">
-        <div class="navbar-item"><a href="03_al_wassiya.html" class="navbar-link">Al Wassiya</a></div>
-        <div class="navbar-item"><a href="02_al_amana.html" class="navbar-link">Al Amana</a></div>
-        <div class="navbar-item"><a href="04_nooba.html" class="navbar-link">Nooba</a></div>
-        <div class="navbar-item"><a href="05_al_assel.html" class="navbar-link">Al Assal</a></div>
-        <div class="navbar-item"><a href="06_marhba.html" class="navbar-link">Marhba</a></div>
-        <a href="08_subscribe.html" class="navbar-cta navbar-link--active">S'abonner</a>
-      </div>
-      <input type="checkbox" id="nav-toggle" class="navbar-toggle-input">
-      <label for="nav-toggle" class="navbar-burger"><span></span><span></span><span></span></label>
-      <div class="navbar-mobile-menu">
-        <a href="03_al_wassiya.html" class="navbar-mobile-link">Al Wassiya</a>
-        <a href="02_al_amana.html" class="navbar-mobile-link">Al Amana</a>
-        <a href="04_nooba.html" class="navbar-mobile-link">Nooba</a>
-        <a href="05_al_assel.html" class="navbar-mobile-link">Al Assal</a>
-        <a href="06_marhba.html" class="navbar-mobile-link">Marhba</a>
-        <a href="08_subscribe.html" class="navbar-mobile-cta">S'abonner </a>
-      </div>
-    </div>
-  </nav>
-  <div class="navbar-spacer" id="nav-spacer"></div>
+      <div class="sub-ticket">
 
-  <!-- ═══ SUBSCRIBE ═══ -->
-  <section class="section sub-section">
-    <div class="container">
-      <div class="sub-pagehead">
-        <h1 class="sub-pagehead-title">M'abonner</h1>
-        <p class="sub-pagehead-welcome">Bienvenue dans la famille Nooba&nbsp;!</p>
-      </div>
-      <div class="sub-grid">
-
-        <!-- LEFT : résumé de l'offre -->
-        <aside class="sub-summary">
-          <p class="sub-summary-eyebrow">Votre abonnement</p>
-          <h2 class="sub-summary-title">Nooba — Abonnement annuel</h2>
-          <p class="sub-summary-desc">Accès complet au catalogue Nooba sur l'application. Berceuses, contes et fictions sonores en darija et français pour vos enfants de 12 mois à 12 ans.</p>
-
-          <div class="sub-price-block">
-            <span class="sub-price">49,90€</span>
-            <span class="sub-price-period">/ an · soit 4,16€ / mois</span>
-          </div>
-
-          <ul class="sub-benefits">
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>Catalogue complet en darija et français</li>
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>Mode offline — écoutez sans connexion</li>
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>Nouveaux contenus chaque semaine</li>
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>100% audio, écran désactivé pendant l'écoute</li>
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>Application iOS &amp; Android incluse</li>
-            <li class="sub-benefit"><span class="sub-benefit-check"><i class="fa-solid fa-check"></i></span>Annulation possible à tout moment</li>
-          </ul>
-
-          <div class="sub-faq">
-            <p class="sub-faq-title">Questions fréquentes</p>
-            <div class="sub-faq-item">
-              <p class="sub-faq-q">Puis-je annuler à tout moment&nbsp;?</p>
-              <p class="sub-faq-a">Essai gratuit sur le site. Ensuite abonnement annuel — résiliable depuis votre espace.</p>
+        <!-- GAUCHE : Contact + Paiement -->
+        <div class="sub-left">
+          <h2 class="sub-col-title">Contact</h2>
+          <form class="sub-fields" onsubmit="event.preventDefault();">
+            <input type="text" class="sub-input" placeholder="Pays">
+            <div class="sub-field-row">
+              <input type="text" class="sub-input" placeholder="Nom">
+              <input type="text" class="sub-input" placeholder="Prénom">
             </div>
-            <div class="sub-faq-item">
-              <p class="sub-faq-q">Le paiement est-il sécurisé&nbsp;?</p>
-              <p class="sub-faq-a">Oui — paiement traité par Stripe, leader mondial du paiement en ligne (PCI DSS niveau 1).</p>
-            </div>
-            <div class="sub-faq-item">
-              <p class="sub-faq-q">Sur quels appareils&nbsp;?</p>
-              <p class="sub-faq-a">iPhone (iOS 15+) et Android (8+). Un abonnement pour toute la famille.</p>
-            </div>
-          </div>
-        </aside>
-
-        <!-- RIGHT : Stripe panel -->
-        <div class="stripe-panel">
-          <h2 class="stripe-panel-title">Informations de paiement</h2>
-          <p class="stripe-panel-instruction">Veuillez renseigner les champs suivants</p>
-
-          <div class="stripe-trust-bar">
-            <span><i class="fa-brands fa-stripe-s"></i> Stripe</span>
-            <span><i class="fa-solid fa-lock"></i> SSL 256-bit</span>
-            <span><i class="fa-solid fa-shield-halved"></i> Sécurisé</span>
-          </div>
-
-          <form onsubmit="event.preventDefault();">
-            <div class="form-group">
-              <label class="form-label" for="sub-email">Adresse email</label>
-              <input type="email" id="sub-email" class="form-input" placeholder="votre@email.com" value="samia.elmasri@gmail.com">
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="sub-prenom">Prénom</label>
-                <input type="text" id="sub-prenom" class="form-input" placeholder="Prénom" value="Samia">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="sub-nom">Nom</label>
-                <input type="text" id="sub-nom" class="form-input" placeholder="Nom" value="El Masri">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Numéro de carte</label>
-              <div class="stripe-card-mock">
-                <span>4242 4242 4242 4242</span>
-                <div class="stripe-card-icons">
-                  <span class="stripe-card-icon"><i class="fa-brands fa-cc-visa"></i></span>
-                  <span class="stripe-card-icon"><i class="fa-brands fa-cc-mastercard"></i></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="sub-expiry">Expiration</label>
-                <input type="text" id="sub-expiry" class="form-input" placeholder="MM / AA" value="09 / 28">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="sub-cvc">CVC</label>
-                <input type="text" id="sub-cvc" class="form-input" placeholder="123" value="•••">
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top:8px;">
-              <label class="form-label" for="sub-coupon">Code coupon <span style="font-weight:400;color:var(--text-secondary);font-size:12px;">(réduction 100 premiers ou cadeau)</span></label>
-              <input type="text" id="sub-coupon" class="form-input" placeholder="Saisir un code…">
-            </div>
-
-            <div class="sub-order">
-              <p class="sub-order-title">Récapitulatif de la commande</p>
-              <div class="sub-order-row"><span>Abonnement Nooba — 12 mois</span><span>49,90€</span></div>
-              <div class="sub-order-row"><span>Code promo</span><span>—</span></div>
-              <div class="sub-order-row sub-order-total"><span>Total</span><span>49,90€</span></div>
-              <div class="sub-order-note">
-                <p><i class="fa-solid fa-rotate"></i> Prochaine facturation : le 17 mai 2027 (dans 12 mois).</p>
-                <p><i class="fa-solid fa-circle-info"></i> Frais futurs : 49,90€ / an en renouvellement automatique. Annulable à tout moment.</p>
-              </div>
-            </div>
-
-            <a href="11_confirmation.html" class="stripe-pay-btn">
-              <i class="fa-solid fa-lock"></i> Valider la commande
-            </a>
-
-            <p class="stripe-security"><i class="fa-solid fa-shield-halved"></i> Paiement sécurisé par Stripe — vos données sont chiffrées</p>
+            <input type="tel" class="sub-input" placeholder="Téléphone">
+            <input type="email" class="sub-input" placeholder="Email">
           </form>
+
+          <h3 class="sub-pay-title">Paiement</h3>
+          <p class="sub-pay-note">Toutes les transactions sont sécurisées et chiffrées.</p>
+          <div class="sub-card">
+            <div class="sub-card-head">
+              <span class="sub-card-radio"></span>
+              <span class="sub-card-label">Carte de crédit</span>
+              <span class="sub-card-brands">
+                <i class="fa-brands fa-cc-visa brand-visa"></i>
+                <i class="fa-brands fa-cc-mastercard brand-mc"></i>
+                <i class="fa-brands fa-cc-amex brand-amex"></i>
+                <span class="sub-card-plus">+2</span>
+              </span>
+            </div>
+            <div class="sub-card-body">
+              <div class="sub-card-number">
+                <span>Numéro de carte</span>
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="sub-card-grid">
+                <div class="sub-card-cell"><span>Date d'expiration (MM / AA)</span></div>
+                <div class="sub-card-cell"><span>Code de sécurité</span><i class="fa-regular fa-circle-question"></i></div>
+              </div>
+              <div class="sub-card-number sub-card-name"><span>Nom sur la carte</span></div>
+              <label class="sub-card-save"><span class="sub-card-check"></span>Enregistrer mes informations pour un paiement plus rapide</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- DROITE : Rappel de la commande -->
+        <div class="sub-right">
+          <h2 class="sub-col-title">Rappel de la commande</h2>
+
+          <div class="sub-prod">
+            <div class="sub-prod-logo"><img src="assets/logos/logo_Nooba_baseline.png" alt="NOOBA"></div>
+            <div class="sub-prod-info">
+              <p class="sub-prod-name"><span>Abonnement annuel</span><span class="sub-prod-price">49,90€/an</span></p>
+              <p class="sub-prod-desc">Accès complet au catalogue Nooba sur application</p>
+            </div>
+          </div>
+
+          <div class="sub-coupon-row">
+            <div class="sub-coupon">Code de réduction</div>
+            <button type="button" class="sub-validate">Valider</button>
+          </div>
+
+          <div class="sub-total-row">
+            <span class="sub-total-label">Total - Abonnement 12 mois</span>
+            <span class="sub-total-val"><small>EUR</small>49,90€</span>
+          </div>
+
+          <div class="sub-info">
+            <p>Prochaine facturation : le 17 mai 2027 (dans 12 mois).<br>
+            Frais futurs : 49,90€ / an en renouvellement automatique.<br>
+            Annulable à tout moment avant la date d'anniversaire du contrat.</p>
+          </div>
+
+          <a href="11_confirmation.html" class="sub-pay-btn"><i class="fa-solid fa-lock"></i> Valider la commande</a>
         </div>
 
       </div>
@@ -267,14 +202,5 @@
     </div>
   </footer>
 
-<script>
-  const nav = document.getElementById('main-nav');
-  const spacer = document.getElementById('nav-spacer');
-  const navTop = nav.offsetTop;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY >= navTop) { nav.classList.add('sticky'); spacer.style.display = 'block'; }
-    else { nav.classList.remove('sticky'); spacer.style.display = 'none'; }
-  });
-</script>
 </body>
 </html>
