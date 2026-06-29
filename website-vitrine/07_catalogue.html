@@ -11,40 +11,41 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* ═══ Catalogue page-specific styles ═══ */
-    .catalogue-hero {
-      background: var(--bg-peach);
-      padding: 88px 0 64px;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .catalogue-hero-eyebrow {
-      font-family: var(--font-heading); font-weight: 700; font-size: 13px;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--brand-red); margin-bottom: 14px;
-    }
-    .catalogue-hero-title {
-      font-family: var(--font-heading); font-weight: 800;
-      font-size: 48px; line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-      letter-spacing: -0.01em;
-    }
-    .catalogue-hero-subtitle {
-      font-family: var(--font-heading);
-      font-size: 17px;
-      color: var(--text-secondary);
-      max-width: 600px; margin: 0 auto;
-      line-height: 1.7;
-    }
+    /* ═══ Catalogue — aperçu en tuiles audio ═══ */
+    .cat-section { padding: 48px 0 80px; background: var(--bg-app); }
+    .cat-head { text-align: center; max-width: 760px; margin: 0 auto 40px; }
+    .cat-eyebrow { font-family: var(--font-heading); font-weight: 800; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+    .cat-title { font-family: var(--font-ui); font-weight: 600; font-size: 34px; color: #3f4a54; margin: 0 0 10px; }
+    .cat-subtitle { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--text-secondary); margin: 0; }
 
-    .catalogue-section {
-      padding: 56px 0 96px;
-      background: var(--bg-app);
+    .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 40px; max-width: 940px; margin: 0 auto; }
+    .cat-tile { display: block; }
+    .cat-tile-img { position: relative; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 1 / 1; }
+    .cat-tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+    .cat-tile:hover .cat-tile-img img { transform: scale(1.04); }
+    .cat-tile-badge { position: absolute; top: 10px; left: 10px; width: 36px; height: 36px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); }
+    .badge-red { color: var(--brand-red); }
+    .badge-blue { color: var(--accent); }
+    .badge-green { color: #3aaf5d; }
+    .cat-tile-cap { margin: 12px 6px 0; font-family: var(--font-body); font-size: 14px; color: var(--text-primary); line-height: 1.4; }
+    .cat-tile-play { color: var(--accent); font-size: 13px; margin-right: 6px; }
+    .cat-tile-name { font-weight: 700; }
+    .cat-tile-sep { color: #c5ccd2; margin: 0 8px; }
+    .cat-tile-age { color: var(--text-secondary); font-weight: 700; white-space: nowrap; }
+
+    .cat-cta { display: flex; justify-content: center; gap: 22px; margin-top: 50px; flex-wrap: wrap; }
+    .cat-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-ui); font-weight: 600; font-size: 16px; padding: 14px 38px; border-radius: var(--radius-full); transition: background .2s; }
+    .cat-btn--sub { background: var(--accent); color: #fff; }
+    .cat-btn--sub:hover { background: var(--blue-900); }
+    .cat-btn--share { background: #3aaf5d; color: #fff; }
+    .cat-btn--share:hover { background: #2f9a4f; }
+
+    @media (max-width: 760px) {
+      .cat-title { font-size: 27px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
     }
-    @media (max-width: 768px) {
-      .catalogue-hero-title { font-size: 34px; }
-      .catalogue-hero { padding: 64px 0 48px; }
+    @media (max-width: 460px) {
+      .cat-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -100,189 +101,45 @@
     </div>
   </nav>
 
-  <!-- ═══ PAGE HERO ═══ -->
-  <section class="catalogue-hero">
+  <!-- ═══ CATALOGUE — aperçu Jardin des Sens ═══ -->
+  <section id="catalogue" class="cat-section">
     <div class="container">
-      <p class="catalogue-hero-eyebrow">Aperçu des catégories par univers</p>
-      <h1 class="catalogue-hero-title">Écoutez avant de nous rejoindre</h1>
-      <p class="catalogue-hero-subtitle">Un avant-goût de tout le contenu disponible sur l'application Nooba.</p>
-    </div>
-  </section>
-
-  <!-- ═══ CATALOGUE ═══ -->
-  <section id="catalogue" class="catalogue-section">
-    <div class="container">
-      <!-- Univers tabs -->
-      <div class="catalog-filters">
-        <button class="catalog-filter catalog-filter--active" onclick="switchUnivers(0, this)">Le Jardin des Sens · 1-6 ans</button>
-        <button class="catalog-filter" onclick="switchUnivers(1, this)">La Caravane des Contes · 6-9 ans</button>
-        <button class="catalog-filter catalog-filter--soon" onclick="switchUnivers(2, this)">Le Cercle des Sages · 9-12 ans<span class="catalog-filter-badge">À venir</span></button>
+      <div class="cat-head">
+        <p class="cat-eyebrow">Aperçu du Jardin des Sens</p>
+        <h1 class="cat-title">Écoutez avant de nous rejoindre</h1>
+        <p class="cat-subtitle">Un avant-goût de tout le contenu disponible sur l'application Nooba</p>
       </div>
 
-      <!-- Univers 1: Le Jardin des Sens -->
-      <div id="jardin-des-sens" class="univers-panel univers-panel--active" data-univers="0">
-        <div class="pilier-grid">
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
-              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
-              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les animaux du souk</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les couleurs de ma maison</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Histoires et légendes</h3>
-              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
-              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hmadou et Hmaydou</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le petit hérisson du Rif</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">L'âme musicale</h3>
-              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
-              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>A Mama, ya Mama</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Comptines de chez Jidda</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Sagesse et sérénité</h3>
-              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
-              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Berceuse du soir</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les étoiles de Mama</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="cat-grid">
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="3andi baba, andi mama"><span class="cat-tile-badge badge-red"><i class="fa-solid fa-moon"></i></span></div>
+          <p class="cat-tile-cap"><i class="fa-solid fa-play cat-tile-play"></i><span class="cat-tile-name">3andi baba, andi mama</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">1+</span></p>
+        </a>
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="Khouya Hassan"><span class="cat-tile-badge badge-blue"><i class="fa-solid fa-snowflake"></i></span></div>
+          <p class="cat-tile-cap"><span class="cat-tile-name">Khouya Hassan</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">3+</span></p>
+        </a>
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="Arssomo baba, arssomo mama"><span class="cat-tile-badge badge-green"><i class="fa-solid fa-palette"></i></span></div>
+          <p class="cat-tile-cap"><span class="cat-tile-name">Arssomo baba, arssomo mama</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">1+</span></p>
+        </a>
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="3andi baba, andi mama"><span class="cat-tile-badge badge-red"><i class="fa-solid fa-moon"></i></span></div>
+          <p class="cat-tile-cap"><span class="cat-tile-name">3andi baba, andi mama</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">1+</span></p>
+        </a>
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="Arssomo baba, arssomo mama"><span class="cat-tile-badge badge-green"><i class="fa-solid fa-palette"></i></span></div>
+          <p class="cat-tile-cap"><span class="cat-tile-name">Arssomo baba, arssomo mama</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">1+</span></p>
+        </a>
+        <a href="08_subscribe.html" class="cat-tile">
+          <div class="cat-tile-img"><img src="assets/catalogue/catalogue-1.jpg" alt="3andi baba, andi mama"><span class="cat-tile-badge badge-red"><i class="fa-solid fa-moon"></i></span></div>
+          <p class="cat-tile-cap"><span class="cat-tile-name">3andi baba, andi mama</span><span class="cat-tile-sep">|</span><span class="cat-tile-age">4+</span></p>
+        </a>
       </div>
 
-      <!-- Univers 2: La Caravane des Contes -->
-      <div id="caravane-des-contes" class="univers-panel" data-univers="1">
-        <div class="pilier-grid">
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
-              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
-              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les métiers de la médina</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Un jour au hammam</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Histoires et légendes</h3>
-              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
-              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Hdidane et l'ogresse</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>La légende de Lalla Mira</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">L'âme musicale</h3>
-              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
-              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les rythmes gnawa</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Danse de l'Atlas</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Sagesse et sérénité</h3>
-              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
-              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Le sage de Chefchaouen</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Respire avec le vent</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Univers 3: Le Cercle des Sages -->
-      <div id="cercle-des-sages" class="univers-panel univers-panel--soon" data-univers="2">
-        <div class="univers-soon-banner">
-          <span class="univers-soon-tag">À venir</span>
-          <p>Cet univers est en préparation et n'est pas encore disponible. Voici un aperçu des piliers que vous y retrouverez bientôt.</p>
-        </div>
-        <div class="pilier-grid">
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_quotidien.jpg" alt="Mon quotidien au Maroc"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Mon quotidien au Maroc</h3>
-              <p class="pilier-tagline">S'imprégner du monde réel marocain</p>
-              <p class="pilier-desc">Animaux, fruits, couleurs, maison, métiers</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les routes du commerce</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Marrakech d'hier et d'aujourd'hui</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_histoires.jpg" alt="Histoires et légendes"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Histoires et légendes</h3>
-              <p class="pilier-tagline">S'évader dans l'imaginaire ancestrale</p>
-              <p class="pilier-desc">Contes d'autrefois, héros, monuments, histoire du Maroc</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Tariq Ibn Ziyad</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Les mystères de Volubilis</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_ame_musicale.jpg" alt="L'âme musicale"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">L'âme musicale</h3>
-              <p class="pilier-tagline">Vibrer au rythme du Maroc</p>
-              <p class="pilier-desc">Instruments, comptines, styles musicaux (andalou, gnawa, hassani…)</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>L'art du malhoun</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Nass El Ghiwane, l'esprit rebelle</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="pilier-card">
-            <div class="pilier-cover"><img src="assets/piliers/pilier_sagesse.jpg" alt="Sagesse et sérénité"></div>
-            <div class="pilier-body">
-              <h3 class="pilier-title">Sagesse et sérénité</h3>
-              <p class="pilier-tagline">Grandir en confiance et s'apaiser</p>
-              <p class="pilier-desc">Valeurs, spiritualité douce, berceuses, relaxation</p>
-              <div class="pilier-extraits">
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Proverbes de nos grands-parents</span><span class="pilier-duration">0:30</span></div>
-                <div class="pilier-extrait"><button class="pilier-play"><i class="fa-solid fa-play"></i></button><span>Méditation du désert</span><span class="pilier-duration">0:30</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="cat-cta">
+        <a href="08_subscribe.html" class="cat-btn cat-btn--sub">Je m'abonne</a>
+        <a href="#" class="cat-btn cat-btn--share"><i class="fa-brands fa-whatsapp"></i> Je partage</a>
       </div>
     </div>
   </section>
@@ -300,33 +157,5 @@
     </div>
   </footer>
 
-<script>
-  /* Univers tab switching */
-  function switchUnivers(index, btn) {
-    document.querySelectorAll('.univers-panel').forEach(p => p.classList.remove('univers-panel--active'));
-    document.querySelectorAll('.catalog-filter').forEach(b => b.classList.remove('catalog-filter--active'));
-    document.querySelector('[data-univers="' + index + '"]').classList.add('univers-panel--active');
-    if (btn) btn.classList.add('catalog-filter--active');
-  }
-
-  /* On page load, read URL hash and activate matching tab */
-  (function() {
-    const hashMap = {
-      'jardin-des-sens': 0,
-      'caravane-des-contes': 1,
-      'cercle-des-sages': 2
-    };
-    const hash = window.location.hash.slice(1);
-    if (hash && hashMap.hasOwnProperty(hash)) {
-      const index = hashMap[hash];
-      const filters = document.querySelectorAll('.catalog-filter');
-      switchUnivers(index, filters[index]);
-      // Scroll filters into view smoothly
-      setTimeout(() => {
-        document.querySelector('.catalog-filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 50);
-    }
-  })();
-</script>
 </body>
 </html>
