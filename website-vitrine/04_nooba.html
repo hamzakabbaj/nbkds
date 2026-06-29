@@ -11,76 +11,74 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* ═══ HERO — split asymétrique (teal foncé) ═══ */
-    .nooba-hero { background: linear-gradient(135deg, #00859F 0%, #00395f 50%, #003A50 100%); color: #fff; padding: 24px 0; position: relative; overflow: hidden; }
-    /* Motif zellige en coin haut-droit (clair — fond foncé) */
-    .nooba-hero::after {
-      content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; z-index: 0; pointer-events: none;
-      background: url(assets/decoration/motif.png) no-repeat top left / contain;
-      transform: scaleX(-1) rotate(-90deg);
-      filter: invert(1);
-      opacity: 0.05;
-    }
-    .nooba-hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; position: relative; z-index: 1; }
-    .nooba-hero-title-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin: 0 0 10px 0; }
-    .nooba-hero-title { font-family: var(--font-heading); font-weight: 700; font-size: 38px; letter-spacing: 1.5px; line-height: 1.1; color: #fff; margin: 0; }
-    .nooba-hero-arabic { font-family: var(--font-arabic); font-size: 42px; color: rgba(255,255,255,0.65); line-height: 1; position: relative; top: 8px; }
-    .nooba-hero-subtitle { font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 360px; margin: 0; }
-    .nooba-hero-right { border-left: 1px solid rgba(255,255,255,0.25); padding-left: 48px; align-self: start; height: fit-content; }
-    .nooba-hero-quote { font-family: var(--font-arabic); font-style: italic; font-size: 22px; line-height: 1.5; color: rgba(255,255,255,0.92); margin: 0 0 10px 0; }
-    .nooba-hero-attribution { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 1.5px; text-transform: uppercase; margin: 0; }
-
-    /* ═══ VARIANTE A — Éditorial « Le fil » ═══ */
     :root { --acc: #0179a4; --acc-soft: rgba(1, 121, 164,0.12); --acc-deep: #00395f; }
 
-    .fil-section { padding: 72px 0 36px; }
-    .fil { max-width: 940px; margin: 0 auto; }
-    .fil-step { display: grid; grid-template-columns: 64px 1fr; column-gap: 34px; }
-    .fil-rail { display: flex; flex-direction: column; align-items: center; }
-    .fil-num {
-      flex: none; width: 56px; height: 56px; border-radius: 50%;
-      background: #fff; border: 2px solid var(--acc); color: var(--acc); font-size: 22px;
-      display: flex; align-items: center; justify-content: center; z-index: 1;
-      box-shadow: 0 4px 14px var(--acc-soft);
+    /* ═══ HERO — bannière salle de musique + cadre citation bleu translucide ═══ */
+    .nooba-hero { padding: 28px 0 4px; }
+    .nooba-hero-banner { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .nooba-hero-img { width: 100%; height: 320px; object-fit: cover; display: block; }
+    .nooba-hero-quotebox {
+      position: absolute; left: 50%; top: 62%; transform: translate(-50%, -50%);
+      background: rgba(65, 130, 157, 0.82);
+      padding: 20px 58px; border-radius: 6px; max-width: 94%; white-space: nowrap;
     }
-    .fil-line { width: 2px; flex: 1 1 auto; margin-top: 6px; background: linear-gradient(var(--acc), rgba(1, 121, 164,0.18)); }
-    .fil-step:last-child .fil-line { display: none; }
+    .nooba-hero-quote { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.4; color: #fff; text-align: center; margin: 0; }
 
-    .fil-body { padding: 4px 0 54px; min-width: 0; }
-    .fil-title { font-family: var(--font-heading); font-weight: 800; font-size: 28px; color: var(--text-primary); line-height: 1.25; margin: 6px 0 18px; }
-    .fil-prose { font-family: var(--font-body); font-size: 16.5px; color: var(--text-secondary); line-height: 1.85; }
-    .fil-prose p { margin: 0 0 16px; }
-    .fil-prose p:last-child { margin-bottom: 0; }
-    .fil-prose em { font-style: italic; color: var(--acc-deep); }
-    .fil-prose strong { color: var(--text-primary); }
-    .fil-closing-line { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--acc) !important; margin: 4px 0 0; }
+    /* ═══ CONTENU — titres bleus + prose Nunito gras ═══ */
+    .nooba-content { padding: 52px 0; }
+    .nooba-wrap { max-width: 1000px; margin: 0; }
+    .nooba-h2 { font-family: var(--font-heading); font-weight: 800; font-size: 28px; color: var(--accent); line-height: 1.25; margin: 36px 0 16px; }
+    .nooba-wrap > .nooba-h2:first-child { margin-top: 6px; }
+    .nooba-p { font-family: var(--font-body); font-weight: 700; font-size: 18px; line-height: 1.75; color: #2e3a44; margin: 0 0 8px; }
+    .nooba-p--justify { text-align: justify; }
+    .nooba-p strong { color: var(--accent); }
+    .nooba-p em { font-style: italic; }
 
-    /* Cartes "feature" horizontales */
-    .fil-fcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 22px; }
+    /* ═══ Cartes "feature" ═══ */
+    .nooba-fcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 26px; }
     .f-card { background: #fff; border-radius: var(--radius); padding: 24px 22px; box-shadow: var(--shadow); border-left: 4px solid var(--acc); display: flex; gap: 15px; align-items: flex-start; transition: transform .2s, box-shadow .2s; }
     .f-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
     .f-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--acc-soft); color: var(--acc); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .f-card strong { font-family: var(--font-heading); font-weight: 800; color: var(--acc); font-size: 15px; letter-spacing: 0.4px; display: block; margin-bottom: 6px; }
     .f-card span { font-family: var(--font-body); font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .f-card span b { color: var(--accent); font-weight: 800; }
     .f-card em { font-style: italic; }
 
-    .fil-next-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--font-heading); font-size: 16px; font-weight: 700;
-      color: #fff; background: var(--acc); border: 2px solid var(--acc);
-      padding: 13px 34px; border-radius: var(--radius-full); transition: all 0.2s; margin-top: 28px;
-    }
-    .fil-next-link:hover { background: var(--acc-deep); border-color: var(--acc-deep); }
+    /* ═══ Section MÉTHODE (SS2) — header centré + 2 colonnes de cartes autour d'une image ═══ */
+    .methode-section { padding: 64px 0; }
+    .methode-section .container { max-width: 1480px; }
+    .methode-header { text-align: center; margin-bottom: 40px; }
+    .methode-eyebrow { font-family: var(--font-heading); font-weight: 800; font-size: 16px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+    .methode-title { font-family: var(--font-ui); font-weight: 500; font-size: 34px; color: #4a5560; margin: 0; }
+    .methode-grid { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 30px; align-items: center; }
+    .methode-col { display: flex; flex-direction: column; gap: 22px; }
+    .methode-figure { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); align-self: stretch; }
+    .methode-figure img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
+    .methode-caption { position: absolute; left: 16px; bottom: 16px; right: 70px; font-family: var(--font-display); font-style: italic; font-weight: 700; font-size: 15px; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); margin: 0; }
+    .methode-play { position: absolute; right: 16px; bottom: 16px; width: 52px; height: 52px; border-radius: 50%; background: #fff; color: var(--brand-red); display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
 
-    @media (max-width: 780px) {
-      .nooba-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .nooba-hero-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.25); padding-left: 0; padding-top: 28px; }
-      .nooba-hero-title { font-size: 32px; }
+    /* ═══ Section INSPIRATION (SS3) — texte + image ═══ */
+    .inspiration-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+    .inspiration-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); display: block; }
+
+    /* ═══ Clôture (SS4) ═══ */
+    .nooba-closing { padding: 12px 0 84px; }
+    .nooba-pullquote { font-family: var(--font-display); font-weight: 700; font-size: 30px; color: var(--accent); text-align: center; margin: 36px auto 28px; }
+    .nooba-cta-wrap { text-align: center; }
+    .nooba-cta { display: inline-block; font-family: var(--font-ui); font-weight: 600; font-size: 16px; background: var(--brand-red); color: #fff; padding: 15px 40px; border-radius: var(--radius-full); transition: background .2s; }
+    .nooba-cta:hover { background: var(--red-200); }
+
+    @media (max-width: 880px) {
+      .nooba-hero-img { height: 240px; }
+      .nooba-hero-quotebox { padding: 16px 26px; max-width: 90%; white-space: normal; }
       .nooba-hero-quote { font-size: 20px; }
-      .fil-step { grid-template-columns: 44px 1fr; column-gap: 20px; }
-      .fil-num { width: 40px; height: 40px; font-size: 16px; }
-      .fil-title { font-size: 23px; }
-      .fil-fcards { grid-template-columns: 1fr; }
+      .nooba-h2 { font-size: 24px; }
+      .nooba-p { font-size: 17px; }
+      .methode-grid { grid-template-columns: 1fr; }
+      .methode-figure { order: -1; }
+      .methode-figure img { min-height: 280px; }
+      .inspiration-grid { grid-template-columns: 1fr; gap: 28px; }
+      .nooba-pullquote { font-size: 24px; }
     }
   </style>
 </head>
@@ -137,88 +135,89 @@
   </nav>
   <div id="nav-spacer" class="navbar-spacer"></div>
 
-  <!-- ═══ HERO — asymmetric split: title left, quote right ═══ -->
+  <!-- ═══ HERO — bannière salle de musique + citation ═══ -->
   <section class="nooba-hero">
     <div class="container">
-      <div class="nooba-hero-grid">
-        <div class="nooba-hero-left">
-          <div class="nooba-hero-title-row">
-            <h1 class="nooba-hero-title">NOOBA</h1>
-            <span class="nooba-hero-arabic">نوبة</span>
-          </div>
-          <p class="nooba-hero-subtitle">Les fr&eacute;quences sonores du Maroc.</p>
-        </div>
-        <div class="nooba-hero-right">
-          <p class="nooba-hero-quote">Hier, nos a&icirc;n&eacute;s nous racontaient le Maroc&nbsp;; aujourd'hui, c'est &agrave; notre tour de donner de la voix.</p>
-          <p class="nooba-hero-attribution">Notre engagement</p>
+      <div class="nooba-hero-banner">
+        <img src="assets/piliers/pilier_ame_musicale.jpg" alt="Salle de musique marocaine — instruments traditionnels" class="nooba-hero-img">
+        <div class="nooba-hero-quotebox">
+          <p class="nooba-hero-quote">&ldquo;Hier, nos a&icirc;n&eacute;s nous racontaient le Maroc&nbsp;;<br>aujourd'hui, c'est &agrave; notre tour de donner de la voix.&rdquo;</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ LE FIL — 4 moments ═══ -->
-  <section class="fil-section">
+  <!-- ═══ SS1 — Intro ═══ -->
+  <section class="nooba-content">
     <div class="container">
-      <div class="fil">
+      <div class="nooba-wrap">
+        <h2 class="nooba-h2">L'Exp&eacute;rience Nooba&nbsp;: Le Maroc au creux de l'oreille</h2>
+        <p class="nooba-p">Pourquoi &laquo;&nbsp;Nooba&nbsp;&raquo;&nbsp;? Dans notre patrimoine musical, la Nouba est une architecture sonore mill&eacute;naire qui unit le Maghreb. Mais c'est aussi un concept magnifique de &laquo;&nbsp;tour de r&ocirc;le&nbsp;&raquo;&nbsp;: hier, nos a&icirc;n&eacute;s nous racontaient le Maroc&nbsp;; aujourd'hui, c'est &agrave; notre Nooba (notre tour) de donner de la voix pour la nouvelle g&eacute;n&eacute;ration.</p>
 
-        <!-- 01 -->
-        <div class="fil-step">
-          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-ear-listen"></i></div><div class="fil-line"></div></div>
-          <div class="fil-body">
-            <h2 class="fil-title">L'Exp&eacute;rience Nooba&nbsp;: Le Maroc au creux de l'oreille</h2>
-            <div class="fil-prose">
-              <p>Pourquoi &laquo;&nbsp;Nooba&nbsp;&raquo;&nbsp;? Dans notre patrimoine musical, la <em>Nouba</em> est une architecture sonore mill&eacute;naire qui unit le Maghreb. Mais c'est aussi un concept magnifique de &laquo;&nbsp;tour de r&ocirc;le&nbsp;&raquo;&nbsp;: hier, nos a&icirc;n&eacute;s nous racontaient le Maroc&nbsp;; aujourd'hui, c'est &agrave; notre <strong>Nooba (notre tour)</strong> de donner de la voix pour la nouvelle g&eacute;n&eacute;ration.</p>
-            </div>
-          </div>
+        <h2 class="nooba-h2">Une immersion naturelle&nbsp;: la langue est une musique</h2>
+        <p class="nooba-p">Avant m&ecirc;me de comprendre le sens des mots, un enfant ressent la musique d'une langue. C'est pourquoi nous avons d'abord investi le champ musical et sonore. La Darija, avec ses accents, ses rythmes et ses intonations, poss&egrave;de une m&eacute;lodie unique que nous avons captur&eacute;e dans nos comptines, berceuses et imagiers sonores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SS2 — Une méthode progressive et sensitive ═══ -->
+  <section class="methode-section">
+    <div class="container">
+      <div class="methode-header">
+        <p class="methode-eyebrow">Immersion naturelle dans le Maroc</p>
+        <h2 class="methode-title">Une m&eacute;thode progressive et sensitive</h2>
+      </div>
+      <div class="methode-grid">
+        <div class="methode-col">
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-music"></i></div><div><strong>La musicalit&eacute; d'abord</strong><span>Nous familiarisons l'oreille des enfants avec les sonorit&eacute;s marocaines avant de passer au sens. C'est par cette impr&eacute;gnation auditive que les enfants apprivoisent la langue, naturellement.</span></div></div>
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-headphones"></i></div><div><strong>L'&eacute;coute active</strong><span>Pour ancrer les connaissances, nous int&eacute;grons des <b>quiz et de nombreux moments d'interaction</b> &agrave; nos audios. Sans &ecirc;tre un jeu, Nooba sollicite l'attention des enfants en les invitant &agrave; devenir acteur de leur propre d&eacute;couverte.</span></div></div>
         </div>
-
-        <!-- 02 -->
-        <div class="fil-step">
-          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-music"></i></div><div class="fil-line"></div></div>
-          <div class="fil-body">
-            <h2 class="fil-title">Une immersion naturelle&nbsp;: la langue est une musique</h2>
-            <div class="fil-prose">
-              <p>Avant m&ecirc;me de comprendre le sens des mots, un enfant ressent la musique d'une langue. C'est pourquoi nous avons d'abord investi le <strong>champ musical et sonore</strong>. La Darija, avec ses accents, ses rythmes et ses intonations, poss&egrave;de une m&eacute;lodie unique que nous avons captur&eacute;e dans nos comptines, berceuses et <strong>imagiers sonores</strong>.</p>
-              <p>Notre m&eacute;thode est <strong>progressive et sensitive</strong>&nbsp;:</p>
-            </div>
-            <div class="fil-fcards">
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-music"></i></div><div><strong>La musicalit&eacute; d'abord</strong><span>Nous familiarisons l'oreille des enfants avec les sonorit&eacute;s marocaines avant de passer au sens. C'est par cette impr&eacute;gnation auditive que les enfants apprivoisent la langue, naturellement.</span></div></div>
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-feather"></i></div><div><strong>L'immersion douce</strong><span>Nos histoires d&eacute;butent en fran&ccedil;ais et se teintent progressivement de <em>Darija</em>. Les mots ne sont pas &laquo;&nbsp;&eacute;tudi&eacute;s&nbsp;&raquo; au sens d'une le&ccedil;on, ils sont &laquo;&nbsp;ressentis&nbsp;&raquo; au fil du r&eacute;cit, comme les notes d'une chanson famili&egrave;re et alors naturellement appris.</span></div></div>
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-headphones"></i></div><div><strong>L'&eacute;coute active</strong><span>Pour ancrer les connaissances, nous int&eacute;grons des <b>quiz et de nombreux moments d'interaction</b> &agrave; nos audios. Sans &ecirc;tre un jeu, Nooba sollicite l'attention des enfants en les invitant &agrave; devenir acteur de leur propre d&eacute;couverte.</span></div></div>
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-crown"></i></div><div><strong>La qualit&eacute; &laquo;&nbsp;Sultan&nbsp;&raquo;</strong><span>Jadis, les Noubas &eacute;taient jou&eacute;es &agrave; la cour pour les princes. Aussi, nous ciselons chaque fiction sonore avec la m&ecirc;me exigence de production que les plus grands studios&nbsp;: nos enfants m&eacute;ritent l'excellence du beau.</span></div></div>
-            </div>
-          </div>
+        <figure class="methode-figure">
+          <img src="assets/pages/hero_image.jpg" alt="Des enfants à l'écoute d'une histoire Nooba">
+          <p class="methode-caption">&laquo;&nbsp;Le miel des histoires se partage &agrave; plusieurs.&nbsp;&raquo;</p>
+          <span class="methode-play"><i class="fa-solid fa-play"></i></span>
+        </figure>
+        <div class="methode-col">
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-feather"></i></div><div><strong>L'immersion douce</strong><span>Nos histoires d&eacute;butent en fran&ccedil;ais et se teintent progressivement de <em>Darija</em>. Les mots ne sont pas &laquo;&nbsp;&eacute;tudi&eacute;s&nbsp;&raquo; au sens d'une le&ccedil;on, ils sont &laquo;&nbsp;ressentis&nbsp;&raquo; au fil du r&eacute;cit, comme les notes d'une chanson famili&egrave;re et alors naturellement appris.</span></div></div>
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-crown"></i></div><div><strong>La qualit&eacute; &laquo;&nbsp;Sultan&nbsp;&raquo;</strong><span>Jadis, les Noubas &eacute;taient jou&eacute;es &agrave; la cour pour les princes. Aussi, nous ciselons chaque fiction sonore avec la m&ecirc;me exigence de production que les plus grands studios&nbsp;: nos enfants m&eacute;ritent l'excellence du beau.</span></div></div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- 03 -->
-        <div class="fil-step">
-          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-arrows-rotate"></i></div><div class="fil-line"></div></div>
-          <div class="fil-body">
-            <h2 class="fil-title">Un patrimoine r&eacute;invent&eacute; pour aujourd'hui</h2>
-            <div class="fil-prose">
-              <p>Nooba n'est pas une visite au mus&eacute;e. C'est une <strong>proposition revisit&eacute;e</strong> de notre culture. Nous nous sommes r&eacute;appropri&eacute;s les tr&eacute;sors d'hier pour les adapter &agrave; la r&eacute;alit&eacute; des enfants d'aujourd'hui et aux contraintes des familles modernes&nbsp;:</p>
-            </div>
-            <div class="fil-fcards">
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-bolt"></i></div><div><strong>Une culture au go&ucirc;t du jour</strong><span>Nous int&eacute;grons les fr&eacute;quences de notre quotidien&nbsp;: refrains populaires, rythmes de supporters et sons des ruelles. C'est une culture vibrante, remise au go&ucirc;t du jour, qui parle au pr&eacute;sent.</span></div></div>
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-hourglass-half"></i></div><div><strong>Le format &laquo;&nbsp;Capsule&nbsp;&raquo;</strong><span>Nous savons que vos journ&eacute;es sont intenses. Nos fictions sont con&ccedil;ues pour s'int&eacute;grer &agrave; vos moments de vie (trajets, temps calme), offrant une alternative saine, sans &eacute;cran.</span></div></div>
-              <div class="f-card"><div class="f-icon"><i class="fa-solid fa-people-arrows"></i></div><div><strong>Le pont interg&eacute;n&eacute;rationnel</strong><span>En rendant la Darija famili&egrave;re et aimable, Nooba pr&eacute;serve le dialogue avec les a&icirc;n&eacute;s. On ne transmet pas seulement une langue, on pr&eacute;serve le lien familial par-del&agrave; les distances.</span></div></div>
-            </div>
-          </div>
+  <!-- ═══ SS3 — L'inspiration derrière le nom + Un patrimoine réinventé ═══ -->
+  <section class="nooba-content">
+    <div class="container">
+      <div class="inspiration-grid">
+        <div>
+          <h2 class="nooba-h2" style="margin-top:0;">L'inspiration derri&egrave;re le nom</h2>
+          <p class="nooba-p nooba-p--justify">Pourquoi &laquo;&nbsp;Nooba&nbsp;&raquo;&nbsp;? Dans notre patrimoine musical, la Nouba est une architecture sonore mill&eacute;naire qui unit le Maghreb. Mais c'est aussi un concept magnifique de &laquo;&nbsp;tour de r&ocirc;le&nbsp;&raquo;&nbsp;: hier, nos a&icirc;n&eacute;s nous racontaient le Maroc&nbsp;; aujourd'hui, c'est &agrave; notre Nooba (notre tour) de donner de la voix pour la nouvelle g&eacute;n&eacute;ration.</p>
         </div>
+        <img src="assets/piliers/pilier_ame_musicale.jpg" alt="Salle de musique marocaine" class="inspiration-img">
+      </div>
 
-        <!-- 04 -->
-        <div class="fil-step">
-          <div class="fil-rail"><div class="fil-num"><i class="fa-solid fa-sun"></i></div><div class="fil-line"></div></div>
-          <div class="fil-body">
-            <h2 class="fil-title">Une offrande pour rayonner</h2>
-            <div class="fil-prose">
-              <p>Chaque r&eacute;cit est un voyage o&ugrave; les enfants s'approprient leur h&eacute;ritage. Ils d&eacute;couvrent l'artisanat, vibrent avec l'humour unique de notre Darija et s'impr&egrave;gnent de la sagesse de nos proverbes pour se construire une identit&eacute; solide et fi&egrave;re.</p>
-              <p class="fil-closing-line">D&eacute;sormais, c'est notre Nooba et c'est leur histoire&nbsp;!</p>
-            </div>
-            <a href="05_al_assel.html" class="fil-next-link">Découvrir Al Assal <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
+      <div class="nooba-wrap" style="max-width:none; margin-top:56px;">
+        <h2 class="nooba-h2">Un patrimoine r&eacute;invent&eacute; pour aujourd'hui</h2>
+        <p class="nooba-p nooba-p--justify">Nooba n'est pas une visite au mus&eacute;e. C'est une proposition revisit&eacute;e de notre culture. Nous nous sommes r&eacute;appropri&eacute;s les tr&eacute;sors d'hier pour les adapter &agrave; la r&eacute;alit&eacute; des enfants d'aujourd'hui et aux contraintes des familles modernes&nbsp;:</p>
+        <div class="nooba-fcards">
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-bolt"></i></div><div><strong>Une culture au go&ucirc;t du jour</strong><span>Nous int&eacute;grons les fr&eacute;quences de notre quotidien&nbsp;: refrains populaires, rythmes de supporters et sons des ruelles. C'est une culture vibrante, remise au go&ucirc;t du jour, qui parle au pr&eacute;sent.</span></div></div>
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-hourglass-half"></i></div><div><strong>Le format &laquo;&nbsp;Capsule&nbsp;&raquo;</strong><span>Nous savons que vos journ&eacute;es sont intenses. Nos fictions sont con&ccedil;ues pour s'int&eacute;grer &agrave; vos moments de vie (trajets, temps calme), offrant une alternative saine, sans &eacute;cran.</span></div></div>
+          <div class="f-card"><div class="f-icon"><i class="fa-solid fa-people-arrows"></i></div><div><strong>Le pont interg&eacute;n&eacute;rationnel</strong><span>En rendant la Darija famili&egrave;re et aimable, Nooba pr&eacute;serve le dialogue avec les a&icirc;n&eacute;s. On ne transmet pas seulement une langue, on pr&eacute;serve le lien familial par-del&agrave; les distances.</span></div></div>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ═══ SS4 — Une offrande pour rayonner + clôture ═══ -->
+  <section class="nooba-closing">
+    <div class="container">
+      <div class="nooba-wrap">
+        <h2 class="nooba-h2">Une offrande pour rayonner</h2>
+        <p class="nooba-p">Chaque r&eacute;cit est un voyage o&ugrave; les enfants s'approprient leur h&eacute;ritage. Ils d&eacute;couvrent l'artisanat, vibrent avec l'humour unique de notre Darija et s'impr&egrave;gnent de la sagesse de nos proverbes pour se construire une identit&eacute; solide et fi&egrave;re.</p>
+        <p class="nooba-pullquote">D&eacute;sormais, c'est notre Nooba et c'est leur histoire&nbsp;!</p>
+        <div class="nooba-cta-wrap">
+          <a href="05_al_assel.html" class="nooba-cta">D&eacute;couvrir Al Assal</a>
+        </div>
       </div>
     </div>
   </section>
